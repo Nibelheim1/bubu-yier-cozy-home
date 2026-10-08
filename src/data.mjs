@@ -1,5 +1,8 @@
 /** All story, progression, art coordinates, and economy data. No UI state here. */
-export const VERSION = 1;
+export const VERSION = '1.2.0';
+// App releases and storage migrations have different lifetimes.
+export const APP_VERSION = VERSION;
+export const SCHEMA_VERSION = 2;
 export const TITLE = '布布一二 · 好日子小屋';
 export const CATS = ['clean','tools','bake','tea','craft','garden'];
 export const CHAINS = {
@@ -48,10 +51,10 @@ export const TASKS = [
  {name:'准备不赶时间的软椅',who:'yier',wish:'泡好茶，留一块蛋糕。今晚不急着做下一件事。',needs:[R('tea',4),R('bake',4)],after:[['yier','shy','我们什么都不做，也算好好过一天吗？'],['bubu','sit','算。和你一起歇着，也是很重要的一件事。']]},
  {name:'调一盏刚刚好的灯',who:'bubu',wish:'固定灯座，别让刺眼的光打扰一二宝看书。',needs:[R('tools',5)],after:[['yier','happy','再暗一点点。对，就是现在这样。'],['bubu','turn','记住了。下次不用你再说。']]},
  {name:'收好今天的小回忆',who:'yier',wish:'把纸鲸和雏菊的样子记下来。它们也在陪我们长大。',needs:[R('craft',5),R('garden',4)],after:[['bubu','turn','有一张照片拍糊了，要不要重拍？'],['yier','shy','不要。那张里面，你刚好笑得最开心。']]},
- {name:'写一张小小邀请',who:'yier',wish:'给庭院挂起小旗，告诉路过的人：这里可以坐坐。',needs:[R('craft',5),R('tools',4)],after:[['bubu','surprise','要是来的客人很多，怎么办？'],['yier','happy','就把庭院里的长桌也摆出来嘛。']]},
+ {name:'写一张小小邀请',who:'yier',wish:'给巷口的松鼠小栗写一张邀请，再挂起庭院小旗。',needs:[R('craft',5),R('tools',4)],after:[['yier','paint','小栗：花草茶准备好时，来我们家坐坐吧。'],['bubu','happy','我把纸条送到巷口了。她回信说，会带一件路上发现的小东西。']]},
  {name:'把春天铺到门外',who:'bubu',wish:'摆好花束和茶盘，野餐垫就在门前的树影下。',needs:[R('garden',5),R('tea',4)],after:[['yier','turn','这不是我们之前量好的地方。'],['bubu','happy','这里有阴凉。一二宝晒久了会眯眼睛。']]},
- {name:'做一桌可以分享的甜',who:'yier',wish:'今天多做一点。点心塔和茶盘，要够大家一起分。',needs:[R('bake',6),R('tea',5)],after:[['bubu','sit','这一次，我真的只尝了一小口。'],['yier','happy','我看见啦。所以这块最大的，奖励给你。']]},
- {name:'好日子小屋，开门啦',who:'bubu',wish:'摆好花架和画，端上蛋糕。最后这一步，我们一起。',needs:[R('garden',6),R('craft',6),R('bake',5)],after:[['yier','joy','布布，我们真的把它变成家了！'],['bubu','happy','嗯。一二宝，明天也一起慢慢过吧。']]},
+ {name:'做一桌可以分享的甜',who:'yier',wish:'先把点心塔摆好，再准备茶盘。小栗来时，茶和甜点都刚刚好。',needs:[R('bake',6),R('tea',5)],phases:['点心塔上桌','双人茶盘到位'],after:[['yier','happy','点心我来摆。臭布布，帮我拿稳茶盘。'],['bubu','happy','拿稳了。最大的一块，留给第一次来的小栗。']]},
+ {name:'好日子小屋，开门啦',who:'bubu',wish:'摆好花架，用画画箱做一张纪念画，最后端上蛋糕。我们一起迎接小栗。',needs:[R('garden',6),R('craft',6),R('bake',5)],phases:['门边花架','一起画纪念画','最后一块蛋糕'],after:[['yier','joy','花架、画和蛋糕都好了！布布，我们去门口迎接小栗吧。'],['bubu','happy','杯子你来摆，茶壶我来端。今天的好日子，也分给她。']]},
 ].map((t,i)=>({...t,id:i,chapter:Math.floor(i/4),decor:`decor-${String(i+1).padStart(2,'0')}`,coins:18+t.needs.reduce((a,r)=>a+2**(r.l-1)*r.n*3,0),energy:2+Math.floor(i/8)}));
 // Each near view has its own coordinates. Keep the central walkway clear for both characters.
 export const REGIONS = [
@@ -69,7 +72,7 @@ export const DECOR = [
 ].map(([region,x,y,w,z],i)=>({region,x,y,w,z,id:i}));
 export const DAILY = [
  {key:'merge',title:'合一合，松口气',target:15,coins:30,energy:8,desc:'完成 15 次合成'},
- {key:'order',title:'把小心愿送出去',target:3,coins:45,energy:10,desc:'完成 3 张主线或邻里订单'},
+ {key:'order',title:'把小心愿送出去',target:3,coins:45,energy:10,desc:'完成 3 张主线、邻里或茶会订单'},
  {key:'produce',title:'今天也有新点子',target:25,coins:35,energy:8,desc:'从工作台取出 25 件物品'},
 ];
 export const SIDE_FLAVOR = [
@@ -78,6 +81,25 @@ export const SIDE_FLAVOR = [
 export const HOME_CHAT = [
  ['yier','joy','臭布布，我想再挪一下坐垫。就一点点。'],['bubu','happy','一二宝，忙完记得喝水。杯子给你放好了。'],['yier','shy','这里的东西，怎么每一件都有我们的故事呀。'],['bubu','turn','今天不用把所有事情都做完。我们还会有明天。'],['yier','happy','小屋又变可爱一点点啦！'],['bubu','sit','你看风，我看着茶。各自都有很重要的工作。'],
 ];
+export const MEMORY_GATES={house:7,garden:13,courtyard:23};
+export const TEA_CONDITIONS=[
+ {id:'sunny',name:'晴日来坐坐',souvenir:'coaster',souvenirName:'两熊选的杯垫',souvenirRegion:'house',needs:{warm:[R('tea',3),R('bake',3)],garden:[R('tea',2),R('garden',3),R('craft',2)]}},
+ {id:'memory',name:'想留一份纪念',souvenir:'card',souvenirName:'手绘小卡',souvenirRegion:'courtyard',needs:{warm:[R('tea',3),R('bake',2),R('craft',2)],garden:[R('tea',2),R('garden',2),R('craft',3)]}},
+ {id:'wind',name:'今天有点风',souvenir:'chime',souvenirName:'小风铃',souvenirRegion:'garden',needs:{warm:[R('tea',3),R('bake',2),R('tools',2)],garden:[R('tea',2),R('garden',2),R('craft',2),R('tools',2)]}},
+];
+export const TEA_PLANS={warm:{name:'暖心茶点',region:'house',wish:'把热茶和甜点摆到小圆桌，一二摆杯，布布端茶。'},garden:{name:'花园小聚',region:'garden',wish:'在树荫下铺好临时茶布，一二扶苗，布布浇水，再一起坐下。'}};
+export const SOUVENIRS=TEA_CONDITIONS.flatMap(c=>Object.keys(TEA_PLANS).map(plan=>({key:`${c.souvenir}-${plan}`,condition:c.id,plan,name:`${c.souvenirName} · ${TEA_PLANS[plan].name}`,region:c.souvenirRegion,type:c.souvenir})));
+export function teaResponse(plan,condition,hasGuest=false){
+ const lines={
+  'sunny-warm':[['yier','这次面包留了一整块。臭布布，你先坐，我来摆杯子。'],['bubu','茶吹凉一点了。我们挑的杯垫，就放在这张小圆桌旁。'],['xiaoli','面包还热着，杯垫的颜色也像这间小屋。下次我带果酱来。']],
+  'sunny-garden':[['yier','临时茶布铺在树荫下，刚好能看见新叶。你扶着杯子，我来放小盆栽。'],['bubu','这株叶子长精神了。把今天选的杯垫带回屋里，明天喝茶还会记得这里。'],['xiaoli','在树荫下闻到花草茶，连赶路的心情都慢下来了。']],
+  'memory-warm':[['yier','我用蜡笔画了你端茶的样子。这张小卡，先送给你。'],['bubu','我把面包分好了。小卡放在庭院留言位，路过都能看见我们今天的下午。'],['xiaoli','小卡上也留了我的座位！我会回一张巷口的明信片。']],
+  'memory-garden':[['yier','把小苗和茶杯的颜色调在一起，画成今天的花园小卡。'],['bubu','我扶着茶布，画纸就不会滑走。画完把卡收好，不怕风把今天带走。'],['xiaoli','原来同一株小苗，可以画出这么多绿。我想把这张小卡的故事写进回信。']],
+  'wind-warm':[['yier','桌边有一点风，我先压住茶巾这一角。你把夹子递过来。'],['bubu','夹稳了，茶杯不用跟着晃。小风铃挂到花园去，替我们听今天的风。'],['xiaoli','你们把茶巾固定好，我的茶一滴也没洒。风铃响的时候，我还想来坐坐。']],
+  'wind-garden':[['yier','树荫下的茶布飘起来了。我压住这一边，臭布布，帮我夹住另一角。'],['bubu','另一角也好了。先一起喝茶，再把小风铃挂到枝旁。'],['xiaoli','两只熊一前一后把茶布稳住了。原来有风的下午，也能安心喝完一杯茶。']],
+ }[`${condition}-${plan}`];
+ return lines.slice(0,hasGuest?3:2).map(([who,text])=>({who,text}));
+}
 export function itemName(c,l){return CHAINS[c]?.items[l-1]??'未知物品';}
 export function itemKey(c,l){return `${c}-${l}`;}
 export function mass(t){return t?.k==='item'?2**(t.l-1):0;}

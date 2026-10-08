@@ -1,4 +1,4 @@
-import {VERSION,CATS,CHAINS,CFG,TASKS,DECOR,REGIONS,DAILY,SIDE_FLAVOR,itemKey,needMass,mass} from './data.mjs';
+import {VERSION,APP_VERSION,SCHEMA_VERSION,CATS,CHAINS,CFG,TASKS,DECOR,REGIONS,DAILY,SIDE_FLAVOR,MEMORY_GATES,TEA_CONDITIONS,TEA_PLANS,SOUVENIRS,teaResponse,itemKey,needMass,mass} from './data.mjs';
 
 /** Deterministic, DOM-free game model. Every public mutation validates before spending. */
 export const clone = (v)=>JSON.parse(JSON.stringify(v));
@@ -7,7 +7,8 @@ export const levelOf=(s)=>Math.min(99,Math.floor(s.xp/60)+1);
 export const stockCap=(p)=>CFG.stockBase+(p.level-1)*CFG.stockPerLevel;
 const good=(kind,extra={})=>({ok:true,kind,...extra});
 const bad=(code,message)=>({ok:false,code,message});
-const freshWorld=()=>({region:'house',activities:Object.fromEntries(REGIONS.map(r=>[r.id,{day:'',count:0}])),chapterGifts:[]});
+const freshWorld=()=>({region:'house',activities:Object.fromEntries(REGIONS.map(r=>[r.id,{day:'',count:0}])),chapterGifts:[],memoryUnlocked:Object.fromEntries(REGIONS.map(r=>[r.id,false])),souvenirs:{},equipped:Object.fromEntries(REGIONS.map(r=>[r.id,null]))});
+const freshTea=()=>({round:0,plan:'warm',firstVisit:'locked',lastResult:null});
 export function freshState(now=Date.now(),seed=20261007){
  const board=Array(CFG.boardSize).fill(null);
  CATS.forEach((c,i)=>board[i]={k:'gen',c});
@@ -16,7 +17,7 @@ export function freshState(now=Date.now(),seed=20261007){
  board[24]={k:'item',c:'tools',l:1,dust:true};
  board[29]={k:'item',c:'bake',l:1,dust:true};
  for(let i=35;i<49;i++)board[i]={k:'crate',openAt:2+Math.floor((i-35)/2)*2};
- return {schema:VERSION,createdAt:now,lastSeen:now,energyAt:now,rng:seed>>>0,stage:0,delivered:false,stars:0,coins:120,energy:100,xp:0,board,
+ return {schema:SCHEMA_VERSION,createdAt:now,lastSeen:now,energyAt:now,rng:seed>>>0,stage:0,mainPrepStep:0,producerLessons:Object.fromEntries(CATS.map(c=>[c,c==='clean'])),tea:freshTea(),delivered:false,stars:0,coins:120,energy:100,xp:0,board,
   producers:Object.fromEntries(CATS.map(c=>[c,{level:1,stock:CFG.stockBase,at:now}])),
   storage:[],capacity:8,pending:[],bag:{scissors:3,energyPacks:2},
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
@@ -30,6 +31,8 @@ export class GameEngine{
   this.s=state?clone(validateState(state)):freshState(now);
   this.undoState=null;
   this.flushChapterGifts();
+  this.checkMemories();
+  if(this.s.stage===24&&this.s.tea.firstVisit==='locked')this.s.tea.firstVisit='available';
   if(this.s.sideOrders.length===0){this.s.sideOrders=[this.makeSide(),this.makeSide()];}
   this.tick(now);
  }
@@ -47,10 +50,15 @@ export class GameEngine{
   this.invalidate();this.s.world.region=id;return good('visitRegion',{region:id});
  }
  worldProgress(){
-  const regions=REGIONS.map(r=>{const record=this.s.world.activities[r.id];return {...r,built:DECOR.filter(d=>d.region===r.id&&d.id<this.s.stage).length,total:DECOR.filter(d=>d.region===r.id).length,available:this.s.stage>=r.unlock,activityDone:record.day===this.s.daily.day,visits:record.count};});
-  const memories=regions.map(r=>({region:r.id,name:r.memoryName,progress:Math.min(3,r.visits),target:3,unlocked:r.visits>=3}));
-  return {region:this.s.world.region,regions,memories,memoryCount:memories.filter(m=>m.unlocked).length,totalActivities:regions.reduce((n,r)=>n+r.visits,0),nextMemoryAt:3,chapterGiftsWaiting:this.s.world.chapterGifts.length};
+  const regions=REGIONS.map(r=>{const record=this.s.world.activities[r.id];return {...r,...this.activityDetails(r.id),built:DECOR.filter(d=>d.region===r.id&&d.id<this.s.stage).length,total:DECOR.filter(d=>d.region===r.id).length,available:this.s.stage>=r.unlock,activityDone:record.day===this.s.daily.day,visits:record.count};});
+  const memories=regions.map(r=>({region:r.id,name:r.memoryName,progress:Math.min(3,r.visits),target:3,conditionStage:MEMORY_GATES[r.id],conditionMet:this.s.stage>=MEMORY_GATES[r.id],conditionLabel:{house:'准备两只杯子',garden:'认领第一盆小生命',courtyard:'做出分享的茶点'}[r.id],unlocked:this.s.world.memoryUnlocked[r.id]}));
+  return {region:this.s.world.region,regions,memories,souvenirs:SOUVENIRS.map(s=>({...s,unlocked:!!this.s.world.souvenirs[s.key],equipped:this.s.world.equipped[s.region]===s.key,record:this.s.world.souvenirs[s.key]||null})),equipped:clone(this.s.world.equipped),memoryCount:memories.filter(m=>m.unlocked).length,totalActivities:regions.reduce((n,r)=>n+r.visits,0),nextMemoryAt:3,chapterGiftsWaiting:this.s.world.chapterGifts.length};
  }
+ activityDetails(id){
+  const ready=this.s.stage>=MEMORY_GATES[id],arrived=this.s.tea.firstVisit==='arrived';
+  return id==='house'?(ready?{activityLabel:'一起喝杯茶',activityText:'布布把茶吹凉，一二把最后一块饼干掰成两半。',activityAction:'share-tea'}:{activityLabel:'整理窗边',activityText:'一二把窗边擦亮，布布留出一个能一起歇脚的位置。',activityAction:'tidy-window'}):id==='garden'?(ready?{activityLabel:'扶苗浇浇水',activityText:'一二扶稳小苗，布布慢慢浇水，叶子又精神了一点。',activityAction:'water-seedling'}:{activityLabel:'扫扫落叶',activityText:'两只熊扫好落叶，一起选一个将来种花的位置。',activityAction:'sweep-leaves'}):(ready?{activityLabel:arrived?'给朋友摆茶点':'准备分享的茶点',activityText:arrived?'小栗来了。一二摆杯，布布端茶，给朋友留一个位置。':'一二摆好点心，布布端稳茶盘，等邀请中的小栗来坐坐。',activityAction:arrived?'welcome-friend':'prepare-tea'}:{activityLabel:'整理门口',activityText:'两只熊把门口整理好，给将来的客人留出位置。',activityAction:'tidy-door'});
+ }
+ checkMemories(){const unlocked=[];for(const r of REGIONS)if(!this.s.world.memoryUnlocked[r.id]&&this.s.world.activities[r.id].count>=3&&this.s.stage>=MEMORY_GATES[r.id]){this.s.world.memoryUnlocked[r.id]=true;unlocked.push(r.id);}return unlocked;}
  homeActivity(id=this.s.world.region,now=Date.now()){
   this.tick(now);const region=REGIONS.find(r=>r.id===id);
   if(!region)return bad('REGION','还没有找到这个地方。');
@@ -58,8 +66,8 @@ export class GameEngine{
   const record=this.s.world.activities[id];
   if(record.day>=this.s.daily.day)return bad('CLAIMED','今天已经一起做过啦，明天再来看看。');
   this.invalidate();this.s.world.region=id;record.day=this.s.daily.day;record.count++;
-  this.s.coins+=region.coins;this.addEnergy(region.energy);
-  return good('homeActivity',{region:id,message:region.activityText,coins:region.coins,energy:region.energy,memoryProgress:Math.min(3,record.count),milestone:record.count===3,memoryName:region.memoryName});
+  this.s.coins+=region.coins;this.addEnergy(region.energy);const unlocked=this.checkMemories(),details=this.activityDetails(id);
+  return good('homeActivity',{region:id,message:details.activityText,action:details.activityAction,coins:region.coins,energy:region.energy,memoryProgress:Math.min(3,record.count),milestone:unlocked.includes(id),memoryName:region.memoryName});
  }
  // Legacy saves may already have all 1000 parcel slots occupied. Hold earned chapter
  // gifts separately until a slot is freed; retrieving a gift immediately refills it.
@@ -99,7 +107,8 @@ export class GameEngine{
   this.s.stats.produce++;this.s.daily.produce++;
   if(this.s.tutorial==='produce')this.s.tutorial='done';
   const discovery=this.discover(c,l);
-  return good('produce',{idx,c,l,discovery});
+  const lesson=!this.s.producerLessons[c];this.s.producerLessons[c]=true;
+  return good('produce',{idx,c,l,discovery,lesson});
  }
  move(from,to){
   if(!Number.isInteger(from)||!Number.isInteger(to)||from<0||to<0||from>=49||to>=49||from===to)return bad('POSITION','请把物品放到另一个格子。');
@@ -143,30 +152,54 @@ export class GameEngine{
   const m=needMass(needs);
   return {id:`side-${++this.s.sideSerial}`,name:f[0],wish:f[1],needs,coins:12+m*2,energy:2+Math.floor(m/8)};
  }
- submit(kind,id){
+ mainOrder(){
+  const task=TASKS[this.s.stage];if(!task)return null;
+  const totalPhases=task.phases?.length||1,phase=this.s.mainPrepStep;
+  const needs=totalPhases>1?(phase<totalPhases?[task.needs[phase]]:[]):task.needs;
+  return {...task,needs:clone(needs),fullNeeds:clone(task.needs),remainingNeeds:clone(totalPhases>1?task.needs.slice(phase):task.needs),phase,totalPhases,phaseLabel:task.phases?.[phase]||task.name,lesson:task.needs.find(r=>r.c!=='clean'&&!this.s.producerLessons[r.c])?.c||null};
+ }
+ teaOrder(){
+  const {round,plan}=this.s.tea,c=TEA_CONDITIONS[round%3],p=TEA_PLANS[plan];
+  return {available:this.s.stage>=13&&CATS.every(cat=>this.s.producerLessons[cat]),id:`tea-${round}-${plan}`,round,plan,condition:c.id,conditionName:c.name,name:p.name,wish:p.wish,needs:clone(c.needs[plan]),coins:28,energy:3,region:p.region,participants:['bubu','yier',...(this.s.tea.firstVisit==='arrived'?['xiaoli']:[])],response:teaResponse(plan,c.id,this.s.tea.firstVisit==='arrived'),souvenirKey:`${c.souvenir}-${plan}`,souvenirName:c.souvenirName,souvenirRegion:c.souvenirRegion};
+ }
+ chooseTeaPlan(plan){if(!(plan in TEA_PLANS))return bad('PLAN','请选择暖心茶点或花园小聚。');if(!this.teaOrder().available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');this.invalidate();this.s.tea.plan=plan;return good('teaPlan',{plan});}
+ resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
+ beginFirstVisit(){
+  if(this.s.tea.firstVisit!=='available')return bad(this.s.tea.firstVisit==='arrived'?'ARRIVED':'LOCKED',this.s.tea.firstVisit==='arrived'?'小栗已经来过啦，可以重看这次回忆。':'等家园准备好，再迎接小栗吧。');
+  this.invalidate();this.s.tea.firstVisit='arrived';const order={...this.teaOrder(),id:'firstVisit',region:'courtyard',participants:['bubu','yier','xiaoli'],souvenirKey:null,response:[{who:'yier',text:'小栗，你来了！花架和纪念画都摆好了，这块蛋糕是留给你的。'},{who:'bubu',text:'请坐。一二摆好杯子，我把热茶端过来，慢一点喝。'},{who:'xiaoli',text:'谢谢你们的邀请。我带来了巷口捡到的小叶子，想画进给你们的回信。下次，再一起喝花草茶吧。'}]};
+  this.s.tea.lastResult=this.resultContext(order,'firstVisit');return good('firstVisit',{result:clone(this.s.tea.lastResult)});
+ }
+ equipSouvenir(region,key){const spec=SOUVENIRS.find(s=>s.key===key&&s.region===region);if(!spec||!this.s.world.souvenirs[key])return bad('SOUVENIR','先在茶会中收好这件纪念物。');this.invalidate();this.s.world.equipped[region]=key;return good('equipSouvenir',{region,key});}
+ submit(kind,id,expectedStep){
   let task,slot=-1;
   if(kind==='main'){
    if(this.s.stage>=24)return bad('FINISHED','主线已经完成，邻里委托还会继续。');
    if(id!==this.s.stage||this.s.delivered)return bad('STALE','这张心愿已经交付了，回小屋布置吧。');
-   task=TASKS[this.s.stage];
+   task=this.mainOrder();
+   if(task.totalPhases>1&&expectedStep!==task.phase)return bad('STALE','准备阶段已更新，请查看现在需要什么。');
+   if(task.lesson)return bad('LESSON',`先从${CHAINS[task.lesson].producer}亲手取出一次材料，再交付这张心愿。`);
   }else if(kind==='side'){
    slot=this.s.sideOrders.findIndex(o=>o.id===id);if(slot<0)return bad('STALE','这张委托已经更新啦。');task=this.s.sideOrders[slot];
    if(this.s.stage===0)return bad('TUTORIAL','先完成第一份小屋心愿吧。');
+  }else if(kind==='tea'){
+   task=this.teaOrder();if(!task.available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');if(id!==task.id)return bad('STALE','本次茶会的轮次或方案已改变。');
   }else return bad('ORDER','找不到这张订单。');
   if(!this.canFulfill(task.needs))return bad('MISSING','材料还差一点，点物品图标可以查看合成路线。');
   this.invalidate();this.consume(task.needs);
+  if(kind==='main'&&task.totalPhases>1){this.s.world.region=id===23&&task.phase===0?'garden':'courtyard';this.s.mainPrepStep++;if(this.s.mainPrepStep<task.totalPhases)return good('prepare',{orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});}
   this.s.coins+=task.coins;this.addEnergy(task.energy);
   this.s.stats.order++;this.s.daily.order++;
-  const levelUps=this.gainXP(10+Math.floor(needMass(task.needs)/3));
+  const levelUps=this.gainXP(10+Math.floor(needMass(kind==='main'?task.fullNeeds:task.needs)/3));
   if(kind==='main'){this.s.delivered=true;this.s.stars++;if(this.s.stage===0)this.s.tutorial='build';}
-  else{this.s.sideOrders[slot]=this.makeSide();}
-  return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps});
+  else if(kind==='side'){this.s.sideOrders[slot]=this.makeSide();}
+  else{const first=!this.s.world.souvenirs[task.souvenirKey];if(first&&!this.s.world.equipped[task.souvenirRegion])this.s.world.equipped[task.souvenirRegion]=task.souvenirKey;const result=this.resultContext(task);this.s.tea.lastResult=result;if(first)this.s.world.souvenirs[task.souvenirKey]=clone(result);this.s.tea.round++;return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps,firstSouvenir:first,result:clone(result)});}
+  return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});
  }
  build(style=0){
   if(this.s.stage>=24)return bad('FINISHED','小屋已经准备好迎接每一天啦。');
   if(!this.s.delivered||this.s.stars<1)return bad('NEED_ORDER','先完成这一项心愿订单，获得心愿星。');
   if(![0,1].includes(style))return bad('STYLE','请选择一种布置颜色。');
-  this.invalidate();const stage=this.s.stage;this.s.decorStyles[stage]=style;this.s.stars--;this.s.delivered=false;this.s.stage++;this.s.stats.build++;this.s.world.region=DECOR[stage].region;
+  this.invalidate();const stage=this.s.stage;this.s.decorStyles[stage]=style;this.s.stars--;this.s.delivered=false;this.s.stage++;this.s.mainPrepStep=0;this.s.stats.build++;this.s.world.region=DECOR[stage].region;
   const levelUps=this.gainXP(15);let opened=0;
   this.s.board=this.s.board.map(t=>{if(t?.k==='crate'&&t.openAt<=this.s.stage){opened++;return null;}return t;});
   const unlocked=CATS.filter(c=>CHAINS[c].unlock===this.s.stage);
@@ -174,7 +207,8 @@ export class GameEngine{
   if(stage===0)this.s.tutorial='produce';
   const chapterDone=this.s.stage%4===0;
   if(chapterDone){this.s.coins+=CFG.chapterCoins;this.addEnergy(CFG.chapterEnergy);this.s.bag.scissors++;const c=this.unlockedCats().at(-1),l=[4,8,12].includes(this.s.stage)?1:2;this.s.world.chapterGifts.push({k:'item',c,l},{k:'item',c,l});this.flushChapterGifts();}
-  return good('build',{stage,region:DECOR[stage].region,unlocked,opened,chapterDone,chapter:Math.floor(stage/4),finished:this.s.stage===24,levelUps});
+  const memories=this.checkMemories();if(this.s.stage===24)this.s.tea.firstVisit='available';
+  return good('build',{stage,region:DECOR[stage].region,unlocked,opened,chapterDone,chapter:Math.floor(stage/4),finished:this.s.stage===24,levelUps,memories});
  }
  redecorate(id,style){
   if(!Number.isInteger(id)||id<0||id>=this.s.stage||![0,1].includes(style))return bad('DECOR','这个角落还没布置好。');
@@ -222,19 +256,37 @@ export class GameEngine{
   const cost=this.expansionCost();if(this.s.coins<cost)return bad('COINS','金币还差一点。');
   this.invalidate();this.s.coins-=cost;this.s.capacity+=4;return good('expand');
  }
- buy(key){
+ resolveTarget(target){
+  if(!target||typeof target!=='object')return null;
+  if(target.kind==='main'){const o=this.mainOrder();return o&&!this.s.delivered&&target.id===o.id&&(o.totalPhases===1||target.step===o.phase)?o:null;}
+  if(target.kind==='side')return this.s.sideOrders.find(o=>o.id===target.id)||null;
+  if(target.kind==='tea'){const o=this.teaOrder();return o.available&&o.id===target.id?o:null;}
+  return null;
+ }
+ quoteParcel(target,c){
+  const task=this.resolveTarget(target);if(!task)return bad('STALE','目标已更新，请重新选择需要补给的订单。');
+  const sources=[...new Set(task.needs.filter(r=>this.count(r.c,r.l)<r.n).map(r=>r.c))];if(!sources.length)return bad('READY','这个目标的材料已经备齐，不需要再买补给。');
+  if(c===undefined&&sources.length>1)return bad('SOURCE','请选择仍缺材料的来源。');c=c??sources[0];
+  if(!sources.includes(c)||!this.unlocked(c))return bad('SOURCE','请选择这张订单仍缺材料的来源。');
+  return good('parcelQuote',{target:clone(target),source:c,sources,items:[1,1,1,2].map(l=>({k:'item',c,l})),price:CFG.parcelCost,targetName:task.name});
+ }
+ buy(key,quote){
   const costs={energy:CFG.energyCost,scissors:CFG.scissorCost,parcel:CFG.parcelCost};
   if(!(key in costs))return bad('SHOP','没有这种商品。');
+  let parcel;if(key==='parcel'){
+   if(!quote?.ok||quote.kind!=='parcelQuote')return bad('QUOTE','先查看补给的目标、来源和内容，再确认购买。');
+   parcel=this.quoteParcel(quote.target,quote.source);if(!parcel.ok)return parcel;
+   if(quote.price!==parcel.price||JSON.stringify(quote.items)!==JSON.stringify(parcel.items))return bad('QUOTE','补给预览已改变，请重新查看。');
+  }
   if(this.s.coins<costs[key])return bad('COINS','金币不够，可以先完成邻里委托。');
   if(key==='parcel'&&this.s.pending.length>996)return bad('QUEUE','待领物品太多啦，请先取出一些。');
   this.invalidate();this.s.coins-=costs[key];
   if(key==='energy')this.s.bag.energyPacks++;
   if(key==='scissors')this.s.bag.scissors++;
   if(key==='parcel'){
-   const c=TASKS[this.s.stage]?.needs.find(r=>this.count(r.c,r.l)<r.n)?.c||this.unlockedCats().at(-1);
-   for(const l of [1,1,1,2])this.s.pending.push({k:'item',c,l});
+   this.s.pending.push(...clone(parcel.items));
   }
-  return good('buy',{key});
+  return good('buy',{key,...(parcel?{target:parcel.target,source:parcel.source,items:parcel.items}:{} )});
  }
  usePack(){
   if(this.s.bag.energyPacks<=0)return bad('PACK','没有点心了，免费茶歇也能补充体力。');
@@ -268,11 +320,13 @@ export class GameEngine{
  markIntro(){this.invalidate();this.s.introSeen=true;return good('intro');}
  markFinished(){this.invalidate();this.s.finishedSeen=true;return good('finished');}
  hint(orderMode='main'){
-  const side=orderMode==='side'||this.s.stage>=24;
-  if(!side&&this.s.delivered)return {kind:'build'};
-  const orders=side?this.s.sideOrders:[TASKS[this.s.stage]].filter(Boolean);
+  const tea=orderMode==='tea',side=!tea&&(orderMode==='side'||this.s.stage>=24);
+  if(!side&&!tea&&this.s.delivered)return {kind:'build'};
+  const orders=tea?(this.teaOrder().available?[this.teaOrder()]:[]):side?this.s.sideOrders:[this.mainOrder()].filter(Boolean);
+  if(!side&&!tea&&orders[0]?.lesson){const c=orders[0].lesson;return {kind:'produce',c,idx:CATS.indexOf(c),lesson:true};}
+  if(tea&&!orders.length)return {kind:'locked',message:'先认领小苗，并亲手认识每个工作台。'};
   const ready=orders.find(o=>this.canFulfill(o.needs));
-  if(ready)return {kind:'submit',orderKind:side?'side':'main',id:ready.id};
+  if(ready)return {kind:'submit',orderKind:tea?'tea':side?'side':'main',id:ready.id,...(!side&&!tea&&ready.totalPhases>1?{step:ready.phase}:{})};
   const current=orders.slice().sort((a,b)=>needMass(a.needs.filter(r=>this.count(r.c,r.l)<r.n))-needMass(b.needs.filter(r=>this.count(r.c,r.l)<r.n)))[0];
   const missing=current?.needs.filter(r=>this.count(r.c,r.l)<r.n)||[];
   const b=this.s.board;
@@ -285,16 +339,27 @@ export class GameEngine{
   if(pairs.length)return pairs[0];
   return {kind:'produce',c:'clean',idx:0};
  }
- export(){return JSON.stringify({game:'bubu-yier-cozy-home',version:VERSION,exportedAt:new Date().toISOString(),state:this.s},null,2);}
+ export(){return JSON.stringify({game:'bubu-yier-cozy-home',version:APP_VERSION,exportedAt:new Date().toISOString(),state:this.s},null,2);}
 }
 
 /** Reject malformed imports before replacing the live state. Keep strict, bounded data shapes. */
 export function validateState(raw){
  if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Error('存档不是有效对象。');
  const s=clone(raw.game==='bubu-yier-cozy-home'?raw.state:raw);
- if(!s||s.schema!==VERSION)throw Error('不支持的存档版本。');
+ if(!s||![1,SCHEMA_VERSION].includes(s.schema))throw Error('不支持的存档版本。');
+ const legacy=s.schema===1;
  // Repair the old chapter-award overflow without touching the caller's save object.
  if(s.world===undefined){s.world=freshWorld();if(Array.isArray(s.pending)&&s.pending.length>1000&&s.pending.length<=1012)s.world.chapterGifts=s.pending.splice(1000);}
+ if(legacy){
+  s.schema=SCHEMA_VERSION;
+  s.producerLessons=Object.fromEntries(CATS.map(c=>[c,c==='clean'||CHAINS[c].unlock<=s.stage]));
+  s.mainPrepStep=s.delivered?(TASKS[s.stage]?.phases?.length||0):0;
+  s.tea={...freshTea(),firstVisit:s.stage===24?'available':'locked'};
+  if(s.world&&typeof s.world==='object'){
+   s.world.memoryUnlocked=Object.fromEntries(REGIONS.map(r=>[r.id,(s.world.activities?.[r.id]?.count||0)>=3]));
+   s.world.souvenirs={};s.world.equipped=Object.fromEntries(REGIONS.map(r=>[r.id,null]));
+  }
+ }
  const integer=(v,min,max)=>Number.isInteger(v)&&v>=min&&v<=max;
  const check=(ok,msg)=>{if(!ok)throw Error(msg);};
  for(const k of ['createdAt','lastSeen','energyAt','restAt'])check(integer(s[k],0,9007199254740000),`时间字段 ${k} 无效。`);
@@ -314,6 +379,9 @@ export function validateState(raw){
  check(s.bag&&['scissors','energyPacks'].every(k=>integer(s.bag[k],0,100000)),'道具数量无效。');
  check(s.stats&&['merge','produce','order','build','sold','unweb'].every(k=>integer(s.stats[k],0,100000000)),'累计记录无效。');
  check(s.stats.build===s.stage,'修缮次数不一致。');
+ check(s.producerLessons&&CATS.every(c=>typeof s.producerLessons[c]==='boolean')&&s.producerLessons.clean,'来源教学记录无效。');
+ const phaseCount=TASKS[s.stage]?.phases?.length||0;
+ check(integer(s.mainPrepStep,0,phaseCount)&&(!phaseCount?s.mainPrepStep===0:(s.delivered?s.mainPrepStep===phaseCount:s.mainPrepStep<phaseCount)),'准备阶段记录无效。');
  check(s.daily&&/^\d{4}-\d{2}-\d{2}$/.test(s.daily.day)&&['merge','produce','order'].every(k=>integer(s.daily[k],0,100000000))&&typeof s.daily.gift==='boolean','每日记录无效。');
  check(Array.isArray(s.daily.claimed)&&new Set(s.daily.claimed).size===s.daily.claimed.length&&s.daily.claimed.every(k=>DAILY.some(d=>d.key===k)),'每日奖励无效。');
  check(Array.isArray(s.decorStyles)&&s.decorStyles.length===24&&s.decorStyles.every((v,i)=>i<s.stage?[0,1].includes(v):v===null),'布置记录无效。');
@@ -329,5 +397,18 @@ export function validateState(raw){
  check(w&&typeof w==='object'&&!Array.isArray(w)&&REGIONS.some(r=>r.id===w.region),'家园区域记录无效。');
  check(w.activities&&typeof w.activities==='object'&&!Array.isArray(w.activities)&&REGIONS.every(r=>{const a=w.activities[r.id];return a&&integer(a.count,0,100000000)&&typeof a.day==='string'&&(a.day===''||/^\d{4}-\d{2}-\d{2}$/.test(a.day))&&a.day<=s.daily.day&&(a.count===0?a.day==='':a.day!=='');}),'家园互动记录无效。');
  check(Array.isArray(w.chapterGifts)&&w.chapterGifts.length<=Math.floor(s.stage/4)*2&&w.chapterGifts.every(t=>item(t)&&!t.dust),'章节礼物记录无效。');
+ check(w.memoryUnlocked&&REGIONS.every(r=>typeof w.memoryUnlocked[r.id]==='boolean'),'生活回忆记录无效。');
+ const tea=result.tea;
+ check(tea&&integer(tea.round,0,100000000)&&Object.hasOwn(TEA_PLANS,tea.plan)&&['locked','available','arrived'].includes(tea.firstVisit)&&(s.stage===24?tea.firstVisit!=='locked':tea.firstVisit==='locked'),'茶会记录无效。');
+ const context=(r)=>r&&['tea','firstVisit'].includes(r.kind)&&typeof r.id==='string'&&r.id.length<60&&integer(r.round,0,100000000)&&Object.hasOwn(TEA_PLANS,r.plan)&&TEA_CONDITIONS.some(c=>c.id===r.condition)&&REGIONS.some(a=>a.id===r.region)&&Array.isArray(r.participants)&&r.participants.length>=2&&r.participants.length<=3&&r.participants[0]==='bubu'&&r.participants[1]==='yier'&&(r.participants.length===2||r.participants[2]==='xiaoli')&&integer(r.stage,13,24)&&Array.isArray(r.decorStyles)&&r.decorStyles.length===24&&r.decorStyles.every((v,i)=>i<r.stage?[0,1].includes(v):v===null)&&(r.kind==='firstVisit'?r.stage===24&&r.souvenirKey===null:SOUVENIRS.some(a=>a.key===r.souvenirKey&&a.plan===r.plan&&a.condition===r.condition));
+ check(tea.lastResult===null||context(tea.lastResult),'茶会展示记录无效。');
+ check(w.souvenirs&&typeof w.souvenirs==='object'&&!Array.isArray(w.souvenirs)&&Object.entries(w.souvenirs).length<=6&&Object.entries(w.souvenirs).every(([key,r])=>SOUVENIRS.some(a=>a.key===key)&&r.kind==='tea'&&r.souvenirKey===key&&context(r)),'纪念物收藏无效。');
+ check(w.equipped&&REGIONS.every(region=>{const key=w.equipped[region.id];return key===null||!!w.souvenirs[key]&&SOUVENIRS.some(a=>a.key===key&&a.region===region.id);}),'纪念物摆放无效。');
+ // Older result snapshots did not record display slots. Show empty slots rather
+ // than borrowing decorations the player equipped after the remembered event.
+ for(const record of [tea.lastResult,...Object.values(w.souvenirs)].filter(Boolean)){
+  if(record.equipped===undefined)record.equipped=Object.fromEntries(REGIONS.map(r=>[r.id,null]));
+  check(record.equipped&&REGIONS.every(region=>{const key=record.equipped[region.id];return key===null||SOUVENIRS.some(a=>a.key===key&&a.region===region.id);}),'纪念位展示快照无效。');
+ }
  return result;
 }

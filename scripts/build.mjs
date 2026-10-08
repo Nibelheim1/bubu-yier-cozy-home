@@ -3,15 +3,17 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {SPRITE_ATLAS_IDS,WORLD_ASSET_IDS} from '../src/visuals.mjs';
+import {VERSION} from '../src/data.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist'),release=path.join(root,'release');
 await fs.mkdir(dist,{recursive:true});await fs.mkdir(release,{recursive:true});
 const html=await fs.readFile(path.join(root,'src/index.html'),'utf8');
 const css=await fs.readFile(path.join(root,'src/style.css'),'utf8');
-const sources=await Promise.all(['data.mjs','engine.mjs','visuals.mjs','ui.mjs'].map(f=>fs.readFile(path.join(root,'src',f),'utf8')));
-const code=sources.map(s=>s.replace(/^import .*?;\s*$/gm,'').replace(/^export /gm,'')).join('\n\n');
+const sourceNames=['data.mjs','engine.mjs','visuals.mjs','scenes.mjs','ui.mjs'];
+const sources=await Promise.all(sourceNames.map(f=>fs.readFile(path.join(root,'src',f),'utf8')));
+const code=sources.map(s=>s.replace(/^import .*?;\s*$/gm,'').replace(/^export\s*\{[^}]*\}\s*from\s*['"][^'"]+['"];?\s*$/gm,'').replace(/^export /gm,'')).join('\n\n');
 const assetsDir=path.join(root,'public/assets');
-// Keep editable/legacy originals in public; ship only the assets used by v1.1.
+// Keep editable/legacy originals in public; ship only current runtime assets.
 const runtimeIds=[
   'app-icon','paper-texture','cozy-loop',
   ...['bubu','yier'].flatMap(who=>['back','face','happy','idle','joy','side','sit','sleep','surprise','turn','walk','paint','shy'].map(pose=>`${who}-${pose}`)),
@@ -25,7 +27,9 @@ const missing=required.filter(id=>!available.has(`${id}.png`));
 if(missing.length)throw new Error(`新版素材尚未齐备：${missing.join('、')}。请将原始生成图放入 public/assets 后再构建。`);
 const files=runtimeIds.map(id=>`${id}.${id==='cozy-loop'?'wav':'png'}`).filter(f=>available.has(f)).sort();
 const ids=files.map(f=>path.parse(f).name);
-const codeBundle=`/* ${new Date().toISOString()} | locally built; no network dependencies */\nwindow.__ASSET_IDS__=${JSON.stringify(ids)};\n(function(){'use strict';\n${code}\n})();`;
+const sizes={};
+for(const f of files.filter(f=>f.endsWith('.png'))){const png=await fs.readFile(path.join(assetsDir,f));sizes[path.parse(f).name]=[png.readUInt32BE(16),png.readUInt32BE(20)];}
+const codeBundle=`/* ${VERSION} | ${new Date().toISOString()} | locally built; no network dependencies */\nwindow.__ASSET_IDS__=${JSON.stringify(ids)};\nwindow.__ASSET_SIZES__=${JSON.stringify(sizes)};\n(function(){'use strict';\n${code}\n})();`;
 const digest=crypto.createHash('sha256').update(codeBundle).update(css).digest('hex').slice(0,12);
 await fs.writeFile(path.join(dist,'app.js'),codeBundle);
 await fs.writeFile(path.join(dist,'style.css'),css);
@@ -41,6 +45,6 @@ const offline=html.replace('<!--STYLE-->',()=>`<style>${css}</style>`).replace('
 await fs.writeFile(path.join(release,'好日子小屋_双击即玩.html'),offline);
 await fs.writeFile(path.join(dist,'manifest.webmanifest'),JSON.stringify({id:'./',name:'布布一二 · 好日子小屋',short_name:'好日子小屋',start_url:'./',scope:'./',display:'standalone',orientation:'portrait',theme_color:'#788f72',background_color:'#f6f0dc',lang:'zh-CN',icons:[{src:'assets/app-icon.png',sizes:'512x512',type:'image/png',purpose:'any'}]},null,2));
 const precache=['./','./index.html','./style.css','./app.js','./manifest.webmanifest',...files.map(f=>'./assets/'+f)];
-await fs.writeFile(path.join(dist,'sw.js'),`const CACHE='cozy-${digest}';const FILES=${JSON.stringify(precache)};\nself.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('cozy-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(()=>caches.match('./index.html')));return;}e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`);
-await fs.writeFile(path.join(root,'release/build-info.json'),JSON.stringify({version:'1.1.0',builtAt:new Date().toISOString(),buildId:digest,runtimeAssets:files.length,spriteAtlases:SPRITE_ATLAS_IDS.length,worldRegions:3,offlineBytes:Buffer.byteLength(offline),networkRequiredToPlay:false,sourceFiles:['src/data.mjs','src/engine.mjs','src/visuals.mjs','src/ui.mjs','src/style.css']},null,2));
+await fs.writeFile(path.join(dist,'sw.js'),`const CACHE='cozy-v12-${digest}';const FILES=${JSON.stringify(precache)};\nself.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));\nself.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('cozy-v12-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));\nself.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(()=>caches.match('./index.html')));return;}e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`);
+await fs.writeFile(path.join(root,'release/build-info.json'),JSON.stringify({version:VERSION,builtAt:new Date().toISOString(),buildId:digest,runtimeAssets:files.length,spriteAtlases:SPRITE_ATLAS_IDS.length,worldRegions:3,offlineBytes:Buffer.byteLength(offline),runtimeAssetBytes:(await Promise.all(files.map(async f=>(await fs.stat(path.join(assetsDir,f))).size))).reduce((a,b)=>a+b,0),networkRequiredToPlay:false,characterStyle:'flat-2d-reference',sourceFiles:[...sourceNames.map(f=>'src/'+f),'src/style.css']},null,2));
 console.log(`Built ${files.length} bundled assets. Offline file ${(Buffer.byteLength(offline)/1048576).toFixed(2)} MiB. Build ID ${digest}`);

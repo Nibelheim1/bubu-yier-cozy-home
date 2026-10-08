@@ -1,6 +1,6 @@
 {
- "name":"bubu-yier-cozy-home","version":"1.1.0","private":true,"type":"module",
- "description":"A locally playable merge-2 story game with house, garden and courtyard regions and vivid sprite atlases.",
+ "name":"bubu-yier-cozy-home","version":"1.2.0","private":true,"type":"module",
+ "description":"A locally playable cozy merge game with flat 2D characters, cooperative tea parties and permanent keepsakes.",
  "scripts":{"build":"node scripts/build.mjs","start":"node scripts/serve.mjs","test":"node --test tests/engine.test.mjs","simulate":"node tests/simulate.mjs"},
  "engines":{"node":">=18"},"license":"SEE LICENSE-NOTICE.md"
 }

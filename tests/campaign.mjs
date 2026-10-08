@@ -50,10 +50,12 @@ export function runCampaign(seed=20261007,{calm=false,collectAll=false,gallery=f
  for(let stage=0;stage<24;stage++){
   const before={calls,produces:g.s.stats.produce,merges:g.s.stats.merge,now};
   if(stage===0)doAction(()=>g.move(8,9));
+  for(const c of CATS)if(g.unlocked(c)&&!g.s.producerLessons[c])produce(c);
   for(const r of TASKS[stage].needs){assert.ok(CHAINS[r.c].unlock<=stage,'Source locked before its order');ensure(r.c,r.l,r.n);}
   assert.ok(g.canFulfill(TASKS[stage].needs));
   if(stage===7||stage===15||stage===22)checkpoints['ready-'+stage]=clone(g.s);
-  doAction(()=>g.submit('main',stage));doAction(()=>g.build(stage%2));
+  while(!g.s.delivered){const order=g.mainOrder();doAction(()=>g.submit('main',stage,order.phase));}
+  doAction(()=>g.build(stage%2));
   for(const d of DAILY)if(g.s.daily[d.key]>=d.target&&!g.s.daily.claimed.includes(d.key))doAction(()=>g.claimDaily(d.key,now));
   // Claim useful chapter gifts into the board; overflow remains safely queued.
   while(g.s.pending.length&&g.free()>8)doAction(()=>g.retrieve(0,'pending'));

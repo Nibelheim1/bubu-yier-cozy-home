@@ -1,16 +1,19 @@
 {
-  "version": "1.1.0",
-  "builtAt": "2026-10-08T02:43:00.519Z",
-  "buildId": "1070c09f558e",
-  "runtimeAssets": 53,
-  "spriteAtlases": 11,
+  "version": "1.2.0",
+  "builtAt": "2026-10-08T12:13:54.682Z",
+  "buildId": "e1c48d79a4ad",
+  "runtimeAssets": 57,
+  "spriteAtlases": 15,
   "worldRegions": 3,
-  "offlineBytes": 51965888,
+  "offlineBytes": 59016446,
+  "runtimeAssetBytes": 44080020,
   "networkRequiredToPlay": false,
+  "characterStyle": "flat-2d-reference",
   "sourceFiles": [
     "src/data.mjs",
     "src/engine.mjs",
     "src/visuals.mjs",
+    "src/scenes.mjs",
     "src/ui.mjs",
     "src/style.css"
   ]

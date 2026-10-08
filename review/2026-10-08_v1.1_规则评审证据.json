@@ -1,0 +1,493 @@
+{
+  "title": "v1.1 规则评审证据",
+  "reviewDate": "2026-10-08",
+  "project": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.1",
+  "scope": "只读检查 src/engine.mjs、src/data.mjs、相关 UI 接线与既有测试；本证据文件是此次补充要求的唯一写入文件。",
+  "provenance": {
+    "type": "根据本会话已返回的工具输出整理",
+    "noRerun": true,
+    "distinction": "实录字段来自已输出的数值或操作结果；解释与方法字段为源码检查和执行命令的复述。未输出或丢失的原值不补造。",
+    "limitations": [
+      "规则动作与虚拟时间不等于真人试玩时长、真人留存或性能 benchmark。",
+      "没有现场浏览器、真机或宿主验收证据。",
+      "24 条主线逐项 log 未完整保存；仅三个首次新来源订单 log 曾完整输出。",
+      "未修改源码或原 qa 文件。"
+    ]
+  },
+  "targetedRegressions": {
+    "command": "node --test --test-name-pattern=\"side hints|first newly|chapter gifts survive\" tests/engine.test.mjs",
+    "workdir": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.1",
+    "resultType": "tool_output_record",
+    "exitCode": 0,
+    "output": "✔ side hints follow the visible order and remain useful after the campaign (3.8095ms)\n✔ first newly unlocked source chapter gifts require a player merge (1.2627ms)\n✔ chapter gifts survive a full parcel queue and refill it after retrieval (4.9901ms)\nℹ tests 3\nℹ suites 0\nℹ pass 3\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 84.7352",
+    "summary": {
+      "tests": 3,
+      "pass": 3,
+      "fail": 0,
+      "durationMs": 84.7352
+    },
+    "tests": [
+      {
+        "exactName": "side hints follow the visible order and remain useful after the campaign",
+        "file": "tests/engine.test.mjs",
+        "line": 69,
+        "passed": true,
+        "usesFixture": true,
+        "fixtureDescription": "setup(1) 与 setup(24) 构造测试状态，直接设置邻里需求、棋盘物品及已交付标志；这是单元回归，不是自然玩家状态。",
+        "assertedBehavior": "主线已交付提示布置；邻里模式提示能交付的邻里单；通关后需求工具时提示工具，存在匹配对时提示合成。"
+      },
+      {
+        "exactName": "first newly unlocked source chapter gifts require a player merge",
+        "file": "tests/engine.test.mjs",
+        "line": 75,
+        "passed": true,
+        "usesFixture": true,
+        "fixtureDescription": "setup(3/7/11) 构造各章节结尾状态，直接设置 delivered=true 与 stars=1 后执行公开 build。",
+        "assertedBehavior": "章节赠礼为 bake/craft/garden 各两件 Lv1，无法直接满足下一张需要 Lv2 的主线。"
+      },
+      {
+        "exactName": "chapter gifts survive a full parcel queue and refill it after retrieval",
+        "file": "tests/engine.test.mjs",
+        "line": 78,
+        "passed": true,
+        "usesFixture": true,
+        "fixtureDescription": "setup(3)，直接注入 1000 件 clean Lv1 待领物品，并设置 delivered=true 与 stars=1。必须将此项标为夹具测试；没有本轮自然囤积 1000 件的试玩记录。",
+        "assertedBehavior": "build 后 pending 保持 1000，两件 bake Lv1 保存在 world.chapterGifts；导出状态有效；取一件后补入一件；撤销恢复；旧无 world 的 1002 件待领存档迁移为 1000 件 pending 与 2 件 chapterGifts。"
+      }
+    ]
+  },
+  "legalCampaign": {
+    "command": "node --input-type=module -e \"import { runCampaign } from './tests/campaign.mjs'; import { TASKS, needMass, CATS } from './src/data.mjs'; const r=runCampaign(); console.log(JSON.stringify({renovations:r.renovations, orders:r.orders, discoveries:r.seen, produces:r.produce, merges:r.merge, calls:r.calls, virtualSeconds:r.virtualSeconds, waitSeconds:r.waitSeconds, coins:r.coins, energy:r.energy, chapters:Array.from({length:6},(_,i)=>({chapter:i+1,mass:TASKS.slice(i*4,i*4+4).reduce((n,t)=>n+needMass(t.needs),0),produces:r.log.slice(i*4,i*4+4).reduce((n,t)=>n+t.produces,0),merges:r.log.slice(i*4,i*4+4).reduce((n,t)=>n+t.merges,0)})),sourceFirstTasks:r.log.filter((_,i)=>[4,8,12].includes(i)),final:{producerLevels:CATS.map(c=>[c,r.final.producers[c].level]),capacity:r.final.capacity,sideOrders:r.final.sideOrders,pending:r.final.pending,storage:r.final.storage,world:r.final.world}},null,2));\"",
+    "workdir": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.1",
+    "resultType": "tool_output_record",
+    "exitCode": 0,
+    "method": {
+      "sourceFile": "tests/campaign.mjs",
+      "sourceLine": 5,
+      "seed": 20261007,
+      "seedProvenance": "runCampaign() 的默认参数，tests/campaign.mjs:6",
+      "mode": "standard",
+      "collectAll": false,
+      "naturalInitialState": true,
+      "injectedProgressOrResources": false,
+      "publicActionsOnly": true,
+      "virtualClock": true,
+      "initialVirtualDateTime": "2026-10-07T08:00:00+08:00",
+      "actionClockAdvanceMs": 250,
+      "usesAutomaticRecipeSolver": true,
+      "note": "函数用默认初始种子建立新档，靠公开生产、合成、交付、布置、领奖、取礼物等动作推进；缺库存时虚拟推进 6000ms；不是浏览器试玩或真人时长。"
+    },
+    "recordedSummary": {
+      "renovations": 24,
+      "orders": 24,
+      "discoveries": 31,
+      "produces": 295,
+      "merges": 267,
+      "calls": 627,
+      "virtualSeconds": 402.75,
+      "waitSeconds": 246,
+      "coins": 2530,
+      "energy": 69
+    },
+    "recordedChapterAggregates": [
+      {
+        "chapter": 1,
+        "mass": 14,
+        "produces": 9,
+        "merges": 8
+      },
+      {
+        "chapter": 2,
+        "mass": 34,
+        "produces": 28,
+        "merges": 21
+      },
+      {
+        "chapter": 3,
+        "mass": 38,
+        "produces": 31,
+        "merges": 26
+      },
+      {
+        "chapter": 4,
+        "mass": 46,
+        "produces": 34,
+        "merges": 31
+      },
+      {
+        "chapter": 5,
+        "mass": 68,
+        "produces": 57,
+        "merges": 49
+      },
+      {
+        "chapter": 6,
+        "mass": 176,
+        "produces": 136,
+        "merges": 132
+      }
+    ],
+    "massDefinition": "mass 是配方按 2^(等级-1) 折算的一阶材料价值，不是生产动作数或真人时长。",
+    "log24": {
+      "expectedRecordCount": 24,
+      "completeRecordsRetained": 3,
+      "fullyAvailable": false,
+      "missingRecordCount": 21,
+      "missingReason": "runCampaign 内生成 24 条 log，但已执行命令仅打印章节聚合与第 5/9/13 条。其余原值未在工具输出中保留，未写文件，函数进程已结束；本次遵守不重复求解要求，不补造。",
+      "recordedEntries": [
+        {
+          "stage": 5,
+          "title": "收拾香香的烘焙架",
+          "produces": 0,
+          "merges": 1,
+          "seconds": 0.75,
+          "energy": 151,
+          "coins": 463,
+          "free": 32,
+          "seen": 8
+        },
+        {
+          "stage": 9,
+          "title": "给一二支起小画架",
+          "produces": 0,
+          "merges": 1,
+          "seconds": 0.75,
+          "energy": 168,
+          "coins": 802,
+          "free": 35,
+          "seen": 16
+        },
+        {
+          "stage": 13,
+          "title": "认领第一盆小生命",
+          "produces": 0,
+          "merges": 1,
+          "seconds": 0.75,
+          "energy": 169,
+          "coins": 1088,
+          "free": 38,
+          "seen": 21
+        }
+      ]
+    },
+    "recordedFinalSubset": {
+      "producerLevels": [
+        [
+          "clean",
+          1
+        ],
+        [
+          "tools",
+          1
+        ],
+        [
+          "bake",
+          1
+        ],
+        [
+          "tea",
+          1
+        ],
+        [
+          "craft",
+          1
+        ],
+        [
+          "garden",
+          1
+        ]
+      ],
+      "capacity": 8,
+      "sideOrders": [
+        {
+          "id": "side-1",
+          "name": "周末的准备",
+          "wish": "东西不用很多，合适就好。",
+          "needs": [
+            {
+              "c": "clean",
+              "l": 3,
+              "n": 1
+            }
+          ],
+          "coins": 20,
+          "energy": 2
+        },
+        {
+          "id": "side-2",
+          "name": "窗边的请求",
+          "wish": "给平常的一天，添一点小颜色。",
+          "needs": [
+            {
+              "c": "clean",
+              "l": 3,
+              "n": 1
+            }
+          ],
+          "coins": 20,
+          "energy": 2
+        }
+      ],
+      "pending": [],
+      "storage": [],
+      "world": {
+        "region": "garden",
+        "activities": {
+          "house": {
+            "day": "",
+            "count": 0
+          },
+          "garden": {
+            "day": "",
+            "count": 0
+          },
+          "courtyard": {
+            "day": "",
+            "count": 0
+          }
+        },
+        "chapterGifts": []
+      }
+    },
+    "missingFinalFields": [
+      "完整棋盘",
+      "经验",
+      "每日计数",
+      "随身道具",
+      "完整存档"
+    ],
+    "sourceInspectionInterpretation": {
+      "routeUsedNoSideSubmissions": true,
+      "routeUsedNoProducerUpgrades": true,
+      "routeUsedNoStorageExpansions": true,
+      "routeUsedNoStorageActions": "not_confirmed_from_retained_output",
+      "distinction": "邻里交付、升级、扩容没有出现在求解函数调用中，且生产者Lv1/容量8是实录。space() 包含收纳/出售分支；最终仓库为空不足以证明从未使用收纳。完整动作追踪未保留，不能将本 JSON 当作全部动作日志。此前报告中‘不做收纳即可通关’应收敛为‘本轮最终仓库为空，未输出收纳动作计数’。"
+    }
+  },
+  "naturalStage1Activities": {
+    "command": "node --input-type=module -e \"import { GameEngine, validateState } from './src/engine.mjs'; import { REGIONS } from './src/data.mjs'; const now=Date.parse('2026-10-08T08:00:00+08:00'); const g=new GameEngine(null,now); const init=[g.move(8,9),g.submit('main',0),g.build()]; const activities=[]; for(let day=0;day<3;day++) for(const r of REGIONS) activities.push({...g.homeActivity(r.id,now+day*86400000),day:day+1}); validateState(g.s); console.log(JSON.stringify({allInitOk:init.every(r=>r.ok),stage:g.s.stage,produced:g.s.stats.produce,gardenUnlocked:g.unlocked('garden'),teaUnlocked:g.unlocked('tea'),activities:activities.filter(a=>a.day===1||a.milestone),memories:g.worldProgress().memories,decor:g.s.decorStyles.filter(v=>v!==null).length},null,2));\"",
+    "workdir": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.1",
+    "resultType": "tool_output_record_and_command_restatement",
+    "exitCode": 0,
+    "naturalInitialState": true,
+    "injectedProgressOrResources": false,
+    "virtualClock": true,
+    "initialVirtualDateTime": "2026-10-08T08:00:00+08:00",
+    "recordedInitialActionSummary": {
+      "allInitOk": true
+    },
+    "initialActionsRestatedFromCommand": [
+      "move(8,9)",
+      "submit('main',0)",
+      "build()"
+    ],
+    "activityActionsRestatedFromCommand": [
+      {
+        "virtualDateTime": "2026-10-08T08:00:00+08:00",
+        "region": "house",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-08T08:00:00+08:00",
+        "region": "garden",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-08T08:00:00+08:00",
+        "region": "courtyard",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-09T08:00:00+08:00",
+        "region": "house",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-09T08:00:00+08:00",
+        "region": "garden",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-09T08:00:00+08:00",
+        "region": "courtyard",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-10T08:00:00+08:00",
+        "region": "house",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-10T08:00:00+08:00",
+        "region": "garden",
+        "method": "homeActivity"
+      },
+      {
+        "virtualDateTime": "2026-10-10T08:00:00+08:00",
+        "region": "courtyard",
+        "method": "homeActivity"
+      }
+    ],
+    "recordedActivityResults": [
+      {
+        "ok": true,
+        "kind": "homeActivity",
+        "region": "house",
+        "message": "布布把茶吹凉，一二把最后一块饼干掰成两半。",
+        "coins": 8,
+        "energy": 5,
+        "memoryProgress": 1,
+        "milestone": false,
+        "memoryName": "留下热乎乎的一口",
+        "day": 1
+      },
+      {
+        "ok": true,
+        "kind": "homeActivity",
+        "region": "garden",
+        "message": "一二扶住小苗，布布慢慢浇水。今天的叶子又精神了一点。",
+        "coins": 8,
+        "energy": 5,
+        "memoryProgress": 1,
+        "milestone": false,
+        "memoryName": "看见新叶的早晨",
+        "day": 1
+      },
+      {
+        "ok": true,
+        "kind": "homeActivity",
+        "region": "courtyard",
+        "message": "两只熊一起擦好桌子，留出两只干净杯子，等朋友来坐坐。",
+        "coins": 8,
+        "energy": 5,
+        "memoryProgress": 1,
+        "milestone": false,
+        "memoryName": "给朋友留一个位置",
+        "day": 1
+      },
+      {
+        "ok": true,
+        "kind": "homeActivity",
+        "region": "house",
+        "message": "布布把茶吹凉，一二把最后一块饼干掰成两半。",
+        "coins": 8,
+        "energy": 5,
+        "memoryProgress": 3,
+        "milestone": true,
+        "memoryName": "留下热乎乎的一口",
+        "day": 3
+      },
+      {
+        "ok": true,
+        "kind": "homeActivity",
+        "region": "garden",
+        "message": "一二扶住小苗，布布慢慢浇水。今天的叶子又精神了一点。",
+        "coins": 8,
+        "energy": 5,
+        "memoryProgress": 3,
+        "milestone": true,
+        "memoryName": "看见新叶的早晨",
+        "day": 3
+      },
+      {
+        "ok": true,
+        "kind": "homeActivity",
+        "region": "courtyard",
+        "message": "两只熊一起擦好桌子，留出两只干净杯子，等朋友来坐坐。",
+        "coins": 8,
+        "energy": 5,
+        "memoryProgress": 3,
+        "milestone": true,
+        "memoryName": "给朋友留一个位置",
+        "day": 3
+      }
+    ],
+    "omittedResults": "第 2 天三次活动有执行，但原命令过滤未打印其返回对象；不补造其逐项返回值。",
+    "recordedFinalSubset": {
+      "stage": 1,
+      "produced": 0,
+      "gardenUnlocked": false,
+      "teaUnlocked": false,
+      "decor": 1,
+      "memories": [
+        {
+          "region": "house",
+          "name": "留下热乎乎的一口",
+          "progress": 3,
+          "target": 3,
+          "unlocked": true
+        },
+        {
+          "region": "garden",
+          "name": "看见新叶的早晨",
+          "progress": 3,
+          "target": 3,
+          "unlocked": true
+        },
+        {
+          "region": "courtyard",
+          "name": "给朋友留一个位置",
+          "progress": 3,
+          "target": 3,
+          "unlocked": true
+        }
+      ]
+    },
+    "validationRestatedFromCommand": "validateState(g.s) 已执行，命令退出码 0。",
+    "interpretation": "仅门垫建成且茶/园艺未解锁时，三处活动及全部日常回忆已经可获得。这是进度与叙事脱节的产品体验判断；本复现没有真人跨三天回访。"
+  },
+  "reportReferencedTestNames": [
+    {
+      "exactName": "side hints follow the visible order and remain useful after the campaign",
+      "file": "tests/engine.test.mjs",
+      "line": 69,
+      "executedThisReview": true
+    },
+    {
+      "exactName": "first newly unlocked source chapter gifts require a player merge",
+      "file": "tests/engine.test.mjs",
+      "line": 75,
+      "executedThisReview": true
+    },
+    {
+      "exactName": "chapter gifts survive a full parcel queue and refill it after retrieval",
+      "file": "tests/engine.test.mjs",
+      "line": 78,
+      "executedThisReview": true
+    }
+  ],
+  "additionalTestsReadButNotRun": [
+    {
+      "exactName": "first loop: merge -> submit -> home build -> production",
+      "file": "tests/engine.test.mjs",
+      "line": 19
+    },
+    {
+      "exactName": "each home activity awards once per day, earns a permanent memory and resists clock reversal",
+      "file": "tests/engine.test.mjs",
+      "line": 61
+    },
+    {
+      "exactName": "complete standard campaign is reachable via legal actions, plus all 36 discoveries",
+      "file": "tests/engine.test.mjs",
+      "line": 97,
+      "note": "本轮独立运行 runCampaign() 且 collectAll=false，不是执行此 collectAll=true 测试。"
+    }
+  ],
+  "unverifiedNewFinding": {
+    "title": "通关心愿补给包仅查主线，通关后固定园艺，不跟随邻里",
+    "sourceEvidence": [
+      {
+        "file": "src/engine.mjs",
+        "line": 234
+      },
+      {
+        "file": "src/ui.mjs",
+        "line": 243
+      }
+    ],
+    "evidenceType": "source_inspection_only",
+    "naturalPurchaseReproductionThisReview": false,
+    "note": "未在本轮规则执行中购买通关补给包，避免将源码推导写成已试玩复现。"
+  }
+}

@@ -6,6 +6,7 @@ import {runCampaign} from './campaign.mjs';
 const NOW=new Date('2026-10-07T08:00:00+08:00').getTime();
 function setup(stage=24){
  const s=freshState(NOW);s.stage=stage;s.stats.build=stage;s.tutorial='done';s.introSeen=true;s.decorStyles=s.decorStyles.map((_,i)=>i<stage?0:null);s.board=s.board.map((t,i)=>i<6?t:(t?.k==='crate'&&t.openAt>stage?t:null));
+ s.producerLessons=Object.fromEntries(CATS.map(c=>[c,c==='clean'||CHAINS[c].unlock<=stage]));s.tea.firstVisit=stage===24?'available':'locked';
  return new GameEngine(s,NOW);
 }
 const tile=(c='clean',l=1)=>({k:'item',c,l});
@@ -58,13 +59,66 @@ test('legacy saves migrate home state without changing progress, inventory or th
  const g=new GameEngine(migrated,NOW);assert.ok(g.visitRegion('garden').ok);assert.equal(validateState(JSON.parse(g.export())).world.region,'garden');
  assert.equal(g.visitRegion('elsewhere').code,'REGION');
 });
-test('each home activity awards once per day, earns a permanent memory and resists clock reversal',()=>{
+test('each home activity awards once per day, waits for real objects and resists clock reversal',()=>{
  const g=setup(1),coins=g.s.coins;for(const r of REGIONS){assert.ok(g.homeActivity(r.id,NOW).ok);const before=clone(g.s);assert.equal(g.homeActivity(r.id,NOW).code,'CLAIMED');assert.deepEqual(g.s,before);}
  assert.equal(g.s.coins,coins+24);assert.equal(g.worldProgress().totalActivities,3);assert.ok(g.worldProgress().regions.every(r=>r.activityDone));
  for(const day of [1,2])for(const r of REGIONS)assert.ok(g.homeActivity(r.id,NOW+day*86400000).ok);
- assert.equal(g.worldProgress().memoryCount,3);assert.equal(g.worldProgress().totalActivities,9);const c=g.s.coins;
+ assert.equal(g.worldProgress().memoryCount,0);assert.equal(g.worldProgress().totalActivities,9);const c=g.s.coins;
  assert.equal(g.homeActivity('house',NOW).code,'CLAIMED');assert.equal(g.s.coins,c);validateState(g.s);
  const intro=new GameEngine(null,NOW);assert.equal(intro.homeActivity('house',NOW).code,'TUTORIAL');
+});
+
+test('v1.2 legacy migration keeps old memories, delivered preparations and unlocked-source lessons',()=>{
+ const old=clone(setup(1).s);old.schema=1;delete old.mainPrepStep;delete old.producerLessons;delete old.tea;delete old.world.memoryUnlocked;delete old.world.souvenirs;delete old.world.equipped;
+ for(const a of Object.values(old.world.activities)){a.count=3;a.day=old.daily.day;}
+ const original=clone(old),g=new GameEngine(old,NOW);assert.deepEqual(old,original);assert.equal(g.s.schema,2);assert.equal(g.worldProgress().memoryCount,3);assert.equal(g.s.producerLessons.tools,false);assert.equal(g.s.coins,old.coins);assert.deepEqual(g.s.board,old.board);
+ const ready=clone(setup(23).s);ready.schema=1;ready.delivered=true;ready.stars=1;delete ready.mainPrepStep;const migrated=new GameEngine(ready,NOW);assert.equal(migrated.s.mainPrepStep,3);const orders=migrated.s.stats.order;assert.ok(migrated.build().ok);assert.equal(migrated.s.stats.order,orders);assert.equal(migrated.s.tea.firstVisit,'available');validateState(migrated.s);
+});
+
+test('v1.2 successful production gates the first new-source delivery and opens tea at the garden',()=>{
+ const g=setup(4);g.s.producerLessons.bake=false;g.s.board[7]=tile('bake',2);const before=clone(g.s);assert.equal(g.submit('main',4).code,'LESSON');assert.deepEqual(g.s,before);assert.equal(g.hint().c,'bake');assert.ok(g.produce('bake',NOW).lesson);assert.ok(g.submit('main',4).ok);
+ const garden=setup(12);assert.equal(garden.teaOrder().available,false);garden.s.board[7]=tile('garden',2);assert.ok(garden.submit('main',12).ok);assert.ok(garden.build().ok);assert.equal(garden.teaOrder().available,true);assert.deepEqual(garden.teaOrder().participants,['bubu','yier']);
+});
+
+test('v1.2 stages 23 and 24 save preparation steps and pay full original reward exactly once',()=>{
+ for(const stage of [22,23]){
+  let g=setup(stage);const task=TASKS[stage];task.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));const coins=g.s.coins,xp=g.s.xp,orders=g.s.stats.order;
+  for(let phase=0;phase<task.needs.length;phase++){
+   const before=clone(g.s);assert.equal(g.submit('main',stage,phase+1).code,'STALE');assert.deepEqual(g.s,before);
+   const result=g.submit('main',stage,phase);assert.ok(result.ok);
+   if(phase<task.needs.length-1){assert.equal(result.kind,'prepare');assert.equal(g.s.coins,coins);assert.equal(g.s.xp,xp);assert.equal(g.s.stars,0);assert.equal(g.s.stats.order,orders);g=new GameEngine(JSON.parse(g.export()),NOW);}
+  }
+  assert.equal(g.s.stats.order,orders+1);assert.equal(g.s.stars,1);assert.equal(g.s.coins,coins+task.coins);assert.equal(g.s.xp,xp+(stage===22?26:36));const final=clone(g.s);assert.equal(g.submit('main',stage,0).code,'STALE');assert.deepEqual(g.s,final);assert.ok(g.build().ok);assert.equal(g.s.mainPrepStep,0);validateState(g.s);
+ }
+});
+
+test('v1.2 parcels preview exact target materials and reject stale or ready targets without spending',()=>{
+ const g=setup(22);const q=g.quoteParcel({kind:'main',id:22,step:0},'bake');assert.ok(q.ok);assert.deepEqual(q.items.map(t=>t.l),[1,1,1,2]);const coins=g.s.coins;assert.ok(g.buy('parcel',q).ok);assert.equal(g.s.coins,coins-65);assert.deepEqual(g.s.pending,q.items);g.s.board[7]=tile('bake',6);const before=clone(g.s);assert.equal(g.buy('parcel',q).code,'READY');assert.deepEqual(g.s,before);g.submit('main',22,0);const next=clone(g.s);assert.equal(g.buy('parcel',q).code,'STALE');assert.deepEqual(g.s,next);
+ const done=setup();const side=done.s.sideOrders[0];const c=side.needs[0].c,quote=done.quoteParcel({kind:'side',id:side.id},c);assert.ok(quote.ok);done.refreshSide(0,NOW);const oldCoins=done.s.coins;assert.equal(done.buy('parcel',quote).code,'STALE');assert.equal(done.s.coins,oldCoins);assert.equal(done.buy('parcel').code,'QUOTE');
+});
+
+test('v1.2 six tea choices preserve first souvenirs, rewards, result reload and one-slot equipment',()=>{
+ const g=setup(13);const outcomes=[];
+ // Three conditions per round: choose each plan over two cycles.
+ for(let round=0;round<6;round++){
+  if(round===3){g.setting('calm',true);g.s.energy=0;g.s.producers.tea.stock=0;assert.ok(g.produce('tea',NOW).ok);assert.equal(g.s.energy,0);assert.equal(g.s.producers.tea.stock,0);}
+  assert.ok(g.chooseTeaPlan(round<3?'warm':'garden').ok);const order=g.teaOrder();assert.equal(order.needs.reduce((n,r)=>n+2**(r.l-1)*r.n,0),8);order.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));const beforeOrders=g.s.stats.order,beforeCoins=g.s.coins,beforeLevel=levelOf(g.s);const result=g.submit('tea',order.id);assert.ok(result.ok);assert.equal(result.coins,28);assert.equal(result.energy,3);assert.equal(g.s.stats.order,beforeOrders+1);assert.equal(g.s.coins,beforeCoins+28+20*(levelOf(g.s)-beforeLevel));assert.deepEqual(result.result.participants,['bubu','yier']);assert.ok(result.firstSouvenir);outcomes.push(result.result);const saved=clone(g.s);assert.equal(g.submit('tea',order.id).code,'STALE');assert.deepEqual(g.s,saved);assert.deepEqual(new GameEngine(JSON.parse(g.export()),NOW).s,saved);
+ }
+ assert.equal(Object.keys(g.s.world.souvenirs).length,6);assert.ok(g.equipSouvenir('house','coaster-garden').ok);assert.equal(g.s.world.equipped.house,'coaster-garden');assert.equal(g.equipSouvenir('garden','coaster-warm').code,'SOUVENIR');
+ g.chooseTeaPlan('warm');const repeat=g.teaOrder();repeat.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));assert.equal(g.submit('tea',repeat.id).firstSouvenir,false);assert.deepEqual(g.s.world.souvenirs['coaster-warm'],outcomes[0]);validateState(g.s);
+ const ready=setup();const coins=ready.s.coins,orders=ready.s.stats.order;assert.ok(ready.beginFirstVisit().ok);assert.equal(ready.s.tea.firstVisit,'arrived');assert.ok(ready.teaOrder().participants.includes('xiaoli'));assert.equal(ready.beginFirstVisit().code,'ARRIVED');assert.equal(ready.s.coins,coins);assert.equal(ready.s.stats.order,orders);validateState(ready.s);
+});
+
+test('v1.2 living conditions unlock an already-earned memory without another daily reward',()=>{
+ const g=setup(6);g.s.world.activities.house={count:3,day:g.s.daily.day};assert.equal(g.worldProgress().memories[0].unlocked,false);g.s.board[7]=tile('tea',2);g.s.board[8]=tile('tea',2);g.s.board[9]=tile('bake',3);g.submit('main',6);const coins=g.s.coins;const result=g.build();assert.ok(result.memories.includes('house'));assert.equal(g.worldProgress().memories[0].unlocked,true);assert.equal(g.s.coins,coins);assert.equal(g.s.world.activities.house.count,3);
+});
+
+test('v1.2 result snapshots freeze equipment and preparation stages choose their actual area',()=>{
+ const g=setup(13),order=g.teaOrder();order.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));const result=g.submit('tea',order.id).result;
+ assert.deepEqual(result.equipped,{house:'coaster-warm',garden:null,courtyard:null});assert.deepEqual(g.s.world.souvenirs['coaster-warm'].equipped,result.equipped);g.s.world.equipped.house=null;assert.equal(g.s.tea.lastResult.equipped.house,'coaster-warm');assert.deepEqual(new GameEngine(JSON.parse(g.export()),NOW).s.tea.lastResult.equipped,result.equipped);
+ const older=clone(g.s);delete older.tea.lastResult.equipped;delete older.world.souvenirs['coaster-warm'].equipped;older.world.equipped.house='coaster-warm';const migrated=validateState(older);assert.deepEqual(migrated.tea.lastResult.equipped,{house:null,garden:null,courtyard:null});assert.equal(older.tea.lastResult.equipped,undefined);
+ const prep=setup(23);TASKS[23].needs.forEach((r,i)=>prep.s.board[7+i]=tile(r.c,r.l));const first=prep.submit('main',23,0);assert.equal(first.region,'garden');assert.equal(prep.s.world.region,'garden');const next=prep.submit('main',23,1);assert.equal(next.region,'courtyard');assert.equal(prep.s.world.region,'courtyard');const last=prep.submit('main',23,2);assert.equal(last.region,'courtyard');assert.equal(prep.s.stats.order,1);assert.equal(prep.s.stars,1);
+ const visit=setup();assert.deepEqual(visit.beginFirstVisit().result.equipped,visit.s.world.equipped);
 });
 test('side hints follow the visible order and remain useful after the campaign',()=>{
  const g=setup(1);g.s.sideOrders[0].needs=[{c:'clean',l:3,n:1}];g.s.sideOrders[1].needs=[{c:'clean',l:2,n:1}];g.s.board[7]=tile('clean',2);g.s.delivered=true;g.s.stars=1;
@@ -94,4 +148,4 @@ test('runtime atlases, world art and dialogue poses exist for every declared gam
  for(const id of assets)assert.ok(fs.existsSync(new URL(`${id}.png`,root)),`Missing runtime art: ${id}`);
 });
 test('built standalone retains double-dollar selectors verbatim',()=>{const path=new URL('../release/好日子小屋_双击即玩.html',import.meta.url);if(!fs.existsSync(path))return;const html=fs.readFileSync(path,'utf8');assert.ok(html.includes('const $$=(s,root=document)'));assert.ok(html.includes('window.__OFFLINE_SINGLE__=true'));assert.ok(!html.includes('<!--SCRIPT-->'));});
-test('complete standard campaign is reachable via legal actions, plus all 36 discoveries',()=>{const r=runCampaign(20261007,{collectAll:true});assert.equal(r.renovations,24);assert.equal(r.orders,24);assert.equal(r.seen,36);validateState(r.final);assert.ok(r.energy>=0);assert.ok(r.coins>=0);});
+test('complete standard campaign includes source lessons and all preparation phases through legal actions',()=>{const r=runCampaign(20261007,{collectAll:false});assert.equal(r.renovations,24);assert.equal(r.orders,24);assert.ok(CATS.every(c=>r.final.producerLessons[c]));assert.equal(r.final.tea.firstVisit,'available');validateState(r.final);assert.ok(r.energy>=0);assert.ok(r.coins>=0);});

@@ -1,8 +1,12 @@
-/* 2026-10-08T02:43:00.257Z | locally built; no network dependencies */
-window.__ASSET_IDS__=["app-icon","atlas-bake","atlas-clean","atlas-craft","atlas-decor-a","atlas-decor-b","atlas-decor-c","atlas-decor-d","atlas-garden","atlas-generators","atlas-tea","atlas-tools","bubu-back","bubu-face","bubu-happy","bubu-idle","bubu-joy","bubu-side","bubu-sit","bubu-sleep","bubu-surprise","bubu-turn","bubu-walk","cozy-loop","paper-texture","party-memory","region-courtyard","region-garden","region-house","story-companion","story-garden","story-night","story-rest","util-coin","util-crate","util-energy","util-gift","util-scissors","util-star","util-storage","world-map","yier-back","yier-face","yier-happy","yier-idle","yier-joy","yier-paint","yier-rest","yier-shy","yier-side","yier-surprise","yier-turn","yier-walk"];
+/* 1.2.0 | 2026-10-08T12:13:54.368Z | locally built; no network dependencies */
+window.__ASSET_IDS__=["app-icon","atlas-bake","atlas-bubu-motion","atlas-clean","atlas-craft","atlas-decor-a","atlas-decor-b","atlas-decor-c","atlas-decor-d","atlas-garden","atlas-generators","atlas-tea-props","atlas-tea","atlas-tools","atlas-xiaoli","atlas-yier-motion","bubu-back","bubu-face","bubu-happy","bubu-idle","bubu-joy","bubu-side","bubu-sit","bubu-sleep","bubu-surprise","bubu-turn","bubu-walk","cozy-loop","paper-texture","party-memory","region-courtyard","region-garden","region-house","story-companion","story-garden","story-night","story-rest","util-coin","util-crate","util-energy","util-gift","util-scissors","util-star","util-storage","world-map","yier-back","yier-face","yier-happy","yier-idle","yier-joy","yier-paint","yier-rest","yier-shy","yier-side","yier-surprise","yier-turn","yier-walk"];
+window.__ASSET_SIZES__={"app-icon":[512,512],"atlas-bake":[1536,1024],"atlas-bubu-motion":[1254,1254],"atlas-clean":[1536,1024],"atlas-craft":[1536,1024],"atlas-decor-a":[1536,1024],"atlas-decor-b":[1536,1024],"atlas-decor-c":[1536,1024],"atlas-decor-d":[1536,1024],"atlas-garden":[1536,1024],"atlas-generators":[1536,1024],"atlas-tea-props":[1536,1024],"atlas-tea":[1536,1024],"atlas-tools":[1536,1024],"atlas-xiaoli":[1254,1254],"atlas-yier-motion":[1230,1278],"bubu-back":[384,416],"bubu-face":[384,384],"bubu-happy":[384,384],"bubu-idle":[384,416],"bubu-joy":[384,416],"bubu-side":[384,416],"bubu-sit":[384,416],"bubu-sleep":[384,384],"bubu-surprise":[384,384],"bubu-turn":[384,416],"bubu-walk":[384,416],"paper-texture":[192,192],"party-memory":[1536,1024],"region-courtyard":[1182,1330],"region-garden":[1182,1330],"region-house":[1182,1330],"story-companion":[409,247],"story-garden":[278,96],"story-night":[278,95],"story-rest":[278,99],"util-coin":[256,256],"util-crate":[256,256],"util-energy":[256,256],"util-gift":[256,256],"util-scissors":[256,256],"util-star":[256,256],"util-storage":[256,256],"world-map":[1536,1024],"yier-back":[384,416],"yier-face":[384,384],"yier-happy":[384,384],"yier-idle":[384,416],"yier-joy":[384,416],"yier-paint":[384,416],"yier-rest":[1254,1254],"yier-shy":[384,384],"yier-side":[384,416],"yier-surprise":[384,384],"yier-turn":[384,416],"yier-walk":[384,416]};
 (function(){'use strict';
 /** All story, progression, art coordinates, and economy data. No UI state here. */
-const VERSION = 1;
+const VERSION = '1.2.0';
+// App releases and storage migrations have different lifetimes.
+const APP_VERSION = VERSION;
+const SCHEMA_VERSION = 2;
 const TITLE = '布布一二 · 好日子小屋';
 const CATS = ['clean','tools','bake','tea','craft','garden'];
 const CHAINS = {
@@ -51,10 +55,10 @@ const TASKS = [
  {name:'准备不赶时间的软椅',who:'yier',wish:'泡好茶，留一块蛋糕。今晚不急着做下一件事。',needs:[R('tea',4),R('bake',4)],after:[['yier','shy','我们什么都不做，也算好好过一天吗？'],['bubu','sit','算。和你一起歇着，也是很重要的一件事。']]},
  {name:'调一盏刚刚好的灯',who:'bubu',wish:'固定灯座，别让刺眼的光打扰一二宝看书。',needs:[R('tools',5)],after:[['yier','happy','再暗一点点。对，就是现在这样。'],['bubu','turn','记住了。下次不用你再说。']]},
  {name:'收好今天的小回忆',who:'yier',wish:'把纸鲸和雏菊的样子记下来。它们也在陪我们长大。',needs:[R('craft',5),R('garden',4)],after:[['bubu','turn','有一张照片拍糊了，要不要重拍？'],['yier','shy','不要。那张里面，你刚好笑得最开心。']]},
- {name:'写一张小小邀请',who:'yier',wish:'给庭院挂起小旗，告诉路过的人：这里可以坐坐。',needs:[R('craft',5),R('tools',4)],after:[['bubu','surprise','要是来的客人很多，怎么办？'],['yier','happy','就把庭院里的长桌也摆出来嘛。']]},
+ {name:'写一张小小邀请',who:'yier',wish:'给巷口的松鼠小栗写一张邀请，再挂起庭院小旗。',needs:[R('craft',5),R('tools',4)],after:[['yier','paint','小栗：花草茶准备好时，来我们家坐坐吧。'],['bubu','happy','我把纸条送到巷口了。她回信说，会带一件路上发现的小东西。']]},
  {name:'把春天铺到门外',who:'bubu',wish:'摆好花束和茶盘，野餐垫就在门前的树影下。',needs:[R('garden',5),R('tea',4)],after:[['yier','turn','这不是我们之前量好的地方。'],['bubu','happy','这里有阴凉。一二宝晒久了会眯眼睛。']]},
- {name:'做一桌可以分享的甜',who:'yier',wish:'今天多做一点。点心塔和茶盘，要够大家一起分。',needs:[R('bake',6),R('tea',5)],after:[['bubu','sit','这一次，我真的只尝了一小口。'],['yier','happy','我看见啦。所以这块最大的，奖励给你。']]},
- {name:'好日子小屋，开门啦',who:'bubu',wish:'摆好花架和画，端上蛋糕。最后这一步，我们一起。',needs:[R('garden',6),R('craft',6),R('bake',5)],after:[['yier','joy','布布，我们真的把它变成家了！'],['bubu','happy','嗯。一二宝，明天也一起慢慢过吧。']]},
+ {name:'做一桌可以分享的甜',who:'yier',wish:'先把点心塔摆好，再准备茶盘。小栗来时，茶和甜点都刚刚好。',needs:[R('bake',6),R('tea',5)],phases:['点心塔上桌','双人茶盘到位'],after:[['yier','happy','点心我来摆。臭布布，帮我拿稳茶盘。'],['bubu','happy','拿稳了。最大的一块，留给第一次来的小栗。']]},
+ {name:'好日子小屋，开门啦',who:'bubu',wish:'摆好花架，用画画箱做一张纪念画，最后端上蛋糕。我们一起迎接小栗。',needs:[R('garden',6),R('craft',6),R('bake',5)],phases:['门边花架','一起画纪念画','最后一块蛋糕'],after:[['yier','joy','花架、画和蛋糕都好了！布布，我们去门口迎接小栗吧。'],['bubu','happy','杯子你来摆，茶壶我来端。今天的好日子，也分给她。']]},
 ].map((t,i)=>({...t,id:i,chapter:Math.floor(i/4),decor:`decor-${String(i+1).padStart(2,'0')}`,coins:18+t.needs.reduce((a,r)=>a+2**(r.l-1)*r.n*3,0),energy:2+Math.floor(i/8)}));
 // Each near view has its own coordinates. Keep the central walkway clear for both characters.
 const REGIONS = [
@@ -72,7 +76,7 @@ const DECOR = [
 ].map(([region,x,y,w,z],i)=>({region,x,y,w,z,id:i}));
 const DAILY = [
  {key:'merge',title:'合一合，松口气',target:15,coins:30,energy:8,desc:'完成 15 次合成'},
- {key:'order',title:'把小心愿送出去',target:3,coins:45,energy:10,desc:'完成 3 张主线或邻里订单'},
+ {key:'order',title:'把小心愿送出去',target:3,coins:45,energy:10,desc:'完成 3 张主线、邻里或茶会订单'},
  {key:'produce',title:'今天也有新点子',target:25,coins:35,energy:8,desc:'从工作台取出 25 件物品'},
 ];
 const SIDE_FLAVOR = [
@@ -81,6 +85,25 @@ const SIDE_FLAVOR = [
 const HOME_CHAT = [
  ['yier','joy','臭布布，我想再挪一下坐垫。就一点点。'],['bubu','happy','一二宝，忙完记得喝水。杯子给你放好了。'],['yier','shy','这里的东西，怎么每一件都有我们的故事呀。'],['bubu','turn','今天不用把所有事情都做完。我们还会有明天。'],['yier','happy','小屋又变可爱一点点啦！'],['bubu','sit','你看风，我看着茶。各自都有很重要的工作。'],
 ];
+const MEMORY_GATES={house:7,garden:13,courtyard:23};
+const TEA_CONDITIONS=[
+ {id:'sunny',name:'晴日来坐坐',souvenir:'coaster',souvenirName:'两熊选的杯垫',souvenirRegion:'house',needs:{warm:[R('tea',3),R('bake',3)],garden:[R('tea',2),R('garden',3),R('craft',2)]}},
+ {id:'memory',name:'想留一份纪念',souvenir:'card',souvenirName:'手绘小卡',souvenirRegion:'courtyard',needs:{warm:[R('tea',3),R('bake',2),R('craft',2)],garden:[R('tea',2),R('garden',2),R('craft',3)]}},
+ {id:'wind',name:'今天有点风',souvenir:'chime',souvenirName:'小风铃',souvenirRegion:'garden',needs:{warm:[R('tea',3),R('bake',2),R('tools',2)],garden:[R('tea',2),R('garden',2),R('craft',2),R('tools',2)]}},
+];
+const TEA_PLANS={warm:{name:'暖心茶点',region:'house',wish:'把热茶和甜点摆到小圆桌，一二摆杯，布布端茶。'},garden:{name:'花园小聚',region:'garden',wish:'在树荫下铺好临时茶布，一二扶苗，布布浇水，再一起坐下。'}};
+const SOUVENIRS=TEA_CONDITIONS.flatMap(c=>Object.keys(TEA_PLANS).map(plan=>({key:`${c.souvenir}-${plan}`,condition:c.id,plan,name:`${c.souvenirName} · ${TEA_PLANS[plan].name}`,region:c.souvenirRegion,type:c.souvenir})));
+function teaResponse(plan,condition,hasGuest=false){
+ const lines={
+  'sunny-warm':[['yier','这次面包留了一整块。臭布布，你先坐，我来摆杯子。'],['bubu','茶吹凉一点了。我们挑的杯垫，就放在这张小圆桌旁。'],['xiaoli','面包还热着，杯垫的颜色也像这间小屋。下次我带果酱来。']],
+  'sunny-garden':[['yier','临时茶布铺在树荫下，刚好能看见新叶。你扶着杯子，我来放小盆栽。'],['bubu','这株叶子长精神了。把今天选的杯垫带回屋里，明天喝茶还会记得这里。'],['xiaoli','在树荫下闻到花草茶，连赶路的心情都慢下来了。']],
+  'memory-warm':[['yier','我用蜡笔画了你端茶的样子。这张小卡，先送给你。'],['bubu','我把面包分好了。小卡放在庭院留言位，路过都能看见我们今天的下午。'],['xiaoli','小卡上也留了我的座位！我会回一张巷口的明信片。']],
+  'memory-garden':[['yier','把小苗和茶杯的颜色调在一起，画成今天的花园小卡。'],['bubu','我扶着茶布，画纸就不会滑走。画完把卡收好，不怕风把今天带走。'],['xiaoli','原来同一株小苗，可以画出这么多绿。我想把这张小卡的故事写进回信。']],
+  'wind-warm':[['yier','桌边有一点风，我先压住茶巾这一角。你把夹子递过来。'],['bubu','夹稳了，茶杯不用跟着晃。小风铃挂到花园去，替我们听今天的风。'],['xiaoli','你们把茶巾固定好，我的茶一滴也没洒。风铃响的时候，我还想来坐坐。']],
+  'wind-garden':[['yier','树荫下的茶布飘起来了。我压住这一边，臭布布，帮我夹住另一角。'],['bubu','另一角也好了。先一起喝茶，再把小风铃挂到枝旁。'],['xiaoli','两只熊一前一后把茶布稳住了。原来有风的下午，也能安心喝完一杯茶。']],
+ }[`${condition}-${plan}`];
+ return lines.slice(0,hasGuest?3:2).map(([who,text])=>({who,text}));
+}
 function itemName(c,l){return CHAINS[c]?.items[l-1]??'未知物品';}
 function itemKey(c,l){return `${c}-${l}`;}
 function mass(t){return t?.k==='item'?2**(t.l-1):0;}
@@ -95,7 +118,8 @@ const levelOf=(s)=>Math.min(99,Math.floor(s.xp/60)+1);
 const stockCap=(p)=>CFG.stockBase+(p.level-1)*CFG.stockPerLevel;
 const good=(kind,extra={})=>({ok:true,kind,...extra});
 const bad=(code,message)=>({ok:false,code,message});
-const freshWorld=()=>({region:'house',activities:Object.fromEntries(REGIONS.map(r=>[r.id,{day:'',count:0}])),chapterGifts:[]});
+const freshWorld=()=>({region:'house',activities:Object.fromEntries(REGIONS.map(r=>[r.id,{day:'',count:0}])),chapterGifts:[],memoryUnlocked:Object.fromEntries(REGIONS.map(r=>[r.id,false])),souvenirs:{},equipped:Object.fromEntries(REGIONS.map(r=>[r.id,null]))});
+const freshTea=()=>({round:0,plan:'warm',firstVisit:'locked',lastResult:null});
 function freshState(now=Date.now(),seed=20261007){
  const board=Array(CFG.boardSize).fill(null);
  CATS.forEach((c,i)=>board[i]={k:'gen',c});
@@ -104,7 +128,7 @@ function freshState(now=Date.now(),seed=20261007){
  board[24]={k:'item',c:'tools',l:1,dust:true};
  board[29]={k:'item',c:'bake',l:1,dust:true};
  for(let i=35;i<49;i++)board[i]={k:'crate',openAt:2+Math.floor((i-35)/2)*2};
- return {schema:VERSION,createdAt:now,lastSeen:now,energyAt:now,rng:seed>>>0,stage:0,delivered:false,stars:0,coins:120,energy:100,xp:0,board,
+ return {schema:SCHEMA_VERSION,createdAt:now,lastSeen:now,energyAt:now,rng:seed>>>0,stage:0,mainPrepStep:0,producerLessons:Object.fromEntries(CATS.map(c=>[c,c==='clean'])),tea:freshTea(),delivered:false,stars:0,coins:120,energy:100,xp:0,board,
   producers:Object.fromEntries(CATS.map(c=>[c,{level:1,stock:CFG.stockBase,at:now}])),
   storage:[],capacity:8,pending:[],bag:{scissors:3,energyPacks:2},
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
@@ -118,6 +142,8 @@ class GameEngine{
   this.s=state?clone(validateState(state)):freshState(now);
   this.undoState=null;
   this.flushChapterGifts();
+  this.checkMemories();
+  if(this.s.stage===24&&this.s.tea.firstVisit==='locked')this.s.tea.firstVisit='available';
   if(this.s.sideOrders.length===0){this.s.sideOrders=[this.makeSide(),this.makeSide()];}
   this.tick(now);
  }
@@ -135,10 +161,15 @@ class GameEngine{
   this.invalidate();this.s.world.region=id;return good('visitRegion',{region:id});
  }
  worldProgress(){
-  const regions=REGIONS.map(r=>{const record=this.s.world.activities[r.id];return {...r,built:DECOR.filter(d=>d.region===r.id&&d.id<this.s.stage).length,total:DECOR.filter(d=>d.region===r.id).length,available:this.s.stage>=r.unlock,activityDone:record.day===this.s.daily.day,visits:record.count};});
-  const memories=regions.map(r=>({region:r.id,name:r.memoryName,progress:Math.min(3,r.visits),target:3,unlocked:r.visits>=3}));
-  return {region:this.s.world.region,regions,memories,memoryCount:memories.filter(m=>m.unlocked).length,totalActivities:regions.reduce((n,r)=>n+r.visits,0),nextMemoryAt:3,chapterGiftsWaiting:this.s.world.chapterGifts.length};
+  const regions=REGIONS.map(r=>{const record=this.s.world.activities[r.id];return {...r,...this.activityDetails(r.id),built:DECOR.filter(d=>d.region===r.id&&d.id<this.s.stage).length,total:DECOR.filter(d=>d.region===r.id).length,available:this.s.stage>=r.unlock,activityDone:record.day===this.s.daily.day,visits:record.count};});
+  const memories=regions.map(r=>({region:r.id,name:r.memoryName,progress:Math.min(3,r.visits),target:3,conditionStage:MEMORY_GATES[r.id],conditionMet:this.s.stage>=MEMORY_GATES[r.id],conditionLabel:{house:'准备两只杯子',garden:'认领第一盆小生命',courtyard:'做出分享的茶点'}[r.id],unlocked:this.s.world.memoryUnlocked[r.id]}));
+  return {region:this.s.world.region,regions,memories,souvenirs:SOUVENIRS.map(s=>({...s,unlocked:!!this.s.world.souvenirs[s.key],equipped:this.s.world.equipped[s.region]===s.key,record:this.s.world.souvenirs[s.key]||null})),equipped:clone(this.s.world.equipped),memoryCount:memories.filter(m=>m.unlocked).length,totalActivities:regions.reduce((n,r)=>n+r.visits,0),nextMemoryAt:3,chapterGiftsWaiting:this.s.world.chapterGifts.length};
  }
+ activityDetails(id){
+  const ready=this.s.stage>=MEMORY_GATES[id],arrived=this.s.tea.firstVisit==='arrived';
+  return id==='house'?(ready?{activityLabel:'一起喝杯茶',activityText:'布布把茶吹凉，一二把最后一块饼干掰成两半。',activityAction:'share-tea'}:{activityLabel:'整理窗边',activityText:'一二把窗边擦亮，布布留出一个能一起歇脚的位置。',activityAction:'tidy-window'}):id==='garden'?(ready?{activityLabel:'扶苗浇浇水',activityText:'一二扶稳小苗，布布慢慢浇水，叶子又精神了一点。',activityAction:'water-seedling'}:{activityLabel:'扫扫落叶',activityText:'两只熊扫好落叶，一起选一个将来种花的位置。',activityAction:'sweep-leaves'}):(ready?{activityLabel:arrived?'给朋友摆茶点':'准备分享的茶点',activityText:arrived?'小栗来了。一二摆杯，布布端茶，给朋友留一个位置。':'一二摆好点心，布布端稳茶盘，等邀请中的小栗来坐坐。',activityAction:arrived?'welcome-friend':'prepare-tea'}:{activityLabel:'整理门口',activityText:'两只熊把门口整理好，给将来的客人留出位置。',activityAction:'tidy-door'});
+ }
+ checkMemories(){const unlocked=[];for(const r of REGIONS)if(!this.s.world.memoryUnlocked[r.id]&&this.s.world.activities[r.id].count>=3&&this.s.stage>=MEMORY_GATES[r.id]){this.s.world.memoryUnlocked[r.id]=true;unlocked.push(r.id);}return unlocked;}
  homeActivity(id=this.s.world.region,now=Date.now()){
   this.tick(now);const region=REGIONS.find(r=>r.id===id);
   if(!region)return bad('REGION','还没有找到这个地方。');
@@ -146,8 +177,8 @@ class GameEngine{
   const record=this.s.world.activities[id];
   if(record.day>=this.s.daily.day)return bad('CLAIMED','今天已经一起做过啦，明天再来看看。');
   this.invalidate();this.s.world.region=id;record.day=this.s.daily.day;record.count++;
-  this.s.coins+=region.coins;this.addEnergy(region.energy);
-  return good('homeActivity',{region:id,message:region.activityText,coins:region.coins,energy:region.energy,memoryProgress:Math.min(3,record.count),milestone:record.count===3,memoryName:region.memoryName});
+  this.s.coins+=region.coins;this.addEnergy(region.energy);const unlocked=this.checkMemories(),details=this.activityDetails(id);
+  return good('homeActivity',{region:id,message:details.activityText,action:details.activityAction,coins:region.coins,energy:region.energy,memoryProgress:Math.min(3,record.count),milestone:unlocked.includes(id),memoryName:region.memoryName});
  }
  // Legacy saves may already have all 1000 parcel slots occupied. Hold earned chapter
  // gifts separately until a slot is freed; retrieving a gift immediately refills it.
@@ -187,7 +218,8 @@ class GameEngine{
   this.s.stats.produce++;this.s.daily.produce++;
   if(this.s.tutorial==='produce')this.s.tutorial='done';
   const discovery=this.discover(c,l);
-  return good('produce',{idx,c,l,discovery});
+  const lesson=!this.s.producerLessons[c];this.s.producerLessons[c]=true;
+  return good('produce',{idx,c,l,discovery,lesson});
  }
  move(from,to){
   if(!Number.isInteger(from)||!Number.isInteger(to)||from<0||to<0||from>=49||to>=49||from===to)return bad('POSITION','请把物品放到另一个格子。');
@@ -231,30 +263,54 @@ class GameEngine{
   const m=needMass(needs);
   return {id:`side-${++this.s.sideSerial}`,name:f[0],wish:f[1],needs,coins:12+m*2,energy:2+Math.floor(m/8)};
  }
- submit(kind,id){
+ mainOrder(){
+  const task=TASKS[this.s.stage];if(!task)return null;
+  const totalPhases=task.phases?.length||1,phase=this.s.mainPrepStep;
+  const needs=totalPhases>1?(phase<totalPhases?[task.needs[phase]]:[]):task.needs;
+  return {...task,needs:clone(needs),fullNeeds:clone(task.needs),remainingNeeds:clone(totalPhases>1?task.needs.slice(phase):task.needs),phase,totalPhases,phaseLabel:task.phases?.[phase]||task.name,lesson:task.needs.find(r=>r.c!=='clean'&&!this.s.producerLessons[r.c])?.c||null};
+ }
+ teaOrder(){
+  const {round,plan}=this.s.tea,c=TEA_CONDITIONS[round%3],p=TEA_PLANS[plan];
+  return {available:this.s.stage>=13&&CATS.every(cat=>this.s.producerLessons[cat]),id:`tea-${round}-${plan}`,round,plan,condition:c.id,conditionName:c.name,name:p.name,wish:p.wish,needs:clone(c.needs[plan]),coins:28,energy:3,region:p.region,participants:['bubu','yier',...(this.s.tea.firstVisit==='arrived'?['xiaoli']:[])],response:teaResponse(plan,c.id,this.s.tea.firstVisit==='arrived'),souvenirKey:`${c.souvenir}-${plan}`,souvenirName:c.souvenirName,souvenirRegion:c.souvenirRegion};
+ }
+ chooseTeaPlan(plan){if(!(plan in TEA_PLANS))return bad('PLAN','请选择暖心茶点或花园小聚。');if(!this.teaOrder().available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');this.invalidate();this.s.tea.plan=plan;return good('teaPlan',{plan});}
+ resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
+ beginFirstVisit(){
+  if(this.s.tea.firstVisit!=='available')return bad(this.s.tea.firstVisit==='arrived'?'ARRIVED':'LOCKED',this.s.tea.firstVisit==='arrived'?'小栗已经来过啦，可以重看这次回忆。':'等家园准备好，再迎接小栗吧。');
+  this.invalidate();this.s.tea.firstVisit='arrived';const order={...this.teaOrder(),id:'firstVisit',region:'courtyard',participants:['bubu','yier','xiaoli'],souvenirKey:null,response:[{who:'yier',text:'小栗，你来了！花架和纪念画都摆好了，这块蛋糕是留给你的。'},{who:'bubu',text:'请坐。一二摆好杯子，我把热茶端过来，慢一点喝。'},{who:'xiaoli',text:'谢谢你们的邀请。我带来了巷口捡到的小叶子，想画进给你们的回信。下次，再一起喝花草茶吧。'}]};
+  this.s.tea.lastResult=this.resultContext(order,'firstVisit');return good('firstVisit',{result:clone(this.s.tea.lastResult)});
+ }
+ equipSouvenir(region,key){const spec=SOUVENIRS.find(s=>s.key===key&&s.region===region);if(!spec||!this.s.world.souvenirs[key])return bad('SOUVENIR','先在茶会中收好这件纪念物。');this.invalidate();this.s.world.equipped[region]=key;return good('equipSouvenir',{region,key});}
+ submit(kind,id,expectedStep){
   let task,slot=-1;
   if(kind==='main'){
    if(this.s.stage>=24)return bad('FINISHED','主线已经完成，邻里委托还会继续。');
    if(id!==this.s.stage||this.s.delivered)return bad('STALE','这张心愿已经交付了，回小屋布置吧。');
-   task=TASKS[this.s.stage];
+   task=this.mainOrder();
+   if(task.totalPhases>1&&expectedStep!==task.phase)return bad('STALE','准备阶段已更新，请查看现在需要什么。');
+   if(task.lesson)return bad('LESSON',`先从${CHAINS[task.lesson].producer}亲手取出一次材料，再交付这张心愿。`);
   }else if(kind==='side'){
    slot=this.s.sideOrders.findIndex(o=>o.id===id);if(slot<0)return bad('STALE','这张委托已经更新啦。');task=this.s.sideOrders[slot];
    if(this.s.stage===0)return bad('TUTORIAL','先完成第一份小屋心愿吧。');
+  }else if(kind==='tea'){
+   task=this.teaOrder();if(!task.available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');if(id!==task.id)return bad('STALE','本次茶会的轮次或方案已改变。');
   }else return bad('ORDER','找不到这张订单。');
   if(!this.canFulfill(task.needs))return bad('MISSING','材料还差一点，点物品图标可以查看合成路线。');
   this.invalidate();this.consume(task.needs);
+  if(kind==='main'&&task.totalPhases>1){this.s.world.region=id===23&&task.phase===0?'garden':'courtyard';this.s.mainPrepStep++;if(this.s.mainPrepStep<task.totalPhases)return good('prepare',{orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});}
   this.s.coins+=task.coins;this.addEnergy(task.energy);
   this.s.stats.order++;this.s.daily.order++;
-  const levelUps=this.gainXP(10+Math.floor(needMass(task.needs)/3));
+  const levelUps=this.gainXP(10+Math.floor(needMass(kind==='main'?task.fullNeeds:task.needs)/3));
   if(kind==='main'){this.s.delivered=true;this.s.stars++;if(this.s.stage===0)this.s.tutorial='build';}
-  else{this.s.sideOrders[slot]=this.makeSide();}
-  return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps});
+  else if(kind==='side'){this.s.sideOrders[slot]=this.makeSide();}
+  else{const first=!this.s.world.souvenirs[task.souvenirKey];if(first&&!this.s.world.equipped[task.souvenirRegion])this.s.world.equipped[task.souvenirRegion]=task.souvenirKey;const result=this.resultContext(task);this.s.tea.lastResult=result;if(first)this.s.world.souvenirs[task.souvenirKey]=clone(result);this.s.tea.round++;return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps,firstSouvenir:first,result:clone(result)});}
+  return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});
  }
  build(style=0){
   if(this.s.stage>=24)return bad('FINISHED','小屋已经准备好迎接每一天啦。');
   if(!this.s.delivered||this.s.stars<1)return bad('NEED_ORDER','先完成这一项心愿订单，获得心愿星。');
   if(![0,1].includes(style))return bad('STYLE','请选择一种布置颜色。');
-  this.invalidate();const stage=this.s.stage;this.s.decorStyles[stage]=style;this.s.stars--;this.s.delivered=false;this.s.stage++;this.s.stats.build++;this.s.world.region=DECOR[stage].region;
+  this.invalidate();const stage=this.s.stage;this.s.decorStyles[stage]=style;this.s.stars--;this.s.delivered=false;this.s.stage++;this.s.mainPrepStep=0;this.s.stats.build++;this.s.world.region=DECOR[stage].region;
   const levelUps=this.gainXP(15);let opened=0;
   this.s.board=this.s.board.map(t=>{if(t?.k==='crate'&&t.openAt<=this.s.stage){opened++;return null;}return t;});
   const unlocked=CATS.filter(c=>CHAINS[c].unlock===this.s.stage);
@@ -262,7 +318,8 @@ class GameEngine{
   if(stage===0)this.s.tutorial='produce';
   const chapterDone=this.s.stage%4===0;
   if(chapterDone){this.s.coins+=CFG.chapterCoins;this.addEnergy(CFG.chapterEnergy);this.s.bag.scissors++;const c=this.unlockedCats().at(-1),l=[4,8,12].includes(this.s.stage)?1:2;this.s.world.chapterGifts.push({k:'item',c,l},{k:'item',c,l});this.flushChapterGifts();}
-  return good('build',{stage,region:DECOR[stage].region,unlocked,opened,chapterDone,chapter:Math.floor(stage/4),finished:this.s.stage===24,levelUps});
+  const memories=this.checkMemories();if(this.s.stage===24)this.s.tea.firstVisit='available';
+  return good('build',{stage,region:DECOR[stage].region,unlocked,opened,chapterDone,chapter:Math.floor(stage/4),finished:this.s.stage===24,levelUps,memories});
  }
  redecorate(id,style){
   if(!Number.isInteger(id)||id<0||id>=this.s.stage||![0,1].includes(style))return bad('DECOR','这个角落还没布置好。');
@@ -310,19 +367,37 @@ class GameEngine{
   const cost=this.expansionCost();if(this.s.coins<cost)return bad('COINS','金币还差一点。');
   this.invalidate();this.s.coins-=cost;this.s.capacity+=4;return good('expand');
  }
- buy(key){
+ resolveTarget(target){
+  if(!target||typeof target!=='object')return null;
+  if(target.kind==='main'){const o=this.mainOrder();return o&&!this.s.delivered&&target.id===o.id&&(o.totalPhases===1||target.step===o.phase)?o:null;}
+  if(target.kind==='side')return this.s.sideOrders.find(o=>o.id===target.id)||null;
+  if(target.kind==='tea'){const o=this.teaOrder();return o.available&&o.id===target.id?o:null;}
+  return null;
+ }
+ quoteParcel(target,c){
+  const task=this.resolveTarget(target);if(!task)return bad('STALE','目标已更新，请重新选择需要补给的订单。');
+  const sources=[...new Set(task.needs.filter(r=>this.count(r.c,r.l)<r.n).map(r=>r.c))];if(!sources.length)return bad('READY','这个目标的材料已经备齐，不需要再买补给。');
+  if(c===undefined&&sources.length>1)return bad('SOURCE','请选择仍缺材料的来源。');c=c??sources[0];
+  if(!sources.includes(c)||!this.unlocked(c))return bad('SOURCE','请选择这张订单仍缺材料的来源。');
+  return good('parcelQuote',{target:clone(target),source:c,sources,items:[1,1,1,2].map(l=>({k:'item',c,l})),price:CFG.parcelCost,targetName:task.name});
+ }
+ buy(key,quote){
   const costs={energy:CFG.energyCost,scissors:CFG.scissorCost,parcel:CFG.parcelCost};
   if(!(key in costs))return bad('SHOP','没有这种商品。');
+  let parcel;if(key==='parcel'){
+   if(!quote?.ok||quote.kind!=='parcelQuote')return bad('QUOTE','先查看补给的目标、来源和内容，再确认购买。');
+   parcel=this.quoteParcel(quote.target,quote.source);if(!parcel.ok)return parcel;
+   if(quote.price!==parcel.price||JSON.stringify(quote.items)!==JSON.stringify(parcel.items))return bad('QUOTE','补给预览已改变，请重新查看。');
+  }
   if(this.s.coins<costs[key])return bad('COINS','金币不够，可以先完成邻里委托。');
   if(key==='parcel'&&this.s.pending.length>996)return bad('QUEUE','待领物品太多啦，请先取出一些。');
   this.invalidate();this.s.coins-=costs[key];
   if(key==='energy')this.s.bag.energyPacks++;
   if(key==='scissors')this.s.bag.scissors++;
   if(key==='parcel'){
-   const c=TASKS[this.s.stage]?.needs.find(r=>this.count(r.c,r.l)<r.n)?.c||this.unlockedCats().at(-1);
-   for(const l of [1,1,1,2])this.s.pending.push({k:'item',c,l});
+   this.s.pending.push(...clone(parcel.items));
   }
-  return good('buy',{key});
+  return good('buy',{key,...(parcel?{target:parcel.target,source:parcel.source,items:parcel.items}:{} )});
  }
  usePack(){
   if(this.s.bag.energyPacks<=0)return bad('PACK','没有点心了，免费茶歇也能补充体力。');
@@ -356,11 +431,13 @@ class GameEngine{
  markIntro(){this.invalidate();this.s.introSeen=true;return good('intro');}
  markFinished(){this.invalidate();this.s.finishedSeen=true;return good('finished');}
  hint(orderMode='main'){
-  const side=orderMode==='side'||this.s.stage>=24;
-  if(!side&&this.s.delivered)return {kind:'build'};
-  const orders=side?this.s.sideOrders:[TASKS[this.s.stage]].filter(Boolean);
+  const tea=orderMode==='tea',side=!tea&&(orderMode==='side'||this.s.stage>=24);
+  if(!side&&!tea&&this.s.delivered)return {kind:'build'};
+  const orders=tea?(this.teaOrder().available?[this.teaOrder()]:[]):side?this.s.sideOrders:[this.mainOrder()].filter(Boolean);
+  if(!side&&!tea&&orders[0]?.lesson){const c=orders[0].lesson;return {kind:'produce',c,idx:CATS.indexOf(c),lesson:true};}
+  if(tea&&!orders.length)return {kind:'locked',message:'先认领小苗，并亲手认识每个工作台。'};
   const ready=orders.find(o=>this.canFulfill(o.needs));
-  if(ready)return {kind:'submit',orderKind:side?'side':'main',id:ready.id};
+  if(ready)return {kind:'submit',orderKind:tea?'tea':side?'side':'main',id:ready.id,...(!side&&!tea&&ready.totalPhases>1?{step:ready.phase}:{})};
   const current=orders.slice().sort((a,b)=>needMass(a.needs.filter(r=>this.count(r.c,r.l)<r.n))-needMass(b.needs.filter(r=>this.count(r.c,r.l)<r.n)))[0];
   const missing=current?.needs.filter(r=>this.count(r.c,r.l)<r.n)||[];
   const b=this.s.board;
@@ -373,16 +450,27 @@ class GameEngine{
   if(pairs.length)return pairs[0];
   return {kind:'produce',c:'clean',idx:0};
  }
- export(){return JSON.stringify({game:'bubu-yier-cozy-home',version:VERSION,exportedAt:new Date().toISOString(),state:this.s},null,2);}
+ export(){return JSON.stringify({game:'bubu-yier-cozy-home',version:APP_VERSION,exportedAt:new Date().toISOString(),state:this.s},null,2);}
 }
 
 /** Reject malformed imports before replacing the live state. Keep strict, bounded data shapes. */
 function validateState(raw){
  if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Error('存档不是有效对象。');
  const s=clone(raw.game==='bubu-yier-cozy-home'?raw.state:raw);
- if(!s||s.schema!==VERSION)throw Error('不支持的存档版本。');
+ if(!s||![1,SCHEMA_VERSION].includes(s.schema))throw Error('不支持的存档版本。');
+ const legacy=s.schema===1;
  // Repair the old chapter-award overflow without touching the caller's save object.
  if(s.world===undefined){s.world=freshWorld();if(Array.isArray(s.pending)&&s.pending.length>1000&&s.pending.length<=1012)s.world.chapterGifts=s.pending.splice(1000);}
+ if(legacy){
+  s.schema=SCHEMA_VERSION;
+  s.producerLessons=Object.fromEntries(CATS.map(c=>[c,c==='clean'||CHAINS[c].unlock<=s.stage]));
+  s.mainPrepStep=s.delivered?(TASKS[s.stage]?.phases?.length||0):0;
+  s.tea={...freshTea(),firstVisit:s.stage===24?'available':'locked'};
+  if(s.world&&typeof s.world==='object'){
+   s.world.memoryUnlocked=Object.fromEntries(REGIONS.map(r=>[r.id,(s.world.activities?.[r.id]?.count||0)>=3]));
+   s.world.souvenirs={};s.world.equipped=Object.fromEntries(REGIONS.map(r=>[r.id,null]));
+  }
+ }
  const integer=(v,min,max)=>Number.isInteger(v)&&v>=min&&v<=max;
  const check=(ok,msg)=>{if(!ok)throw Error(msg);};
  for(const k of ['createdAt','lastSeen','energyAt','restAt'])check(integer(s[k],0,9007199254740000),`时间字段 ${k} 无效。`);
@@ -402,6 +490,9 @@ function validateState(raw){
  check(s.bag&&['scissors','energyPacks'].every(k=>integer(s.bag[k],0,100000)),'道具数量无效。');
  check(s.stats&&['merge','produce','order','build','sold','unweb'].every(k=>integer(s.stats[k],0,100000000)),'累计记录无效。');
  check(s.stats.build===s.stage,'修缮次数不一致。');
+ check(s.producerLessons&&CATS.every(c=>typeof s.producerLessons[c]==='boolean')&&s.producerLessons.clean,'来源教学记录无效。');
+ const phaseCount=TASKS[s.stage]?.phases?.length||0;
+ check(integer(s.mainPrepStep,0,phaseCount)&&(!phaseCount?s.mainPrepStep===0:(s.delivered?s.mainPrepStep===phaseCount:s.mainPrepStep<phaseCount)),'准备阶段记录无效。');
  check(s.daily&&/^\d{4}-\d{2}-\d{2}$/.test(s.daily.day)&&['merge','produce','order'].every(k=>integer(s.daily[k],0,100000000))&&typeof s.daily.gift==='boolean','每日记录无效。');
  check(Array.isArray(s.daily.claimed)&&new Set(s.daily.claimed).size===s.daily.claimed.length&&s.daily.claimed.every(k=>DAILY.some(d=>d.key===k)),'每日奖励无效。');
  check(Array.isArray(s.decorStyles)&&s.decorStyles.length===24&&s.decorStyles.every((v,i)=>i<s.stage?[0,1].includes(v):v===null),'布置记录无效。');
@@ -417,6 +508,19 @@ function validateState(raw){
  check(w&&typeof w==='object'&&!Array.isArray(w)&&REGIONS.some(r=>r.id===w.region),'家园区域记录无效。');
  check(w.activities&&typeof w.activities==='object'&&!Array.isArray(w.activities)&&REGIONS.every(r=>{const a=w.activities[r.id];return a&&integer(a.count,0,100000000)&&typeof a.day==='string'&&(a.day===''||/^\d{4}-\d{2}-\d{2}$/.test(a.day))&&a.day<=s.daily.day&&(a.count===0?a.day==='':a.day!=='');}),'家园互动记录无效。');
  check(Array.isArray(w.chapterGifts)&&w.chapterGifts.length<=Math.floor(s.stage/4)*2&&w.chapterGifts.every(t=>item(t)&&!t.dust),'章节礼物记录无效。');
+ check(w.memoryUnlocked&&REGIONS.every(r=>typeof w.memoryUnlocked[r.id]==='boolean'),'生活回忆记录无效。');
+ const tea=result.tea;
+ check(tea&&integer(tea.round,0,100000000)&&Object.hasOwn(TEA_PLANS,tea.plan)&&['locked','available','arrived'].includes(tea.firstVisit)&&(s.stage===24?tea.firstVisit!=='locked':tea.firstVisit==='locked'),'茶会记录无效。');
+ const context=(r)=>r&&['tea','firstVisit'].includes(r.kind)&&typeof r.id==='string'&&r.id.length<60&&integer(r.round,0,100000000)&&Object.hasOwn(TEA_PLANS,r.plan)&&TEA_CONDITIONS.some(c=>c.id===r.condition)&&REGIONS.some(a=>a.id===r.region)&&Array.isArray(r.participants)&&r.participants.length>=2&&r.participants.length<=3&&r.participants[0]==='bubu'&&r.participants[1]==='yier'&&(r.participants.length===2||r.participants[2]==='xiaoli')&&integer(r.stage,13,24)&&Array.isArray(r.decorStyles)&&r.decorStyles.length===24&&r.decorStyles.every((v,i)=>i<r.stage?[0,1].includes(v):v===null)&&(r.kind==='firstVisit'?r.stage===24&&r.souvenirKey===null:SOUVENIRS.some(a=>a.key===r.souvenirKey&&a.plan===r.plan&&a.condition===r.condition));
+ check(tea.lastResult===null||context(tea.lastResult),'茶会展示记录无效。');
+ check(w.souvenirs&&typeof w.souvenirs==='object'&&!Array.isArray(w.souvenirs)&&Object.entries(w.souvenirs).length<=6&&Object.entries(w.souvenirs).every(([key,r])=>SOUVENIRS.some(a=>a.key===key)&&r.kind==='tea'&&r.souvenirKey===key&&context(r)),'纪念物收藏无效。');
+ check(w.equipped&&REGIONS.every(region=>{const key=w.equipped[region.id];return key===null||!!w.souvenirs[key]&&SOUVENIRS.some(a=>a.key===key&&a.region===region.id);}),'纪念物摆放无效。');
+ // Older result snapshots did not record display slots. Show empty slots rather
+ // than borrowing decorations the player equipped after the remembered event.
+ for(const record of [tea.lastResult,...Object.values(w.souvenirs)].filter(Boolean)){
+  if(record.equipped===undefined)record.equipped=Object.fromEntries(REGIONS.map(r=>[r.id,null]));
+  check(record.equipped&&REGIONS.every(region=>{const key=record.equipped[region.id];return key===null||SOUVENIRS.some(a=>a.key===key&&a.region===region.id);}),'纪念位展示快照无效。');
+ }
  return result;
 }
 
@@ -427,6 +531,12 @@ const atlasSlot = (asset, index) => ({asset, cols:3, rows:2, col:index%3, row:Ma
 
 function spriteSpec(id) {
   if (typeof id !== 'string') return null;
+  const motion = /^(bubu|yier)-(walk[1-4]|handover[1-3]|support[1-2])$/.exec(id);
+  if (motion) return motionSlot(`atlas-${motion[1]}-motion`, ['walk1','walk2','walk3','walk4','handover1','handover2','handover3','support1','support2'].indexOf(motion[2]));
+  const guest = /^xiaoli-(idle|wave|walk[1-4]|sit|receive|hold)$/.exec(id);
+  if (guest) return motionSlot('atlas-xiaoli', ['idle','wave','walk1','walk2','walk3','walk4','sit','receive','hold'].indexOf(guest[1]));
+  const prop = /^prop-(watering-can|clip|tea-cloth|coaster|postcard|wind-chime)$/.exec(id);
+  if (prop) return atlasSlot('atlas-tea-props', ['watering-can','clip','tea-cloth','coaster','postcard','wind-chime'].indexOf(prop[1]));
   const item = /^(clean|tools|bake|tea|craft|garden)-([1-6])$/.exec(id);
   if (item) return atlasSlot(`atlas-${item[1]}`, Number(item[2])-1);
   const generator = /^gen-(clean|tools|bake|tea|craft|garden)$/.exec(id);
@@ -438,6 +548,8 @@ function spriteSpec(id) {
   }
   return null;
 }
+
+const motionSlot = (asset,index) => ({asset,cols:3,rows:3,col:index%3,row:Math.floor(index/3),slotAspect:1,fit:'contain',inset:0});
 
 /** Display a slot's center, omitting specified transparent margins without editing PNGs. */
 function drawSprite(ctx, image, spec, x, y, w, h) {
@@ -456,8 +568,250 @@ function drawSprite(ctx, image, spec, x, y, w, h) {
 const SPRITE_ATLAS_IDS = [
   ...SPRITE_CATEGORIES.map(c=>`atlas-${c}`), 'atlas-generators',
   ...Array.from('abcd', letter=>`atlas-decor-${letter}`),
+  'atlas-bubu-motion','atlas-yier-motion','atlas-xiaoli','atlas-tea-props',
 ];
 const WORLD_ASSET_IDS = ['region-house','region-garden','region-courtyard','world-map','party-memory','yier-rest'];
+
+
+
+/** Shared presentation descriptors. No operation in this module changes a save or pays a reward. */
+
+
+const cloneSceneData=v=>JSON.parse(JSON.stringify(v));
+const escapeSceneText=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const sceneClamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const sceneMix=(a,b,t)=>a+(b-a)*t;
+const sceneSmooth=t=>{t=sceneClamp(t,0,1);return t*t*(3-2*t);};
+const SCENE_LAYOUT={0:{x:53,y:34,w:20},1:{x:49,y:18,w:35},4:{x:84,y:46,w:23},5:{x:84,y:72,w:24},6:{x:84,y:66,w:13},7:{x:23,y:67,w:18},9:{x:22,y:67,w:27},11:{x:82,y:22,w:22},13:{x:24,y:36,w:29},14:{x:83,y:43,w:26},15:{x:74,y:19,w:16},16:{x:82,y:91,w:19},17:{x:25,y:86,w:22},18:{x:62,y:86,w:13},19:{x:48,y:94,w:15},20:{x:50,y:22,w:54},21:{x:22,y:86,w:30},22:{x:79,y:86,w:30},23:{x:20,y:84,w:25}};
+const SCENE_SOUVENIR_LAYOUT={coaster:{id:'prop-coaster',region:'house',x:72,y:70,w:10,label:'一起选的杯垫'},card:{id:'prop-postcard',region:'courtyard',x:68,y:39,w:13,label:'手绘小卡'},chime:{id:'prop-wind-chime',region:'garden',x:72,y:23,w:12,label:'小风铃'}};
+const SCENE_WORLD_COORDS={house:[25,41],garden:[54,61],courtyard:[82,44]};
+const freezeScene=scene=>cloneSceneData(scene);
+function makeSceneActor(who,id,x,y,w=22){return {key:who,kind:'actor',who,id,x,y,w,h:w/1.12*1.2,z:12,anchor:'center',rotation:0,flip:false,label:{bubu:'布布',yier:'一二',xiaoli:'小栗'}[who]};}
+function makeSceneProp(key,id,x,y,w=12,z=14,extra={}){return {key,kind:'prop',id,x,y,w,h:w/1.12,z,anchor:'center',rotation:0,...extra};}
+function scenePoseId(id){return String(id).replace(/-happy$/,'-joy').replace(/^bubu-shy$/,'bubu-face');}
+function sceneSouvenirType(key){return Object.keys(SCENE_SOUVENIR_LAYOUT).find(t=>key?.startsWith(t+'-')||key?.startsWith(t+':'));}
+
+/** Percent coordinates are the same in DOM and exported photographs. */
+function describeScene(state,options={}){
+ const result=options.teaResult;
+ const stage=sceneClamp(Number(options.stage??result?.stage??state.stage??0),0,24);
+ const region=options.region??result?.region??state.world?.region??'house';
+ const info=REGIONS.find(r=>r.id===region)||REGIONS[0];
+ const night=Boolean(options.night??result?.night??false);
+ const styles=cloneSceneData(options.decorStyles??result?.decorStyles??state.decorStyles??{});
+ const scene={schema:1,region:info.id,name:info.name,stage,night,background:info.background,aspect:1000/1120,decorStyles:styles,interactive:Boolean(options.interactive),layers:[],result:result?cloneSceneData(result):null};
+ for(const d of DECOR.filter(d=>d.id<stage&&d.region===info.id)){
+  const p={...d,...SCENE_LAYOUT[d.id]};scene.layers.push({key:'decor-'+d.id,kind:'decor',decorId:d.id,id:`decor-${String(d.id+1).padStart(2,'0')}`,x:p.x,y:p.y,w:p.w,h:p.w/1.12,z:p.z+1,anchor:'center',variant:styles[d.id]===1,label:TASKS[d.id]?.name||'家园布置'});
+ }
+ // Historic replays do not invent souvenirs that had not yet been earned.
+ if(stage===state.stage||result||options.includeSouvenirs){
+  const equipped=options.equipped??(result?(result.equipped??{}):state.world?.equipped);
+  const key=equipped?.[info.id],type=sceneSouvenirType(key),s=SCENE_SOUVENIR_LAYOUT[type];
+  if(s)scene.layers.push(makeSceneProp('souvenir-'+key,s.id,s.x,s.y,s.w,15,{kind:'souvenir',souvenirKey:key,variant:key.endsWith('garden'),rotation:key.endsWith('garden')?-9:5,label:s.label}));
+ }
+ const prep=Number(options.prepStep??(stage===state.stage?state.mainPrepStep:0)??0);
+ if(stage===22&&info.id==='courtyard'){
+  if(prep>=1)scene.layers.push(makeSceneProp('prep-sweets','bake-6',72,81,18,10));
+  if(prep>=2)scene.layers.push(makeSceneProp('prep-tea','tea-5',78,75,15,11));
+ }
+ if(stage===23&&info.id==='garden'&&prep>=1)scene.layers.push(makeSceneProp('prep-flower','garden-6',23,79,24,10));
+ if(stage===23&&prep>=2&&info.id==='courtyard')scene.layers.push(makeSceneProp('prep-picture','craft-6',24,76,20,10));
+ if(stage===23&&prep>=3&&info.id==='courtyard')scene.layers.push(makeSceneProp('prep-cake','bake-5',71,80,17,10));
+ if(options.characters!==false){
+  const poses=options.poses||(night&&info.id==='house'?['bubu-sit','yier-rest']:['bubu-idle','yier-turn']);
+  scene.layers.push(makeSceneActor('bubu',scenePoseId(poses[0]),42.5,60.5),makeSceneActor('yier',scenePoseId(poses[1]),60.5,60.5));
+ }
+ if(result){
+  scene.layers=scene.layers.filter(l=>l.kind!=='actor');
+  const garden=result.plan==='garden';
+  scene.layers.push(makeSceneProp('tea-cloth','prop-tea-cloth',garden?50:65,garden?78:73,garden?37:26,9,{rotation: garden? -5:0,variant:garden}));
+  scene.layers.push(makeSceneProp('tea-snack',garden?'garden-3':'bake-3',garden?54:68,garden?76:70,13,10));
+  scene.layers.push(makeSceneActor('bubu','bubu-handover3',garden?34:44,63),makeSceneActor('yier','yier-handover3',garden?57:66,64));
+  scene.layers.push(makeSceneProp('cup-one','tea-2',garden?46:61,72,8),makeSceneProp('cup-two','tea-2',garden?56:71,73,8),makeSceneProp('teapot','tea-4',garden?37:49,69,12));
+  if(result.participants?.includes('xiaoli')){scene.layers.push(makeSceneActor('xiaoli','xiaoli-hold',garden?73:81,65,18),makeSceneProp('guest-cup','tea-2',garden?68:76,69,7));}
+  if(result.condition==='memory')scene.layers.push(makeSceneProp('tea-card','prop-postcard',garden?49:62,78,11,15,{rotation:garden?-12:8}));
+  if(result.condition==='wind')scene.layers.push(makeSceneProp('tea-clip','prop-clip',garden?66:74,garden?77:73,6,16));
+ }
+ return freezeScene(scene);
+}
+
+function sceneSpriteHTML(id,url){
+ const spec=spriteSpec(id);if(!spec)return `<img src="${escapeSceneText(url(id))}" draggable="false" alt="">`;
+ const inset=spec.inset||0,size=(1-2*inset)*100;
+ // Build supplies dimensions for non-square generated sheets; Canvas uses source pixels directly.
+ const dims=globalThis.window?.__ASSET_SIZES__?.[spec.asset];
+ const ratio=dims?((dims[0]/spec.cols)/(dims[1]/spec.rows)):spec.slotAspect||1;
+ return `<svg viewBox="0 0 ${100*ratio} 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><svg width="${100*ratio}" height="100" viewBox="${inset*100*ratio} ${inset*100} ${size*ratio} ${size}" overflow="hidden"><image href="${escapeSceneText(url(spec.asset))}" x="${-spec.col*100*ratio}" y="${-spec.row*100}" width="${spec.cols*100*ratio}" height="${spec.rows*100}" preserveAspectRatio="none"/></svg></svg>`;
+}
+function sceneLayerStyle(l,scene){return `left:${l.x}%;top:${l.y}%;width:${l.w}%;height:${l.h}%;z-index:${l.z};transform:translate(-50%,-50%) rotate(${l.rotation||0}deg)${l.flip?' scaleX(-1)':''};filter:${l.kind==='actor'?'none':[l.variant?'hue-rotate(24deg) saturate(.85)':'',scene.night?'brightness(.84)':''].filter(Boolean).join(' ')||'none'}`;}
+function renderSceneHTML(scene,{assetURL=id=>`assets/${id}.png`,interactive=scene.interactive}={}){
+ const layers=scene.layers.map(l=>{
+  const click=interactive&&['decor','actor','souvenir'].includes(l.kind),tag=click?'button':'div';
+  const action=l.kind==='decor'?`data-action="furniture" data-id="${l.decorId}"`:l.kind==='actor'?`data-action="chat" data-who="${l.who}"`:`data-action="souvenirReplay" data-key="${escapeSceneText(l.souvenirKey)}"`;
+  return `<${tag} class="scene-layer scene-${l.kind} ${l.who||''}" data-scene-layer="${escapeSceneText(l.key)}" data-sprite="${escapeSceneText(l.id)}" style="${sceneLayerStyle(l,scene)}" ${click?`${action} aria-label="${escapeSceneText(l.label)}"`: 'aria-hidden="true"'}>${l.id?sceneSpriteHTML(l.id,assetURL):''}</${tag}>`;
+ }).join('');
+ return `<img class="scene-background" src="${escapeSceneText(assetURL(scene.background))}" alt="" draggable="false" style="filter:${scene.night?'brightness(.64) saturate(.7)':'none'}">${layers}${scene.night?'<div class="scene-night-glow" aria-hidden="true"></div>':''}`;
+}
+
+/** Snapshot before awaiting any image. Photos cannot drift to a new region/tea round. */
+async function drawSceneCanvas(ctx,input,{loadImage,width=1000,height=1120}={}){
+ if(typeof loadImage!=='function')throw new TypeError('drawSceneCanvas requires loadImage(assetId)');
+ const scene=freezeScene(input);
+ const ids=[...new Set([scene.background,...scene.layers.filter(l=>l.id).map(l=>spriteSpec(l.id)?.asset||l.id)])];
+ const images=new Map(await Promise.all(ids.map(async id=>[id,await loadImage(id)])));
+ ctx.save();ctx.beginPath();ctx.rect(0,0,width,height);ctx.clip();ctx.filter=scene.night?'brightness(.64) saturate(.7)':'none';ctx.drawImage(images.get(scene.background),0,0,width,height);ctx.filter='none';
+ for(const l of [...scene.layers].sort((a,b)=>a.z-b.z)){
+  ctx.save();ctx.translate(l.x/100*width,l.y/100*height);ctx.rotate((l.rotation||0)*Math.PI/180);if(l.flip)ctx.scale(-1,1);
+  ctx.filter=l.kind==='actor'?'none':[l.variant?'hue-rotate(24deg) saturate(.85)':'',scene.night?'brightness(.84)':''].filter(Boolean).join(' ')||'none';
+  const w=l.w/100*width,h=l.h/100*height;
+  if(l.kind==='water'){ctx.fillStyle='#7cd5ef';ctx.beginPath();ctx.ellipse(0,0,w/2,h/2,0,0,Math.PI*2);ctx.fill();}
+  else drawSprite(ctx,images.get(spriteSpec(l.id)?.asset||l.id),spriteSpec(l.id),-w/2,-h/2,w,h);ctx.restore();
+ }
+ if(scene.night){for(const [x,y,r,color] of [[.82,.28,.24,'rgba(255,217,122,.267)'],[.6,.78,.28,'rgba(255,207,102,.333)']]){const glow=ctx.createRadialGradient(x*width,y*height,0,x*width,y*height,r*width);glow.addColorStop(0,color);glow.addColorStop(1,'rgba(255,217,122,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,width,height);}}
+ ctx.restore();return scene;
+}
+
+function describeWorldMap(state){
+ const layers=[];
+ for(const [region,threshold,id] of [['house',7,'tea-2'],['garden',13,'garden-2'],['courtyard',21,'decor-21']]){
+  const [x,y]=SCENE_WORLD_COORDS[region];if(state.stage>=threshold)layers.push(makeSceneProp('map-'+region,id,x-5,y+10,region==='courtyard'?17:9,1));
+  const key=state.world?.equipped?.[region],s=SCENE_SOUVENIR_LAYOUT[sceneSouvenirType(key)];if(s)layers.push(makeSceneProp('map-souvenir-'+region,s.id,x+9,y-6,8,2,{variant:key.endsWith('garden')}));
+ }
+ return {layers};
+}
+function renderWorldOverlays(state,options={}){return renderSceneHTML({...describeWorldMap(state),background:'world-map',night:false,interactive:false},options).replace(/^<img[^>]+>/,'');}
+
+const sceneWalkFrame=(who,t)=>`${who}-walk${Math.floor(t*9)%4+1}`;
+const sceneHoldFrame=(who,t)=>`${who}-handover${Math.min(3,1+Math.floor(t*3))}`;
+const getSceneActor=(scene,who)=>scene.layers.find(l=>l.who===who);
+const setSceneProp=(scene,l)=>{const idx=scene.layers.findIndex(p=>p.key===l.key);if(idx>=0)scene.layers[idx]=l;else scene.layers.push(l);};
+function sceneHand(scene,who,id,key,dx=-5,dy=5,w=11,rotation=0){const a=getSceneActor(scene,who);if(a)setSceneProp(scene,makeSceneProp(key,id,a.x+dx,a.y+dy,w,a.z+1,{rotation,heldBy:who,handOffset:[dx,dy]}));}
+function moveSceneActor(scene,who,from,to,t,pose='walk'){
+ const a=getSceneActor(scene,who);if(!a)return;
+ a.x=sceneMix(from[0],to[0],sceneSmooth(t));a.y=sceneMix(from[1],to[1],sceneSmooth(t));
+ a.id=pose==='walk'?sceneWalkFrame(who,t):pose==='hold'?sceneHoldFrame(who,t):`${who}-${pose}`;
+ a.flip=to[0]<from[0];
+}
+function sceneMotionSteps(event,scene){
+ const c=scene.result?.condition,region=scene.region;
+ const guestStep=scene.result?.participants?.includes('xiaoli')?[{label:'小栗接过这一杯',kind:'guest-cup',duration:800}]:[];
+ if((event==='homeActivity-house'&&scene.stage<7)||(event==='homeActivity-garden'&&scene.stage<13)||(event==='homeActivity-courtyard'&&scene.stage<23))return [{label:'两只熊一起整理这个角落',kind:'tidy',duration:2700}];
+ if(event==='firstVisit')return [{label:'两熊让出位置，在入口迎接小栗',kind:'enter',duration:1200},{label:'一二走到桌边，摆好三只杯子',kind:'cups',duration:1200},{label:'布布拿稳茶壶，走到桌边倒茶',kind:'pour',duration:1800},{label:'一二递出杯子，小栗坐好接住',kind:'guest-cup',duration:1600}];
+ if(event==='homeActivity-garden'||(event==='tea'&&scene.result?.plan==='garden'&&c!=='wind'))return [{label:'一二先扶稳小苗',kind:'support',duration:1700},{label:'布布拿水壶，慢慢浇水',kind:'water',duration:2000},{label:'放下水壶，端茶回树荫下',kind:'garden-tea',duration:1400},...guestStep];
+ if(event==='tea'&&c==='wind')return [{label:'选好先压稳还是先固定一角',kind:'wind',duration:1800},{label:'另一只熊接着把茶巾夹好',kind:'clip',duration:2100},...guestStep];
+ if(/^prep-/.test(event))return [{label:event.includes('22')?'把准备好的茶点摆到桌上':'把这份准备亲手放好',kind:'prep',duration:2400}];
+ if(event==='homeActivity-garden-tidy'||event==='homeActivity-house-tidy'||event==='homeActivity-courtyard-tidy')return [{label:'两只熊一起整理这个角落',kind:'tidy',duration:2700}];
+ return [{label:'一二走到桌边，放好杯子',kind:'cups',duration:1800},{label:'布布拿稳茶壶，走过来倒茶',kind:'pour',duration:2300},...(scene.result?.participants?.includes('xiaoli')?[{label:'小栗接过这一杯',kind:'guest-cup',duration:900}]:[])];
+}
+
+function animatedSceneFrame(base,step,t,index,{choice='anchor'}={}){
+ const s=freezeScene(base),garden=s.region==='garden';
+ if(!getSceneActor(s,'bubu'))s.layers.push(makeSceneActor('bubu','bubu-idle',40,60));
+ if(!getSceneActor(s,'yier'))s.layers.push(makeSceneActor('yier','yier-turn',61,60));
+ const bx=garden?34:43,yx=garden?57:66,tx=garden?50:66,ty=garden?77:73;
+ // Tea work happens in the clear central route; temporary cloth is not a permanent unlock.
+ if(['cups','pour','garden-tea','wind','clip','enter','guest-cup'].includes(step.kind))setSceneProp(s,makeSceneProp('tea-cloth','prop-tea-cloth',tx,ty,garden?37:27,9,{rotation:garden?-5:0}));
+ const b=getSceneActor(s,'bubu'),y=getSceneActor(s,'yier');
+ const startOf=who=>{const a=getSceneActor(base,who)||getSceneActor(s,who);return [a.x,a.y];};
+ const k=step.kind;
+ if(k!=='guest-cup'&&k!=='enter'){
+  const guest=getSceneActor(s,'xiaoli');if(guest)guest.id='xiaoli-sit';
+  s.layers=s.layers.filter(l=>l.key!=='guest-cup');
+ }
+ if(k==='cups'){
+  s.layers=s.layers.filter(l=>!['cup-one','cup-two','cup-three'].includes(l.key));
+  moveSceneActor(s,'yier',startOf('yier'),[yx,64],t,t<.7?'walk':'hold');
+  if(t<.82)sceneHand(s,'yier','tea-2','cup-one',-5,6,8);else setSceneProp(s,makeSceneProp('cup-one','tea-2',tx-5,ty-2,8));
+  if(t>.7)setSceneProp(s,makeSceneProp('cup-two','tea-2',tx+5,ty-1,8));
+  if(t>.84&&getSceneActor(s,'xiaoli'))setSceneProp(s,makeSceneProp('cup-three','tea-2',tx+11,ty+1,7));b.id='bubu-idle';
+ }else if(k==='pour'||k==='garden-tea'){
+  const oldCan=base.layers.find(l=>l.key==='watering-can');
+  if(oldCan){const p=sceneSmooth(sceneClamp(t/.22,0,1));setSceneProp(s,makeSceneProp('watering-can','prop-watering-can',sceneMix(oldCan.x,oldCan.x-9,p),sceneMix(oldCan.y,oldCan.y+7,p),13,10));}
+  if(k==='garden-tea'){
+   const staged=base.layers.find(l=>l.key==='teapot'),pickup=staged?[staged.x-6,staged.y-7]:startOf('bubu');
+   if(t<.55)moveSceneActor(s,'bubu',startOf('bubu'),pickup,sceneClamp((t-.22)/.33,0,1),'walk');
+   else moveSceneActor(s,'bubu',pickup,[bx,62],sceneClamp((t-.55)/.35,0,1),t<.9?'walk':'hold');
+   moveSceneActor(s,'yier',startOf('yier'),[yx,64],t,t<.75?'walk':'hold');
+  }else{
+   const staged=base.layers.find(l=>l.key==='teapot'),pickup=staged?[staged.x-6,staged.y-7]:startOf('bubu');
+   if(t<.25)moveSceneActor(s,'bubu',startOf('bubu'),pickup,t/.25,'walk');
+   else moveSceneActor(s,'bubu',pickup,[bx,62],sceneClamp((t-.25)/.5,0,1),t<.75?'walk':'hold');
+   y.id='yier-handover3';
+  }
+  if(t>=(k==='garden-tea'?.55:.25))sceneHand(s,'bubu','tea-4','teapot',6,7,12,t>.9?sceneMix(0,28,sceneSmooth((t-.9)/.1)):0);
+  setSceneProp(s,makeSceneProp('cup-one','tea-2',tx-5,ty-2,8));setSceneProp(s,makeSceneProp('cup-two','tea-2',tx+5,ty-1,8));
+  if(getSceneActor(s,'xiaoli'))setSceneProp(s,makeSceneProp('cup-three','tea-2',tx+11,ty+1,7));
+  if(t>.82)setSceneProp(s,{key:'tea-stream',kind:'water',id:null,x:(bx+6+tx-5)/2+2,y:70,w:.65,h:7,z:16,rotation:-65});
+ }else if(k==='support'||k==='water'){
+  // The actual seedling is at the same position as its scene decor, never floating elsewhere.
+  const seed=s.layers.find(l=>l.decorId===12),sx=seed?.x??22,sy=seed?.y??57;
+  moveSceneActor(s,'yier',startOf('yier'),[sx+12,sy],t,k==='support'&&t<.72?'walk':'support2');
+  y.id=t>.45||k==='water'?'yier-support2':'yier-walk'+(Math.floor(t*9)%4+1);
+  if(k==='water'){
+   moveSceneActor(s,'bubu',startOf('bubu'),[sx+25,sy-2],t,t<.64?'walk':'support1');
+   sceneHand(s,'bubu','prop-watering-can','watering-can',-6,5,13,t>.65?-25:0);
+   if(t>.7)for(let j=0;j<3;j++)setSceneProp(s,{key:'water-'+j,kind:'water',id:null,x:sx+4+j*2,y:sy-3+(t*18+j*3)%9,w:1,h:1.6,z:16,rotation:-20});
+  }
+ }else if(k==='wind'||k==='clip'){
+  const cloth=s.layers.find(l=>l.key==='tea-cloth');cloth.x=tx+(k==='wind'?(1-t)*5*Math.sin(t*10):0);cloth.rotation=(garden?-5:0)+(k==='wind'?(1-t)*14*Math.sin(t*13):0);
+  const first=choice==='clip'?'bubu':'yier',second=first==='bubu'?'yier':'bubu',who=k==='wind'?first:second;
+  moveSceneActor(s,who,startOf(who),[tx+(who==='bubu'?-15:13),66],t,t<.6?'walk':'support2');
+  const placingClip=(k==='wind')===(choice==='clip'),id=placingClip?'prop-clip':'prop-coaster',key=placingClip?'tea-clip':'tea-anchor';
+  const corner=k==='wind'?-1:1;
+  if(t<.78)sceneHand(s,who,id,key,who==='bubu'?7:-6,8,placingClip?7:9);
+  else setSceneProp(s,makeSceneProp(key,id,tx+corner*12,ty+(placingClip?-1:1),placingClip?7:9,16,{rotation:placingClip?(choice==='clip'?-12:12):0}));
+  if(k==='clip')getSceneActor(s,first).id=`${first}-support2`;
+ }else if(k==='enter'){
+  s.layers=s.layers.filter(l=>l.who!=='xiaoli'&&l.key!=='guest-cup');s.layers.push(makeSceneActor('xiaoli',t<.2?'xiaoli-wave':t>.92?'xiaoli-sit':sceneWalkFrame('xiaoli',t),sceneMix(108,79,sceneSmooth(t)),sceneMix(54,65,sceneSmooth(t)),18));
+  moveSceneActor(s,'bubu',startOf('bubu'),[37,62],t,t<.75?'walk':'hold');moveSceneActor(s,'yier',startOf('yier'),[59,64],t,t<.75?'walk':'hold');
+ }else if(k==='guest-cup'){
+  if(!getSceneActor(s,'xiaoli'))s.layers.push(makeSceneActor('xiaoli','xiaoli-sit',garden?73:79,65,18));
+  const guest=getSceneActor(s,'xiaoli');guest.id=t<.34?'xiaoli-sit':t<.8?'xiaoli-receive':'xiaoli-hold';
+  moveSceneActor(s,'yier',startOf('yier'),[guest.x-14,64],t,t<.4?'walk':'hold');
+  const spare=base.layers.find(l=>l.key==='cup-three'),start=getSceneActor(s,'yier');s.layers=s.layers.filter(l=>l.key!=='cup-three');
+  const cupT=sceneSmooth(sceneClamp((t-.35)/.65,0,1));setSceneProp(s,makeSceneProp('guest-cup','tea-2',sceneMix(spare?.x??start.x+5,guest.x-4,cupT),sceneMix(spare?.y??start.y+6,guest.y+5,cupT),7,15));
+ }else if(k==='prep'){
+  const item=s.layers.filter(l=>l.key.startsWith('prep-')).at(-1);
+  moveSceneActor(s,'yier',startOf('yier'),[item?sceneClamp(item.x-13,20,76):65,item?sceneClamp(item.y-12,43,70):65],t,t<.75?'walk':'hold');
+  if(item&&t<.8){s.layers=s.layers.filter(l=>l.key!==item.key);sceneHand(s,'yier',item.id,item.key,7,7,Math.min(item.w,16));}
+  b.id='bubu-support1';
+ }else if(k==='tidy'){
+  moveSceneActor(s,'bubu',startOf('bubu'),[27,65],t,t<.65?'walk':'support1');moveSceneActor(s,'yier',startOf('yier'),[47,66],t,t<.65?'walk':'support2');sceneHand(s,'bubu','clean-2','tidy-cloth',5,6,9);sceneHand(s,'yier','clean-1','tidy-sponge',-5,6,8);
+ }
+ for(const l of s.layers.filter(l=>l.heldBy)){const a=getSceneActor(s,l.heldBy);if(a){l.x=a.x+l.handOffset[0];l.y=a.y+l.handOffset[1];}}
+ s.action={kind:k,step:index,progress:t,choice};s.caption=step.label;return s;
+}
+
+/** Two explicit steps normally make one 3–6 second sequence. advance() is the player action. */
+function createScenePlayer({event='tea',scene,onFrame=()=>{},onComplete=()=>{},onStep=()=>{},reducedMotion=false,choice='anchor',clock=()=>globalThis.performance?.now?.()??Date.now(),schedule=fn=>setTimeout(fn,80),cancel=id=>clearTimeout(id)}={}){
+ const base=freezeScene(scene),steps=sceneMotionSteps(event,base);
+ const initial=freezeScene(base);
+ initial.layers=initial.layers.filter(l=>!['cup-one','cup-two','cup-three','guest-cup','tea-stream','tea-clip','tea-anchor'].includes(l.key)&&l.kind!=='water');
+ for(const a of initial.layers.filter(l=>l.kind==='actor')){a.id=a.who==='xiaoli'?'xiaoli-sit':`${a.who}-${a.who==='bubu'?'idle':'turn'}`;}
+ if(event==='firstVisit')initial.layers=initial.layers.filter(l=>l.who!=='xiaoli');
+ if(steps.some(s=>s.kind==='cups'||s.kind==='garden-tea'))setSceneProp(initial,makeSceneProp('teapot','tea-4',29,65,12,10));
+ let stepBase=freezeScene(initial),step=0,playing=false,timer=null,startAt=0,destroyed=false,done=false,started=false;
+ const updateLabels=()=>{if(event==='tea'&&base.result?.condition==='wind'){steps[0].label=choice==='clip'?'布布先夹住茶巾的一角':'一二先把杯垫压在茶巾上';steps[1].label=choice==='clip'?'一二接着用杯垫压住另一角':'布布接着夹好另一角';}};
+ updateLabels();
+ const emit=(t)=>onFrame(animatedSceneFrame(stepBase,steps[step],t,step,{choice}));
+ const stop=()=>{if(timer!==null)cancel(timer);timer=null;playing=false;};
+ const finalScene=()=>{const end=animatedSceneFrame(stepBase,steps[step],1,step,{choice});end.layers=end.layers.filter(l=>l.kind!=='water'&&l.key!=='tea-stream');return end;};
+ const finishStep=()=>{stop();stepBase=finalScene();onFrame(freezeScene(stepBase));if(step===steps.length-1){done=true;onComplete(freezeScene(stepBase));}else onStep({index:step+1,label:steps[step+1].label,waiting:true});};
+ const tick=()=>{if(destroyed||!playing)return;const t=sceneClamp((clock()-startAt)/steps[step].duration,0,1);emit(t);if(t>=1)finishStep();else timer=schedule(tick);};
+ function play(){if(destroyed||done||playing)return;started=true;playing=true;startAt=clock();onStep({index:step,label:steps[step].label,waiting:false});if(reducedMotion){emit(0);timer=schedule(()=>{if(!destroyed)finishStep();});}else tick();}
+ return {get steps(){return steps.map(s=>({...s}));},get initialScene(){return freezeScene(initial);},start:play,advance(){if(destroyed||playing||done||!started)return;if(step<steps.length-1)step++;play();},setChoice(value){if(!started){choice=value==='clip'?'clip':'anchor';updateLabels();}},skip(){if(destroyed||done)return;stop();for(;step<steps.length;step++)stepBase=finalScene();step=steps.length-1;onFrame(freezeScene(stepBase));done=true;onComplete(freezeScene(stepBase));},replay(){if(destroyed)return;stop();step=0;stepBase=freezeScene(initial);done=false;started=false;play();},destroy(){destroyed=true;stop();},get status(){return {step,playing,done,waiting:started&&!playing&&!done};}};
+}
+
+const SCENE_STYLES=`
+.scene-layers{position:absolute;inset:0;overflow:hidden;isolation:isolate}
+.scene-background{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:0}
+.scene-layer{position:absolute;display:block;padding:0;border:0;background:none;min-height:0;line-height:0;transform-origin:center;will-change:transform}
+.scene-layer>img,.scene-layer>svg{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+button.scene-layer{cursor:pointer;border-radius:10px}button.scene-layer:focus-visible{outline:3px solid #678b53;outline-offset:2px}
+.scene-water{background:#7cd5ef;border-radius:70% 30% 70% 30%;opacity:.85}
+.scene-night-glow{position:absolute;inset:0;pointer-events:none;z-index:18;background:radial-gradient(circle at 82% 28%,#ffd97a44,transparent 22%),radial-gradient(circle at 60% 78%,#ffcf6655,transparent 25%)}
+.world-canvas>.scene-layer{pointer-events:none}
+`;
 
 
 
@@ -470,8 +824,8 @@ const asset=(id)=>window.__ASSETS__?.[id]||`assets/${id}.${id==='cozy-loop'?'wav
 const picture=(id,cls='',alt='')=>{
  const p=spriteSpec(id);
  if(!p)return `<img src="${asset(id)}" class="${cls}" alt="${esc(alt)}" draggable="false">`;
- const inset=p.inset||0,size=(1-2*inset)*100;
- return `<span class="sprite-shell ${cls}" role="img" aria-label="${esc(alt)}"><svg class="sprite-frame" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><svg width="100" height="100" viewBox="${inset*100} ${inset*100} ${size} ${size}" overflow="hidden"><image href="${asset(p.asset)}" x="${-p.col*100}" y="${-p.row*100}" width="${p.cols*100}" height="${p.rows*100}" preserveAspectRatio="none"/></svg></svg></span>`;
+ const inset=p.inset||0,size=(1-2*inset)*100,dims=window.__ASSET_SIZES__?.[p.asset],ratio=dims?(dims[0]/p.cols)/(dims[1]/p.rows):(p.slotAspect||1);
+ return `<span class="sprite-shell ${cls}" role="img" aria-label="${esc(alt)}"><svg class="sprite-frame" viewBox="0 0 ${100*ratio} 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><svg width="${100*ratio}" height="100" viewBox="${inset*100*ratio} ${inset*100} ${size*ratio} ${size}" overflow="hidden"><image href="${asset(p.asset)}" x="${-p.col*100*ratio}" y="${-p.row*100}" width="${p.cols*100*ratio}" height="${p.rows*100}" preserveAspectRatio="none"/></svg></svg></span>`;
 };
 // Presentation-only positions: keep the middle clear and arrange furniture along the edges.
 // Cups on the table and cushions on the rug are the only deliberate layered groups.
@@ -516,25 +870,27 @@ const PATHS={
 const icon=(id,cls='')=>`<svg viewBox="0 0 24 24" class="icon ${cls}" aria-hidden="true"><path d="${PATHS[id]||PATHS.heart}"/></svg>`;
 const btn=(text,action,cls='',extra='')=>`<button class="button ${cls}" data-action="${action}" ${extra}>${text}</button>`;
 const ib=(id,action,label,extra='',small=false)=>`<button class="icon-button ${small?'small':''}" data-action="${action}" aria-label="${label}" title="${label}" ${extra}>${icon(id)}</button>`;
-const STORE='bubu-yier-cozy-home-v1',BACKUP=STORE+'-backup';
+const STORE='bubu-yier-cozy-home-v1.2',BACKUP=STORE+'-backup',INITIALIZED=STORE+'-initialized',LEGACY_STORE='bubu-yier-cozy-home-v1';
 let saveWarning='',lastValid='',storageFailed=false;
 function load(){
  try{
-  for(const key of [STORE,BACKUP]){
+  const keys=localStorage.getItem(STORE)===null&&!localStorage.getItem(INITIALIZED)?[STORE,BACKUP,LEGACY_STORE,LEGACY_STORE+'-backup']:[STORE,BACKUP];
+  for(const key of keys){
    const v=localStorage.getItem(key);if(!v)continue;
-   try{const s=validateState(JSON.parse(v));lastValid=JSON.stringify(s);if(key===BACKUP)saveWarning='上次存档损坏，已恢复最近的安全备份。';return s;}catch{saveWarning='检测到无效存档，未载入错误内容。新进度可在设置里导出。';}
+   try{const s=validateState(JSON.parse(v));lastValid=key===LEGACY_STORE||key===LEGACY_STORE+'-backup'?'':JSON.stringify(s);if(key===LEGACY_STORE||key===LEGACY_STORE+'-backup')saveWarning='已复制旧版进度。新版独立保存，原版存档保留。';if(key===BACKUP)saveWarning='上次存档损坏，已恢复最近的安全备份。';return s;}catch{saveWarning='检测到无效存档，未载入错误内容。新进度可在设置里导出。';}
   }
  }catch{storageFailed=true;saveWarning='浏览器暂时不允许本地保存，请用“导出存档”保管进度。';}
  return null;
 }
 let game=new GameEngine(load());
-const ui={tab:game.s.stage===0?'merge':'home',homeMode:'map',mapScroll:0,orderMode:'main',bookMode:'memories',selected:null,highlight:[],modal:null,story:null,splash:true,styleChoice:0,storageTab:'storage',night:game.s.stage>=16&&game.s.stage<20,newDecor:null};
+const ui={tab:game.s.stage===0?'merge':'home',homeMode:'map',mapScroll:0,orderMode:'main',bookMode:'memories',selected:null,highlight:[],modal:null,story:null,splash:true,styleChoice:0,storageTab:'storage',night:game.s.stage>=16&&game.s.stage<20,newDecor:null,scenePlayer:null,sceneSnapshot:null,parcelTarget:null,parcelSource:null,photoBusy:false};
 const app=$('#app'),main=$('#main'),modalRoot=$('#modal-root'),overlayRoot=$('#overlay-root');
 let toastTimer=0,highlightTimer=0,chatTimer=0,drag=null,ignoreClickUntil=0,hasStarted=false;
-let imageCache=new Map();
+let imageCache=new Map(),modalReturnFocus=null;
+const sceneStyle=document.createElement('style');sceneStyle.textContent=SCENE_STYLES;document.head.append(sceneStyle);
 function persist(){
- try{const raw=JSON.stringify(game.s);if(raw===lastValid)return;if(lastValid)localStorage.setItem(BACKUP,lastValid);localStorage.setItem(STORE,raw);lastValid=raw;storageFailed=false;}
- catch{if(!storageFailed){storageFailed=true;saveWarning='本地保存失败。请在设置里导出存档，避免关闭后丢失。';toast(saveWarning,5000);}}
+ try{const raw=JSON.stringify(game.s);if(raw===lastValid)return true;if(lastValid)localStorage.setItem(BACKUP,lastValid);localStorage.setItem(STORE,raw);lastValid=raw;storageFailed=false;try{localStorage.setItem(INITIALIZED,'1');}catch{}return true;}
+ catch{if(!storageFailed){storageFailed=true;saveWarning='本地保存失败。请在设置里导出存档，避免关闭后丢失。';toast(saveWarning,5000);}return false;}
 }
 
 class Sounds{
@@ -573,7 +929,9 @@ function run(r,{quiet=false}={}){
  persist();render();
  if(r.kind==='produce'){sounds.play('produce');pop(r.idx);if(r.discovery)discoveryToast(r.c,r.l);}
  else if(r.kind==='merge'){sounds.play('merge');mergeFlight(r);pop(r.to);burst(r.to);if(r.discovery)setTimeout(()=>discoveryToast(r.c,r.l),370);else if(r.dust)toast('尘封解开了 · 金币 +5');}
- else if(r.kind==='submit'){sounds.play('success');if(r.orderKind==='main')openModal({type:'submitted',result:r});else{toast(`委托送达 · 金币 +${r.coins} · 体力 +${r.energy}`);burst(null);}}
+ else if(r.kind==='prepare'){sounds.play('place');playEvent('prep',{result:r});}
+ else if(r.kind==='firstVisit'){sounds.play('talk');playEvent('firstVisit',{teaResult:r.result});}
+ else if(r.kind==='submit'){sounds.play('success');if(r.orderKind==='tea'){playEvent('tea',{teaResult:r.result||r.teaResult||game.s.tea.lastResult,reward:r});}else if(r.orderKind==='main'){if(r.totalPhases>1)playEvent('prep',{result:r,after:()=>openModal({type:'submitted',result:r})});else openModal({type:'submitted',result:r});}else{toast(`委托送达 · 金币 +${r.coins} · 体力 +${r.energy}`);burst(null);}}
  else if(r.kind==='sell'){sounds.play('tap');toast(`已换成 ${r.coins} 金币 · 下一步操作前可撤销`);}
  else if(r.kind==='store'){sounds.play('tap');toast('收好了，仓库物品也能直接用于交付。');}
  else if(r.kind==='retrieve'){sounds.play('produce');pop(r.idx);if(r.discovery)discoveryToast(r.c,r.l);}
@@ -585,7 +943,7 @@ function run(r,{quiet=false}={}){
  else if(r.kind==='expand'){sounds.play('success');toast('又能多收好四件小东西啦。');}
  else if(r.kind==='buy'){sounds.play('tap');toast(r.key==='parcel'?'四件补给已放进“待领礼物”，满盘也不会丢失。':'已经放进随身道具。');}
  else if(['dailyGift','dailyReward'].includes(r.kind)){sounds.play('success');toast('今天的小奖励，收好啦！');burst(null);}
- else if(r.kind==='homeActivity'){sounds.play('success');playHomeActivity(r);toast(`${r.message} · 金币 +${r.coins} · 体力 +${r.energy}`,4000);burst(null);if(r.milestone)setTimeout(()=>openModal({type:'worldMemory',result:r}),2200);}
+ else if(r.kind==='homeActivity'){sounds.play('success');playHomeActivity(r);toast(`${r.message} · 金币 +${r.coins} · 体力 +${r.energy}`,4000);burst(null);if(r.milestone)toast('新的家园回忆已经收进手帐。',4500);}
  else if(r.kind==='refresh'){toast('换了一张新纸条。原来的物品都还在。');}
  else if(r.kind==='sort'){toast('按类别和等级整理好了，没有自动合成。');}
  else if(!quiet)sounds.play('tap');
@@ -598,6 +956,7 @@ function render(){
  main.scrollTop=scroll;
  const map=$('.world-viewport');if(map)map.scrollLeft=ui.mapScroll;
  if(ui.modal)renderModal();
+ syncInert();
 }
 function navigate(tab){if(tab==='home'&&game.s.delivered)focusBuildRegion();ui.tab=tab;ui.selected=null;ui.highlight=[];render();main.scrollTop=0;}
 function focusBuildRegion(){const region=DECOR[game.s.stage]?.region;if(region){game.visitRegion(region);persist();ui.homeMode='region';}}
@@ -611,20 +970,94 @@ function renderNav(){
 }
 function rewardLine(task,star=false){return `<div class="reward-line">${star?`<span>${picture('util-star')}1</span>`:''}<span>${picture('util-coin')}${task.coins}</span><span>${picture('util-energy')}${task.energy}</span></div>`;}
 function requirement(r){const n=game.count(r.c,r.l);return `<button class="required-item ${n>=r.n?'ready':''}" data-action="item" data-cat="${r.c}" data-level="${r.l}" aria-label="需要${r.n}个${itemName(r.c,r.l)}，当前有${n}个">${picture(itemKey(r.c,r.l),'',itemName(r.c,r.l))}<span class="count">${Math.min(n,r.n)} / ${r.n}</span>${n>=r.n?icon('check'):''}</button>`;}
+function currentOrder(){return ui.orderMode==='tea'?game.teaOrder():ui.orderMode==='side'?game.s.sideOrders[0]:game.mainOrder();}
+function orderTabs(){
+ return `<div class="order-tabs"><div class="segmented"><button data-action="orderMain" class="${ui.orderMode==='main'?'active':''}">小屋心愿</button><button data-action="orderSide" class="${ui.orderMode==='side'?'active':''}" ${game.s.stage===0?'disabled':''}>邻里委托</button><button data-action="orderTea" class="${ui.orderMode==='tea'?'active':''}">一起茶会</button></div></div>`;
+}
+function teaContent(){
+ const t=game.teaOrder();if(!t.available)return `<article class="tea-intro"><h3>在花园认识小苗之后，一起喝茶吧。</h3><p>完成第13处布置，亲手试过每个已开启的工作台，就可以准备两熊茶会。每场都可自由换方案，错过一天不会失去进度。</p>${game.mainOrder()?.lesson?btn('认识新工作台','source','small',`data-cat="${game.mainOrder().lesson}"`):''}</article>`;
+ return `<div class="tea-condition"><span class="tag">第 ${t.round+1} 场 · ${esc(t.conditionName)}</span><p>${t.condition==='sunny'?'今天放晴了，选一个喜欢的地方坐坐。':t.condition==='memory'?'想留下今天，一起做一张小小纪念吧。':'有点风，用夹子固定茶布，再把杯子放稳。'} ${t.participants.includes('xiaoli')?'小栗也来坐坐。':'这一场，先留给布布和一二。'}</p></div><div class="tea-plans">${Object.entries(TEA_PLANS).map(([key,p])=>`<button data-action="teaPlan" data-plan="${key}" class="${t.plan===key?'active':''}" aria-pressed="${t.plan===key}"><b>${p.name}</b><span>${p.wish}</span></button>`).join('')}</div>${orderCard(t,'tea')}<p class="note">交付前可免费换方案，物品保持原样。完成后出现动作与不同回应，纪念物永久收藏，不要求连续登录。</p>`;
+}
+function teaHomeCard(){
+ const t=game.teaOrder(),first=game.s.tea.firstVisit;
+ return `<article class="tea-home-card"><h3>${first==='available'?'邀请小栗来坐坐':t.available?'今天，想怎样喝茶？':'留出一个一起坐下的位置'}</h3><p>${first==='available'?'邀请中的日子到了，布布一二准备好迎接小栗。':t.available?'暖心茶点或花园小聚，准备材料，让两熊一起端茶、扶苗，留下今天的纪念。':'花园建好、认识新工作台后，两熊茶会会开放。'}</p><div class="actions">${first==='available'?btn('迎接小栗首访','firstVisit'):btn(t.available?'准备茶会':'看看茶会','openTea','alt')}${game.s.tea.lastResult?btn('重看最近一次','teaReplay','alt'):''}</div></article>`;
+}
+function souvenirEntries(){return game.worldProgress().souvenirs.map(v=>({...v,snapshot:v.record}));}
+function renderSouvenirs(){
+ const entries=souvenirEntries();return `<div class="section-title">茶会留下的小纪念 · ${entries.filter(v=>v.unlocked).length}/6 款</div><div class="souvenir-list">${entries.map(v=>`<article class="souvenir-card ${v.unlocked?'owned':''}"><span class="souvenir-sign">${v.type==='coaster'?'◉':v.type==='card'?'✉':'♧'}</span><div><b>${v.name}</b><small>${REGIONS.find(r=>r.id===v.region)?.name}固定纪念位 · ${v.unlocked?'永久收藏':'对应状况与方案完成后取得'}</small></div>${v.unlocked?`<div class="souvenir-actions">${btn(v.equipped?'已摆好':'摆到家园','equipSouvenir','small',`data-region="${v.region}" data-key="${v.key}" ${v.equipped?'disabled':''}`)}${btn('重温首次','souvenirReplay','small alt',`data-key="${v.key}" data-plan="${v.plan}"`)}</div>`:''}</article>`).join('')}</div>`;
+}
+
+function parcelTargets(){
+ const main=game.mainOrder(),tea=game.teaOrder(),list=[];
+ if(main&&!game.s.delivered)list.push({target:{kind:'main',id:main.id,step:main.phase},order:main,label:'小屋 · '+main.phaseLabel});
+ game.s.sideOrders.forEach(o=>{if(game.s.stage>0)list.push({target:{kind:'side',id:o.id},order:o,label:'邻里 · '+o.name});});
+ if(tea.available)list.push({target:{kind:'tea',id:tea.id},order:tea,label:'茶会 · '+tea.name});return list;
+}
+function parcelContent(m){
+ const list=parcelTargets();if(!list.length)return '<p class="description">先铺好门垫，再查看补给。</p>';
+ if(!ui.parcelTarget){const selected=list.find(v=>v.target.kind===ui.orderMode)||list[0];ui.parcelTarget=selected.target;}
+ const selected=list.find(v=>JSON.stringify(v.target)===JSON.stringify(ui.parcelTarget));
+ const sources=selected?[...new Set(selected.order.needs.filter(r=>game.count(r.c,r.l)<r.n).map(r=>r.c))]:[];
+ if(!ui.parcelSource&&sources.length===1)ui.parcelSource=sources[0];
+ m.quote=game.quoteParcel(ui.parcelTarget,ui.parcelSource||undefined);
+ return `<p class="description">选择需要补给的订单和仍缺材料的来源。65金币买三件1级与一件2级材料，不直接完成高阶需求。</p><div class="parcel-targets">${list.map(v=>`<button data-action="parcelTarget" data-target="${esc(JSON.stringify(v.target))}" class="${selected===v?'active':''}">${esc(v.label)}</button>`).join('')}</div><div class="parcel-sources">${sources.map(c=>`<button data-action="parcelSource" data-cat="${c}" class="${ui.parcelSource===c?'active':''}">${picture('gen-'+c)}${CHAINS[c].producer}</button>`).join('')}</div>${m.quote.ok?`<h3>这次会收到</h3><div class="parcel-preview">${m.quote.items.map(t=>`<div>${picture(itemKey(t.c,t.l))}<span>${itemName(t.c,t.l)} · ${t.l}级</span></div>`).join('')}</div>${btn(`确认购买 · ${m.quote.price} 金币`,'confirmParcel','wide')}<p class="note">四件物品送到待领礼物。取消不会扣金币；订单或材料需求更新后，需要重新查看预览。</p>`:`<p class="parcel-status" role="status">${esc(m.quote.message)}</p>`}`;
+}
+function focusKey(el){
+ if(!el||el===document.body||!el.dataset)return null;return {tag:el.tagName,action:el.dataset.action,tab:el.dataset.tab,cell:el.dataset.cell,cat:el.dataset.cat,level:el.dataset.level,key:el.dataset.key,source:el.dataset.source,region:el.dataset.region,index:el.dataset.index,plan:el.dataset.plan,style:el.dataset.style,target:el.dataset.target,id:el.dataset.id};
+}
+function findFocus(key,root=document){if(!key)return null;return $$('button,input,[tabindex]',root).find(el=>el.tagName===key.tag&&Object.entries(key).every(([k,v])=>k==='tag'||v===undefined||el.dataset[k]===v)&&!el.disabled);}
+function syncInert(){
+ const blocked=!!(ui.modal||ui.story||ui.splash||$('#loading'));for(const id of ['header','main','nav'])$('#'+id).inert=blocked;
+ modalRoot.inert=!!(ui.story||ui.splash);overlayRoot.inert=!!ui.modal;
+}
+function eventReply(r){
+ if(Array.isArray(r.response))return r.response.map(v=>typeof v==='string'?v:(v.who==='bubu'?'布布':v.who==='xiaoli'?'小栗':'一二')+'：'+v.text).join(' ');
+ if(typeof r.response==='string')return r.response;
+ if(r.kind==='firstVisit')return '小栗：“邀请信我收到了，这杯茶好暖。” 一二：“下回也来坐坐。” 布布：“你的座位，留好啦。”';
+ const warm=r.plan==='warm',line=r.condition==='memory'?(warm?'布布把甜点放稳，一二画下这一桌暖茶。':'一二在树荫下画小卡，布布把新叶也画了进去。'):r.condition==='wind'?(warm?'布布压稳茶布，一二把边角夹好，杯子不晃了。':'一二扶稳风里的茶布，布布固定好一角，花园小聚继续。'):(warm?'一二摆好的杯子，刚好接住布布端来的热茶。':'布布浇完小苗，一二拉着他坐到树荫下。');return line+(r.participants?.includes('xiaoli')?' 小栗：“这一次的准备，我也想记住。”':' 两只熊把今天的小纪念收进了家园。');
+}
+function syncEventControls(){
+ const status=ui.scenePlayer?.status,record=ui.modal?.scene?.result,choice=record?.displayChoice||ui.sceneSnapshot?.action?.choice;
+ const next=$('[data-action="sceneAdvance"]',modalRoot),skip=$('[data-action="sceneSkip"]',modalRoot);if(next)next.disabled=!status?.waiting;if(skip)skip.disabled=!!status?.done;
+ $$('[data-action="sceneChoice"]',modalRoot).forEach(b=>{b.disabled=!ui.sceneAwaitChoice;b.setAttribute('aria-pressed',String(choice===b.dataset.choice));});
+}
+function rememberSceneChoice(choice='anchor'){
+ if(!ui.sceneAwaitChoice)return;
+ const record=ui.modal?.scene?.result;if(!record)return;choice=choice==='clip'?'clip':'anchor';record.displayChoice=choice;
+ if(ui.sceneSnapshot?.result)ui.sceneSnapshot.result.displayChoice=choice;
+ if(game.s.tea.lastResult?.id===record.id)game.s.tea.lastResult.displayChoice=choice;
+ const first=game.s.world.souvenirs[record.souvenirKey];if(first?.id===record.id&&!first.displayChoice)first.displayChoice=choice;
+ persist();ui.scenePlayer?.setChoice(choice);ui.sceneAwaitChoice=false;syncEventControls();
+}
+function openTeaReplay(record){if(!record){toast('完成一场茶会后，这里就会留下一次回忆。');return;}playEvent(record.kind==='firstVisit'?'firstVisit':'tea',{teaResult:record});}
+function playEvent(event,{teaResult=null,result=null,reward=null,after=null}={}){
+ const region=teaResult?.region||result?.region||game.s.world.region;
+ const frozen=teaResult?{...clone(game.s),stage:teaResult.stage,decorStyles:clone(teaResult.decorStyles)}:clone(game.s);if(teaResult)frozen.world.equipped=clone(teaResult.equipped||{house:null,garden:null,courtyard:null});
+ const scene=describeScene(frozen,{region,stage:frozen.stage,night:false,teaResult,prepStep:game.s.mainPrepStep});
+ const title=event==='firstVisit'?'小栗来坐坐':event==='tea'?'这场茶会，收好啦':event==='prep'?(result.phaseLabel||'这一份准备，摆好了'):'今天，一起做的小事';
+ openModal({type:'event',title,scene,caption:'',reward});ui.sceneSnapshot=scene;
+ const eventName=event==='prep'?`prep-${result.id}-${result.phase}`:event;
+ ui.scenePlayer=createScenePlayer({event:eventName,scene,reducedMotion:game.s.settings.reducedMotion,onFrame:frame=>{
+  ui.sceneSnapshot=clone(frame);const host=$('.event-scene .scene-layers');if(host)host.innerHTML=renderSceneHTML(frame,{assetURL:asset});
+  const caption=$('.event-caption');if(caption)caption.textContent=frame.caption||frame.text||title;ui.modal&&(ui.modal.caption=frame.caption||frame.text||title);
+ },onStep:({label,waiting})=>{const next=$('[data-action="sceneAdvance"]',modalRoot);if(next)next.disabled=!waiting;const caption=$('.event-caption');if(caption)caption.textContent=label;ui.modal&&(ui.modal.caption=label);},onComplete:finalScene=>{ui.sceneSnapshot=clone(finalScene);const host=$('.event-scene .scene-layers');if(host)host.innerHTML=renderSceneHTML(finalScene,{assetURL:asset});const skip=$('[data-action="sceneSkip"]',modalRoot);if(skip)skip.disabled=true;const next=$('[data-action="sceneAdvance"]',modalRoot);if(next)next.disabled=true;if(teaResult){if(game.s.tea.lastResult?.id===teaResult.id){game.s.tea.lastResult.seen=true;persist();}const caption=$('.event-caption');if(caption)caption.textContent=eventReply(teaResult);if(ui.modal)ui.modal.caption=eventReply(teaResult);}if(after){closeModal();after();}}});
+ ui.sceneSnapshot=clone(ui.scenePlayer.initialScene);const initialHost=$('.event-scene .scene-layers');if(initialHost)initialHost.innerHTML=renderSceneHTML(ui.sceneSnapshot,{assetURL:asset});
+ ui.sceneAwaitChoice=event==='tea'&&teaResult?.condition==='wind'&&!teaResult.displayChoice;if(teaResult?.displayChoice){ui.scenePlayer.setChoice(teaResult.displayChoice);$$('[data-action="sceneChoice"]',modalRoot).forEach(b=>{b.disabled=true;b.setAttribute('aria-pressed',String(b.dataset.choice===teaResult.displayChoice));});}if(!ui.sceneAwaitChoice)ui.scenePlayer.start();else{const caption=$('.event-caption');if(caption)caption.textContent='风吹起茶布了，先选一种固定方式。';}syncEventControls();
+}
 function orderCard(task,kind='main',slot=0){
- const delivered=kind==='main'&&game.s.delivered,ready=game.canFulfill(task.needs),who=kind==='main'?task.who:(slot===0?'yier':'bubu');
- return `<article class="order-card ${kind==='side'?'side-order':''} ${ready||delivered?'fulfilled':''}"><div class="order-top"><div class="order-avatar">${picture(who+'-face')}</div><div class="order-text"><h3>${esc(task.name)}</h3><p>${delivered?'材料都备齐啦，带心愿星回小屋。':esc(task.wish)}</p></div>${kind==='side'?`<button class="refresh-order" data-action="refreshSide" data-slot="${slot}" aria-label="免费更换这张邻里委托">${icon('refresh')}</button>`:''}</div><div class="order-bottom"><div class="requirements">${task.needs.map(requirement).join('')}</div><div class="order-action">${rewardLine(task,kind==='main')}${delivered?btn('回家布置','home','small'):btn(ready?'交付心愿':'还差一点','submit','small',`data-kind="${kind}" data-id="${task.id}" ${ready?'':'disabled'}`)}</div></div></article>`;
+ const delivered=kind==='main'&&game.s.delivered,lesson=kind==='main'&&task.lesson,ready=game.canFulfill(task.needs)&&!lesson,who=kind==='main'?task.who:(slot===0?'yier':'bubu');
+ return `<article class="order-card ${kind==='side'?'side-order':''} ${ready||delivered?'fulfilled':''}"><div class="order-top"><div class="order-avatar">${picture((who||'yier')+'-face')}</div><div class="order-text"><h3>${esc(task.name)}</h3><p>${delivered?'材料都备齐啦，带心愿星回小屋。':esc(task.wish)}</p></div>${kind==='side'?`<button class="refresh-order" data-action="refreshSide" data-slot="${slot}" aria-label="免费更换这张邻里委托">${icon('refresh')}</button>`:''}</div>${task.totalPhases>1?`<p class="phase-line">准备 ${task.phase+1}/${task.totalPhases} · ${esc(task.phaseLabel)}<small>每一步都会摆到现场，整单完成后统一领取奖励。</small></p>`:''}${lesson?`<button class="lesson-line" data-action="source" data-cat="${lesson}">${picture('gen-'+lesson)}先亲手点一次${CHAINS[lesson].producer}${icon('arrow')}</button>`:''}<div class="order-bottom"><div class="requirements">${task.needs.map(requirement).join('')}</div><div class="order-action">${rewardLine(task,kind==='main')}${delivered?btn('回家布置','home','small'):btn(ready?(kind==='tea'?'开始茶会':task.totalPhases>1?'交付这一步':'交付心愿'):'还差一点','submit','small',`data-kind="${kind}" data-id="${task.id}" data-step="${task.phase||0}" ${ready?'':'disabled'}`)}</div></div></article>`;
 }
 function renderMerge(){
- const s=game.s,task=TASKS[s.stage],compact=window.innerHeight<=710;
- const card=ui.orderMode==='main'?(task?orderCard(task):`<article class="order-card fulfilled"><div class="order-top"><div class="order-avatar">${picture('yier-happy')}</div><div class="order-text"><h3>小屋已经装满好日子</h3><p>继续邻里委托、收集图鉴，让每一天都有新发现。</p></div></div><div class="row between" style="margin-top:9px"><span class="tag">六章故事已完成</span>${btn('看看邻里委托','orderSide','small')}</div></article>`):s.sideOrders.map((o,i)=>orderCard(o,'side',i)).join('');
- return `<section class="merge-view ${compact?'compact-view':''}">${compact?compactOrderCard():`<div class="order-tabs"><div class="segmented"><button data-action="orderMain" class="${ui.orderMode==='main'?'active':''}">小屋心愿</button><button data-action="orderSide" class="${ui.orderMode==='side'?'active':''}" ${s.stage===0?'disabled':''}>邻里委托</button></div><span class="chapter-counter">${s.stage===24?'好日子，继续中':`第 ${Math.floor(s.stage/4)+1} 章 · ${s.stage%4+1}/4`}</span></div><div class="order-strip">${card}</div>`}<div class="board-header"><div class="board-title">合成工作台<span class="board-free">空位 ${game.free()}</span></div><div class="board-tools"><button data-action="storage">${icon('box')}仓库${s.pending.length?`<i class="parcel-count">${s.pending.length}</i>`:''}</button><button data-action="sort" aria-label="整理棋盘">${icon('sort')}</button><button data-action="hint">${icon('light')}提示</button></div></div>${compact&&s.tutorial==='done'?'':tutorialLine()}<div class="board-frame"><div class="board" role="grid" aria-label="7乘7合成棋盘，点选后点目标或拖动合成">${Array.from({length:7},(_,row)=>`<div role="row" class="board-row">${s.board.slice(row*7,row*7+7).map((t,col)=>renderCell(t,row*7+col)).join('')}</div>`).join('')}</div></div>${detailBar()}</section>`;
+ const s=game.s,task=game.mainOrder(),compact=window.innerHeight<=710;
+ const card=ui.orderMode==='tea'?teaContent():ui.orderMode==='main'?(task?orderCard(task):`<article class="order-card fulfilled"><div class="order-top"><div class="order-avatar">${picture('yier-happy')}</div><div class="order-text"><h3>小屋已经装满好日子</h3><p>摆一场茶会，换一种准备，让生活继续留下纪念。</p></div></div>${btn('准备下一场茶会','orderTea','small')}</article>`):s.sideOrders.map((o,i)=>orderCard(o,'side',i)).join('');
+ return `<section class="merge-view ${compact?'compact-view':''}">${compact?compactOrderCard():`${orderTabs()}<div class="order-strip">${card}</div>`}<div class="board-header"><div class="board-title">合成工作台<span class="board-free">空位 ${game.free()}</span></div><div class="board-tools"><button data-action="storage">${icon('box')}仓库${s.pending.length?`<i class="parcel-count">${s.pending.length}</i>`:''}</button><button data-action="sort" aria-label="整理棋盘">${icon('sort')}</button><button data-action="hint">${icon('light')}提示</button></div></div>${tutorialLine()}<div class="board-frame"><div class="board" role="grid" aria-label="7乘7合成棋盘，点选后点目标或拖动合成">${Array.from({length:7},(_,row)=>`<div role="row" class="board-row">${s.board.slice(row*7,row*7+7).map((t,col)=>renderCell(t,row*7+col)).join('')}</div>`).join('')}</div></div>${detailBar()}</section>`;
 }
 function compactOrderCard(){
- const s=game.s,t=ui.orderMode==='main'?TASKS[s.stage]:s.sideOrders[0];
- if(!t)return `<div class="compact-orders"><button class="compact-name" data-action="compactOrder"><small>点击查看全部委托</small><strong>好日子，继续中</strong></button>${btn('邻里委托','orderSide','small')}</div>`;
- const mainOrder=ui.orderMode==='main',delivered=mainOrder&&s.delivered,ready=game.canFulfill(t.needs);
- return `<div class="compact-orders"><button class="compact-name" data-action="compactOrder"><small>${mainOrder?'小屋心愿':'邻里委托'} · 点开看全部</small><strong>${esc(t.name)}</strong></button><div class="requirements">${t.needs.map(requirement).join('')}</div>${delivered?btn('布置','home','small'):ready?btn('交付','submit','small',`data-kind="${mainOrder?'main':'side'}" data-id="${t.id}"`):btn('查看','compactOrder','small alt')}</div>`;
+ const s=game.s,t=ui.orderMode==='main'?game.mainOrder():ui.orderMode==='tea'?game.teaOrder():s.sideOrders[0];
+ if(!t||t.available===false)return `<div class="compact-orders"><button class="compact-name" data-action="compactOrder"><small>点击切换或查看全部</small><strong>好日子，继续中</strong></button>${btn('查看','compactOrder','small')}</div>`;
+ const mainOrder=ui.orderMode==='main',delivered=mainOrder&&s.delivered,ready=game.canFulfill(t.needs)&&!t.lesson;
+ return `<div class="compact-orders"><button class="compact-name" data-action="compactOrder"><small>${mainOrder?'小屋心愿':ui.orderMode==='tea'?'茶会':'邻里委托'} · 点开切换</small><strong>${esc(t.phaseLabel||t.name)}</strong></button><div class="requirements">${t.needs.map(requirement).join('')}</div>${delivered?btn('布置','home','small'):ready?btn('交付','submit','small',`data-kind="${ui.orderMode}" data-id="${t.id}" data-step="${t.phase||0}"`):btn('查看','compactOrder','small alt')}</div>`;
 }
 function renderCell(t,i){
  const s=game.s;let classes=['cell'],body='',label=`空格，第${i+1}格`;
@@ -639,7 +1072,7 @@ function renderCell(t,i){
  }else{
   classes.push('item');const selected=s.board[ui.selected];if(t.dust)classes.push('dust');
   if(selected?.k==='item'&&ui.selected!==i&&!selected.dust&&selected.c===t.c&&selected.l===t.l&&t.l<6)classes.push('match');
-  if(TASKS[s.stage]?.needs.some(r=>r.c===t.c&&r.l===t.l)&&!t.dust)classes.push('ready-item');
+  if(currentOrder()?.needs.some(r=>r.c===t.c&&r.l===t.l)&&!t.dust)classes.push('ready-item');
   body=picture(itemKey(t.c,t.l),'',itemName(t.c,t.l))+`<span class="level">${t.l}</span>`;label=`${itemName(t.c,t.l)}，${t.l}级${t.dust?'，尘封，需同级物品合入解锁':''}`;
  }
  return `<button class="${classes.join(' ')}" data-cell="${i}" role="gridcell" aria-label="${esc(label)}" aria-selected="${i===ui.selected}">${body}</button>`;
@@ -651,7 +1084,8 @@ function tutorialLine(){
  if(s.tutorial==='build')line='带上这颗心愿星，去“小屋”亲手铺好门垫吧。';
  if(s.tutorial==='produce')line='接下来，点左上角带闪电的清洁篮，取出新材料。';
  if(s.tutorial==='done'){
-  const hint=game.hint();line=hint.kind==='build'?'材料备齐啦，一二在小屋等你一起布置。':hint.kind==='submit'?'这一份心愿已经合好了，交付后就可以回家。':game.free()<4?'桌子有点满啦。仓库、订单、出售都能帮你腾出空位。':`${CHAPTERS[Math.min(5,Math.floor(s.stage/4))].sub} 点物品图标可以查看完整合成路线。`;
+  const lesson=ui.orderMode==='main'&&game.mainOrder()?.lesson;if(lesson)return `<button class="tutorial-line lesson-line" data-action="source" data-cat="${lesson}">${picture('gen-'+lesson)}<span>先点一次${CHAINS[lesson].producer}，试试新来源。</span></button>`;
+  const hint=game.hint(ui.orderMode);line=hint.kind==='build'?'材料备齐啦，一二在小屋等你一起布置。':hint.kind==='submit'?'这一份心愿已经合好了，交付后就可以回家。':game.free()<4?'桌子有点满啦。仓库、订单、出售都能帮你腾出空位。':`${CHAPTERS[Math.min(5,Math.floor(s.stage/4))].sub} 点物品图标可以查看完整合成路线。`;
  }
  return `<div class="tutorial-line">${picture(who)}<span>${line}</span></div>`;
 }
@@ -663,34 +1097,31 @@ function detailBar(){
   return `<div class="detail-bar">${picture('gen-'+t.c,'detail-art')}<div class="detail-content"><h4>${CHAINS[t.c].producer} · Lv.${p.level}</h4><p>${unlocked?`每次 1 体力 · 二阶产出率 ${Math.round((.2+(p.level-1)*.12)*100)}%`:`完成第 ${CHAINS[t.c].unlock} 处修缮后自动解锁`}</p><p>${unlocked?'库存每 6 秒恢复 1 件 · 可升级':''}</p></div>${ib('info','chain','查看产出路线',`data-cat="${t.c}"`,true)}${unlocked&&p.level<3?btn(`升级 ${CFG.upgradeCosts[p.level-1]}`,'upgrade','small',`data-cat="${t.c}"`):''}</div>`;
  }
  if(t.k==='crate')return `<div class="detail-bar">${picture('util-crate','detail-art')}<div class="detail-content"><h4>还没整理的纸箱</h4><p>完成第 ${t.openAt} 处小屋布置后，自动腾出空间。</p><p>不需要金币，不会丢失已收好的物品。</p></div>${ib('home','home','回小屋')}</div>`;
- return `<div class="detail-bar">${picture(itemKey(t.c,t.l),'detail-art')}<div class="detail-content"><h4>${itemName(t.c,t.l)} · ${t.l} 级</h4><p>${t.dust?'用同类同级物品合入，解开尘封。':t.l===6?'最高级 · 可以交付或收藏':`下一阶：${itemName(t.c,t.l+1)}`}</p></div><div class="detail-actions">${ib('info','item','查看物品路线',`data-cat="${t.c}" data-level="${t.l}"`)}${!t.dust?`${ib('box','store','收进仓库')}${ib('scissors','split','使用剪刀拆分')}${ib('trash','sell','出售物品')}`:''}${ib('undo','undo','撤销上一步')}</div></div>`;
+ return `<div class="detail-bar">${picture(itemKey(t.c,t.l),'detail-art')}<div class="detail-content"><h4>${itemName(t.c,t.l)} · ${t.l} 级</h4><p>${t.dust?'用同类同级物品合入，解开尘封。':t.l===6?'最高级 · 可以交付或收藏':`下一阶：${itemName(t.c,t.l+1)}`}</p></div><div class="detail-actions">${ib('info','item','查看物品路线',`data-cat="${t.c}" data-level="${t.l}"`)}${!t.dust?`${ib('box','store','收进仓库')}${ib('info','itemActions','出售或拆分此物品')}`:''}${ib('undo','undo','撤销上一步')}</div></div>`;
 }
-function homeScene(progress=game.s.stage,{interactive=false,characters=true,mini=false,night=false,poses=null,region=game.s.world?.region||'house'}={}){
+function homeScene(progress=game.s.stage,{interactive=false,characters=true,mini=false,night=false,poses=null,region=game.s.world?.region||'house',teaResult=null,scene=null}={}){
  const info=REGIONS.find(r=>r.id===region)||REGIONS[0];
- const objects=DECOR.filter(d=>d.id<progress&&d.region===info.id).map(decorPlacement).sort((a,b)=>a.z-b.z);
- const art=objects.map(d=>`<${interactive?'button':'div'} class="decor-anchor ${game.s.decorStyles[d.id]===1?'variant':''} ${d.id===ui.newDecor&&!mini?'new':''}" style="left:${d.x}%;top:${d.y}%;width:${d.w}%;z-index:${d.z+1}" ${interactive?`data-action="furniture" data-id="${d.id}" aria-label="看看${esc(TASKS[d.id].name)}"`:''}>${picture(`decor-${String(d.id+1).padStart(2,'0')}`,'home-decor')}</${interactive?'button':'div'}>`).join('');
- const pairs=(poses||(info.id==='house'&&night?['bubu-sit','yier-rest']:['bubu-idle','yier-turn'])).map(id=>id.replace(/-happy$/, '-joy').replace(/-surprise$/, '-idle').replace(/-shy$/, '-turn'));
- const people=characters?`<${interactive?'button':'div'} class="home-char bubu" ${interactive?'data-action="chat" data-who="bubu" aria-label="和布布说说话"':''}>${picture(pairs[0])}</${interactive?'button':'div'}><${interactive?'button':'div'} class="home-char yier" ${interactive?'data-action="chat" data-who="yier" aria-label="和一二说说话"':''}>${picture(pairs[1])}</${interactive?'button':'div'}>`:'';
+ const frozen=scene||describeScene(game.s,{stage:progress,region:info.id,night,poses,characters,teaResult});
  const target=decorPlacement(DECOR[Math.min(progress,23)]),canBuild=progress<24&&target.region===info.id;
- return `<div class="home-scene region-${info.id} ${night?'night':''}" data-region-scene="${info.id}">${picture(info.background,'home-bg')}${art}${people}${!mini?'<div class="sun-motes"></div>':''}${interactive?`<div class="room-number">${info.name} · ${objects.length}/${DECOR.filter(d=>d.region===info.id).length} 处心愿</div>${progress>=16?`<div class="room-day"><button data-action="dayNight" aria-label="切换白天夜晚">${icon(night?'sun':'moon')}</button></div>`:''}${canBuild?`<button class="build-pin ${game.s.delivered?'ready':''}" data-action="build" style="left:${Math.max(18,Math.min(82,target.x))}%;top:${Math.max(25,Math.min(83,target.y))}%">${icon('plus')}${game.s.delivered?'可以布置啦':'下一个小愿望'}</button>`:''}`:''}</div>`;
+ return `<div class="home-scene region-${info.id} ${night?'night':''}" data-region-scene="${info.id}"><div class="scene-layers">${renderSceneHTML(frozen,{assetURL:asset,interactive})}</div>${interactive?`<div class="room-number">${info.name} · ${DECOR.filter(d=>d.id<progress&&d.region===info.id).length} 处心愿</div>${progress>=16?`<div class="room-day"><button data-action="dayNight" aria-label="切换白天夜晚">${icon(night?'sun':'moon')}</button></div>`:''}${canBuild?`<button class="build-pin ${game.s.delivered?'ready':''}" data-action="build" style="left:${Math.max(18,Math.min(82,target.x))}%;top:${Math.max(25,Math.min(83,target.y))}%">${icon('plus')}${game.s.delivered?'可以布置啦':'下一个小愿望'}</button>`:''}`:''}</div>`;
 }
 function worldMap(){
  const progress=game.worldProgress(),coords={house:[25,41],garden:[54,61],courtyard:[82,44]};
- return `<div class="world-map-shell"><div class="map-hint">${icon('home')}拖动看看整个家园 · 点地标走近</div><div class="world-viewport" aria-label="可拖动的家园全景"><div class="world-canvas">${picture('world-map','world-bg')}${progress.regions.map(r=>{const [x,y]=coords[r.id];return `<button class="region-marker ${DECOR[game.s.stage]?.region===r.id?'next-region':''}" data-action="visitRegion" data-region="${r.id}" style="left:${x}%;top:${y}%"><span>${r.id==='house'?'⌂':r.id==='garden'?'✿':'☀'}</span><b>${r.name}</b><small>${r.built}/${r.total} 处布置${r.activityDone?' · 已陪伴':''}</small>${game.s.delivered&&DECOR[game.s.stage]?.region===r.id?'<i>心愿星到了</i>':''}</button>`;}).join('')}</div></div><div class="region-shortcuts">${REGIONS.map(r=>`<button data-action="visitRegion" data-region="${r.id}">${r.name}${icon('arrow')}</button>`).join('')}</div></div>`;
+ return `<div class="world-map-shell"><div class="map-hint">${icon('home')}拖动看看整个家园 · 点地标走近</div><div class="world-viewport" aria-label="可拖动的家园全景"><div class="world-canvas">${picture('world-map','world-bg')}${renderWorldOverlays(game.s,{assetURL:asset})}${progress.regions.map(r=>{const [x,y]=coords[r.id];return `<button class="region-marker ${DECOR[game.s.stage]?.region===r.id?'next-region':''}" data-action="visitRegion" data-region="${r.id}" style="left:${x}%;top:${y}%"><span>${r.id==='house'?'⌂':r.id==='garden'?'✿':'☀'}</span><b>${r.name}</b><small>${r.built}/${r.total} 处布置${r.activityDone?' · 已陪伴':''}</small>${game.s.delivered&&DECOR[game.s.stage]?.region===r.id?'<i>心愿星到了</i>':''}</button>`;}).join('')}</div></div><div class="region-shortcuts">${REGIONS.map(r=>`<button data-action="visitRegion" data-region="${r.id}">${r.name}${icon('arrow')}</button>`).join('')}</div></div>`;
 }
 function renderWorldMemories(){
  const p=game.worldProgress();
- return `<div class="section-title">家园日常 · ${p.memoryCount}/3 张回忆</div><div class="world-memory-cards">${p.memories.map(m=>`<button data-action="${m.unlocked?'worldMemory':'visitRegion'}" data-region="${m.region}" class="${m.unlocked?'collected':''}">${icon(m.unlocked?'heart':'sun')}<b>${m.name}</b><small>${m.unlocked?'已收进手帐 · 点击重温':`累计陪伴 ${m.progress}/${m.target} 天 · 去看看`}</small></button>`).join('')}</div>`;
+ return `<div class="section-title">家园日常 · ${p.memoryCount}/3 张回忆</div><div class="world-memory-cards">${p.memories.map(m=>`<button data-action="${m.unlocked?'worldMemory':'visitRegion'}" data-region="${m.region}" class="${m.unlocked?'collected':''}">${icon(m.unlocked?'heart':'sun')}<b>${m.name}</b><small>${m.unlocked?'已收进手帐 · 点击重温':`累计陪伴 ${m.progress}/${m.target} 天${m.conditionMet?'':` · 还需${m.conditionLabel}`} · 去看看`}</small></button>`).join('')}</div>`;
 }
 function renderHome(){
  const s=game.s,ch=Math.min(5,Math.floor(s.stage/4)),chapter=CHAPTERS[ch],t=TASKS[s.stage];
  const region=REGIONS.find(r=>r.id===s.world.region)||REGIONS[0],p=game.worldProgress(),r=p.regions.find(r=>r.id===region.id),nextRegion=REGIONS.find(r=>r.id===DECOR[s.stage]?.region);
- return `<section class="home-view"><div class="page-heading"><div><span class="eyebrow">OUR HAPPY PLACE · CHAPTER ${String(ch+1).padStart(2,'0')}</span><h2>${ui.homeMode==='map'?'小屋外，还有好日子':region.name}</h2><p>${ui.homeMode==='map'?'小屋 · 花园 · 庭院，把生活慢慢铺开':region.subtitle}</p><div class="chapter-progress">${Array.from({length:6},(_,i)=>`<i class="${s.stage>=i*4+4?'done':''}"></i>`).join('')}</div></div>${ib('book','book','翻开回忆手帐')}</div><div class="home-toolbar">${ui.homeMode==='region'?btn(icon('back')+'家园全景','worldMap','small alt'):''}${btn(icon('merge')+'回合成台','merge','small')}</div>${ui.homeMode==='map'?worldMap():`<div class="region-tabs">${REGIONS.map(v=>`<button class="${v.id===region.id?'active':''}" data-action="visitRegion" data-region="${v.id}">${v.name}</button>`).join('')}</div><div class="home-scene-shell">${homeScene(s.stage,{interactive:true,night:ui.night})}</div><div class="home-actions"><button data-action="photo">${icon('camera')}拍张合照</button><button data-action="decorate">${icon('palette')}换个配色</button><button data-action="rest">${icon('heart')}免费茶歇</button></div><article class="region-activity"><span class="activity-flower">${region.id==='garden'?'✿':region.id==='courtyard'?'☀':'♡'}</span><div><h3>${region.activityLabel}</h3><p>${s.stage===0?'先铺好第一块门垫，再一起做今天的小事。':r.activityDone?'今天的小事已经一起做过，明天再来。':region.activityText}</p></div>${btn(r.activityDone?'明天再来':'一起做','homeActivity','small',`data-region="${region.id}" ${r.activityDone||s.stage===0?'disabled':''}`)}</article>`}<div class="world-memory-track">${icon('book')}家园回忆 ${p.memoryCount} / 3 张<span>各区域每天一次陪伴，收集新的日常</span></div>${t?`<article class="home-quest">${picture(t.decor,'home-quest-thumb')}<span class="eyebrow">下一处心愿 · ${nextRegion?.name||'小屋'} · ${s.stage+1}/24</span><h3>${t.name}</h3><p>${s.delivered?'心愿星已经备好。走到对应区域，亲手布置新角落。':t.wish}</p><div class="home-quest-row"><span class="tag ${s.delivered?'':'coral'}">${icon(s.delivered?'star':'merge')}${s.delivered?'心愿星 ×1 已就绪':'先准备合成物品'}</span>${btn(s.delivered?'前往布置':'去合成','build',s.delivered?'':'alt')}</div></article>`:`<article class="home-quest"><span class="eyebrow">GOOD DAYS NEVER END</span><h3>家园变大了，陪伴也更多了。</h3><p>去花园照顾花草，回小屋准备点心，再到庭院招待朋友。每天都有一件可以一起做的小事。</p><div class="home-quest-row">${btn('继续合成','merge')}${btn('重温庭院聚会','ending','alt')}</div></article>`}</section>`;
+ return `<section class="home-view"><div class="page-heading"><div><span class="eyebrow">OUR HAPPY PLACE · CHAPTER ${String(ch+1).padStart(2,'0')}</span><h2>${ui.homeMode==='map'?'小屋外，还有好日子':region.name}</h2><p>${ui.homeMode==='map'?'小屋 · 花园 · 庭院，把生活慢慢铺开':region.subtitle}</p><div class="chapter-progress">${Array.from({length:6},(_,i)=>`<i class="${s.stage>=i*4+4?'done':''}"></i>`).join('')}</div></div>${ib('book','book','翻开回忆手帐')}</div><div class="home-toolbar">${ui.homeMode==='region'?btn(icon('back')+'家园全景','worldMap','small alt'):''}${btn(icon('merge')+'回合成台','merge','small')}</div>${ui.homeMode==='map'?worldMap():`<div class="region-tabs">${REGIONS.map(v=>`<button class="${v.id===region.id?'active':''}" data-action="visitRegion" data-region="${v.id}">${v.name}</button>`).join('')}</div><div class="home-scene-shell">${homeScene(s.stage,{interactive:true,night:ui.night})}</div><div class="home-actions"><button data-action="photo">${icon('camera')}拍张合照</button><button data-action="decorate">${icon('palette')}换个配色</button><button data-action="rest">${icon('heart')}免费茶歇</button></div><article class="region-activity"><span class="activity-flower">${region.id==='garden'?'✿':region.id==='courtyard'?'☀':'♡'}</span><div><h3>${r.activityLabel||region.activityLabel}</h3><p>${s.stage===0?'先铺好第一块门垫，再一起做今天的小事。':r.activityDone?'今天的小事已经一起做过，明天再来。':r.activityText||region.activityText}</p></div>${btn(r.activityDone?'明天再来':'一起做','homeActivity','small',`data-region="${region.id}" ${r.activityDone||s.stage===0?'disabled':''}`)}</article>`}${teaHomeCard()}<div class="world-memory-track">${icon('book')}家园回忆 ${p.memoryCount} / 3 张<span>各区域每天一次陪伴，收集新的日常</span></div>${t?`<article class="home-quest">${picture(t.decor,'home-quest-thumb')}<span class="eyebrow">下一处心愿 · ${nextRegion?.name||'小屋'} · ${s.stage+1}/24</span><h3>${t.name}</h3><p>${s.delivered?'心愿星已经备好。走到对应区域，亲手布置新角落。':t.wish}</p><div class="home-quest-row"><span class="tag ${s.delivered?'':'coral'}">${icon(s.delivered?'star':'merge')}${s.delivered?'心愿星 ×1 已就绪':'先准备合成物品'}</span>${btn(s.delivered?'前往布置':'去合成','build',s.delivered?'':'alt')}</div></article>`:`<article class="home-quest"><span class="eyebrow">GOOD DAYS NEVER END</span><h3>家园变大了，陪伴也更多了。</h3><p>去花园照顾花草，回小屋准备点心，再到庭院招待朋友。每天都有一件可以一起做的小事。</p><div class="home-quest-row">${btn('继续合成','merge')}${btn('重温庭院聚会','ending','alt')}</div></article>`}</section>`;
 }
 function renderBook(){
  const s=game.s;let content='';
  if(ui.bookMode==='memories'){
-  content=`${renderWorldMemories()}<div class="section-title">六章生活 · 永久收藏</div><div class="memory-grid">${CHAPTERS.map((c,i)=>{const ok=s.stage>=(i+1)*4;return `<button class="memory-card" data-action="memory" data-chapter="${i}" ${ok?'':'disabled'}><div class="memory-art ${ok?'':'locked'}">${ok&&i===5?picture('party-memory','party-memory'):homeScene(Math.min(s.stage,(i+1)*4),{mini:true,poses:c.pose,region:DECOR[(i+1)*4-1].region})}${ok?'':icon('lock')}</div><h3>${String(i+1).padStart(2,'0')} · ${ok?c.memory:c.name}</h3><p>${ok?'轻轻翻开这一天':`完成第 ${i+1} 章后收进手帐`}</p></button>`;}).join('')}</div>${s.stage?`<div class="past-stories"><div class="companion-illustration">${picture('story-companion')}<span>和你一起，平凡也很可爱。</span></div><div class="section-title">已经发生的小故事</div>${TASKS.slice(0,s.stage).map(t=>`<button data-action="replayTask" data-id="${t.id}">${picture(t.decor)}${t.name}${icon('play')}</button>`).join('')}</div>`:''}`;
+  content=`${renderSouvenirs()}${renderWorldMemories()}<div class="section-title">六章生活 · 永久收藏</div><div class="memory-grid">${CHAPTERS.map((c,i)=>{const ok=s.stage>=(i+1)*4;return `<button class="memory-card" data-action="memory" data-chapter="${i}" ${ok?'':'disabled'}><div class="memory-art ${ok?'':'locked'}">${ok&&i===5?picture('party-memory','party-memory'):homeScene(Math.min(s.stage,(i+1)*4),{mini:true,poses:c.pose,night:i===4,region:DECOR[(i+1)*4-1].region})}${ok?'':icon('lock')}</div><h3>${String(i+1).padStart(2,'0')} · ${ok?c.memory:c.name}</h3><p>${ok?'轻轻翻开这一天':`完成第 ${i+1} 章后收进手帐`}</p></button>`;}).join('')}</div>${s.stage?`<div class="past-stories"><div class="companion-illustration">${picture('story-companion')}<span>和你一起，平凡也很可爱。</span></div><div class="section-title">已经发生的小故事</div>${TASKS.slice(0,s.stage).map(t=>`<button data-action="replayTask" data-id="${t.id}">${picture(t.decor)}${t.name}${icon('play')}</button>`).join('')}</div>`:''}`;
  }else if(ui.bookMode==='collection'){
   content=`<div class="collection-count"><span>物品图鉴 · 每一种都有名字</span><b>${Object.keys(s.seen).length} / 36</b></div>${CATS.map(c=>`<section class="chain-section"><div class="chain-head">${picture('gen-'+c)}<div><h3>${CHAINS[c].name}</h3><p>来源：${CHAINS[c].producer}</p></div>${ib('arrow','source','前往这个工作台',`data-cat="${c}"`,true)}</div><div class="collection-grid">${CHAINS[c].items.map((name,i)=>{const seen=s.seen[itemKey(c,i+1)],count=game.count(c,i+1);return `<button class="collection-item ${seen?'':'unseen'}" data-action="item" data-cat="${c}" data-level="${i+1}"><small>${i+1} 级</small>${picture(itemKey(c,i+1),'',name)}<span>${name}</span>${count?`<span class="mini-count">持有 ${count}</span>`:''}</button>`;}).join('')}</div></section>`).join('')}`;
  }else{
@@ -701,7 +1132,7 @@ function renderBook(){
 function renderShop(){
  const s=game.s;
  return `<section class="shop-view"><div class="page-heading"><div><span class="eyebrow">A LITTLE HELP, A LITTLE SWEET</span><h2>巷口的小铺</h2><p>金币来自合成订单 · 没有真实付费或广告</p></div>${picture('util-coin','', '金币')}</div><div class="shop-banner">${picture('util-gift')}<div><h3>今日小礼物</h3><p>40 金币 · ${CFG.dailyGiftEnergy} 体力 · 1 剪刀</p></div>${btn(s.daily.gift?'已收好':'免费领取','dailyGift','small',s.daily.gift?'disabled':'')}</div><div class="shop-grid">${[
- ['energy','util-energy','口袋小点心','收入道具，使用后 +30 体力',CFG.energyCost],['scissors','util-scissors','小小剪刀','高阶物品拆成两个低一阶',CFG.scissorCost],['parcel','util-gift','心愿补给包','当前所需来源的四件材料',CFG.parcelCost]
+ ['energy','util-energy','口袋小点心','收入道具，使用后 +30 体力',CFG.energyCost],['scissors','util-scissors','小小剪刀','高阶物品拆成两个低一阶',CFG.scissorCost],['parcel','util-gift','心愿补给包','先选订单和来源，再确认四件内容',CFG.parcelCost]
  ].map(([key,id,name,desc,price])=>`<article class="shop-product">${picture(id)}<h3>${name}</h3><p>${desc}</p>${btn(picture('util-coin')+price,'buy','small',`data-key="${key}"`)}</article>`).join('')}</div><div class="section-title">把工作台照顾得更好</div><div class="stock-list">${CATS.map(c=>{const p=s.producers[c],on=game.unlocked(c);return `<article class="producer-card ${on?'':'locked'}"><div class="row">${picture('gen-'+c)}<div><h3>${CHAINS[c].producer}</h3><p>${on?`Lv.${p.level} · 库存 ${stockCap(p)}`:`第 ${CHAINS[c].unlock+1} 处心愿开启`}</p></div></div><p style="margin-top:7px">${on?`二阶概率 ${Math.round((.2+(p.level-1)*.12)*100)}% → ${p.level<3?Math.round((.2+p.level*.12)*100)+'%':'已满级'}`:'完成对应修缮后自动解锁'}</p>${btn(on?(p.level>=3?'已经很好啦':`升级 · ${CFG.upgradeCosts[p.level-1]} 金币`):'还没解锁','upgrade','small alt',`data-cat="${c}" ${on&&p.level<3?'':'disabled'}`)}</article>`;}).join('')}</div><div class="section-title">累了，就先休息一下</div><div class="shop-banner">${picture('tea-4')}<div><h3>和布布一二喝杯茶</h3><p>免费补充 30 体力 · 每分钟一次</p></div>${btn('坐一会儿','rest','small')}</div><p class="shop-note">工作台库存自然补充，体力每 15 秒恢复 1 点。<br>只想专心合成和看故事时，设置里可开启“轻松模式”。</p></section>`;
 }
 function dailyContent(){
@@ -709,13 +1140,20 @@ function dailyContent(){
 }
 
 // ------- Sheets -------
-function openModal(m){cancelDrag();ui.modal=m;renderModal();setTimeout(()=>$('.modal [data-action="closeModal"]')?.focus({preventScroll:true}),30);}
-function closeModal(){ui.modal=null;modalRoot.innerHTML='';}
+function openModal(m){
+ cancelDrag();if(!ui.modal)modalReturnFocus=focusKey(document.activeElement);ui.modal=m;renderModal();syncInert();$('.modal [data-action="closeModal"]')?.focus({preventScroll:true});
+}
+function closeModal(){
+ ui.scenePlayer?.destroy();ui.scenePlayer=null;ui.sceneSnapshot=null;ui.sceneAwaitChoice=false;ui.modal=null;modalRoot.innerHTML='';syncInert();findFocus(modalReturnFocus)?.focus({preventScroll:true});modalReturnFocus=null;
+}
 function sheet(title,body){return `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="modal-handle"></div><div class="modal-title"><h2>${title}</h2>${ib('close','closeModal','关闭')}</div>${body}</section></div>`;}
 function renderModal(){
- const m=ui.modal;if(!m){modalRoot.innerHTML='';return;}const s=game.s;let title='',body='';
- if(m.type==='orders'){
-  title='今天的小心愿';body=`<div class="segmented" style="margin-bottom:12px"><button data-action="orderMain" class="${ui.orderMode==='main'?'active':''}">小屋心愿</button><button data-action="orderSide" class="${ui.orderMode==='side'?'active':''}" ${s.stage===0?'disabled':''}>邻里委托</button></div><div class="order-strip">${ui.orderMode==='main'?(TASKS[s.stage]?orderCard(TASKS[s.stage]):'<p class="description">主线已经完成，看看邻里的小纸条吧。</p>'):s.sideOrders.map((o,i)=>orderCard(o,'side',i)).join('')}</div><p class="note">小屏模式将心愿收在这张纸条里，让棋盘有更完整的空间。</p>`;
+ const focus=focusKey(document.activeElement),m=ui.modal;if(!m){modalRoot.innerHTML='';return;}const s=game.s;let title='',body='';
+ if(m.type==='parcel'){title='给哪一份心愿补给？';body=parcelContent(m);}
+ else if(m.type==='itemActions'){const t=s.board[m.index];title='收好、拆分或出售';body=t?.k==='item'?`${picture(itemKey(t.c,t.l),'hero-img')}<h3 class="center">${itemName(t.c,t.l)}</h3><p class="description">拆分会消耗一把剪刀，并需要一个额外空位；出售得到 ${mass(t)} 金币。下一次其他操作前可撤销。</p><div class="actions">${btn('用剪刀拆分','split','alt')}${btn('出售此物品','sell','danger')}</div>`:'<p>先选择棋盘上的物品。</p>';}
+ else if(m.type==='event'){title=m.title;body=`<div class="event-scene">${homeScene(m.scene.stage,{mini:true,scene:ui.sceneSnapshot||m.scene,region:m.scene.region,night:m.scene.night})}</div>${m.scene.result?.condition==='wind'?`<div class="wind-choices"><span>风来了，先把茶布固定好：</span>${btn('夹子夹好','sceneChoice','small alt','data-choice="clip"')}${btn('杯垫压稳','sceneChoice','small alt','data-choice="anchor"')}</div>`:''}<p class="event-caption" aria-live="polite">${esc(m.caption||'两只熊一起把今天准备好。')}</p>${m.reward?`<p class="event-reward">已收好 ${m.reward.coins} 金币 · ${m.reward.energy} 体力${m.reward.firstSouvenir?' · 新纪念物已入手帐':''}</p>`:''}<div class="actions">${btn('下一步动作','sceneAdvance','alt','disabled')}${btn('跳到结果','sceneSkip','alt')}${btn('再看一次','sceneReplay','alt')}${btn(icon('camera')+'合照','photo','alt')}</div><p class="note">回放与拍照不会再次消耗材料，也不会重复发奖。</p>`;}
+ else if(m.type==='orders'){
+  title='今天的小心愿';body=`${orderTabs()}<div class="order-strip">${ui.orderMode==='tea'?teaContent():ui.orderMode==='main'?(game.mainOrder()?orderCard(game.mainOrder()):'<p class="description">主线已完成，茶会和邻里委托继续开放。</p>'):s.sideOrders.map((o,i)=>orderCard(o,'side',i)).join('')}</div>`;
  }else if(m.type==='item'||m.type==='chain'){
   const c=m.c,l=m.l||1;title=m.type==='chain'?CHAINS[c].name:itemName(c,l);
   body=`<div class="item-detail">${picture(itemKey(c,l))}<div><h3>${itemName(c,l)} <span class="tag">${l} 级</span></h3><p>棋盘与仓库共持有 ${game.count(c,l)} 件<br>${l===6?'这是本条合成链的最高阶。':`两个相同的 ${l} 级物品 → 一个 ${l+1} 级物品。`}</p></div></div><p class="description">${CHAINS[c].desc}</p><div class="route">${CHAINS[c].items.map((name,i)=>`${i?'<span class="route-arrow">›</span>':''}<button class="route-step ${l===i+1?'current':''}" data-action="item" data-cat="${c}" data-level="${i+1}">${picture(itemKey(c,i+1))}<small>${i+1}</small><span>${name}</span></button>`).join('')}</div><div class="route-source">${picture('gen-'+c)}<div><b style="font-size:12px">来自 ${CHAINS[c].producer}</b><p>${game.unlocked(c)?'点击工作台，以 1 体力取出一件材料。':`完成前 ${CHAINS[c].unlock} 处布置后开启。`}</p></div>${btn('去看看','source','small',`data-cat="${c}"`)}</div><p class="note">合成表示把同类生活用品逐步整备升级，不是现实中的物理配方。订单只接收指定阶数，不自动折算高阶物品。</p>`;
@@ -729,8 +1167,8 @@ function renderModal(){
   title='今天，也有小小收获';body=`<div class="shop-banner">${picture('util-gift')}<div><h3>今天的小礼物</h3><p>40 金币 · ${CFG.dailyGiftEnergy} 体力 · 1 剪刀</p></div>${btn(s.daily.gift?'已收好':'免费领','dailyGift','small',s.daily.gift?'disabled':'')}</div>${dailyContent()}<p class="note">按设备本地日期更新；不强制连续签到。<br>今天没做完，也不会影响主线故事。</p>`;
  }else if(m.type==='settings'){
   title='小屋的使用说明';body=`${[
-   ['sound','小物件的声音','合成、交付和点击时的轻轻回应。'],['music','暖暖的背景音乐','原创玩具钢琴小调，默认关闭。'],['calm','轻松模式','取物不消耗体力与库存；故事、订单与合成照常推进。'],['reducedMotion','减少动态效果','关闭飘动、粒子、呼吸和弹跳动画。']
-  ].map(([key,name,desc])=>`<div class="setting-row"><div><h3>${name}</h3><p>${desc}</p></div><button class="toggle ${s.settings[key]?'on':''}" data-action="setting" data-key="${key}" role="switch" aria-checked="${s.settings[key]}" aria-label="${name}"><i></i></button></div>`).join('')}<div class="section-title">把好日子保管好</div><p class="description">进度保存在当前浏览器，没有云账号。换设备或清理浏览器前，请先导出存档。${storageFailed?'<br><b>当前浏览器不允许保存，请务必导出。</b>':''}</p><div class="settings-grid">${btn(icon('download')+'导出存档','export','alt')}${btn(icon('upload')+'导入存档','import','alt')}${btn(icon('play')+'重看开场','replayIntro','alt')}${btn(icon('info')+'玩法说明','help','alt')}</div><div class="actions">${btn('重新开始这间小屋','resetAsk','danger')}</div><p class="note">单机 H5 v1.1 · 3 区域家园 · 6 章故事<br>本作品为布布一二主题单机游戏；商业发行需另行取得角色 IP 授权。<br>没有广告、内购、排行榜或数据上传。</p>`;
+   ['sound','小物件的声音','合成、交付和点击时的轻轻回应。'],['music','暖暖的背景音乐','原创玩具钢琴小调，默认关闭。'],['calm','轻松模式','取物不消耗体力与库存；故事、订单与合成照常推进。'],['reducedMotion','减少动态效果','用关键动作画面展示结果，关闭飘动、粒子和弹跳；奖励保持一致。']
+  ].map(([key,name,desc])=>`<div class="setting-row"><div><h3>${name}</h3><p>${desc}</p></div><button class="toggle ${s.settings[key]?'on':''}" data-action="setting" data-key="${key}" role="switch" aria-checked="${s.settings[key]}" aria-label="${name}"><i></i></button></div>`).join('')}<div class="section-title">把好日子保管好</div><p class="description">进度保存在当前浏览器，没有云账号。换设备或清理浏览器前，请先导出存档。${storageFailed?'<br><b>当前浏览器不允许保存，请务必导出。</b>':''}</p><div class="settings-grid">${btn(icon('download')+'导出存档','export','alt')}${btn(icon('upload')+'导入存档','import','alt')}${btn(icon('play')+'重看开场','replayIntro','alt')}${btn(icon('info')+'玩法说明','help','alt')}</div><div class="actions">${btn('重新开始这间小屋','resetAsk','danger')}</div><p class="note">单机 H5 v1.2 · 3 区域家园 · 6 章故事<br>本作品为布布一二主题单机游戏；商业发行需另行取得角色 IP 授权。<br>没有广告、内购、排行榜或数据上传。</p>`;
  }else if(m.type==='submitted'){
   title='这份小心愿，备好啦';const r=m.result;
   body=`${picture('yier-happy','reward-art')}<h3 class="celebration-title">现在，回家变一点点更好</h3><p class="description center">材料已经收进修缮包。<br>心愿星只用于当前这处布置，不会被小铺花掉。</p><div class="reward-tray"><span>${picture('util-star')}+1</span><span>${picture('util-coin')}+${r.coins}</span><span>${picture('util-energy')}+${r.energy}</span></div>${btn('带心愿星回小屋','afterSubmit','wide')}`;
@@ -741,7 +1179,7 @@ function renderModal(){
   title='换一个喜欢的颜色';body=s.stage?`<p class="description">点已经摆好的小东西，切换它的两种配色。不花金币，也不影响进度。</p><div class="decor-picker">${TASKS.slice(0,s.stage).map(t=>`<button class="decor-choice ${s.decorStyles[t.id]?'variant':''}" data-action="redecorate" data-id="${t.id}" aria-label="切换${t.name}配色">${picture(t.decor,'',t.name)}<small>${s.decorStyles[t.id]?'薄荷':'奶油'}</small></button>`).join('')}</div>`:'<div class="inventory-empty">先合出软海绵、交付心愿，<br>为小屋铺好第一块门垫吧。</div>';
  }else if(m.type==='memory'){
   const c=CHAPTERS[m.chapter];title=m.reward?'把今天收进手帐':c.memory;
-  body=`<div class="memory-full">${m.chapter===5?picture('party-memory','party-memory'):homeScene((m.chapter+1)*4,{mini:true,poses:c.pose,region:DECOR[(m.chapter+1)*4-1].region})}</div><p class="eyebrow center">CHAPTER ${String(m.chapter+1).padStart(2,'0')} · ${c.memory}</p><p class="memory-text">${c.text}</p>${m.reward?`<div class="reward-tray"><span>${picture('util-coin')}+60</span><span>${picture('util-energy')}+${CFG.chapterEnergy}</span><span>${picture('util-scissors')}+1</span></div><p class="note">章节奖励已到账，两件材料已放入“待领礼物”。</p>`:''}<div class="actions">${btn(m.reward&&m.chapter===5?'翻到最后一页':'把这一天收好','memoryDone','wide')}</div>`;
+  body=`<div class="memory-full">${m.chapter===5?picture('party-memory','party-memory'):homeScene((m.chapter+1)*4,{mini:true,poses:c.pose,night:m.chapter===4,region:DECOR[(m.chapter+1)*4-1].region})}</div><p class="eyebrow center">CHAPTER ${String(m.chapter+1).padStart(2,'0')} · ${c.memory}</p><p class="memory-text">${c.text}</p>${m.reward?`<div class="reward-tray"><span>${picture('util-coin')}+60</span><span>${picture('util-energy')}+${CFG.chapterEnergy}</span><span>${picture('util-scissors')}+1</span></div><p class="note">章节奖励已到账，两件材料已放入“待领礼物”。</p>`:''}<div class="actions">${btn(m.reward&&m.chapter===5?'翻到最后一页':'把这一天收好','memoryDone','wide')}</div>`;
  }else if(m.type==='discovery'){
   title=m.l===6?'最高阶收藏，合出来啦！':'新的可爱，闪亮登场';
   body=`<div class="discovery-stage">${picture(itemKey(m.c,m.l),'discovery-art')}<span class="discovery-level">LEVEL ${m.l}</span></div><h3 class="center">${itemName(m.c,m.l)}</h3><p class="description center">从小小材料到精致成品，<br>这件新发现已永久收进物品图鉴。</p>${btn('继续合出好日子','closeModal','wide')}`;
@@ -771,45 +1209,42 @@ function renderModal(){
    ['07 · 记得保管小屋','这是单机游戏，只保存在当前浏览器。换设备前导出 JSON 存档，再到新设备导入。浏览器无痕模式和直接打开文件时的保存能力，取决于浏览器本身。']
   ].map(([h,p])=>`<div class="help-section"><h3>${h}</h3><p>${p}</p></div>`).join('')}`;
  }
- modalRoot.innerHTML=sheet(title,body);
+ modalRoot.innerHTML=sheet(title,body);syncInert();if(m.type==='event')syncEventControls();const restored=findFocus(focus,modalRoot);(restored||$('.modal [data-action="closeModal"]'))?.focus({preventScroll:true});
 }
 
 // ------- Launch and comic dialogue -------
 function renderSplash(){
  overlayRoot.innerHTML=`<section class="splash" aria-label="游戏启动页"><div class="splash-scene">${homeScene(game.s.stage,{characters:false,mini:true})}</div><i class="splash-leaf one"></i><i class="splash-leaf two"></i><i class="splash-leaf three"></i><div class="splash-top"><div class="eyebrow">GOOD DAYS, TOGETHER</div><h1><span class="bear-title">布布一二</span>好日子小屋</h1><p class="splash-sub">把小小的心愿，慢慢合成家</p><span class="splash-pill">合成 · 布置 · 陪伴 · 收藏</span></div><div class="splash-bears">${picture('bubu-sit')}${picture('yier-turn')}</div><div class="splash-ribbon">“和你一起，就是最开心的事。”</div><div class="splash-bottom">${btn(game.s.introSeen?'回到我们的好日子':'开始我们的好日子','start')}${game.s.introSeen?'<button class="text-button" data-action="replayIntro">再看一遍初次见面</button>':''}<p>不用登录 · 单机本地保存 · 没有付费广告<br>建议先导出存档，再切换浏览器或设备。</p></div></section>`;
 }
-function showStory(lines,onFinish=()=>{}){
- cancelDrag();closeModal();ui.splash=false;ui.story={lines,index:0,onFinish};renderStory();
+function showStory(lines,onFinish=()=>{},context=null){
+ cancelDrag();closeModal();ui.splash=false;ui.story={lines,index:0,onFinish,context};renderStory();syncInert();$('.story-overlay [data-action="nextStory"]')?.focus({preventScroll:true});
 }
 function renderStory(){
  const q=ui.story;if(!q)return;const line=q.lines[q.index],who=line.who,pose=line.pose||'idle';
- const fullPose={happy:'joy',surprise:'idle',shy:'turn'}[pose]||pose;
+ const fullPose={happy:'joy'}[pose]||pose;
  const left=who==='bubu'?`bubu-${fullPose}`:'bubu-turn';const right=who==='yier'?`yier-${fullPose}`:'yier-turn';
- overlayRoot.innerHTML=`<section class="story-overlay" aria-label="剧情对话"><div class="story-scene">${homeScene(game.s.stage,{characters:false,mini:true,night:ui.night})}</div><div class="story-header"><span class="eyebrow">${game.s.stage===0?'PROLOGUE · 推开这扇门':`OUR LITTLE STORY · 第 ${Math.min(6,Math.ceil(game.s.stage/4))} 章`}</span><button class="story-skip" data-action="skipStory">跳过 ${icon('arrow')}</button></div><h2 class="story-title">${esc(line.title||'今天，又多了一点点可爱')}</h2><p class="story-aside">${esc(line.aside||'小小的事情，两个人一起做，就变得不一样。')}</p><div class="story-characters">${picture(left,`story-character ${who==='bubu'?'speaking':''}`)}${picture(right,`story-character ${who==='yier'?'speaking':''}`)}</div><div class="dialogue-box"><span class="speaker-name ${who}">${who==='bubu'?'布布':'一二'}</span><p class="dialogue-text">${esc(line.text)}</p><div class="dialogue-footer"><div class="story-dots">${q.lines.map((_,i)=>`<i class="${i===q.index?'active':''}"></i>`).join('')}</div>${btn(q.index===q.lines.length-1?'一起开始吧':'下一句','nextStory')}</div></div></section>`;
+ overlayRoot.innerHTML=`<section class="story-overlay" aria-label="剧情对话"><div class="story-scene">${homeScene(q.context?.stage??game.s.stage,{characters:false,mini:true,night:q.context?.night??ui.night,region:q.context?.region||game.s.world.region})}</div><div class="story-header"><span class="eyebrow">${q.context?.replay?'回忆重温 · 当时布置与区域 · 配色使用当前选择':game.s.stage===0?'PROLOGUE · 推开这扇门':`OUR LITTLE STORY · 第 ${Math.min(6,Math.ceil(game.s.stage/4))} 章`}</span><button class="story-skip" data-action="skipStory">跳过 ${icon('arrow')}</button></div><h2 class="story-title">${esc(line.title||'今天，又多了一点点可爱')}</h2><p class="story-aside">${esc(line.aside||'小小的事情，两个人一起做，就变得不一样。')}</p><div class="story-characters">${picture(left,`story-character ${who==='bubu'?'speaking':''}`)}${picture(right,`story-character ${who==='yier'?'speaking':''}`)}</div><div class="dialogue-box"><span class="speaker-name ${who}">${who==='bubu'?'布布':'一二'}</span><p class="dialogue-text">${esc(line.text)}</p><div class="dialogue-footer"><div class="story-dots">${q.lines.map((_,i)=>`<i class="${i===q.index?'active':''}"></i>`).join('')}</div>${btn(q.index===q.lines.length-1?'一起开始吧':'下一句','nextStory')}</div></div></section>`;
  sounds.play(who==='bubu'?'talk':'yier');
 }
-function finishStory(){const q=ui.story;if(!q)return;ui.story=null;overlayRoot.innerHTML='';q.onFinish();}
+function finishStory(){const q=ui.story;if(!q)return;ui.story=null;overlayRoot.innerHTML='';syncInert();q.onFinish();}
 function nextStory(){if(!ui.story)return;if(++ui.story.index>=ui.story.lines.length)finishStory();else renderStory();}
 function playIntro(){ui.splash=false;showStory(INTRO,()=>{game.markIntro();persist();navigate(game.s.stage===0?'merge':'home');if(game.s.stage===0){highlight([8,9]);toast('从这两块相同的小方巾开始。',2800);}if(saveWarning)toast(saveWarning,5000);});}
-function replayTask(id,onFinish=()=>{}){const t=TASKS[id];showStory(t.after.map(([who,pose,text])=>({who,pose,text,title:t.name,aside:CHAPTERS[t.chapter].sub})),onFinish);}
+function replayTask(id,onFinish=()=>{},replay=true){
+ const t=TASKS[id];if(!t||id>=game.s.stage)return;showStory(t.after.map(([who,pose,text])=>({who,pose,text,title:t.name,aside:CHAPTERS[t.chapter].sub})),onFinish,{stage:id+1,region:DECOR[id].region,night:t.chapter===4,replay});
+}
 function afterBuild(r){
  ui.newDecor=r.stage;ui.homeMode='region';ui.night=game.s.stage>=16&&game.s.stage<20;ui.tab='home';ui.selected=null;render();main.scrollTop=0;sounds.play('place');burst(null,true);
- setTimeout(()=>{ui.newDecor=null;replayTask(r.stage,()=>{if(r.chapterDone)openModal({type:'memory',chapter:r.chapter,reward:true});else if(r.unlocked.length)toast(`新工作台开启：${r.unlocked.map(c=>CHAINS[c].producer).join('、')}`);else if(r.stage===0)toast('门垫铺好了！回合成台，试试点击带闪电的清洁篮。',3200);});},620);
+ setTimeout(()=>{ui.newDecor=null;replayTask(r.stage,()=>{if(r.chapterDone)openModal({type:'memory',chapter:r.chapter,reward:true});else if(r.unlocked.length)toast(`新工作台开启：${r.unlocked.map(c=>CHAINS[c].producer).join('、')}`);else if(r.stage===0)toast('门垫铺好了！回合成台，试试点击带闪电的清洁篮。',3200);},false);},620);
 }
 function highlight(indices){ui.highlight=indices;clearTimeout(highlightTimer);render();highlightTimer=setTimeout(()=>{ui.highlight=[];if(ui.tab==='merge')render();},6000);}
-function showHint(){const h=game.hint(ui.orderMode);if(h.kind==='build'){navigate('home');toast('材料已经交好啦，点“开始布置”。');return;}if(h.kind==='submit'){ui.orderMode=h.orderKind||ui.orderMode;navigate('merge');toast(ui.orderMode==='side'?'邻里委托已经备齐，点开委托即可交付。':'上方心愿已经备齐，可以交付啦。');return;}navigate('merge');if(h.kind==='merge'){highlight([h.from,h.to]);toast(`把发亮的两个${itemName(h.c,h.l)}合在一起。`);}else if(h.idx!==undefined){highlight([h.idx]);ui.selected=h.idx;render();toast(`点带闪电的${CHAINS[h.c].producer}，继续准备材料。`);}else toast(h.message||'看看订单里还需要哪些物品。');}
+function showHint(){const h=game.hint(ui.orderMode);if(h.kind==='lesson'){navigate('merge');const idx=CATS.indexOf(h.c);ui.selected=idx;highlight([idx]);toast(`亲手点一次${CHAINS[h.c].producer}，认识新来源。`);return;}if(h.kind==='build'){navigate('home');toast('材料已经交好啦，点“开始布置”。');return;}if(h.kind==='submit'){ui.orderMode=h.orderKind||ui.orderMode;navigate('merge');toast(ui.orderMode==='tea'?'茶会材料已经备齐，点开订单开始茶会。':ui.orderMode==='side'?'邻里委托已经备齐，点开委托即可交付。':'上方心愿已经备齐，可以交付啦。');return;}navigate('merge');if(h.kind==='merge'){highlight([h.from,h.to]);toast(`把发亮的两个${itemName(h.c,h.l)}合在一起。`);}else if(h.idx!==undefined){highlight([h.idx]);ui.selected=h.idx;render();toast(`点带闪电的${CHAINS[h.c].producer}，继续准备材料。`);}else toast(h.message||'看看订单里还需要哪些物品。');}
 function chat(who){
- if(ui.tab!=='home')return;clearTimeout(chatTimer);$('.room-chat')?.remove();const lines=HOME_CHAT.filter(l=>l[0]===who),[,pose,text]=lines[Math.floor(Math.random()*lines.length)];const el=document.createElement('div');el.className='room-chat';el.textContent=text;$('.home-scene').append(el);const im=$(`.home-char.${who} img`);if(im)im.src=asset(`${who}-${({happy:'joy',surprise:'idle',shy:'turn'}[pose]||pose)}`);sounds.play(who==='yier'?'yier':'talk');chatTimer=setTimeout(()=>{el.remove();if(im)im.src=asset(`${who}-${who==='bubu'?'idle':'turn'}`);},3500);
+ if(ui.tab!=='home')return;clearTimeout(chatTimer);$('.room-chat')?.remove();const lines=HOME_CHAT.filter(l=>l[0]===who);if(!lines.length)return;const [,pose,text]=lines[Math.floor(Math.random()*lines.length)];const scene=$('.home-scene');if(!scene)return;const el=document.createElement('div');el.className='room-chat';el.textContent=text;scene.append(el);
+ const poses=['bubu-idle','yier-turn'];poses[who==='bubu'?0:1]=`${who}-${pose==='happy'?'joy':pose}`;const host=$('.scene-layers',scene);if(host)host.innerHTML=renderSceneHTML(describeScene(game.s,{region:game.s.world.region,night:ui.night,poses}),{assetURL:asset,interactive:true});sounds.play(who==='yier'?'yier':'talk');chatTimer=setTimeout(()=>{el.remove();if(host.isConnected)host.innerHTML=renderSceneHTML(describeScene(game.s,{region:game.s.world.region,night:ui.night}),{assetURL:asset,interactive:true});},3500);
 }
 function playHomeActivity(r){
- const scene=$('[data-region-scene]');if(!scene)return;
- const poses=r.region==='house'?['bubu-sit','yier-joy']:r.region==='garden'?['bubu-turn','yier-happy']:['bubu-walk','yier-joy'];
- for(const [i,who] of ['bubu','yier'].entries()){const im=$(`.home-char.${who} img`,scene);if(im){im.src=asset(poses[i]);setTimeout(()=>{if(im.isConnected)im.src=asset(`${who}-${who==='bubu'?'idle':'turn'}`);},3200);}}
- const bubble=document.createElement('div');bubble.className='room-chat activity-chat';bubble.textContent=r.region==='garden'?'今天的小苗，精神一点点！':r.region==='courtyard'?'朋友来了，先喝一口甜甜的茶。':'这一半饼干，留给你。';scene.append(bubble);
- if(!game.s.settings.reducedMotion){const fx=document.createElement('div');fx.className=`activity-fx ${r.region}`;fx.setAttribute('aria-hidden','true');fx.innerHTML=Array.from({length:8},(_,i)=>`<i style="--a:${i};left:${23+i*7}%">${r.region==='garden'?'':r.region==='house'?'♡':'✦'}</i>`).join('');scene.append(fx);setTimeout(()=>fx.remove(),2800);}
- setTimeout(()=>bubble.remove(),3200);
+ playEvent('homeActivity-'+r.region,{result:r});
 }
-
 // ------- Board pointer handling: primary pointer only; cancellations never move items -------
 function selectCell(index){
  const t=game.s.board[index];
@@ -862,17 +1297,32 @@ app.addEventListener('click',async(e)=>{
  if(Date.now()<ignoreClickUntil&&e.detail!==0)return;
  sounds.unlock();const a=b.dataset.action,d=b.dataset;
  switch(a){
-  case 'start':hasStarted=true;ui.splash=false;overlayRoot.innerHTML='';sounds.syncMusic();if(!game.s.introSeen)playIntro();else{render();if(game.s.stage===24&&!game.s.finishedSeen)openModal({type:'ending'});if(saveWarning)toast(saveWarning,5000);}break;
+  case 'start':hasStarted=true;ui.splash=false;overlayRoot.innerHTML='';syncInert();sounds.syncMusic();if(!game.s.introSeen)playIntro();else{render();if(game.s.stage===24&&!game.s.finishedSeen)openModal({type:'ending'});if(saveWarning)toast(saveWarning,5000);}break;
   case 'home':case 'merge':case 'book':case 'shop':closeModal();navigate(a);break;
   case 'compactOrder':openModal({type:'orders'});break;
   case 'orderMain':ui.orderMode='main';render();break;
+  case 'openTea':closeModal();ui.orderMode='tea';navigate('merge');break;
+  case 'orderTea':ui.orderMode='tea';render();break;
+  case 'teaPlan':run(game.chooseTeaPlan(d.plan),{quiet:true});break;
+  case 'firstVisit':run(game.beginFirstVisit());break;
+  case 'teaReplay':openTeaReplay(game.s.tea.lastResult);break;
+  case 'souvenirReplay':{const entry=souvenirEntries().find(v=>v.key===d.key&&(!d.plan||v.plan===d.plan));if(entry?.snapshot)openTeaReplay(entry.snapshot);break;}
+  case 'equipSouvenir':run(game.equipSouvenir(d.region,d.key),{quiet:true});break;
+  case 'sceneAdvance':ui.scenePlayer?.advance();break;
+  case 'sceneChoice':if(ui.sceneAwaitChoice){rememberSceneChoice(d.choice);ui.scenePlayer?.start();syncEventControls();}break;
+  case 'sceneSkip':rememberSceneChoice('anchor');ui.scenePlayer?.skip();syncEventControls();break;
+  case 'sceneReplay':rememberSceneChoice('anchor');ui.scenePlayer?.replay();syncEventControls();break;
+  case 'itemActions':openModal({type:'itemActions',index:ui.selected});break;
+  case 'parcelTarget':ui.parcelTarget=JSON.parse(d.target);ui.parcelSource=null;renderModal();break;
+  case 'parcelSource':ui.parcelSource=d.cat;renderModal();break;
+  case 'confirmParcel':{const quote=ui.modal?.quote;if(!quote)break;const r=run(game.buy('parcel',quote));if(r.ok)closeModal();break;}
   case 'orderSide':if(game.s.stage===0){toast('先把门垫铺好，邻里委托就会开启。');break;}ui.orderMode='side';render();break;
   case 'bookMode':ui.bookMode=d.mode;render();main.scrollTop=0;break;
   case 'item':openModal({type:'item',c:d.cat,l:+d.level});break;
   case 'chain':openModal({type:'chain',c:d.cat,l:1});break;
-  case 'source':closeModal();navigate('merge');ui.selected=CATS.indexOf(d.cat);highlight([ui.selected]);if(!game.unlocked(d.cat))toast(`修好前 ${CHAINS[d.cat].unlock} 处后，${CHAINS[d.cat].producer}会自动解锁。`);break;
+  case 'source':closeModal();navigate('merge');ui.selected=CATS.indexOf(d.cat);highlight([ui.selected]);if(!game.unlocked(d.cat))toast(`修好前 ${CHAINS[d.cat].unlock} 处后，${CHAINS[d.cat].producer}会自动解锁。`);else if(!game.s.producerLessons[d.cat])toast(`点发亮、带闪电的${CHAINS[d.cat].producer}，亲手取出一件材料。`,3500);break;
   case 'hint':showHint();break;
-  case 'submit':run(game.submit(d.kind,d.kind==='main'?+d.id:d.id));break;
+  case 'submit':run(game.submit(d.kind,d.kind==='main'?+d.id:d.id,d.kind==='main'?+d.step:undefined));break;
   case 'afterSubmit':closeModal();navigate('home');break;
   case 'build':if(!game.s.delivered){ui.orderMode='main';navigate('merge');showHint();}else{focusBuildRegion();ui.tab='home';render();ui.styleChoice=0;openModal({type:'build'});}break;
   case 'worldMap':ui.homeMode='map';render();main.scrollTop=0;break;
@@ -888,14 +1338,14 @@ app.addEventListener('click',async(e)=>{
   case 'storageTab':ui.storageTab=d.source;renderModal();break;
   case 'retrieve':run(game.retrieve(+d.index,d.source));break;
   case 'store':run(game.store(ui.selected));break;
-  case 'split':run(game.split(ui.selected));break;
-  case 'sell':{const t=game.s.board[ui.selected];if(t?.k==='item'&&!t.dust&&(TASKS[game.s.stage]?.needs.some(r=>r.c===t.c&&r.l===t.l)||game.s.sideOrders.some(o=>o.needs.some(r=>r.c===t.c&&r.l===t.l))))openModal({type:'confirmSell',index:ui.selected});else run(game.sell(ui.selected));break;}
+  case 'split':closeModal();run(game.split(ui.selected));break;
+  case 'sell':{if(ui.modal?.type==='itemActions')closeModal();const t=game.s.board[ui.selected];if(t?.k==='item'&&!t.dust&&(game.mainOrder()?.needs.some(r=>r.c===t.c&&r.l===t.l)||game.s.sideOrders.some(o=>o.needs.some(r=>r.c===t.c&&r.l===t.l))))openModal({type:'confirmSell',index:ui.selected});else run(game.sell(ui.selected));break;}
   case 'confirmSell':closeModal();run(game.sell(+d.index));break;
   case 'sort':run(game.sort());break;
   case 'undo':run(game.undo());break;
   case 'expand':run(game.expand());break;
   case 'upgrade':run(game.upgrade(d.cat));break;
-  case 'buy':run(game.buy(d.key));break;
+  case 'buy':if(d.key==='parcel'){ui.parcelTarget=null;ui.parcelSource=null;openModal({type:'parcel'});}else run(game.buy(d.key));break;
   case 'energy':openModal({type:'energy'});break;
   case 'usePack':run(game.usePack());break;
   case 'rest':run(game.rest());break;
@@ -919,11 +1369,15 @@ app.addEventListener('click',async(e)=>{
   case 'chat':chat(d.who);break;
   case 'dayNight':ui.night=!ui.night;render();break;
   case 'photo':await capturePhoto();break;
-  case 'export':downloadBlob(new Blob([game.export()],{type:'application/json'}),`好日子小屋_存档_${new Date().toISOString().slice(0,10)}.json`);toast('存档已导出。请把 JSON 文件收好。');break;
+  case 'export':try{downloadBlob(new Blob([game.export()],{type:'application/json'}),`好日子小屋_存档_${new Date().toISOString().slice(0,10)}.json`);toast('已请求下载存档。请确认下载列表中的 JSON 文件并收好。');}catch(err){toast('存档下载未成功，请检查浏览器下载权限：'+err.message,5000);}break;
   case 'import':$('#import-file').click();break;
   case 'importConfirm':{const state=ui.modal.state;game=new GameEngine(state);closeModal();ui.selected=null;ui.highlight=[];ui.tab=game.s.stage===0?'merge':'home';ui.night=game.s.stage>=16&&game.s.stage<20;persist();render();sounds.syncMusic();toast('小屋已经搬过来了，继续好日子吧。');break;}
   case 'resetAsk':openModal({type:'reset'});break;
-  case 'resetConfirm':{try{localStorage.removeItem(STORE);localStorage.removeItem(BACKUP);}catch{}lastValid='';game=new GameEngine();ui.tab='merge';ui.homeMode='map';ui.selected=null;ui.modal=null;ui.highlight=[];ui.night=false;closeModal();persist();render();playIntro();break;}
+  case 'resetConfirm':{
+   const next=new GameEngine(),raw=JSON.stringify(next.s);try{localStorage.setItem(STORE,raw);}catch{toast('重新开始未能保存，原进度已保留。请先导出存档并检查本地保存权限。',5000);break;}
+   let backupWarning=false;try{localStorage.setItem(INITIALIZED,'1');localStorage.removeItem(BACKUP);}catch{backupWarning=true;}
+   lastValid=raw;storageFailed=false;game=next;ui.tab='merge';ui.homeMode='map';ui.selected=null;ui.highlight=[];ui.night=false;closeModal();render();playIntro();if(backupWarning)toast('新小屋已保存，但浏览器未能清理旧版备份。',5000);break;
+  }
  }
 });
 modalRoot.addEventListener('click',e=>{if(e.target.classList.contains('modal-backdrop'))closeModal();});
@@ -937,7 +1391,7 @@ document.addEventListener('keydown',e=>{
  if(e.key==='Escape'){if(ui.story)finishStory();else closeModal();cancelDrag();return;}
  if(ui.story&&[' ','Enter','ArrowRight'].includes(e.key)){e.preventDefault();nextStory();return;}
  if(ui.modal&&e.key==='Tab'){
-  const focusable=$$('.modal button:not(:disabled),.modal input');if(!focusable.length)return;const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  const focusable=$$('.modal button:not(:disabled),.modal input');if(!focusable.length)return;const first=focusable[0],last=focusable.at(-1);if(!$('.modal')?.contains(document.activeElement)){e.preventDefault();first.focus();}else if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
  }
  const current=document.activeElement?.closest('[data-cell]');
  if(current&&['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)){
@@ -946,21 +1400,20 @@ document.addEventListener('keydown',e=>{
 });
 function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
 async function capturePhoto(){
+ if(ui.photoBusy)return;ui.photoBusy=true;
+ // Freeze before the first image decode; later navigation cannot change this photo.
+ const live=ui.sceneSnapshot||describeScene(game.s,{region:game.s.world.region,night:ui.night});
+ const scene=clone(live),region=REGIONS.find(r=>r.id===scene.region)||REGIONS[0];
  try{
-  const region=REGIONS.find(r=>r.id===game.s.world.region)||REGIONS[0];
   const canvas=document.createElement('canvas');canvas.width=1000;canvas.height=1300;const ctx=canvas.getContext('2d');
   ctx.fillStyle='#fff8ef';ctx.fillRect(0,0,1000,1300);ctx.fillStyle='#74513f';ctx.font='bold 37px "Microsoft YaHei",sans-serif';ctx.textAlign='center';ctx.fillText('布布一二 · '+region.name,500,64);ctx.fillStyle='#947863';ctx.font='18px sans-serif';ctx.fillText('每一处小愿望，都是一起过的好日子',500,103);
-  const get=async(id)=>{const key=spriteSpec(id)?.asset||id;if(imageCache.has(key))return imageCache.get(key);const im=new Image();im.src=asset(key);await im.decode();imageCache.set(key,im);return im;};
-  const draw=async(id,x,y,w,h)=>drawSprite(ctx,await get(id),spriteSpec(id),x,y,w,h);
-  ctx.save();ctx.translate(45,137);ctx.scale(.91,.91);ctx.beginPath();ctx.rect(0,0,1000,1120);ctx.clip();ctx.filter=ui.night?'brightness(.64) saturate(.7)':'none';ctx.drawImage(await get(region.background),0,0,1000,1120);ctx.filter='none';
-  const draws=DECOR.filter(d=>d.id<game.s.stage&&d.region===region.id).map(decorPlacement).map(d=>({...d,type:'decor',z:d.z+1}));
-  const poses=region.id==='house'&&ui.night?['bubu-sit','yier-rest']:['bubu-idle','yier-turn'];
-  draws.push({type:'char',id:poses[0],image:$('.home-scene-shell .home-char.bubu img'),x:31,y:47,w:23,h:27,z:11},{type:'char',id:poses[1],image:$('.home-scene-shell .home-char.yier img'),x:49,y:47,w:23,h:27,z:11});draws.sort((a,b)=>a.z-b.z);
-  for(const d of draws){ctx.save();if(d.type==='decor'){ctx.filter=[game.s.decorStyles[d.id]===1?'hue-rotate(18deg)':'',ui.night?'brightness(.84)':''].filter(Boolean).join(' ')||'none';const w=d.w*10;await draw(`decor-${String(d.id+1).padStart(2,'0')}`,d.x*10-w/2,d.y*11.2-w/2,w,w);}else if(d.image?.complete)drawSprite(ctx,d.image,null,d.x*10,d.y*11.2,d.w*10,d.h*11.2);else await draw(d.id,d.x*10,d.y*11.2,d.w*10,d.h*11.2);ctx.restore();}
-  if(ui.night){for(const [x,y,r,color] of [[820,313.6,246,'rgba(255,217,122,.267)'],[600,873.6,280,'rgba(255,207,102,.333)']]){const glow=ctx.createRadialGradient(x,y,0,x,y,r);glow.addColorStop(0,color);glow.addColorStop(1,'rgba(255,217,122,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,1000,1120);}}
-  ctx.restore();ctx.fillStyle='#947863';ctx.font='20px sans-serif';ctx.fillText(`已经布置 ${draws.filter(d=>d.type==='decor').length} 处心愿 · ${region.name}`,500,1217);ctx.font='15px sans-serif';ctx.fillText(new Date().toLocaleDateString('zh-CN'),500,1259);
-  const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('无法生成图片')),'image/png'));downloadBlob(blob,`布布一二_${region.name}_合照.png`);toast('合照拍好啦，当前区域的布置都收进照片了。');
- }catch(err){toast('当前浏览器限制图片导出。请使用单文件离线版，或通过本地服务启动。',4500);}
+  ctx.save();ctx.translate(45,137);ctx.scale(.91,.91);await drawSceneCanvas(ctx,scene,{loadImage:loadImage,width:1000,height:1120});ctx.restore();
+  ctx.fillStyle='#947863';ctx.font='20px sans-serif';ctx.fillText('把今天的布置、纪念物和陪伴一起收好',500,1217);ctx.font='15px sans-serif';ctx.fillText(new Date().toLocaleDateString('zh-CN'),500,1259);
+  const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('无法生成图片')),'image/png'));downloadBlob(blob,`布布一二_${region.name}_合照.png`);toast('合照已请求下载，请在下载列表中查看 PNG。');
+ }catch(err){toast('照片未能导出：'+err.message+'。请检查图片与下载权限。',5000);}finally{ui.photoBusy=false;}
+}
+async function loadImage(id){
+ const key=spriteSpec(id)?.asset||id;if(imageCache.has(key))return imageCache.get(key);const im=new Image();im.src=asset(key);await im.decode();imageCache.set(key,im);return im;
 }
 
 // Resource ticks do not recreate the board during a drag.
@@ -978,18 +1431,16 @@ window.addEventListener('beforeunload',persist);
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{cancelDrag();render();},120);});
 
 async function boot(){
- app.style.setProperty('--grain',`url("${asset('paper-texture')}")`);
- render();
- const ids=window.__ASSET_IDS__||['region-house','region-garden','region-courtyard','world-map','party-memory','yier-rest','bubu-idle','bubu-sit','bubu-joy','bubu-face','bubu-happy','bubu-turn','yier-idle','yier-turn','yier-face','yier-happy','yier-joy','yier-shy',...CATS.flatMap(c=>['gen-'+c,...Array.from({length:6},(_,i)=>`${c}-${i+1}`)]),...Array.from({length:24},(_,i)=>`decor-${String(i+1).padStart(2,'0')}`),'util-energy','util-coin','util-star','util-crate','util-gift','util-scissors','util-storage'];
- let loaded=0;const failed=[];
- const imageIds=[...new Set(ids.filter(id=>id!=='cozy-loop').map(id=>spriteSpec(id)?.asset||id))];
- await Promise.all(imageIds.map(id=>new Promise(resolve=>{
-  const im=new Image();im.onload=()=>{imageCache.set(id,im);loaded++;$('#load-bar').style.width=`${loaded/imageIds.length*100}%`;resolve();};im.onerror=()=>{failed.push(id);loaded++;resolve();};im.src=asset(id);
- })));
- if(failed.length){$('#loading-text').innerHTML=`<span class="load-failed">有 ${failed.length} 件素材没能打开。请确认 assets 文件夹和游戏入口在一起，或使用单文件离线版。<br>${esc(failed.slice(0,3).join('、'))}</span>`;const retry=document.createElement('button');retry.className='button';retry.style.marginTop='18px';retry.textContent='重新整理素材';retry.onclick=()=>location.reload();$('#loading').append(retry);return;}
- $('#loading').remove();renderSplash();
- // Diagnostic access is available only in explicit QA mode; normal gameplay has no cheat controls.
- if(new URLSearchParams(location.search).has('qa'))window.__COZY_QA__={get game(){return game;},render,navigate,openModal,ui,validateState};
+ app.style.setProperty('--grain',`url("${asset('paper-texture')}")`);render();
+ const ids=['region-house','bubu-idle','bubu-sit','bubu-turn','bubu-face','bubu-happy','yier-turn','yier-face','yier-happy','bubu-surprise','yier-surprise','util-energy','util-coin','util-star','util-crate','atlas-clean','atlas-generators'];
+ // Resume page needs its region/decor now; later chapters never block the launch button.
+ if(game.s.stage){ids.push('world-map',...REGIONS.filter(r=>r.id===game.s.world.region).map(r=>r.background),...DECOR.filter(d=>d.id<game.s.stage&&d.region===game.s.world.region).map(d=>d.image||`decor-${String(d.id+1).padStart(2,'0')}`));}
+ ids.push(...game.s.board.filter(t=>t?.k==='item').map(t=>itemKey(t.c,t.l)));
+ const keys=[...new Set(ids.map(id=>spriteSpec(id)?.asset||id))];let loaded=0,failed=[];
+ await Promise.all(keys.map(async id=>{try{await loadImage(id);}catch{failed.push(id);}loaded++;const bar=$('#load-bar');if(bar)bar.style.width=`${loaded/keys.length*100}%`;}));
+ if(failed.length){$('#loading-text').textContent=`有 ${failed.length} 件当前页面素材未能打开，请确认 assets 与入口在一起。`;const retry=document.createElement('button');retry.className='button';retry.textContent='重新打开素材';retry.onclick=()=>location.reload();$('#loading').append(retry);return;}
+ $('#loading').remove();renderSplash();syncInert();
+ if(new URLSearchParams(location.search).has('qa'))window.__COZY_QA__={get game(){return game;},render,navigate,openModal,ui,validateState,capturePhoto};
  if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&!window.__OFFLINE_SINGLE__)navigator.serviceWorker.register('./sw.js').catch(()=>{});
 }
 boot().catch(err=>{const loading=$('#loading-text');if(loading)loading.textContent='小屋启动遇到问题：'+err.message;console.error(err);});

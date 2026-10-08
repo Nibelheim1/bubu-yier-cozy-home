@@ -1,0 +1,193 @@
+{
+  "version": "1.2.0",
+  "characterStyle": "flat 2D illustration",
+  "xiaoliIdentity": "Independently designed slate-blue squirrel, pointed tufted ears, narrow cream muzzle, slender body, long S-shaped tail and mustard neckerchief. No Bubu or Yier references for the redesign.",
+  "method": "Generated or edited with builtin image_gen, copied unmodified PNG originals. No programmatic redraw, recolor or asset crop; runtime reads individual atlas cells.",
+  "records": [
+    {
+      "prompt": "Use case: identity-preserve. REPLACE the rendering style of reference 3 sprite atlas: retain the same NINE full-body poses in strict THREE columns THREE rows, but draw them as completely FLAT 2D cartoon illustrations matching authoritative character cards reference1 Bubu and reference2 Yier. ONLY draw BUBU brown bear. Exact short round silhouette, dark brown round inner ears, solid warm caramel-brown fill, yellow circular cheeks, dot eyes, tiny w mouth, stubby rounded arms, dark brown outline same thickness as character card. Absolutely NO 3D render, NO gradient, NO shading, NO glossy highlights, NO texture, NO volumetric light, NO cast shadow. Flat uniform color areas with crisp smooth ink edges. Nine frames reading order: four walking frames with clearly alternating right/left feet facing three-quarter RIGHT; three reaching/handover empty-hand poses (hands at belly, reaching forward, fully extended); two supporting/bending poses (slightly bent arms low, deeply bent arms bracing). Each entire character same scale, feet at same local baseline, occupying middle65% of each square cell. Large completely transparent gaps; no cross-cell arms or ears. Faithful face and proportions throughout, no clothes/props/human fingers, no other character, no ground, no writing or symbols, no grid lines. True transparent background everywhere outside characters.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-86ed79cd-5b2b-473c-9fc3-d8fd4f24524b.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/atlas-bubu-motion.png",
+      "status": "adopted",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-bubu-motion-volume-draft.png"
+      ],
+      "grid": [
+        3,
+        3
+      ]
+    },
+    {
+      "prompt": "Use case: identity-preserve. Transparent FLAT 2D cartoon animation atlas for a cozy game. Reference1 Bubu and reference2 Yier are authoritative identity cards. Draw ONLY YIER from reference2: pure white short round bear, SOLID dark brown circular ears, tiny dark brown feet, little dark brown bow under face, solid pink round cheeks, dot eyes, tiny w mouth, stubby rounded arms. EXACT original proportions and simple dark-brown outline. Flat opaque uniform white/brown/pink fills. NO 3D rendering, gradients, shading, volume, glossy highlights, cast shadows, texture or human fingers. Strict THREE columns THREE rows, nine full-body sprites with same scale and baseline, each contained in middle65% of its equal square cell, generous transparent gaps, no clipping across slots. Reading order: slots1-4 coherent WALK cycle facing three-quarter RIGHT with alternating feet and arm swing (right-foot-forward, contact, left-foot-forward, contact); slots5-7 handover empty-hand sequence (hands near belly, reaching forward, both arms gently extended); slots8-9 supporting/bending sequence (slight bend, deeper bend two arms braced low). Keep ears, bow, facial identity unchanged in all nine poses. Nothing except nine Yier sprites. No Bubu, objects, cup, floor, background, grid lines, caption, letters, symbols or watermark. Genuinely transparent outside characters.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-b26075b3-1c9b-4574-bea6-c670c926a59d.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/atlas-yier-motion.png",
+      "status": "adopted",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "grid": [
+        3,
+        3
+      ]
+    },
+    {
+      "prompt": "Create an ORIGINAL character turnaround reference sheet of XIAOLI, a charming SQUIRREL neighbor for a cozy game. Completely independent new design. Do not use or imitate any bear character. FLAT 2D ink-and-solid-color cartoon, no 3D, no gradients, no shading, no rendered light, no fur texture or cast shadows. Distinct squirrel anatomy: tall pointed ears with tiny tip tufts, narrow pear/triangle-shaped face, tapered cream pointed muzzle with a small dark triangular nose, long gently curved smile with ONE tiny visible front tooth; oval/almond dark eyes, no circular cheek patches. Smaller head relative to a slender pear-shaped body, long delicate forepaws, short hind legs with visible larger squirrel hind feet. Very large elegant bushy tail curving in a high S silhouette behind body, feather/leaf-like tapered outline, not a spiral balloon or rounded bear tail. Slate blue-gray upper fur, cream throat/belly, darker blue-gray tail tip, small mustard-yellow neckerchief. Clear medium dark navy outline, simple expressive shapes, affectionate but alert personality. Must visibly read as a squirrel, not a bear with a tail. Four consistent whole-body views in strict TWO columns TWO rows: front idle, three-quarter LEFT idle, LEFT profile, back view with full tail. Generous transparent gaps and margins, each view entirely within its equal square cell, same character size. Transparent background true. No other characters, label, number, letters, UI, logo, watermark, ground or props.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-629b7c21-b2de-4cb2-acb1-bf54f1516c9b.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/xiaoli.png",
+      "status": "adopted",
+      "references": [],
+      "grid": [
+        2,
+        2
+      ]
+    },
+    {
+      "prompt": "Use case: identity-preserve. Production FLAT 2D sprite atlas of XIAOLI the ORIGINAL BLUE-GRAY SQUIRREL in the attached sole authoritative card. NO bear references or bear resemblance. Preserve narrow face, long pointed tufted ears, cream tapered muzzle, tiny triangular nose, small front tooth, oval expressive eyes, slender pear body, cream belly, large high S bushy tail, darker tail tip, mustard-yellow neckerchief, delicate forepaws and squirrel hind feet. Crisp navy outlines and uniform flat cel-colored fills, no 3D/gloss/shading/texture/gradients/cast shadow. Strict THREE columns THREE rows square atlas. Nine equal square cells, one entire character per cell, same scale and feet baseline, central70% only with transparent gaps, tail and ears entirely within each slot. Reading order: 1 idle three-quarter LEFT, 2 small greeting wave LEFT, 3-6 four-frame walk cycle facing LEFT with CLEAR alternating forward left/right hind feet and arm swing, 7 seated LEFT tail still behind upright, 8 both paws extended LEFT to receive a cup, 9 paws holding near belly. All paws EMPTY because game supplies cup separately. Maintain same anatomy/palette/scarf/eyes across all nine frames. No actual cup, no props, lines, labels, text, numbers, motion symbols, ground, background, other characters or watermark. True transparent background outside sprites.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-f20f25a6-67fc-473f-becb-133e0766cbad.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/atlas-xiaoli.png",
+      "status": "adopted",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/xiaoli.png"
+      ],
+      "grid": [
+        3,
+        3
+      ]
+    },
+    {
+      "prompt": "Use case: identity-preserve. One full-body YIER resting/sleeping sprite for a cozy game. Reference1 Bubu and reference2 Yier authoritative character cards. Draw ONLY Yier matching exact flat 2D cartoon design of reference2. Pure white round bear, solid dark-brown circular ears and tiny feet, small dark-brown bow below face, pink cheeks, crisp dark-brown outline, stubby arms. Show a gentle curled seated restful pose: eyes closed, head tilted slightly, arms tucked near round belly, both short feet and entire body clearly visible. NO 3D, no gradients, shading, glossy highlights, texture, human fingers or cast shadow. Uniform flat white/brown/pink fills. Whole character occupies central70% of square canvas, ample transparent margin. No bed/pillow/blanket, props, Bubu, symbols, Z letters, text, logo or watermark. True transparent background.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-a2769e51-58f8-4377-b685-f5332d3a7734.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/yier-rest.png",
+      "status": "adopted",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "grid": null
+    },
+    {
+      "prompt": "Use case: identity-preserve. Production transparent sprite atlas for a cozy game. Reference 1 is authoritative BUBU brown bear, reference 2 is authoritative YIER white bear. Draw ONLY BUBU, faithful EXACT round short body, dark brown inner ears, yellow cheeks, dot eyes, small w mouth, stubby rounded arms, no clothes, no human hands, no long muzzle. Soft creamy toy 3D shading matching existing game, clean dark brown outline. Create a strict THREE columns by THREE rows atlas on a square canvas. Nine evenly spaced square cells. One entire Bubu per cell, same body scale and same baseline, central 65% of each cell, generous true transparent gaps, no part crosses cells. Reading order left-to-right then down: slots1-4 are a coherent four-frame WALK CYCLE facing three-quarter RIGHT (right-leg forward, contact, left-leg forward, contact), distinctly alternating feet and arm swing; slots5-7 are REACH/HANDOVER sequence facing right (hands near belly, arms reaching horizontally out, arms fully extended gently) with EMPTY hands, no props drawn because game supplies cup/teapot; slots8-9 are SUPPORT/BEND sequence (slight bend arms low forward, deeper bend with two arms bracing near low object). Keep head size, body proportions and facial identity consistent throughout. Feet entirely inside each cell, character not stretched, don't change expression drastically. No extra Yier, furniture, cup, ground, shadow plane, symbols, caption, labels, grid lines, writing or watermark. All background genuinely transparent.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-26903df0-e864-4e33-b5dd-08a08f413542.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-bubu-motion-volume-draft.png",
+      "status": "discarded-volume",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "grid": [
+        3,
+        3
+      ]
+    },
+    {
+      "prompt": "Use case: stylized-concept. Original Xiaoli squirrel neighbor character reference sheet for a flat 2D cozy bear game. Supporting style reference1 and2 show Bubu/Yier, match their cute simple rounded flat cartoon language, but draw ONLY a NEW SQUIRREL, not either bear. Chestnut orange-brown squirrel with huge curled fluffy tail rising behind body, tiny softly triangular ears, small cream oval muzzle (no protruding realistic snout), cream tummy, two tiny dark-chocolate dot eyes, small gentle w mouth, soft coral cheek circles, short rounded arms and legs, dark chocolate clean medium outline. One tiny mint-green neck scarf makes the guest recognizable, no other clothing or props. Height/head/body proportions comparable to bear cards but slightly smaller body. Uniform solid FLAT colors, crisp edges. ABSOLUTELY no 3D, shading, gradient, texture, cast shadows or volumetric light. Four whole-body views in an orderly 2x2 layout: front idle, three-quarter right idle, profile right idle, back idle with entire tail visible. Identical identity and palette in all views, generous empty margin, true transparent background. No bears, labels, letters, numbers, decorations, UI, ground, watermark or brand characters.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-db83768b-130a-47b4-99aa-4430d02b7457.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/xiaoli-discarded-bearlike-card.png",
+      "status": "discarded-too-similar-to-bubu",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "grid": [
+        2,
+        2
+      ]
+    },
+    {
+      "prompt": "Use case: identity-preserve. FLAT 2D transparent sprite atlas for Xiaoli, the ORIGINAL squirrel neighbor from reference3. Reference1 and2 bear cards are style references ONLY. Draw ONLY Xiaoli identical to reference3: chestnut orange squirrel, cream muzzle/tummy, coral cheeks, huge curled tail behind body, tiny triangular ears, tiny mint scarf, dark chocolate outline, dot eyes, short round limbs. Simple uniform cartoon fills, no 3D/shading/highlights/texture/realistic fur or shadows. Strict THREE columns THREE rows square atlas. Nine separate equal-size full-body frames, each centered in middle65% of its cell, same feet baseline, generous true transparent margin, entire tail fits each slot. Reading order: 1 idle, 2 waving one hand, 3-6 WALK cycle facing three-quarter LEFT (clearly alternating feet and arm swing), 7 sitting relaxed, 8 both hands reaching forward to receive an EMPTY-handed cup, 9 both hands holding near belly (EMPTY hands; cup separately supplied by game). Never draw cup or any props, do not add bear, ground, labels, grid, text or watermark. Consistent identity and proportions, all tails complete, transparent background.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-8764824e-32e5-4241-acc3-9e0ad27cd6f9.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/xiaoli-discarded-bearlike-motion.png",
+      "status": "discarded-too-similar-to-bubu",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/xiaoli-discarded-bearlike-card.png"
+      ],
+      "grid": [
+        3,
+        3
+      ]
+    },
+    {
+      "prompt": "Use case: stylized-concept. Production transparent game prop atlas matching reference's bright cheerful rounded toy objects, pink/turquoise/lemon palette and readable chunky outlines. NO CHARACTERS. Strict THREE columns TWO rows, SIX separate complete props, each entirely contained central60% of its equal SQUARE cell with generous transparent margin, no crop across cells. Landscape canvas aspect3:2. Reading order: 1 a small turquoise WATERING CAN with handle and spout, light rounded toy volume; 2 a bright yellow CLOTHESPIN with visible open gripping end, simple recognizable shape; 3 a folded-open pink gingham TEA CLOTH viewed three-quarter overhead, wide soft rounded rectangle entirely within slot; 4 a turquoise round scalloped COASTER with a tiny cream daisy design, no cup; 5 a cream HAND-DRAWN POSTCARD with small green leaf/daisy drawing, coral border, NO TEXT; 6 a small WIND CHIME with a turquoise hanging loop, yellow bell, pink leaf-shaped dangling ornament, entire string/bell/ornament in slot. Independent objects, soft polished warm materials as current game. All backgrounds truly transparent, no colored glow filling slot, no typography, number, labels, lines, grid, ground, shadow plane, logos or watermark.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-9ef5d8fb-987a-41f0-9d78-b5114e278b24.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-tea-props-first-pass.png",
+      "status": "discarded-cell-overlap-and-halos",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/atlas-tea.png"
+      ],
+      "grid": [
+        3,
+        2
+      ]
+    },
+    {
+      "prompt": "Production precise-object-edit of this six-prop atlas. Keep the exact SIX object designs/colors and reading order, but repair atlas containment and transparency. SAME landscape1536x1024 canvas with STRICT3columns2rows, every cell512x512. Dramatically SHRINK each entire object (including watering spout/handle and all wind-chime string/loop/ornament) to maximum300px width and300px height, centered in its own cell. Each object must be wholly within local cell coordinates[106,406] both x and y; thus VERY LARGE transparent margins and gaps. Last wind chime's top loop must begin below global y618, never above its bottom-row boundary512. Remove ALL colored background glow, halo, atmospheric light pools, gradients outside objects, and all ground shadows; every pixel outside the six object silhouettes should be truly transparent. Keep rounded colorful3D shading inside object surfaces only. Coaster/card/chime stay recognizable at small game size. No new object, person, characters, text, number, label, UI, grid lines or watermark. Do not join neighboring objects. All6separate completeobjects.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-b5d27e08-526b-4449-96ef-4044964295b0.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/atlas-tea-props.png",
+      "status": "adopted",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-tea-props-first-pass.png"
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "note": "Native RGB preview appeared to include halos; direct alpha inspection showed sampled padding and cell dividers alpha0, all six alpha>1 bounds contained inside their cells, including wind-chime loop. File copied unmodified."
+    },
+    {
+      "prompt": "Create a clean production-ready game prop sprite sheet, PNG with genuinely transparent alpha background. Exact layout: 3 equal columns × 2 equal rows, canvas1536x1024, each cell512x512. Six separate isolated objects, entirely inside their own cells with generous transparent margins, max object size320px and centered. Row1: turquoise flower watering can with golden rim; yellow flower clothespin; folded pink gingham tea cloth. Row2: turquoise scalloped flower coaster with golden rim; cream botanical postcard with pink edges; small golden flower wind chime with blue hanging loop and pink leaf pendant. Attractive saturated rounded toy-like objects, concise polished shading on objects only, golden outlines and daisies consistent across objects. DO NOT put any glow, backdrop, colored haze, shadow, aura, light disc, gradient field, checkerboard, opaque pixels or semi-transparent colored pixels outside the six object silhouettes. Outside objects every pixel must have alpha0. No ground, no stage, no text, no borders. Wind chime including entire hanging loop and leaf must fit lower-right cell only. Use clean crisp edges, all objects at same visual scale. This is a cutout sprite atlas, not a poster.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-23363e83-393b-45ef-be31-f00a3d028294.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-tea-props-clean-draft.png",
+      "status": "unused-extra-design-study",
+      "references": [],
+      "grid": [
+        3,
+        2
+      ]
+    },
+    {
+      "prompt": "Edit reference1 into a clean FLAT 2D CARTOON prop sprite atlas with exactly SIX sprites. Use reference2 ONLY to show the crisp solid-fill flat illustration technique with genuinely transparent empty space. Do not draw a bear or any character. Reference1 is the current six-object design; preserve the recognizable silhouettes and turquoise/yellow/pink/cream palette. Convert objects to completely flat solid color fills with dark brown crisp outlines, simple daisy details, no material texture or highlights. ABSOLUTELY NO glow, halo, shading, gradient, cast shadow, blurry edges or volumetric rendering. DELETE THE ENTIRE COLORED BACKGROUND AROUND EVERY OBJECT and leave it alpha0, like the empty space between characters in reference2. Atlas canvas1536x1024, 3columns by2rows, each cell512x512. Reading order watering can, yellow clothespin, folded pink gingham cloth / turquoise scalloped coaster, botanical postcard, golden windchime with blue loop pink leaf pendant. Redraw every full object centered in middle60% of its own square, max object dimensions300px, clean transparent gap around it. Whole loop and dangling leaf fit lower-right cell512..1024 height. No text or grid. This is six separate isolated cutout game sprites; no decorative field of color behind any sprite. All pixels outside sprites fully transparent, not tinted translucent. NOTHING except six clean flat objects.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-cdca9091-4e60-4972-a25d-d015c863fe6c.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-tea-props-flat-draft.png",
+      "status": "unused-flat-style-study",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-tea-props-first-pass.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/atlas-bubu-motion.png"
+      ],
+      "grid": [
+        3,
+        2
+      ]
+    },
+    {
+      "prompt": "Simple flat hand-drawn cartoon sticker sheet. Six tiny isolated icons on transparent empty space, absolutely clean solid fills like the reference bear sprites, with brown ink outline. Reference is STYLE ONLY; no bears. Lots of completely empty transparent padding around every sticker. Arrange three columns and two rows, with each full icon taking just half of its cell width and half its cell height. Canvas1536x1024, cell512x512. Top row: turquoise watering can with a daisy; small yellow spring clothespin; folded pink gingham cloth. Bottom row: turquoise round daisy coaster; small cream postcard with green leaf doodle; yellow bell windchime with blue loop and pink leaf pendant. Cartoon 2D solid-color vector icons with a few cute daisy motifs. No volume or lighting. The windchime, including all its loop and pendant, must fit into the center of the lower-right cell with equal large padding above and below. The entire surrounding canvas is absolutely empty TRANSPARENT; zero colored aura or shadows. Do not draw glowing patches, background colored clouds, gradient, material texture, floor, checkerboard or any writing. Six compact matte flat stickers, sharply outlined, standing alone in large transparent cells. Keep actual object silhouettes far from cell boundaries.",
+      "provider": "builtin image_gen.imagegen",
+      "originalOutput": "C:/Users/92108/.codex/generated_images/01a11a9d-28f5-7882-ab9f-17c1919f9fdb/exec-94938680-fffc-4619-9a9b-dd14dcbc43c3.png",
+      "projectPath": "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/atlas-tea-props-compact-flat-study.png",
+      "status": "unused-flat-style-study",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/atlas-bubu-motion.png"
+      ],
+      "grid": [
+        3,
+        2
+      ]
+    }
+  ]
+}

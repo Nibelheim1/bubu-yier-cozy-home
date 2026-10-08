@@ -1,0 +1,2728 @@
+{
+  "4": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331207500,
+    "energyAt": 1791331207500,
+    "rng": 1718720293,
+    "stage": 4,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": false,
+      "tea": false,
+      "craft": false,
+      "garden": false
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 414,
+    "energy": 144,
+    "xp": 111,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 1
+      },
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 1
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 1,
+        "dust": true
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "crate",
+        "openAt": 6
+      },
+      {
+        "k": "crate",
+        "openAt": 6
+      },
+      {
+        "k": "crate",
+        "openAt": 8
+      },
+      {
+        "k": "crate",
+        "openAt": 8
+      },
+      {
+        "k": "crate",
+        "openAt": 10
+      },
+      {
+        "k": "crate",
+        "openAt": 10
+      },
+      {
+        "k": "crate",
+        "openAt": 12
+      },
+      {
+        "k": "crate",
+        "openAt": 12
+      },
+      {
+        "k": "crate",
+        "openAt": 14
+      },
+      {
+        "k": "crate",
+        "openAt": 14
+      }
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 15,
+        "at": 1791331207250
+      },
+      "tools": {
+        "level": 1,
+        "stock": 13,
+        "at": 1791331202750
+      },
+      "bake": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331207500
+      },
+      "tea": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331207500
+      },
+      "craft": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331207500
+      },
+      "garden": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331207500
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 5,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 8,
+      "produce": 9,
+      "order": 4,
+      "claimed": [
+        "order"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 8,
+      "produce": 9,
+      "order": 4,
+      "build": 4,
+      "sold": 0,
+      "unweb": 3
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "courtyard",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "8": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331222750,
+    "energyAt": 1791331222750,
+    "rng": 1991650177,
+    "stage": 8,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": false,
+      "garden": false
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 778,
+    "energy": 165,
+    "xp": 241,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      {
+        "k": "item",
+        "c": "craft",
+        "l": 1
+      },
+      {
+        "k": "item",
+        "c": "craft",
+        "l": 1
+      },
+      null,
+      {
+        "k": "item",
+        "c": "tea",
+        "l": 2
+      },
+      null,
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 2
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "crate",
+        "openAt": 10
+      },
+      {
+        "k": "crate",
+        "openAt": 10
+      },
+      {
+        "k": "crate",
+        "openAt": 12
+      },
+      {
+        "k": "crate",
+        "openAt": 12
+      },
+      {
+        "k": "crate",
+        "openAt": 14
+      },
+      {
+        "k": "crate",
+        "openAt": 14
+      }
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 17,
+        "at": 1791331219250
+      },
+      "tools": {
+        "level": 1,
+        "stock": 13,
+        "at": 1791331220750
+      },
+      "bake": {
+        "level": 1,
+        "stock": 6,
+        "at": 1791331219500
+      },
+      "tea": {
+        "level": 1,
+        "stock": 8,
+        "at": 1791331217750
+      },
+      "craft": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331222750
+      },
+      "garden": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331222750
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 6,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 29,
+      "produce": 37,
+      "order": 8,
+      "claimed": [
+        "order",
+        "merge",
+        "produce"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 29,
+      "produce": 37,
+      "order": 8,
+      "build": 8,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true,
+      "craft-1": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "house",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "12": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331257500,
+    "energyAt": 1791331257500,
+    "rng": 3179717578,
+    "stage": 12,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": true,
+      "garden": false
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 1064,
+    "energy": 166,
+    "xp": 377,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 1
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 1
+      },
+      null,
+      {
+        "k": "item",
+        "c": "tea",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "tea",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 2
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "crate",
+        "openAt": 14
+      },
+      {
+        "k": "crate",
+        "openAt": 14
+      }
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331257500
+      },
+      "tools": {
+        "level": 1,
+        "stock": 15,
+        "at": 1791331256750
+      },
+      "bake": {
+        "level": 1,
+        "stock": 12,
+        "at": 1791331255500
+      },
+      "tea": {
+        "level": 1,
+        "stock": 10,
+        "at": 1791331253750
+      },
+      "craft": {
+        "level": 1,
+        "stock": 0,
+        "at": 1791331252750
+      },
+      "garden": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331257500
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 7,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 55,
+      "produce": 68,
+      "order": 12,
+      "claimed": [
+        "order",
+        "merge",
+        "produce"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 55,
+      "produce": 68,
+      "order": 12,
+      "build": 12,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true,
+      "craft-1": true,
+      "craft-2": true,
+      "craft-3": true,
+      "craft-4": true,
+      "craft-5": true,
+      "garden-1": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "house",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "16": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331306250,
+    "energyAt": 1791331306250,
+    "rng": 2047378476,
+    "stage": 16,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": true,
+      "garden": true
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 1374,
+    "energy": 164,
+    "xp": 521,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 2
+      },
+      null,
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 2
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331306250
+      },
+      "tools": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331306250
+      },
+      "bake": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331306250
+      },
+      "tea": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331306250
+      },
+      "craft": {
+        "level": 1,
+        "stock": 8,
+        "at": 1791331300750
+      },
+      "garden": {
+        "level": 1,
+        "stock": 1,
+        "at": 1791331305500
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 8,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 86,
+      "produce": 102,
+      "order": 16,
+      "claimed": [
+        "order",
+        "merge",
+        "produce"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 86,
+      "produce": 102,
+      "order": 16,
+      "build": 16,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true,
+      "craft-1": true,
+      "craft-2": true,
+      "craft-3": true,
+      "craft-4": true,
+      "craft-5": true,
+      "garden-1": true,
+      "garden-2": true,
+      "garden-3": true,
+      "garden-4": true,
+      "tools-4": true,
+      "garden-5": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "garden",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "20": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331359250,
+    "energyAt": 1791331359250,
+    "rng": 2429782995,
+    "stage": 20,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": true,
+      "garden": true
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 1770,
+    "energy": 148,
+    "xp": 692,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 2
+      },
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 2
+      },
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "tools",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "tools",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "craft",
+        "l": 2
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331359250
+      },
+      "tools": {
+        "level": 1,
+        "stock": 2,
+        "at": 1791331354250
+      },
+      "bake": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331359250
+      },
+      "tea": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331359250
+      },
+      "craft": {
+        "level": 1,
+        "stock": 0,
+        "at": 1791331354750
+      },
+      "garden": {
+        "level": 1,
+        "stock": 5,
+        "at": 1791331353500
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 9,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 135,
+      "produce": 159,
+      "order": 20,
+      "claimed": [
+        "order",
+        "merge",
+        "produce"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 135,
+      "produce": 159,
+      "order": 20,
+      "build": 20,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true,
+      "craft-1": true,
+      "craft-2": true,
+      "craft-3": true,
+      "craft-4": true,
+      "craft-5": true,
+      "garden-1": true,
+      "garden-2": true,
+      "garden-3": true,
+      "garden-4": true,
+      "tools-4": true,
+      "garden-5": true,
+      "tools-5": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      null,
+      null,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "house",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "24": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331603500,
+    "energyAt": 1791331590000,
+    "rng": 3253112411,
+    "stage": 24,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": true,
+      "garden": true
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "available",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 2530,
+    "energy": 69,
+    "xp": 982,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 2
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "tools",
+        "l": 2
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331603500
+      },
+      "tools": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331603500
+      },
+      "bake": {
+        "level": 1,
+        "stock": 6,
+        "at": 1791331601750
+      },
+      "tea": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331603500
+      },
+      "craft": {
+        "level": 1,
+        "stock": 2,
+        "at": 1791331601500
+      },
+      "garden": {
+        "level": 1,
+        "stock": 10,
+        "at": 1791331601250
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 10,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 267,
+      "produce": 295,
+      "order": 24,
+      "claimed": [
+        "order",
+        "merge",
+        "produce"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 267,
+      "produce": 295,
+      "order": 24,
+      "build": 24,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true,
+      "craft-1": true,
+      "craft-2": true,
+      "craft-3": true,
+      "craft-4": true,
+      "craft-5": true,
+      "garden-1": true,
+      "garden-2": true,
+      "garden-3": true,
+      "garden-4": true,
+      "tools-4": true,
+      "garden-5": true,
+      "tools-5": true,
+      "bake-5": true,
+      "bake-6": true,
+      "tea-5": true,
+      "garden-6": true,
+      "craft-6": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "garden",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "ready-7": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331221500,
+    "energyAt": 1791331221500,
+    "rng": 1991650177,
+    "stage": 7,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": false,
+      "garden": false
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 597,
+    "energy": 140,
+    "xp": 211,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      null,
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "tea",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "tea",
+        "l": 4
+      },
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 2
+      },
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 4
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "crate",
+        "openAt": 8
+      },
+      {
+        "k": "crate",
+        "openAt": 8
+      },
+      {
+        "k": "crate",
+        "openAt": 10
+      },
+      {
+        "k": "crate",
+        "openAt": 10
+      },
+      {
+        "k": "crate",
+        "openAt": 12
+      },
+      {
+        "k": "crate",
+        "openAt": 12
+      },
+      {
+        "k": "crate",
+        "openAt": 14
+      },
+      {
+        "k": "crate",
+        "openAt": 14
+      }
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 17,
+        "at": 1791331219250
+      },
+      "tools": {
+        "level": 1,
+        "stock": 13,
+        "at": 1791331220750
+      },
+      "bake": {
+        "level": 1,
+        "stock": 6,
+        "at": 1791331219500
+      },
+      "tea": {
+        "level": 1,
+        "stock": 8,
+        "at": 1791331217750
+      },
+      "craft": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331221500
+      },
+      "garden": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331221500
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 5,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 29,
+      "produce": 37,
+      "order": 7,
+      "claimed": [
+        "order",
+        "merge"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 29,
+      "produce": 37,
+      "order": 7,
+      "build": 7,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "house",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "ready-15": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331305250,
+    "energyAt": 1791331305250,
+    "rng": 2047378476,
+    "stage": 15,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": true,
+      "garden": true
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 1236,
+    "energy": 151,
+    "xp": 490,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "tea",
+        "l": 3
+      },
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 2
+      },
+      null,
+      {
+        "k": "item",
+        "c": "garden",
+        "l": 5
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331305250
+      },
+      "tools": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331305250
+      },
+      "bake": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331305250
+      },
+      "tea": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331305250
+      },
+      "craft": {
+        "level": 1,
+        "stock": 8,
+        "at": 1791331300750
+      },
+      "garden": {
+        "level": 1,
+        "stock": 0,
+        "at": 1791331299500
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 7,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 86,
+      "produce": 102,
+      "order": 15,
+      "claimed": [
+        "order",
+        "merge",
+        "produce"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 86,
+      "produce": 102,
+      "order": 15,
+      "build": 15,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true,
+      "craft-1": true,
+      "craft-2": true,
+      "craft-3": true,
+      "craft-4": true,
+      "craft-5": true,
+      "garden-1": true,
+      "garden-2": true,
+      "garden-3": true,
+      "garden-4": true,
+      "tools-4": true,
+      "garden-5": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "garden",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  },
+  "ready-22": {
+    "schema": 2,
+    "createdAt": 1791331200000,
+    "lastSeen": 1791331498500,
+    "energyAt": 1791331494750,
+    "rng": 3255224510,
+    "stage": 22,
+    "mainPrepStep": 0,
+    "producerLessons": {
+      "clean": true,
+      "tools": true,
+      "bake": true,
+      "tea": true,
+      "craft": true,
+      "garden": true
+    },
+    "tea": {
+      "round": 0,
+      "plan": "warm",
+      "firstVisit": "locked",
+      "lastResult": null
+    },
+    "delivered": false,
+    "stars": 0,
+    "coins": 1990,
+    "energy": 93,
+    "xp": 830,
+    "board": [
+      {
+        "k": "gen",
+        "c": "clean"
+      },
+      {
+        "k": "gen",
+        "c": "tools"
+      },
+      {
+        "k": "gen",
+        "c": "bake"
+      },
+      {
+        "k": "gen",
+        "c": "tea"
+      },
+      {
+        "k": "gen",
+        "c": "craft"
+      },
+      {
+        "k": "gen",
+        "c": "garden"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "k": "item",
+        "c": "tea",
+        "l": 5
+      },
+      null,
+      {
+        "k": "item",
+        "c": "tools",
+        "l": 2
+      },
+      null,
+      {
+        "k": "item",
+        "c": "bake",
+        "l": 6
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "producers": {
+      "clean": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331498500
+      },
+      "tools": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331498500
+      },
+      "bake": {
+        "level": 1,
+        "stock": 2,
+        "at": 1791331496500
+      },
+      "tea": {
+        "level": 1,
+        "stock": 3,
+        "at": 1791331496750
+      },
+      "craft": {
+        "level": 1,
+        "stock": 11,
+        "at": 1791331492750
+      },
+      "garden": {
+        "level": 1,
+        "stock": 18,
+        "at": 1791331498500
+      }
+    },
+    "storage": [],
+    "capacity": 8,
+    "pending": [],
+    "bag": {
+      "scissors": 9,
+      "energyPacks": 2
+    },
+    "daily": {
+      "day": "2026-10-07",
+      "merge": 207,
+      "produce": 232,
+      "order": 22,
+      "claimed": [
+        "order",
+        "merge",
+        "produce"
+      ],
+      "gift": true
+    },
+    "stats": {
+      "merge": 207,
+      "produce": 232,
+      "order": 22,
+      "build": 22,
+      "sold": 0,
+      "unweb": 4
+    },
+    "seen": {
+      "clean-1": true,
+      "clean-2": true,
+      "clean-3": true,
+      "tools-1": true,
+      "tools-2": true,
+      "tools-3": true,
+      "bake-1": true,
+      "bake-2": true,
+      "bake-3": true,
+      "tea-1": true,
+      "tea-2": true,
+      "tea-3": true,
+      "tea-4": true,
+      "bake-4": true,
+      "craft-1": true,
+      "craft-2": true,
+      "craft-3": true,
+      "craft-4": true,
+      "craft-5": true,
+      "garden-1": true,
+      "garden-2": true,
+      "garden-3": true,
+      "garden-4": true,
+      "tools-4": true,
+      "garden-5": true,
+      "tools-5": true,
+      "bake-5": true,
+      "bake-6": true,
+      "tea-5": true
+    },
+    "decorStyles": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      null,
+      null
+    ],
+    "sideOrders": [
+      {
+        "id": "side-1",
+        "name": "周末的准备",
+        "wish": "东西不用很多，合适就好。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      },
+      {
+        "id": "side-2",
+        "name": "窗边的请求",
+        "wish": "给平常的一天，添一点小颜色。",
+        "needs": [
+          {
+            "c": "clean",
+            "l": 3,
+            "n": 1
+          }
+        ],
+        "coins": 20,
+        "energy": 2
+      }
+    ],
+    "sideSerial": 2,
+    "sideRefreshAt": [
+      0,
+      0
+    ],
+    "restAt": 0,
+    "world": {
+      "region": "courtyard",
+      "activities": {
+        "house": {
+          "day": "",
+          "count": 0
+        },
+        "garden": {
+          "day": "",
+          "count": 0
+        },
+        "courtyard": {
+          "day": "",
+          "count": 0
+        }
+      },
+      "chapterGifts": [],
+      "memoryUnlocked": {
+        "house": false,
+        "garden": false,
+        "courtyard": false
+      },
+      "souvenirs": {},
+      "equipped": {
+        "house": null,
+        "garden": null,
+        "courtyard": null
+      }
+    },
+    "tutorial": "done",
+    "introSeen": true,
+    "finishedSeen": false,
+    "settings": {
+      "sound": true,
+      "music": false,
+      "calm": false,
+      "reducedMotion": false
+    }
+  }
+}
