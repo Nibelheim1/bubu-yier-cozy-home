@@ -1,0 +1,353 @@
+{
+  "version": "1.1.0",
+  "generatedAt": "2026-10-08",
+  "provider": "built-in image_gen",
+  "method": "生成或返修后的原始PNG直接复制入项目；无程序调色、重绘、裁切输出。SVG和Canvas使用图集槽位及透明内边距等比显示。",
+  "originalAssetsPreserved": true,
+  "assetCount": 17,
+  "entries": [
+    {
+      "id": "atlas-clean",
+      "file": "public/assets/atlas-clean.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-27b7652d-4dc1-401b-99f2-e1893f45bd33.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": null,
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-tools",
+      "file": "public/assets/atlas-tools.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-2a7ab618-7f05-4c90-8b9a-19559ca1b43f.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": null,
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-bake",
+      "file": "public/assets/atlas-bake.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-38d2a36f-6737-4a4e-bc6c-06f12a028730.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": null,
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-tea",
+      "file": "public/assets/atlas-tea.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-3b582912-1bd7-468c-bdc6-7fe5ce3e8a19.png",
+      "containsBubuYier": false,
+      "references": [
+        "art/atlas-tea-second-pass.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Production edit: keep the same SIX object designs and reading order as this source, but make every object dramatically SMALLER to avoid cross-slot cropping. SAME1536x1024transparent canvas, strict3columns2rows. Each object should occupy ONLY the CENTRAL TWO THIRDS of its own square512pixel cell: approximate maxdimension340pixels, fully contained within [86,426] in its localcell. Very LARGE empty transparent gaps all around allsix objects. Scale down the entire cup saucer, teapot handle, rug, cushions, hangingwhale rope, easel legs and picture frame together; no part may reach within80pixels of any cellboundary. Nothingat x512,x1024,y512. Do NOT add scenery or background. Bright saturated colors, original glossy3D toy style unchanged. Six fully separate small objects, all fully visible, no croppededges, no duplicateobjects. No text, gridlines, bears, humanfaces or characters.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0.125
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-craft",
+      "file": "public/assets/atlas-craft.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-5604d276-560f-47cc-8291-b20ea0641936.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Create a production game sprite atlas for an original cozy merge-2 mobile game. Match reference only for bright colors and softly shaded volume. Chunky exaggerated toy-like 3D clay renders with hand-painted details, rich saturated turquoise/coral/pink/yellow/green, cream highlights, glossy accents, tight ambient occlusion and small soft shadows. NOT flat line drawings. No text, numbers, faces, characters, logos, watermark, borders, grid lines or ground plane. TRUE transparent background. Landscape canvas 1536x1024, exactly 3 columns by 2 rows of equal 512-square slots; exactly one separate icon per slot at equally spaced centers. Exact reading order; no overlaps or extra icons. Object occupies about 80% of cell with transparent margins, same three-quarter perspective and top-left light. Higher levels feel grander and more elaborate.\nSix art-and-craft icons reading order: 1 a chunky bright yellow pencil with pink eraser, diagonal but contained; 2 a coral open box containing 6 oversized colorful crayons; 3 a thick wooden artist palette carrying saturated blobs of turquoise, pink, yellow, blue and green paint plus two short brushes; 4 a small golden framed landscape painting of a blue sky and green meadow, thick dimensional frame, no animals; 5 a blue PAPER WHALE WIND CHIME hung on a short wooden bar with golden stars and pink paper ribbon, no face, full hanging sculpture contained; 6 a luxurious compact pink-and-turquoise painting workbench with easel, framed colorful landscape, bright paint pots and art supplies.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-garden",
+      "file": "public/assets/atlas-garden.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-57692e54-21b0-44af-af5a-03d2ee4d55b3.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Create a production game sprite atlas for an original cozy merge-2 mobile game. Match reference only for bright colors and softly shaded volume. Chunky exaggerated toy-like 3D clay renders with hand-painted details, rich saturated turquoise/coral/pink/yellow/green, cream highlights, glossy accents, tight ambient occlusion and small soft shadows. NOT flat line drawings. No text, numbers, faces, characters, logos, watermark, borders, grid lines or ground plane. TRUE transparent background. Landscape canvas 1536x1024, exactly 3 columns by 2 rows of equal 512-square slots; exactly one separate icon per slot at equally spaced centers. Exact reading order; no overlaps or extra icons. Object occupies about 80% of cell with transparent margins, same three-quarter perspective and top-left light. Higher levels feel grander and more elaborate.\nSix gardening icons reading order: 1 puffy lime-green seed packet with one large daisy graphic, no writing; 2 lively green seedling with TWO broad curved leaves in a coral terracotta pot; 3 a lush round foliage plant with many glossy green leaves in a turquoise pot; 4 a dense blooming cluster of white-and-yellow daisies with rich green leaves in a pink flower pot; 5 a lavish bouquet of pink, coral and yellow tulips with vivid green leaves tied with a turquoise ribbon; 6 a spectacular two-tier turquoise-and-gold plant stand densely arranged with pink/yellow blossoms and lush foliage in colorful ceramic pots, contained in its slot.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-generators",
+      "file": "public/assets/atlas-generators.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-312f425d-9111-4126-b78f-6f8b58dd5888.png",
+      "containsBubuYier": false,
+      "references": [
+        "art/atlas-generators-first-pass.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Edit this original transparent six-object game atlas to improve safe sprite separation. Preserve the identity, colors, material, original order and design of ALL SIX existing objects exactly, vivid glossy rounded toy 3D. Output EXACTLY 1536x1024 with a mathematically regular 3-column by 2-row grid of square512 slots. Within EACH512square, redraw the same object WHOLE and CENTERED with all edges at least48pixels from that square's boundary: object maximum width416 and height416. Scale down objects as necessary. Each object must be completely isolated from the neighboring slots, nothing may cross x512,x1024,y512, no clipped legs/bases/edges. Include complete lower bases of lanterns/posts and full cup trays. Transparent background, no colored backdrop, no lines, borders, text, shadows bridging slots, extra objects or characters. Six objects in the same reading order as the reference. This edit is a production sprite atlas, keeping bright colors and charming exaggerated 3D volume while adding transparent padding only.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-decor-a",
+      "file": "public/assets/atlas-decor-a.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-b7940f51-176e-4c4b-a01e-e984626fa9fd.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Original production game furniture sprite atlas for a bright cozy 3D merge-and-decorate game, inspired by attached image for COLOR only. Stylized toy-like rounded 3D sculpting, rich saturated turquoise, coral, pink, lemon, vivid green and warm honey wood, cream highlights, pleasing exaggerated silhouettes and soft ambient occlusion. Actual transparent background, no backdrop or floor. Landscape 1536x1024, exactly 3 columns x2 rows of six equal square slots; exact reading order, exactly ONE furniture assembly centered in each cell, generous transparent gutters, entire object uncut inside its slot. Consistent elevated three-quarter camera looking slightly down; soft light from upper left. No UI, text, lettering, watermark, humans, animals, bears, faces, mascots, character silhouettes or character artwork. Do NOT copy existing game art.\n1 a soft rounded turquoise-and-yellow woven DOORMAT, viewed slightly from above; 2 a pair of pink and cream striped WINDOW CURTAINS hanging from a short honey wooden rod with turquoise ties, no window/glass/wall; 3 a small honey-wood hanging HOUSE SIGN with a raised pink HEART symbol, no writing; 4 a compact golden WALL LANTERN with warm glowing glass and turquoise bracket, no wall; 5 a freestanding turquoise and honey-wood BAKING SHELF holding a few chunky flour jars and a golden bread basket; 6 a rounded honey-wood DINING TABLE with stout turquoise legs, empty tabletop, no chairs or cups.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-decor-b",
+      "file": "public/assets/atlas-decor-b.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-1684dad0-3f23-41d8-8206-a530e82565d9.png",
+      "containsBubuYier": false,
+      "references": [
+        "art/atlas-decor-b-second-pass.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Production edit: keep the same SIX object designs and reading order as this source, but make every object dramatically SMALLER to avoid cross-slot cropping. SAME1536x1024transparent canvas, strict3columns2rows. Each object should occupy ONLY the CENTRAL TWO THIRDS of its own square512pixel cell: approximate maxdimension340pixels, fully contained within [86,426] in its localcell. Very LARGE empty transparent gaps all around allsix objects. Scale down the entire cup saucer, teapot handle, rug, cushions, hangingwhale rope, easel legs and picture frame together; no part may reach within80pixels of any cellboundary. Nothingat x512,x1024,y512. Do NOT add scenery or background. Bright saturated colors, original glossy3D toy style unchanged. Six fully separate small objects, all fully visible, no croppededges, no duplicateobjects. No text, gridlines, bears, humanfaces or characters.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0.125
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-decor-c",
+      "file": "public/assets/atlas-decor-c.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-0e09da97-edff-4fff-b2a2-e1c129ee7c81.png",
+      "containsBubuYier": false,
+      "references": [
+        "art/atlas-decor-c-first-pass.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Edit this original transparent six-object game atlas to improve safe sprite separation. Preserve the identity, colors, material, original order and design of ALL SIX existing objects exactly, vivid glossy rounded toy 3D. Output EXACTLY 1536x1024 with a mathematically regular 3-column by 2-row grid of square512 slots. Within EACH512square, redraw the same object WHOLE and CENTERED with all edges at least48pixels from that square's boundary: object maximum width416 and height416. Scale down objects as necessary. Each object must be completely isolated from the neighboring slots, nothing may cross x512,x1024,y512, no clipped legs/bases/edges. Include complete lower bases of lanterns/posts and full cup trays. Transparent background, no colored backdrop, no lines, borders, text, shadows bridging slots, extra objects or characters. Six objects in the same reading order as the reference. This edit is a production sprite atlas, keeping bright colors and charming exaggerated 3D volume while adding transparent padding only.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "atlas-decor-d",
+      "file": "public/assets/atlas-decor-d.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-135375dc-3e68-48f6-9ed6-721e410b2257.png",
+      "containsBubuYier": false,
+      "references": [
+        "art/atlas-decor-d-first-pass.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Edit this original transparent six-object game atlas to improve safe sprite separation. Preserve the identity, colors, material, original order and design of ALL SIX existing objects exactly, vivid glossy rounded toy 3D. Output EXACTLY 1536x1024 with a mathematically regular 3-column by 2-row grid of square512 slots. Within EACH512square, redraw the same object WHOLE and CENTERED with all edges at least48pixels from that square's boundary: object maximum width416 and height416. Scale down objects as necessary. Each object must be completely isolated from the neighboring slots, nothing may cross x512,x1024,y512, no clipped legs/bases/edges. Include complete lower bases of lanterns/posts and full cup trays. Transparent background, no colored backdrop, no lines, borders, text, shadows bridging slots, extra objects or characters. Six objects in the same reading order as the reference. This edit is a production sprite atlas, keeping bright colors and charming exaggerated 3D volume while adding transparent padding only.",
+      "promptSummary": "原创明亮、饱和的圆润玩具3D素材；3列2行透明图集，按阅读顺序六个完整物件；独立物件留白。",
+      "runtime": {
+        "atlas": {
+          "cols": 3,
+          "rows": 2,
+          "inset": 0
+        }
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "region-house",
+      "file": "public/assets/region-house.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-2c96d2aa-175a-4576-af9c-9654fb4003b1.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Original polished cozy mobile game environment background, vivid happy garden-party palette inspired by attached picture ONLY for colors and light, glossy chunky 3D storybook diorama, sunny cinematic soft light, turquoise/pink/lemon accents, fresh bright green, clean readable forms. Portrait canvas 1024x1152. Camera high three-quarter view looking down, front open to viewer, no deep perspective/vanishing points. Frame ENTIRE usable play area, don't cut edges. This is EMPTY base terrain for furniture sprites that will be placed later. Keep the entire central 65% wide and bottom 70% tall open, uncluttered and unoccupied. NO people, animals, bears, mascots, faces, portraits, UI, text, lettering, numbers, logos, watermarks, movable furniture, tables, chairs, pots, lamps, rugs, dessert, curtains, hanging flags or installed decorations. Background must look intentionally spacious; architectural detail only at perimeter/top.\nA spacious roofless cozy cottage interior: warm creamy plaster back wall at top quarter with bare broad central window opening, exposed honey wood beams, pale light oak plank floor extending toward viewer, rounded walls left and right, arched doorway at far left/top edge. Large clear floor, generous airy proportions. A turquoise door trim and pink-toned wall accents at edges. Bare window, no curtain. Unfurnished room, no stools, shelves, frames, books, plants or kitchen equipment.",
+      "promptSummary": "不含角色、家具和已安装装修的空场景，边缘建筑与植被，中间保留活动和摆放区域。",
+      "runtime": {
+        "atlas": null
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "region-garden",
+      "file": "public/assets/region-garden.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-5f54bb69-a867-4432-a3f4-1504e3d670f3.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Original polished cozy mobile game environment background, vivid happy garden-party palette inspired by attached picture ONLY for colors and light, glossy chunky 3D storybook diorama, sunny cinematic soft light, turquoise/pink/lemon accents, fresh bright green, clean readable forms. Portrait canvas 1024x1152. Camera high three-quarter view looking down, front open to viewer, no deep perspective/vanishing points. Frame ENTIRE usable play area, don't cut edges. This is EMPTY base terrain for furniture sprites that will be placed later. Keep the entire central 65% wide and bottom 70% tall open, uncluttered and unoccupied. NO people, animals, bears, mascots, faces, portraits, UI, text, lettering, numbers, logos, watermarks, movable furniture, tables, chairs, pots, lamps, rugs, dessert, curtains, hanging flags or installed decorations. Background must look intentionally spacious; architectural detail only at perimeter/top.\nA spacious cottage side garden: brilliant soft green lawn with a broad clear grassy clearing from middle to bottom, white rounded picket fence only around top and side perimeter, rose-pink climbing flowers as tiny perimeter accents, mature leafy tree trunk at far top-left edge, faint paved stone path at right edge, distant blue sky only a thin top strip. Open planting space and clear character walkway. No pots, flowerboxes, plant stands, trellises, chairs, flags, wind chimes, fountain or bench.",
+      "promptSummary": "不含角色、家具和已安装装修的空场景，边缘建筑与植被，中间保留活动和摆放区域。",
+      "runtime": {
+        "atlas": null
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "region-courtyard",
+      "file": "public/assets/region-courtyard.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-d64d518c-771c-40ca-9835-fd3095ed30f8.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Original polished cozy mobile game environment background, vivid happy garden-party palette inspired by attached picture ONLY for colors and light, glossy chunky 3D storybook diorama, sunny cinematic soft light, turquoise/pink/lemon accents, fresh bright green, clean readable forms. Portrait canvas 1024x1152. Camera high three-quarter view looking down, front open to viewer, no deep perspective/vanishing points. Frame ENTIRE usable play area, don't cut edges. This is EMPTY base terrain for furniture sprites that will be placed later. Keep the entire central 65% wide and bottom 70% tall open, uncluttered and unoccupied. NO people, animals, bears, mascots, faces, portraits, UI, text, lettering, numbers, logos, watermarks, movable furniture, tables, chairs, pots, lamps, rugs, dessert, curtains, hanging flags or installed decorations. Background must look intentionally spacious; architectural detail only at perimeter/top.\nA generous open front courtyard beside a cottage: cream cottage facade only at upper quarter, one plain wooden door around upper middle, warm terracotta-pink paved ground extending to foreground, rounded stone boundary at sides with tiny flowers growing along outer edge, tree canopy reaching slightly over top-left edge. Spacious empty patio for a future tea party. No doormat, house sign, hanging lights, table, flags, picnic mat, sweets, chairs or ready party decorations.",
+      "promptSummary": "不含角色、家具和已安装装修的空场景，边缘建筑与植被，中间保留活动和摆放区域。",
+      "runtime": {
+        "atlas": null
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "world-map",
+      "file": "public/assets/world-map.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-8755abe0-5653-4599-bd95-339d32fbc25b.png",
+      "containsBubuYier": false,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [],
+      "prompt": "Original cozy mobile game HOME ESTATE WORLD MAP, landscape canvas 1536x1024, cheerful high-saturation 3D storybook toy-diorama aesthetic with soft sunny light and turquoise/pink/lemon/green color accents from reference. High three-quarter aerial camera, wide view, generous spacious land. Three connected readable zones spread left to right: at x25%,y40% a small cream cottage with coral roof and turquoise window frames; at x54%,y60% a spacious open bright-green side GARDEN with clear lawn and white picket fence; at x82%,y45% an open rounded terracotta FRONT COURTYARD paved patio. Curving stepping-stone paths connect zones; trees and small flowers at outer edges; clean open centers and different surface colors distinguish zones. No playable furniture, no ready party setup, no lamps/flags, no installed flower boxes. No characters, humans, animals, bears, portraits, symbols, text, UI, labels, logos or watermark. Entire estate within picture with ample outer breathing room. Full rich opaque environment, not a floating cutout.",
+      "promptSummary": "小屋、花园、庭院相连的宽阔家园全景；不含角色或已安装装修。",
+      "runtime": {
+        "atlas": null
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "party-memory",
+      "file": "public/assets/party-memory.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-c675e3c8-e6ba-4444-896b-c6413f70d10d.png",
+      "containsBubuYier": true,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/yier.png",
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/yier.png"
+      ],
+      "prompt": "Create a finished original landscape 1536x1024 illustration for the final garden party memory of a cozy game. Reference 1 is authoritative Bubu character card, reference 2 authoritative Yier character card. BOTH character cards must determine exact identity and proportions. Bubu is a warm brown round bear with dark inner round ears, yellow cheeks, stubby arms. Yier is a white round bear with solid dark brown ears and feet, pink cheeks, small dark brown bow under face. Match cards faithfully, similar overall height, tiny dot eyes, simple mouth and rounded limbs, no human fingers, clothing, snouts, additional characters, or hybrids. Reference 3 is ONLY palette and celebration mood. Make an original scene: Bubu on right and Yier on left smiling together at a strawberry birthday cake on a small garden party table; colorful flowerpots and white daisies at edges, pink yellow blue bunting overhead, cream cottage and open green garden behind, sunny joyful atmosphere. Scene and objects have richer saturated pink/turquoise/lemon/green, exaggerated rounded glossy toy 3D volume, characters maintain exact card shapes and warm brown simple outline. Clear focal point both characters and cake, room to breathe, no writing, logo or watermark.",
+      "promptSummary": "以两张角色卡锁定布布一二身份、比例和轮廓，用户参考图仅提供配色和聚会气氛。",
+      "runtime": {
+        "atlas": null
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    },
+    {
+      "id": "yier-rest",
+      "file": "public/assets/yier-rest.png",
+      "originalOutput": "C:\\Users\\92108\\.codex\\generated_images\\01a1171e-090a-7e61-9364-ea717aa6315d\\exec-5510f48d-e4c0-4b25-8bd9-105a802456d0.png",
+      "containsBubuYier": true,
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/yier.png",
+        "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png"
+      ],
+      "paletteReference": "E:/Desktop/布布一二：好日子小屋/ChatGPT 图像 2026年10月8日 08_46_33.png",
+      "characterIdentityReferences": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home/art/reference/yier.png"
+      ],
+      "prompt": "Create one isolated full-body transparent game character sprite, 1024x1024 square, with generous transparent margin. Reference 1 Bubu and reference 2 Yier are authoritative character cards; draw ONLY YIER from reference 2. Reference 3 ONLY suggests warm color and shading. Yier must be the same white round bear, solid dark brown circular ears, dark brown little bow beneath the face, pink cheeks, dark brown tiny feet, short rounded arms, faithful original card head/body proportions and dark brown outline. Show Yier curled into a cute restful sitting/sleeping pose, eyes gently closed, head slightly tilted, both short arms tucked against round belly, clearly recognisable whole character from head to feet. No bed, pillow, furniture, blanket, Bubu, other animals, clothing, objects, text, Z symbols or facial redesign. Do not invent a panda body, black patches or long snout. Soft creamy white 3D shading with simple readable outlines and modest glossy volume, preserve the card's cute graphic identity. Transparent background true, nothing except the single sleeping Yier.",
+      "promptSummary": "以两张角色卡锁定身份，仅绘制一二完整身体的休息姿势，透明背景。",
+      "runtime": {
+        "atlas": null
+      },
+      "visualReview": "原生查看完成；核对对象、阅读顺序、色彩、完整轮廓；实际页面验收受浏览器权限阻断。"
+    }
+  ]
+}

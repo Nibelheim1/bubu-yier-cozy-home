@@ -1,0 +1,877 @@
+[
+  {
+    "id": "bubu-idle",
+    "path": "assets/bubu-idle.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "88d611b6dfd6840fb498f4b09ddde9cbf7176c9482752e58589ec20594cee4f4",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      30,
+      288,
+      237,
+      559
+    ]
+  },
+  {
+    "id": "bubu-turn",
+    "path": "assets/bubu-turn.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "ee2dcd06a3982daa2a2e1444c5b72c75164da067b5254be23782ea1a32b14808",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      253,
+      291,
+      447,
+      560
+    ]
+  },
+  {
+    "id": "bubu-side",
+    "path": "assets/bubu-side.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "a17542a62ba948b4f378a02c421184c1c21e180c198832c64acf3ee0c00568a0",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      460,
+      287,
+      640,
+      559
+    ]
+  },
+  {
+    "id": "bubu-back",
+    "path": "assets/bubu-back.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "7305455c89c659ee72fd12758ed884d5a97178ad97ce07115cbc944fdd4d283b",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      652,
+      288,
+      849,
+      561
+    ]
+  },
+  {
+    "id": "bubu-face",
+    "path": "assets/bubu-face.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "47bb81e6dd3c53bea8cb5c51f5719662f94d87442d7327b94ae3e6340879531c",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      871,
+      326,
+      1108,
+      545
+    ]
+  },
+  {
+    "id": "bubu-walk",
+    "path": "assets/bubu-walk.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "7c8581aa6ce748bffe3fd67313ba4485382f5d84da02d66f99ca56e3a5bd0ef6",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      44,
+      691,
+      278,
+      962
+    ]
+  },
+  {
+    "id": "bubu-joy",
+    "path": "assets/bubu-joy.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "d5d9a6cf3fec1a800cbafe6264a371244f282aeaa28406a7499840fd79476cbd",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      352,
+      664,
+      598,
+      960
+    ]
+  },
+  {
+    "id": "bubu-sit",
+    "path": "assets/bubu-sit.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "19edc065a0b8186236bcc65990d2cbb70c53bcc08bd5f6621eddd17ddbaa4910",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      665,
+      705,
+      874,
+      959
+    ]
+  },
+  {
+    "id": "bubu-happy",
+    "path": "assets/bubu-happy.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "af526f2246fe5bc50889e658774d9bc7fddd87bd21890928de9283fb0dcfa45d",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      51,
+      1082,
+      272,
+      1313
+    ]
+  },
+  {
+    "id": "bubu-surprise",
+    "path": "assets/bubu-surprise.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "347e497e820c5a56929ad3ce56475f6eeaa8a815864a8d288bc7d0534f3bdb0a",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      343,
+      1085,
+      550,
+      1313
+    ]
+  },
+  {
+    "id": "bubu-sleep",
+    "path": "assets/bubu-sleep.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/bubu.png",
+    "sha256": "0ac05835f84516ddf070845c17e2ba67a7fb70176ef6813899e8688be4f45cc0",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      614,
+      1122,
+      904,
+      1299
+    ]
+  },
+  {
+    "id": "yier-idle",
+    "path": "assets/yier-idle.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "fb8a51c5797a9e50f083d67f00a1210bdb803b478062028f10b37362e8ca952d",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      45,
+      249,
+      252,
+      520
+    ]
+  },
+  {
+    "id": "yier-turn",
+    "path": "assets/yier-turn.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "3d4ff8772a1f04110ad18489380373dfe8cf300b382a9d9404318224e49befb1",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      284,
+      240,
+      528,
+      529
+    ]
+  },
+  {
+    "id": "yier-back",
+    "path": "assets/yier-back.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "ee93a9a46c93dfefdcda5379a9f0298227ef2f12bf9a3b25ba942edffd3f0962",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      531,
+      249,
+      732,
+      520
+    ]
+  },
+  {
+    "id": "yier-face",
+    "path": "assets/yier-face.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "06738a6699cdd2565cf73689c4adf2631e2b044e1ffbc462ef342a0075b4d764",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      775,
+      276,
+      1089,
+      571
+    ]
+  },
+  {
+    "id": "yier-side",
+    "path": "assets/yier-side.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "61733c09bfbce1e35464ff7d6703ce1d672927f43e7970a1c531215ae07b502b",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      40,
+      655,
+      263,
+      956
+    ]
+  },
+  {
+    "id": "yier-joy",
+    "path": "assets/yier-joy.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "930fc35bd21faf3d7f7461cc96f6d9dcb9d4967954074aeb9d7be435bd6c78ca",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      311,
+      638,
+      551,
+      953
+    ]
+  },
+  {
+    "id": "yier-paint",
+    "path": "assets/yier-paint.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "31439b092642d9ad16874b2017551281213cdf5a8053dc3e1ad337e00f9e1d64",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      571,
+      663,
+      840,
+      953
+    ]
+  },
+  {
+    "id": "yier-walk",
+    "path": "assets/yier-walk.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "d5bc14c747b2cc0ac14377b9a18593fe87608cb9a2da8602a5b51274f4009c1b",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      840,
+      652,
+      1089,
+      953
+    ]
+  },
+  {
+    "id": "yier-happy",
+    "path": "assets/yier-happy.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "ee6732b9b616e4c71ca3cc278d11e9e0dca49c9cb7171f040580325bbf8dab3f",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      67,
+      1075,
+      301,
+      1310
+    ]
+  },
+  {
+    "id": "yier-surprise",
+    "path": "assets/yier-surprise.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "14d7f21efb4e8452738936f28be77244f1e4b3d738a697845f53790aa53f2e16",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      344,
+      1075,
+      568,
+      1313
+    ]
+  },
+  {
+    "id": "yier-shy",
+    "path": "assets/yier-shy.png",
+    "type": "character",
+    "source": "user supplied generated reference: art/reference/yier.png",
+    "sha256": "1256726e856a0257ae796c6814bdfe398c85f6b775be6fa25898d1df51aac8fe",
+    "method": "exact-pixel crop; connected-background removal; no redrawing",
+    "reference_box": [
+      619,
+      1071,
+      876,
+      1312
+    ]
+  },
+  {
+    "id": "clean-1",
+    "path": "assets/clean-1.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "406622e9174ec993047641f6ba90dc9c7c71614945e5ffb2f9c8cdce68504573"
+  },
+  {
+    "id": "clean-2",
+    "path": "assets/clean-2.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "057bf011eeafd0ba1d81304279d6415c864dc0abd5e1d727c1a0d547bf1a3373"
+  },
+  {
+    "id": "clean-3",
+    "path": "assets/clean-3.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "9e70d10930d29923711045a7fd43ecc227ad0162cf0a82c5340b66b5786be595"
+  },
+  {
+    "id": "clean-4",
+    "path": "assets/clean-4.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "6b736c60267f4fb0cf3dcdacdf2cc8523e713b03edbc5782a9d1d575f6c4eff6"
+  },
+  {
+    "id": "clean-5",
+    "path": "assets/clean-5.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "a15f37932e6ef2a5613f9f8c7a909e2cda6e938e7e6170bdae3b4cca6e749a5c"
+  },
+  {
+    "id": "clean-6",
+    "path": "assets/clean-6.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "f6743ac75ec263d1cfb96961adaf9fb64493c01cb70fb68057dbe19ab1b9a12e"
+  },
+  {
+    "id": "tools-1",
+    "path": "assets/tools-1.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "bd3f501427de80e58c90170d3b17aca9d2c1f82d3c79376ca465ddb84974c8fb"
+  },
+  {
+    "id": "tools-2",
+    "path": "assets/tools-2.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "bea1c04ac13011cacf032109563a56851143279f81bd6f4b1dc0a46c6ef7ea1f"
+  },
+  {
+    "id": "tools-3",
+    "path": "assets/tools-3.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "5b8c5fd28d644ed79c1b19982737d9cb6b1015366c7bc43a819a805000fe8578"
+  },
+  {
+    "id": "tools-4",
+    "path": "assets/tools-4.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "31be6b305f045f425ec0ac3b848634371f1848ae20be50e467f73363f6af715e"
+  },
+  {
+    "id": "tools-5",
+    "path": "assets/tools-5.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "5e6da347b24de80744559d29c72355e568d62bbedf8d9fbbd420a7e7d75db1ce"
+  },
+  {
+    "id": "tools-6",
+    "path": "assets/tools-6.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "48a62256ca5cd03326683a593beca788673077305f643a0693498147ae375e00"
+  },
+  {
+    "id": "bake-1",
+    "path": "assets/bake-1.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "99e4b77593cd6857d6e94c6c4885e3107e3671e069644c28e2d8e2c27bd65c03"
+  },
+  {
+    "id": "bake-2",
+    "path": "assets/bake-2.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "bc8c7d374dcdd3c585a9f82e5ce8e3c9e1b8b8ad5c01408f5b72cd9d1ff17f37"
+  },
+  {
+    "id": "bake-3",
+    "path": "assets/bake-3.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "20199907d8d605b5e8ea2a6655a70a9e0fae691a8a5ec83042bda42c0d8c6aaf"
+  },
+  {
+    "id": "bake-4",
+    "path": "assets/bake-4.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "60fafb0dce9c79da34965fb38fd24c31db456cda67b680f1810ec08a4a6c1041"
+  },
+  {
+    "id": "bake-5",
+    "path": "assets/bake-5.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "eec02531d409f1e414962e701d1cb2f6f3bfa829a8586fe8862314cd33e08e57"
+  },
+  {
+    "id": "bake-6",
+    "path": "assets/bake-6.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "479b5efbc87b0d562e42689b19b254415c16b94f9006cc744a05803d8cd845ed"
+  },
+  {
+    "id": "tea-1",
+    "path": "assets/tea-1.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "873d0aaf2e49f17fd5cf3386c80817a0bcbe4e798e4cac4fe72a77aafb3c52cc"
+  },
+  {
+    "id": "tea-2",
+    "path": "assets/tea-2.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "30e4f6a5e22c49970113b20f92c2588ffab26e632ff13ae15fc0aeca3f74dde9"
+  },
+  {
+    "id": "tea-3",
+    "path": "assets/tea-3.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "933bd924c56a71a4633c3a0fdd8198b28112f2ebdaa051e4b0c69744d7aa6a5a"
+  },
+  {
+    "id": "tea-4",
+    "path": "assets/tea-4.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "8f63647a2f69e836cf47fc973d3789ef06fe06e2996e2133945eb8a1533b78b6"
+  },
+  {
+    "id": "tea-5",
+    "path": "assets/tea-5.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "bf38235e30e3c735020fb475c29326eab58acda0e6b4825deaf3f2b81dab7eb6"
+  },
+  {
+    "id": "tea-6",
+    "path": "assets/tea-6.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "7afad292e85ab0d6a54ebb237650904bf95d8128b02a24dcfbc108a49e0696ff"
+  },
+  {
+    "id": "craft-1",
+    "path": "assets/craft-1.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "887b04754b6b556bbdcbf7f85c4d4bd140f5a90e50da46f98838bdf2e74d1363"
+  },
+  {
+    "id": "craft-2",
+    "path": "assets/craft-2.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "e93f4d0e43888c297223f4751b34c1e2e53233600166683a8692990d1cbface7"
+  },
+  {
+    "id": "craft-3",
+    "path": "assets/craft-3.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "0832e396ec86818c04d9937c5a5a006f48cedeeb608bf9d77e310bfcd166b82d"
+  },
+  {
+    "id": "craft-4",
+    "path": "assets/craft-4.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "9896b1b99f71cec3202c93426cda95165caf643768d31f12ceec074abd140caa"
+  },
+  {
+    "id": "craft-5",
+    "path": "assets/craft-5.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "3976a0d60cb23d733d48e0e1b008a48d10952e249b1a8022aa0616559732ed65"
+  },
+  {
+    "id": "craft-6",
+    "path": "assets/craft-6.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "e64fa2d869e5241592e5b56bef8823c4586e072c3571047e47316410d4db2c0a"
+  },
+  {
+    "id": "garden-1",
+    "path": "assets/garden-1.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "de653f65e5184de089be8c41a86defab2b4fc2df3daa3b74d62a11e338b59d0c"
+  },
+  {
+    "id": "garden-2",
+    "path": "assets/garden-2.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "4ef0de96bc18d684dda88a32c716407b20752cd27a4dc81e712571190febebb3"
+  },
+  {
+    "id": "garden-3",
+    "path": "assets/garden-3.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "653eb61d2c5aaee5c9106d4aed5553dbcd36daf35a980562bbbd9f0f7dae364b"
+  },
+  {
+    "id": "garden-4",
+    "path": "assets/garden-4.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "e47ea6c521756f04518275bfe5c9661e682775e2746e8c6f85d213891b67b847"
+  },
+  {
+    "id": "garden-5",
+    "path": "assets/garden-5.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "e59c692461ed9d7bb4bafb0398e879d7aa971f3ac3cf655129865eb4f275b9e6"
+  },
+  {
+    "id": "garden-6",
+    "path": "assets/garden-6.png",
+    "type": "item",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "3d657071145904ed4a2f9ceb540f44c89fc8deffba4aa2ed08c58903a880e6f0"
+  },
+  {
+    "id": "gen-clean",
+    "path": "assets/gen-clean.png",
+    "type": "generator",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "5d29a84fe4397da05ace9503ad033c36436b3c2edcf8d47731b3f2bb79df6c03"
+  },
+  {
+    "id": "gen-tools",
+    "path": "assets/gen-tools.png",
+    "type": "generator",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "9e81b1bc3da7abcb9afe69c499fd0099adbfc7767ff2e72ba14fec105f8f2ab5"
+  },
+  {
+    "id": "gen-bake",
+    "path": "assets/gen-bake.png",
+    "type": "generator",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "d63c42140f0245c90d8ec6612d61588504dbcf82b7a26ddfc0e1893e45b7ed1e"
+  },
+  {
+    "id": "gen-tea",
+    "path": "assets/gen-tea.png",
+    "type": "generator",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "a9afd8deaba08e67ece9ddc1acac5d5183072c5c4e6237f632587830d483818b"
+  },
+  {
+    "id": "gen-craft",
+    "path": "assets/gen-craft.png",
+    "type": "generator",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "a3a2d600edec0c4c15602b6655b6ea1e5766301ca903f8cf372fa34bd614fa8a"
+  },
+  {
+    "id": "gen-garden",
+    "path": "assets/gen-garden.png",
+    "type": "generator",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "dc2013970961fe0df4cc8c2aa586bfe4313760a04010d8400512c16849617a9c"
+  },
+  {
+    "id": "util-energy",
+    "path": "assets/util-energy.png",
+    "type": "utility",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "83180447549ea780e0d0d30c5b24bd8cdb32b40e704734ac5a567d6a7124d023"
+  },
+  {
+    "id": "util-scissors",
+    "path": "assets/util-scissors.png",
+    "type": "utility",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "c48a894b79f17f7cc6e8f720821628dad9498ae580b19bfc617ff5b7575f3a08"
+  },
+  {
+    "id": "util-gift",
+    "path": "assets/util-gift.png",
+    "type": "utility",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "4e20b8254880668fec04a6a0f79b9e8bcc6d7449ec4af02a7da7753fe79eacc0"
+  },
+  {
+    "id": "util-coin",
+    "path": "assets/util-coin.png",
+    "type": "utility",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "49a86d097905f6881f9f21c882d2e472ca6981457c4281f294eee38f864f2e4d"
+  },
+  {
+    "id": "util-star",
+    "path": "assets/util-star.png",
+    "type": "utility",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "d171cfac9b6013a1746e3821a7394a206b8cd9433924723df9c42c438eb24805"
+  },
+  {
+    "id": "util-crate",
+    "path": "assets/util-crate.png",
+    "type": "utility",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "bf49f0f7329ed4b1d162fb82b58ad4eb883ea734fb1f8e606d17c3977521de5a"
+  },
+  {
+    "id": "util-storage",
+    "path": "assets/util-storage.png",
+    "type": "utility",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "734610db7016c20eb15f746007d3f45088b6e7068a1462d2cf107c694e758213"
+  },
+  {
+    "id": "home-background",
+    "path": "assets/home-background.png",
+    "type": "environment",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "1d4c5574230548ff07fce4055a2ca13e7e936b0cc24439363e816abcb17d89fb"
+  },
+  {
+    "id": "decor-09",
+    "path": "assets/decor-09.png",
+    "type": "decoration",
+    "source": "intentional visual match to craft-6; same original illustration",
+    "sha256": "f38d3db2cd36642680d7e87b1b7b9dcc218d191ea4c2ff1977f2615f79550605"
+  },
+  {
+    "id": "decor-11",
+    "path": "assets/decor-11.png",
+    "type": "decoration",
+    "source": "intentional visual match to craft-5; original illustration",
+    "sha256": "7424fc612952182a742b382e87fdcd8f7db2dcae6108947be5f6e14ebb3fd635"
+  },
+  {
+    "id": "decor-13",
+    "path": "assets/decor-13.png",
+    "type": "decoration",
+    "source": "intentional visual match to garden-4; original illustration",
+    "sha256": "0d61ee207cd1ea482ffb9f8b90bf79c726ca49299784aaa3cbda813482220e50"
+  },
+  {
+    "id": "decor-01",
+    "path": "assets/decor-01.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "ef912855f9097d322c40af8cf0dea6a5d1f185ceae9571e1e1eb4218b5756c5e"
+  },
+  {
+    "id": "decor-02",
+    "path": "assets/decor-02.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "df5dffc18ac3fcd82234166320844e4b54a9d6ea8576369286ea3fce78134c81"
+  },
+  {
+    "id": "decor-03",
+    "path": "assets/decor-03.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "d2a1cccb303a59f78cb81a637b81947ebf7ffc9536dcc7a86efee5702cb44ae5"
+  },
+  {
+    "id": "decor-04",
+    "path": "assets/decor-04.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "88a5cb5bdf4bb00c51d5f31e549113647a66bd91e374dc4374848fd7cf893fe2"
+  },
+  {
+    "id": "decor-05",
+    "path": "assets/decor-05.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "517388a012ca9e317596ab63af80ce6aca6710e14fe154e321a004b0ca7e4d42"
+  },
+  {
+    "id": "decor-06",
+    "path": "assets/decor-06.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "ad81a96a1331d19c162107e5164ad0140a9f57151cfb7ac123596517d6902650"
+  },
+  {
+    "id": "decor-07",
+    "path": "assets/decor-07.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "cba329e7c91a99db69caed5f0caa36a807b94193117f8ac8859cb72acc78d4c9"
+  },
+  {
+    "id": "decor-08",
+    "path": "assets/decor-08.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "340bcf13d3137740da6f8e42ecce1957e6971731d642e0f71c7c5eaa4976ba01"
+  },
+  {
+    "id": "decor-10",
+    "path": "assets/decor-10.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "2ef6afb10edd3c465489fd1769f2fd2c10352a4afd70fa5a5edaf4213e420a32"
+  },
+  {
+    "id": "decor-12",
+    "path": "assets/decor-12.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "d9d016853a85d21e6317f20ed834c0d80e4774f1e326b19f641db7d9ba8967bd"
+  },
+  {
+    "id": "decor-14",
+    "path": "assets/decor-14.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "a5bc541b1e7f7de83ce73ad72c74ebfaa14b2d79d39c4642fe0ddb22b748db59"
+  },
+  {
+    "id": "decor-15",
+    "path": "assets/decor-15.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "c179dff093298b84a6da43455f0fa0fbc7dba3bf3bad634d474d25a54b9ea3f9"
+  },
+  {
+    "id": "decor-16",
+    "path": "assets/decor-16.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "07b1473af0dc3b934a76754b8fb20fface08df550f8ac29a66524db92226c8d7"
+  },
+  {
+    "id": "decor-17",
+    "path": "assets/decor-17.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "c8d53cda2c7aba05bdc4540b943aa181dc8f760e2a7e4f3c2ed19f86b3b4176a"
+  },
+  {
+    "id": "decor-18",
+    "path": "assets/decor-18.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "1066294d6922f1479a30a74418f5b2a21261e959c82d6459fc096ce16d07d565"
+  },
+  {
+    "id": "decor-19",
+    "path": "assets/decor-19.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "2149f8ac73a21ece8e8246296ee37b141f07db7bf29b219f177289dfbdc22b19"
+  },
+  {
+    "id": "decor-20",
+    "path": "assets/decor-20.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "e8cf1892dd7886502f475fd410691900653e891f832799250f1ad79640672dc5"
+  },
+  {
+    "id": "decor-21",
+    "path": "assets/decor-21.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "13ef581d5799ac5b6b6a5cd9e05cd2d0e851abc3f67e9e31f59589d2ccbf771d"
+  },
+  {
+    "id": "decor-22",
+    "path": "assets/decor-22.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "6322440cf83ca7265c90e6b620e24b89d349df3fb6455d121bf0ef5c214ec606"
+  },
+  {
+    "id": "decor-23",
+    "path": "assets/decor-23.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "f3606a64604370099ab5518ce875dcfc5b091cc7b185c1ecb14ef9fc337697c4"
+  },
+  {
+    "id": "decor-24",
+    "path": "assets/decor-24.png",
+    "type": "decoration",
+    "source": "original hand-authored illustration; scripts/make_art.py",
+    "sha256": "49814b3822c71a6dd4939d20b8ef40ce8bf742a8701e76ef3876dae8bdaa5730"
+  },
+  {
+    "id": "paper-texture",
+    "path": "assets/paper-texture.png",
+    "type": "environment",
+    "source": "deterministic paper grain",
+    "sha256": "a0f714d82fdc2e7715b00a1b89b47f06123b88c3774f4afc53baef37fadedf35"
+  },
+  {
+    "id": "story-companion",
+    "path": "assets/story-companion.png",
+    "type": "reference-derived illustration",
+    "source": "reference-conditioned image generation, concept-poster.png crop (0,0,409,247)",
+    "sha256": "bf163b0edc9cd0227e5e0333a50695a259dc1fa9aae83abf21a2abe00b1ea082"
+  },
+  {
+    "id": "story-garden",
+    "path": "assets/story-garden.png",
+    "type": "reference-derived illustration",
+    "source": "reference-conditioned image generation, concept-poster-02.png crop (739,1115,1017,1211)",
+    "sha256": "4d367fce153b56bcfd63363c15e9b2c736ae6dc56bfb0c4a437166fb9075cf00"
+  },
+  {
+    "id": "story-night",
+    "path": "assets/story-night.png",
+    "type": "reference-derived illustration",
+    "source": "reference-conditioned image generation, concept-poster-02.png crop (739,1215,1017,1310)",
+    "sha256": "25c55c8fb3678d53970e46b94805e20600a85f409517714aa2ad41aa9963ea55"
+  },
+  {
+    "id": "story-rest",
+    "path": "assets/story-rest.png",
+    "type": "reference-derived illustration",
+    "source": "reference-conditioned image generation, concept-poster-02.png crop (739,1313,1017,1412)",
+    "sha256": "52a0f424b3e98faa255f44111dcbf7556d0ccbbd1146facfe47eb13b78dff211"
+  },
+  {
+    "id": "app-icon",
+    "path": "assets/app-icon.png",
+    "type": "reference-derived illustration",
+    "source": "composite of exact user-reference character crops, no character redraw",
+    "sha256": "39eefefd4f3e9e0cf4842169ae016c04740402db65f8eb4aefc3515ebc28120a"
+  },
+  {
+    "id": "cozy-loop",
+    "path": "assets/cozy-loop.wav",
+    "type": "audio",
+    "source": "original synthesis, scripts/make_audio.py; 24.62 seconds, mono 22050 Hz PCM",
+    "sha256": "8ebeddda72d9af903a7fe760738c243bf555c66344ec8a925ccfc2c4ec837edc"
+  }
+]

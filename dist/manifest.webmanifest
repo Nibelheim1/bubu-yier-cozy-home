@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "布布一二 · 好日子小屋",
+  "short_name": "好日子小屋",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#788f72",
+  "background_color": "#f6f0dc",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "assets/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

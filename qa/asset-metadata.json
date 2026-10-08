@@ -1,0 +1,202 @@
+[
+  {
+    "file": "atlas-bake.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-clean.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-craft.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-decor-a.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-decor-b.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-decor-c.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-decor-d.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-garden.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-generators.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-tea.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "atlas-tools.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      254
+    ],
+    "gridlineOpaqueFraction": 0.0
+  },
+  {
+    "file": "party-memory.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha": null
+  },
+  {
+    "file": "region-courtyard.png",
+    "size": [
+      1182,
+      1330
+    ],
+    "mode": "RGB",
+    "alpha": null
+  },
+  {
+    "file": "region-garden.png",
+    "size": [
+      1182,
+      1330
+    ],
+    "mode": "RGB",
+    "alpha": null
+  },
+  {
+    "file": "region-house.png",
+    "size": [
+      1182,
+      1330
+    ],
+    "mode": "RGB",
+    "alpha": null
+  },
+  {
+    "file": "world-map.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGB",
+    "alpha": null
+  },
+  {
+    "file": "yier-rest.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ]
+  }
+]
