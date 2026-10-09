@@ -1,12 +1,12 @@
 import assert from 'node:assert/strict';
-import {GameEngine,validateState,clone,freshState} from '../src/engine.mjs';
-import {CATS,TASKS,DAILY,CHAINS} from '../src/data.mjs';
+import {GameEngine,validateState,clone,freshState,levelOf} from '../src/engine.mjs';
+import {CATS,TASKS,DAILY,CHAINS,CFG} from '../src/data.mjs';
+import {runBalanceCampaign} from '../scripts/balance-audit.mjs';
 
 /** Solve through legal player actions. Time is virtual; resources/items are never injected. */
-export function runCampaign(seed=20261007,{calm=false,collectAll=false,gallery=false}={}){
+function runCollectionCampaign(seed,{collectAll=false,gallery=false}={}){
  let now=new Date('2026-10-07T08:00:00+08:00').getTime(),calls=0,wait=0;
  const g=new GameEngine(freshState(now,seed),now); // seeded initial state, no resource injection
- if(calm)g.setting('calm',true);
  const log=[],checkpoints={};
  const doAction=(fn)=>{now+=250;g.tick(now);const r=fn();calls++;assert.ok(r.ok,`${r.code}: ${r.message} at stage ${g.s.stage}`);if(calls>20000)throw Error('Solver step bound exceeded');return r;};
  const boards=(c,l,dust=false)=>g.s.board.map((t,i)=>({t,i})).filter(({t})=>t?.k==='item'&&t.c===c&&t.l===l&&!!t.dust===dust).map(x=>x.i);
@@ -26,8 +26,7 @@ export function runCampaign(seed=20261007,{calm=false,collectAll=false,gallery=f
   while(!r.ok&&attempts++<50){
    if(r.code==='STOCK'){now+=6000;wait+=6000;g.tick(now);}
    else if(r.code==='ENERGY'){
-    if(g.s.bag.energyPacks)doAction(()=>g.usePack());
-    else{if(now<g.s.restAt){wait+=g.s.restAt-now;now=g.s.restAt;}doAction(()=>g.rest(now));}
+    const recoveredAt=Math.max(now+1,g.s.energyAt+CFG.energyEvery);wait+=recoveredAt-now;now=recoveredAt;g.tick(now);
    }else break;
    r=g.produce(c,now);
   }
@@ -56,6 +55,7 @@ export function runCampaign(seed=20261007,{calm=false,collectAll=false,gallery=f
   if(stage===7||stage===15||stage===22)checkpoints['ready-'+stage]=clone(g.s);
   while(!g.s.delivered){const order=g.mainOrder();doAction(()=>g.submit('main',stage,order.phase));}
   doAction(()=>g.build(stage%2));
+  for(let level=5;level<=levelOf(g.s);level+=5)if(!g.s.levelGiftsClaimed.includes(level)&&g.s.pending.length<=998)doAction(()=>g.claimLevelGift(level));
   for(const d of DAILY)if(g.s.daily[d.key]>=d.target&&!g.s.daily.claimed.includes(d.key))doAction(()=>g.claimDaily(d.key,now));
   // Claim useful chapter gifts into the board; overflow remains safely queued.
   while(g.s.pending.length&&g.free()>8)doAction(()=>g.retrieve(0,'pending'));
@@ -65,5 +65,13 @@ export function runCampaign(seed=20261007,{calm=false,collectAll=false,gallery=f
  }
  if(collectAll){for(const c of CATS)ensure(c,6,1);validateState(g.s);assert.equal(Object.keys(g.s.seen).length,36);}
  if(gallery){for(const c of CATS)for(let l=6;l>=1;l--)ensure(c,l,1);validateState(g.s);}
- return {seed,mode:calm?'calm':'standard',calls,virtualSeconds:(now-new Date('2026-10-07T08:00:00+08:00').getTime())/1000,waitSeconds:wait/1000,produce:g.s.stats.produce,merge:g.s.stats.merge,orders:g.s.stats.order,renovations:g.s.stage,seen:Object.keys(g.s.seen).length,energy:g.s.energy,coins:g.s.coins,log,checkpoints,final:clone(g.s)};
+ return {seed,mode:'standard',calls,virtualSeconds:(now-new Date('2026-10-07T08:00:00+08:00').getTime())/1000,waitSeconds:wait/1000,produce:g.s.stats.produce,merge:g.s.stats.merge,orders:g.s.stats.order,renovations:g.s.stage,seen:Object.keys(g.s.seen).length,energy:g.s.energy,coins:g.s.coins,log,checkpoints,final:clone(g.s)};
+}
+
+// The default smoke campaign shares the budget policy used for current balance evidence.
+// Collection/gallery remains an explicitly requested fixture workflow and is not run by npm test.
+export function runCampaign(seed=20261009,{collectAll=false,gallery=false}={}){
+ if(collectAll||gallery)return runCollectionCampaign(seed,{collectAll,gallery});
+ const {result,final,checkpoints}=runBalanceCampaign(seed),r=result.simulation;
+ return {seed:result.seed,mode:'standard',calls:r.calls,virtualSeconds:r.virtualSeconds,waitSeconds:r.waitSeconds,produce:r.produce,merge:r.merge,orders:r.mainOrders,renovations:r.build,seen:Object.keys(final.seen).length,energy:r.energy,coins:r.coins,log:r.taskLog.map(row=>({...row,stage:row.task,produces:row.produce,merges:row.merge,seconds:row.virtualSeconds,energy:row.energyEnd,coins:row.coinsEnd,free:row.boardFree})),checkpoints,final};
 }

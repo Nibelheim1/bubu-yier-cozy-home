@@ -1,0 +1,65 @@
+ M README.md
+ M dist/app.js
+ M dist/index.html
+ M dist/manifest.webmanifest
+ M dist/style.css
+ M dist/sw.js
+ M "docs/00_\345\216\206\345\217\262\350\265\204\346\226\231\350\257\264\346\230\216.md"
+ M package.json
+ M release/build-info.json
+ D "release/\345\245\275\346\227\245\345\255\220\345\260\217\345\261\213_\345\217\214\345\207\273\345\215\263\347\216\251.html"
+ M scripts/build.mjs
+ M scripts/serve.mjs
+ M src/data.mjs
+ M src/engine.mjs
+ M src/index.html
+ M src/interaction.mjs
+ M src/scenes.mjs
+ M src/style.css
+ M src/ui.mjs
+ M src/visuals.mjs
+ M tests/campaign.mjs
+ M tests/engine.test.mjs
+ M tests/interaction.test.mjs
+ M tests/simulate.mjs
+?? art/action-contact-sheets/
+?? art/actions-v1.3.json
+?? art/daily-video-plan-v1.4.json
+?? art/generation-v1.4-night.json
+?? art/inspect_actions.py
+?? art/prepare_actions.py
+?? dist/assets/ambient-bubu-guitar-motion.gif
+?? dist/assets/ambient-bubu-guitar.png
+?? dist/assets/ambient-cuddle-motion.gif
+?? dist/assets/ambient-cuddle.png
+?? dist/assets/ambient-kiss-motion.gif
+?? dist/assets/ambient-kiss.png
+?? dist/assets/ambient-yier-tea-motion.gif
+?? dist/assets/ambient-yier-tea.png
+?? dist/assets/region-courtyard-night.png
+?? dist/assets/region-garden-night.png
+?? dist/assets/region-house-night.png
+?? "docs/19_v1.3_\344\277\256\346\224\271\344\270\216\351\252\214\346\224\266\350\256\260\345\275\225.md"
+?? "docs/20_v1.4_\346\225\260\345\200\274\351\227\255\347\216\257\346\226\271\346\241\210.md"
+?? "docs/21_v1.4_\344\277\256\346\224\271\344\270\216\351\252\214\346\224\266\350\256\260\345\275\225.md"
+?? "docs/22_\344\270\200\350\265\267\345\201\232\345\260\217\344\272\213_\347\237\255\350\247\206\351\242\221\346\217\220\347\244\272\350\257\215.md"
+?? public/assets/ambient-bubu-guitar-motion.gif
+?? public/assets/ambient-bubu-guitar.png
+?? public/assets/ambient-cuddle-motion.gif
+?? public/assets/ambient-cuddle.png
+?? public/assets/ambient-kiss-motion.gif
+?? public/assets/ambient-kiss.png
+?? public/assets/ambient-yier-tea-motion.gif
+?? public/assets/ambient-yier-tea.png
+?? public/assets/region-courtyard-night.png
+?? public/assets/region-garden-night.png
+?? public/assets/region-house-night.png
+?? qa/balance-v1.4.json
+?? qa/verification-v1.3.json
+?? qa/verification-v1.4.json
+?? "release/\347\206\212\347\206\212\344\271\213\345\256\266_\345\217\214\345\207\273\345\215\263\347\216\251.html"
+?? scripts/balance-audit.mjs
+?? src/life.mjs
+?? tests/economy-v14.test.mjs
+?? tests/life.test.mjs
+?? tests/night-scenes.test.mjs

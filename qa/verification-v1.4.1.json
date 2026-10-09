@@ -1,0 +1,107 @@
+{
+  "version": "1.4.1",
+  "date": "2026-10-10",
+  "scope": "Resume interrupted v1.4 work, preserve dirty changes, finish requested nine rules and prompts, fix additional character presentation and event continuity.",
+  "build": {
+    "version": "1.4.1",
+    "runtimeAssets": 68,
+    "offlineMiB": 65.73,
+    "buildInfo": "release/build-info.json",
+    "buildPassed": true,
+    "syntaxPassed": true
+  },
+  "recovery": {
+    "sessions": [
+      "01a120aa-573c-7ea2-b744-2057bb3ad038",
+      "01a1210e-13e1-7583-be88-20a238beed1b"
+    ],
+    "baseline": "output/playwright/resume-baseline.txt",
+    "preservedName": "熊熊之家",
+    "saveKey": "bubu-yier-cozy-home-v1.2",
+    "resetOrRevert": false
+  },
+  "verification": {
+    "tests": [
+      {
+        "command": "node --test tests/actor-crop.test.mjs",
+        "passed": 2
+      },
+      {
+        "command": "node --test tests/life.test.mjs",
+        "passed": 7
+      },
+      {
+        "command": "node --test tests/scenes-motion.test.mjs tests/layout.test.mjs",
+        "passed": 9
+      },
+      {
+        "command": "node --test tests/scenes-motion.test.mjs",
+        "passed": 4,
+        "reason": "Relevant rerun after correcting Xiaoli direction and interaction spacing."
+      }
+    ],
+    "browser": {
+      "type": "Native Chromium, real locally served dist, desktop pointer at 390x844",
+      "threeCards": "Main and two neighbor cards fully visible, approximately115px each",
+      "invalidDrop": "Final build actual drag cell6->empty8 leaves flour level1 in cell6",
+      "sameItemDrop": "Final build actual drag cell6->cell7 merges flour into soft dough level2; cell6 empty",
+      "growthGift": "Actual Lv5 claim disables button and queues2items; +80coins, energy unchanged100",
+      "dailyNight": "Actual Together button opens event on region-house-night; next-step action works",
+      "actorGallery": {
+        "resourceIds": 58,
+        "source": "actual production renderSceneHTML",
+        "bounds": "art/actor-bounds-v1.4.json"
+      },
+      "eventGallery": {
+        "samples": 16,
+        "events": [
+          "firstVisit",
+          "homeActivity-house",
+          "homeActivity-garden",
+          "tea-wind-anchor",
+          "tea-wind-clip",
+          "prep-23"
+        ],
+        "method": "Production scene player with deterministic clock fixtures, samples at85percent of each step."
+      },
+      "screenshots": [
+        "output/playwright/orders-three-cards-v1.4.1.png",
+        "output/playwright/home-night-v1.4.1.png",
+        "output/playwright/event-night-v1.4.1.png",
+        "output/playwright/actor-poses-v1.4.1.png",
+        "output/playwright/event-steps-v1.4.1.png"
+      ],
+      "fixtureBoundary": "Visual late-game fixture migrated from old legal campaign checkpoint; levels are not evidence for new economic curve.",
+      "cleanup": "Temporary QA tabs closed and viewport override reset."
+    },
+    "economy": {
+      "receipt": "qa/balance-v1.4.json",
+      "reviewOnly": true,
+      "newCampaignRun": false,
+      "seed": 20261009,
+      "mainCompleted": 24,
+      "production": 192,
+      "merges": 248,
+      "XP": 715,
+      "level": 10,
+      "firstWaitStage": 22,
+      "naturalWaitSeconds": 6354.5,
+      "endingEnergy": 4,
+      "endingCoins": 634
+    }
+  },
+  "videos": {
+    "prompts": "docs/22_一起做小事_短视频提示词.md",
+    "durationSeconds": "5-6",
+    "generated": false,
+    "integrated": false,
+    "sceneReferences": 12,
+    "manifest": "art/daily-video-plan-v1.4.json"
+  },
+  "limitations": [
+    "Native browser policy rejects file protocol, so double-click offline file was built but not launched in native browser; HTTP dist runtime was verified.",
+    "No physical-phone touch verification, no new audio or performance benchmark or long-term-retention study.",
+    "Video prompts and reference images delivered; no generated video.",
+    "No upload, push or publication."
+  ]
+}

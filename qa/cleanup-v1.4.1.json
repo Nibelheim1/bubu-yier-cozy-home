@@ -1,0 +1,373 @@
+{
+  "deletedBytes": 30835398.0,
+  "deletedCount": 89,
+  "preserved": [
+    "Current 68 runtime assets",
+    "Character reference cards",
+    "12 video scene references",
+    "Editable art/source originals and their production scripts",
+    "Historical reports and legal campaign checkpoints",
+    "Current source and local browser evidence"
+  ],
+  "deleted": [
+    {
+      "path": "public/assets/bake-1.png",
+      "bytes": 20400
+    },
+    {
+      "path": "public/assets/bake-2.png",
+      "bytes": 19711
+    },
+    {
+      "path": "public/assets/bake-3.png",
+      "bytes": 18291
+    },
+    {
+      "path": "public/assets/bake-4.png",
+      "bytes": 16990
+    },
+    {
+      "path": "public/assets/bake-5.png",
+      "bytes": 24492
+    },
+    {
+      "path": "public/assets/bake-6.png",
+      "bytes": 27302
+    },
+    {
+      "path": "public/assets/clean-1.png",
+      "bytes": 15107
+    },
+    {
+      "path": "public/assets/clean-2.png",
+      "bytes": 11224
+    },
+    {
+      "path": "public/assets/clean-3.png",
+      "bytes": 16900
+    },
+    {
+      "path": "public/assets/clean-4.png",
+      "bytes": 10848
+    },
+    {
+      "path": "public/assets/clean-5.png",
+      "bytes": 13855
+    },
+    {
+      "path": "public/assets/clean-6.png",
+      "bytes": 13987
+    },
+    {
+      "path": "public/assets/craft-1.png",
+      "bytes": 14941
+    },
+    {
+      "path": "public/assets/craft-2.png",
+      "bytes": 15512
+    },
+    {
+      "path": "public/assets/craft-3.png",
+      "bytes": 29608
+    },
+    {
+      "path": "public/assets/craft-4.png",
+      "bytes": 12383
+    },
+    {
+      "path": "public/assets/craft-5.png",
+      "bytes": 24598
+    },
+    {
+      "path": "public/assets/craft-6.png",
+      "bytes": 17310
+    },
+    {
+      "path": "public/assets/decor-01.png",
+      "bytes": 24213
+    },
+    {
+      "path": "public/assets/decor-02.png",
+      "bytes": 24219
+    },
+    {
+      "path": "public/assets/decor-03.png",
+      "bytes": 13165
+    },
+    {
+      "path": "public/assets/decor-04.png",
+      "bytes": 14820
+    },
+    {
+      "path": "public/assets/decor-05.png",
+      "bytes": 8638
+    },
+    {
+      "path": "public/assets/decor-06.png",
+      "bytes": 26925
+    },
+    {
+      "path": "public/assets/decor-07.png",
+      "bytes": 14627
+    },
+    {
+      "path": "public/assets/decor-08.png",
+      "bytes": 21471
+    },
+    {
+      "path": "public/assets/decor-09.png",
+      "bytes": 17719
+    },
+    {
+      "path": "public/assets/decor-10.png",
+      "bytes": 38933
+    },
+    {
+      "path": "public/assets/decor-11.png",
+      "bytes": 24670
+    },
+    {
+      "path": "public/assets/decor-12.png",
+      "bytes": 14681
+    },
+    {
+      "path": "public/assets/decor-13.png",
+      "bytes": 29659
+    },
+    {
+      "path": "public/assets/decor-14.png",
+      "bytes": 25209
+    },
+    {
+      "path": "public/assets/decor-15.png",
+      "bytes": 23869
+    },
+    {
+      "path": "public/assets/decor-16.png",
+      "bytes": 24740
+    },
+    {
+      "path": "public/assets/decor-17.png",
+      "bytes": 14174
+    },
+    {
+      "path": "public/assets/decor-18.png",
+      "bytes": 22087
+    },
+    {
+      "path": "public/assets/decor-19.png",
+      "bytes": 15569
+    },
+    {
+      "path": "public/assets/decor-20.png",
+      "bytes": 19073
+    },
+    {
+      "path": "public/assets/decor-21.png",
+      "bytes": 21285
+    },
+    {
+      "path": "public/assets/decor-22.png",
+      "bytes": 29896
+    },
+    {
+      "path": "public/assets/decor-23.png",
+      "bytes": 17903
+    },
+    {
+      "path": "public/assets/decor-24.png",
+      "bytes": 16341
+    },
+    {
+      "path": "public/assets/garden-1.png",
+      "bytes": 13202
+    },
+    {
+      "path": "public/assets/garden-2.png",
+      "bytes": 13685
+    },
+    {
+      "path": "public/assets/garden-3.png",
+      "bytes": 18570
+    },
+    {
+      "path": "public/assets/garden-4.png",
+      "bytes": 29714
+    },
+    {
+      "path": "public/assets/garden-5.png",
+      "bytes": 28106
+    },
+    {
+      "path": "public/assets/garden-6.png",
+      "bytes": 29594
+    },
+    {
+      "path": "public/assets/gen-bake.png",
+      "bytes": 17438
+    },
+    {
+      "path": "public/assets/gen-clean.png",
+      "bytes": 19555
+    },
+    {
+      "path": "public/assets/gen-craft.png",
+      "bytes": 15990
+    },
+    {
+      "path": "public/assets/gen-garden.png",
+      "bytes": 22160
+    },
+    {
+      "path": "public/assets/gen-tea.png",
+      "bytes": 14424
+    },
+    {
+      "path": "public/assets/gen-tools.png",
+      "bytes": 15872
+    },
+    {
+      "path": "public/assets/home-background.png",
+      "bytes": 189191
+    },
+    {
+      "path": "public/assets/tea-1.png",
+      "bytes": 10033
+    },
+    {
+      "path": "public/assets/tea-2.png",
+      "bytes": 15676
+    },
+    {
+      "path": "public/assets/tea-3.png",
+      "bytes": 20318
+    },
+    {
+      "path": "public/assets/tea-4.png",
+      "bytes": 26678
+    },
+    {
+      "path": "public/assets/tea-5.png",
+      "bytes": 29152
+    },
+    {
+      "path": "public/assets/tea-6.png",
+      "bytes": 14299
+    },
+    {
+      "path": "public/assets/tools-1.png",
+      "bytes": 14326
+    },
+    {
+      "path": "public/assets/tools-2.png",
+      "bytes": 12148
+    },
+    {
+      "path": "public/assets/tools-3.png",
+      "bytes": 14718
+    },
+    {
+      "path": "public/assets/tools-4.png",
+      "bytes": 20168
+    },
+    {
+      "path": "public/assets/tools-5.png",
+      "bytes": 10171
+    },
+    {
+      "path": "public/assets/tools-6.png",
+      "bytes": 18703
+    },
+    {
+      "path": "art/atlas-bubu-motion-volume-draft.png",
+      "bytes": 1301135
+    },
+    {
+      "path": "art/atlas-decor-b-first-pass.png",
+      "bytes": 2224193
+    },
+    {
+      "path": "art/atlas-decor-b-second-pass.png",
+      "bytes": 2172411
+    },
+    {
+      "path": "art/atlas-decor-c-first-pass.png",
+      "bytes": 2209375
+    },
+    {
+      "path": "art/atlas-decor-d-first-pass.png",
+      "bytes": 2287348
+    },
+    {
+      "path": "art/atlas-generators-first-pass.png",
+      "bytes": 2392815
+    },
+    {
+      "path": "art/atlas-tea-first-pass.png",
+      "bytes": 2381188
+    },
+    {
+      "path": "art/atlas-tea-props-clean-draft.png",
+      "bytes": 2222831
+    },
+    {
+      "path": "art/atlas-tea-props-compact-flat-study.png",
+      "bytes": 1364449
+    },
+    {
+      "path": "art/atlas-tea-props-first-pass.png",
+      "bytes": 1962638
+    },
+    {
+      "path": "art/atlas-tea-props-flat-draft.png",
+      "bytes": 1745520
+    },
+    {
+      "path": "art/atlas-tea-props-repair-draft.png",
+      "bytes": 1699808
+    },
+    {
+      "path": "art/atlas-tea-second-pass.png",
+      "bytes": 2277361
+    },
+    {
+      "path": "art/xiaoli-discarded-bearlike-card.png",
+      "bytes": 1085573
+    },
+    {
+      "path": "art/xiaoli-discarded-bearlike-motion.png",
+      "bytes": 1305651
+    },
+    {
+      "path": "art/yier-rest-v1.1-volume-original.png",
+      "bytes": 694042
+    },
+    {
+      "path": "scripts/audit_package.py",
+      "bytes": 1803
+    },
+    {
+      "path": "scripts/make_docs.mjs",
+      "bytes": 10102
+    },
+    {
+      "path": "scripts/make_handbook.py",
+      "bytes": 20680
+    },
+    {
+      "path": "tests/browser_qa.py",
+      "bytes": 15098
+    },
+    {
+      "path": "requirements-qa.txt",
+      "bytes": 51
+    },
+    {
+      "path": "../启动新版v1.1.bat",
+      "bytes": 90
+    }
+  ],
+  "method": "Exact unused-file selection, normal file deletion within verified workspace; no source reset, recursive directory removal or Git history rewrite.",
+  "version": "1.4.1",
+  "date": "2026-10-10"
+}

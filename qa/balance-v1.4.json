@@ -1,0 +1,3113 @@
+{
+  "version": "1.4.0",
+  "date": "2026-10-09",
+  "seed": 20261009,
+  "status": "passed",
+  "method": "One fixed-seed legal public-action campaign; no resource injection, no removed energy methods, no undo/calm, no human session estimate.",
+  "strategy": "Main only, immediate needed-chain merges, claim chapter/level/daily material and coins; future-mass >=50 level-2 producer upgrades retaining145 coins, one storage expansion; at <=10 energy repeatedly buy current-needs parcels if relevant missing base mass >=5, retaining145 coins. No side/tea submits, no sales/splits unless board recovery needs sale.",
+  "theoretical": {
+    "mainMass": 376,
+    "mainXP": 715,
+    "initialMass": 6,
+    "bySource": {
+      "clean": 12,
+      "tools": 54,
+      "bake": 74,
+      "tea": 52,
+      "craft": 98,
+      "garden": 86
+    },
+    "productionMassPerEnergy": [
+      1.2,
+      1.32,
+      1.44
+    ],
+    "chapterMass": [
+      14,
+      34,
+      38,
+      46,
+      68,
+      176
+    ],
+    "grossEnergyIgnoringGifts": [
+      313.33,
+      284.85,
+      261.11
+    ],
+    "naturalEnergyPerHour": 36,
+    "emptyToFullSeconds": 10000,
+    "upgradeRewards": [
+      {
+        "level": 2,
+        "costFromPrevious": 30,
+        "energy": 3,
+        "coins": 20
+      },
+      {
+        "level": 3,
+        "costFromPrevious": 42,
+        "energy": 3,
+        "coins": 20
+      },
+      {
+        "level": 4,
+        "costFromPrevious": 54,
+        "energy": 3,
+        "coins": 20
+      },
+      {
+        "level": 5,
+        "costFromPrevious": 66,
+        "energy": 3,
+        "coins": 20
+      },
+      {
+        "level": 6,
+        "costFromPrevious": 78,
+        "energy": 4,
+        "coins": 25
+      },
+      {
+        "level": 7,
+        "costFromPrevious": 90,
+        "energy": 4,
+        "coins": 25
+      },
+      {
+        "level": 8,
+        "costFromPrevious": 102,
+        "energy": 4,
+        "coins": 25
+      },
+      {
+        "level": 9,
+        "costFromPrevious": 114,
+        "energy": 4,
+        "coins": 25
+      },
+      {
+        "level": 10,
+        "costFromPrevious": 126,
+        "energy": 4,
+        "coins": 25
+      }
+    ],
+    "levelGifts": [
+      {
+        "level": 5,
+        "coins": 80,
+        "scissors": 1,
+        "items": [
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 2
+          },
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 2
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "coins": 120,
+        "scissors": 1,
+        "items": [
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 3
+          },
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 3
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "coins": 200,
+        "scissors": 2,
+        "items": [
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          },
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          }
+        ]
+      },
+      {
+        "level": 40,
+        "coins": 360,
+        "scissors": 3,
+        "items": [
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          },
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          }
+        ]
+      },
+      {
+        "level": 60,
+        "coins": 520,
+        "scissors": 3,
+        "items": [
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          },
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          }
+        ]
+      },
+      {
+        "level": 95,
+        "coins": 800,
+        "scissors": 3,
+        "items": [
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          },
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 4
+          }
+        ]
+      }
+    ]
+  },
+  "simulation": {
+    "calls": 627,
+    "virtualSeconds": 6511.25,
+    "waitSeconds": 6354.5,
+    "produce": 192,
+    "merge": 248,
+    "mainOrders": 24,
+    "build": 24,
+    "xp": 715,
+    "level": 10,
+    "energy": 4,
+    "naturalEnergy": 65,
+    "coins": 634,
+    "initialCoins": 120,
+    "coinTotals": {
+      "dailyGift": 40,
+      "tutorialMerge": 5,
+      "submitMain": 1625,
+      "activity:house": 8,
+      "activity:garden": 8,
+      "activity:courtyard": 8,
+      "merge": 15,
+      "daily:order": 45,
+      "build": 500,
+      "upgrade:tools": -140,
+      "upgrade:bake": -140,
+      "claimLevelGift": 200,
+      "daily:merge": 30,
+      "daily:produce": 35,
+      "upgrade:craft": -140,
+      "upgrade:garden": -140,
+      "expand": -80,
+      "parcel:tools": -195,
+      "parcel:craft": -390,
+      "parcel:garden": -325,
+      "parcel:tea": -65,
+      "parcel:bake": -390
+    },
+    "firstWaitAt": {
+      "stage": 22,
+      "produces": 127,
+      "energy": 0
+    },
+    "gifts": [
+      {
+        "level": 5,
+        "atStage": 7,
+        "coins": 80,
+        "scissors": 1,
+        "items": [
+          {
+            "k": "item",
+            "c": "tea",
+            "l": 2
+          },
+          {
+            "k": "item",
+            "c": "tea",
+            "l": 2
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "atStage": 24,
+        "coins": 120,
+        "scissors": 1,
+        "items": [
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 3
+          },
+          {
+            "k": "item",
+            "c": "garden",
+            "l": 3
+          }
+        ]
+      }
+    ],
+    "levels": [
+      {
+        "from": 1,
+        "to": 2,
+        "atStage": 2,
+        "energy": 2,
+        "coins": 50
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "atStage": 3,
+        "energy": 3,
+        "coins": 20
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "atStage": 5,
+        "energy": 3,
+        "coins": 20
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "atStage": 8,
+        "energy": 3,
+        "coins": 86
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "atStage": 11,
+        "energy": 4,
+        "coins": 67
+      },
+      {
+        "from": 6,
+        "to": 7,
+        "atStage": 14,
+        "energy": 4,
+        "coins": 25
+      },
+      {
+        "from": 7,
+        "to": 8,
+        "atStage": 17,
+        "energy": 4,
+        "coins": 25
+      },
+      {
+        "from": 8,
+        "to": 9,
+        "atStage": 21,
+        "energy": 4,
+        "coins": 25
+      },
+      {
+        "from": 9,
+        "to": 10,
+        "atStage": 24,
+        "energy": 4,
+        "coins": 85
+      }
+    ],
+    "production": {
+      "clean-1": 3,
+      "tools-2": 10,
+      "clean-2": 3,
+      "bake-1": 18,
+      "tools-1": 18,
+      "bake-2": 12,
+      "tea-1": 29,
+      "tea-2": 7,
+      "craft-1": 42,
+      "craft-2": 12,
+      "garden-1": 24,
+      "garden-2": 14
+    },
+    "chapterLog": [
+      {
+        "chapter": 1,
+        "baseMass": 14,
+        "produce": 7,
+        "merge": 4,
+        "waitSeconds": 0,
+        "energyEnd": 98,
+        "coinsEnd": 313,
+        "level": 3
+      },
+      {
+        "chapter": 2,
+        "baseMass": 34,
+        "produce": 24,
+        "merge": 19,
+        "waitSeconds": 0,
+        "energyEnd": 80,
+        "coinsEnd": 602,
+        "level": 5
+      },
+      {
+        "chapter": 3,
+        "baseMass": 38,
+        "produce": 28,
+        "merge": 24,
+        "waitSeconds": 0,
+        "energyEnd": 56,
+        "coinsEnd": 733,
+        "level": 6
+      },
+      {
+        "chapter": 4,
+        "baseMass": 46,
+        "produce": 29,
+        "merge": 25,
+        "waitSeconds": 0,
+        "energyEnd": 31,
+        "coinsEnd": 808,
+        "level": 7
+      },
+      {
+        "chapter": 5,
+        "baseMass": 68,
+        "produce": 31,
+        "merge": 47,
+        "waitSeconds": 0,
+        "energyEnd": 4,
+        "coinsEnd": 844,
+        "level": 8
+      },
+      {
+        "chapter": 6,
+        "baseMass": 176,
+        "produce": 73,
+        "merge": 129,
+        "waitSeconds": 6354.5,
+        "energyEnd": 4,
+        "coinsEnd": 634,
+        "level": 10
+      }
+    ],
+    "taskLog": [
+      {
+        "task": 1,
+        "title": "铺一块软软的门垫",
+        "baseMass": 2,
+        "produce": 0,
+        "merge": 1,
+        "waitSeconds": 0,
+        "virtualSeconds": 1.5,
+        "energyStart": 100,
+        "energyEnd": 100,
+        "coinsStart": 160,
+        "coinsEnd": 213,
+        "level": 1,
+        "boardFree": 26,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 2,
+        "title": "让窗帘接住阳光",
+        "baseMass": 4,
+        "produce": 2,
+        "merge": 2,
+        "waitSeconds": 0,
+        "virtualSeconds": 1.5,
+        "energyStart": 100,
+        "energyEnd": 100,
+        "coinsStart": 213,
+        "coinsEnd": 268,
+        "level": 2,
+        "boardFree": 29,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 3,
+        "title": "立起第一块小屋牌",
+        "baseMass": 4,
+        "produce": 3,
+        "merge": 0,
+        "waitSeconds": 0,
+        "virtualSeconds": 1.5,
+        "energyStart": 100,
+        "energyEnd": 100,
+        "coinsStart": 268,
+        "coinsEnd": 363,
+        "level": 3,
+        "boardFree": 28,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 4,
+        "title": "点亮门边的小灯",
+        "baseMass": 4,
+        "produce": 2,
+        "merge": 1,
+        "waitSeconds": 0,
+        "virtualSeconds": 2,
+        "energyStart": 100,
+        "energyEnd": 98,
+        "coinsStart": 363,
+        "coinsEnd": 313,
+        "level": 3,
+        "boardFree": 28,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 5,
+        "title": "收拾香香的烘焙架",
+        "baseMass": 2,
+        "produce": 1,
+        "merge": 1,
+        "waitSeconds": 0,
+        "virtualSeconds": 1.25,
+        "energyStart": 98,
+        "energyEnd": 100,
+        "coinsStart": 313,
+        "coinsEnd": 222,
+        "level": 4,
+        "boardFree": 29,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 6,
+        "title": "把小圆桌修稳",
+        "baseMass": 8,
+        "produce": 3,
+        "merge": 4,
+        "waitSeconds": 0,
+        "virtualSeconds": 2.25,
+        "energyStart": 100,
+        "energyEnd": 97,
+        "coinsStart": 222,
+        "coinsEnd": 269,
+        "level": 4,
+        "boardFree": 34,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 7,
+        "title": "准备两只杯子",
+        "baseMass": 8,
+        "produce": 7,
+        "merge": 3,
+        "waitSeconds": 0,
+        "virtualSeconds": 3,
+        "energyStart": 97,
+        "energyEnd": 90,
+        "coinsStart": 269,
+        "coinsEnd": 311,
+        "level": 4,
+        "boardFree": 33,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 8,
+        "title": "把下午过得软一点",
+        "baseMass": 16,
+        "produce": 13,
+        "merge": 11,
+        "waitSeconds": 0,
+        "virtualSeconds": 8.25,
+        "energyStart": 90,
+        "energyEnd": 80,
+        "coinsStart": 311,
+        "coinsEnd": 602,
+        "level": 5,
+        "boardFree": 31,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 9,
+        "title": "给一二支起小画架",
+        "baseMass": 2,
+        "produce": 1,
+        "merge": 1,
+        "waitSeconds": 0,
+        "virtualSeconds": 1.25,
+        "energyStart": 80,
+        "energyEnd": 79,
+        "coinsStart": 602,
+        "coinsEnd": 486,
+        "level": 5,
+        "boardFree": 32,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 10,
+        "title": "铺开颜料小地毯",
+        "baseMass": 8,
+        "produce": 5,
+        "merge": 3,
+        "waitSeconds": 0,
+        "virtualSeconds": 2.5,
+        "energyStart": 79,
+        "energyEnd": 74,
+        "coinsStart": 486,
+        "coinsEnd": 528,
+        "level": 5,
+        "boardFree": 34,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 11,
+        "title": "为纸鲸画一片天空",
+        "baseMass": 8,
+        "produce": 7,
+        "merge": 6,
+        "waitSeconds": 0,
+        "virtualSeconds": 3.75,
+        "energyStart": 74,
+        "energyEnd": 71,
+        "coinsStart": 528,
+        "coinsEnd": 595,
+        "level": 6,
+        "boardFree": 34,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 12,
+        "title": "把小风景挂上墙",
+        "baseMass": 20,
+        "produce": 15,
+        "merge": 14,
+        "waitSeconds": 0,
+        "virtualSeconds": 8.25,
+        "energyStart": 71,
+        "energyEnd": 56,
+        "coinsStart": 595,
+        "coinsEnd": 733,
+        "level": 6,
+        "boardFree": 35,
+        "storage": 0,
+        "capacity": 8
+      },
+      {
+        "task": 13,
+        "title": "认领第一盆小生命",
+        "baseMass": 2,
+        "produce": 1,
+        "merge": 1,
+        "waitSeconds": 0,
+        "virtualSeconds": 1.5,
+        "energyStart": 56,
+        "energyEnd": 55,
+        "coinsStart": 733,
+        "coinsEnd": 537,
+        "level": 6,
+        "boardFree": 36,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 14,
+        "title": "装好花园小花箱",
+        "baseMass": 8,
+        "produce": 5,
+        "merge": 3,
+        "waitSeconds": 0,
+        "virtualSeconds": 2.5,
+        "energyStart": 55,
+        "energyEnd": 54,
+        "coinsStart": 537,
+        "coinsEnd": 604,
+        "level": 7,
+        "boardFree": 38,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 15,
+        "title": "搭一面会开花的墙",
+        "baseMass": 16,
+        "produce": 10,
+        "merge": 9,
+        "waitSeconds": 0,
+        "virtualSeconds": 5.25,
+        "energyStart": 54,
+        "energyEnd": 44,
+        "coinsStart": 604,
+        "coinsEnd": 670,
+        "level": 7,
+        "boardFree": 39,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 16,
+        "title": "把绿意挂得高一点",
+        "baseMass": 20,
+        "produce": 13,
+        "merge": 12,
+        "waitSeconds": 0,
+        "virtualSeconds": 7.25,
+        "energyStart": 44,
+        "energyEnd": 31,
+        "coinsStart": 670,
+        "coinsEnd": 808,
+        "level": 7,
+        "boardFree": 38,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 17,
+        "title": "给喜欢的故事一个家",
+        "baseMass": 12,
+        "produce": 10,
+        "merge": 9,
+        "waitSeconds": 0,
+        "virtualSeconds": 5.25,
+        "energyStart": 31,
+        "energyEnd": 25,
+        "coinsStart": 808,
+        "coinsEnd": 887,
+        "level": 8,
+        "boardFree": 39,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 18,
+        "title": "准备不赶时间的软椅",
+        "baseMass": 16,
+        "produce": 12,
+        "merge": 9,
+        "waitSeconds": 0,
+        "virtualSeconds": 5.75,
+        "energyStart": 25,
+        "energyEnd": 13,
+        "coinsStart": 887,
+        "coinsEnd": 953,
+        "level": 8,
+        "boardFree": 38,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 19,
+        "title": "调一盏刚刚好的灯",
+        "baseMass": 16,
+        "produce": 5,
+        "merge": 13,
+        "waitSeconds": 0,
+        "virtualSeconds": 7.5,
+        "energyStart": 13,
+        "energyEnd": 8,
+        "coinsStart": 953,
+        "coinsEnd": 889,
+        "level": 8,
+        "boardFree": 39,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 20,
+        "title": "收好今天的小回忆",
+        "baseMass": 24,
+        "produce": 4,
+        "merge": 16,
+        "waitSeconds": 0,
+        "virtualSeconds": 9.75,
+        "energyStart": 8,
+        "energyEnd": 4,
+        "coinsStart": 889,
+        "coinsEnd": 844,
+        "level": 8,
+        "boardFree": 39,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 21,
+        "title": "写一张小小邀请",
+        "baseMass": 24,
+        "produce": 4,
+        "merge": 18,
+        "waitSeconds": 0,
+        "virtualSeconds": 11,
+        "energyStart": 4,
+        "energyEnd": 4,
+        "coinsStart": 844,
+        "coinsEnd": 699,
+        "level": 9,
+        "boardFree": 39,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 22,
+        "title": "把春天铺到门外",
+        "baseMass": 24,
+        "produce": 5,
+        "merge": 17,
+        "waitSeconds": 7,
+        "virtualSeconds": 16.75,
+        "energyStart": 4,
+        "energyEnd": 0,
+        "coinsStart": 699,
+        "coinsEnd": 594,
+        "level": 9,
+        "boardFree": 41,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 23,
+        "title": "做一桌可以分享的甜",
+        "baseMass": 48,
+        "produce": 15,
+        "merge": 38,
+        "waitSeconds": 1478.75,
+        "virtualSeconds": 1500.25,
+        "energyStart": 0,
+        "energyEnd": 0,
+        "coinsStart": 594,
+        "coinsEnd": 366,
+        "level": 9,
+        "boardFree": 42,
+        "storage": 0,
+        "capacity": 12
+      },
+      {
+        "task": 24,
+        "title": "熊熊之家，开门啦",
+        "baseMass": 80,
+        "produce": 49,
+        "merge": 56,
+        "waitSeconds": 4868.75,
+        "virtualSeconds": 4901,
+        "energyStart": 0,
+        "energyEnd": 4,
+        "coinsStart": 366,
+        "coinsEnd": 634,
+        "level": 10,
+        "boardFree": 36,
+        "storage": 0,
+        "capacity": 12
+      }
+    ],
+    "transactions": [
+      {
+        "action": "dailyGift",
+        "stage": 1,
+        "coins": 40,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 1
+      },
+      {
+        "action": "tutorialMerge",
+        "stage": 1,
+        "coins": 5,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 1,
+        "coins": 24,
+        "energy": 0,
+        "xp": 10,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 1,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "activity:house",
+        "stage": 2,
+        "coins": 8,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "activity:garden",
+        "stage": 2,
+        "coins": 8,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "activity:courtyard",
+        "stage": 2,
+        "coins": 8,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 2,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 2,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "merge",
+        "stage": 2,
+        "coins": 5,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 2,
+        "coins": 50,
+        "energy": 2,
+        "xp": 11,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 2,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 3,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 3,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 3,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 3,
+        "coins": 30,
+        "energy": 0,
+        "xp": 11,
+        "scissors": 0
+      },
+      {
+        "action": "daily:order",
+        "stage": 3,
+        "coins": 45,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 3,
+        "coins": 20,
+        "energy": 3,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "upgrade:tools",
+        "stage": 4,
+        "coins": -140,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 4,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 4,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 4,
+        "coins": 30,
+        "energy": 0,
+        "xp": 11,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 4,
+        "coins": 60,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 1
+      },
+      {
+        "action": "produce",
+        "stage": 5,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "upgrade:bake",
+        "stage": 5,
+        "coins": -140,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "merge",
+        "stage": 5,
+        "coins": 5,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 5,
+        "coins": 24,
+        "energy": 0,
+        "xp": 10,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 5,
+        "coins": 20,
+        "energy": 3,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 6,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 6,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "merge",
+        "stage": 6,
+        "coins": 5,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 6,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 6,
+        "coins": 42,
+        "energy": 0,
+        "xp": 12,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 6,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 7,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 7,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 7,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 7,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 7,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 7,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 7,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 7,
+        "coins": 42,
+        "energy": 0,
+        "xp": 12,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 7,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 8,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 8,
+        "coins": 86,
+        "energy": 3,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "claimLevelGift",
+        "stage": 8,
+        "coins": 80,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 1
+      },
+      {
+        "action": "daily:merge",
+        "stage": 8,
+        "coins": 30,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "daily:produce",
+        "stage": 8,
+        "coins": 35,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 8,
+        "coins": 60,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 1
+      },
+      {
+        "action": "produce",
+        "stage": 9,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "upgrade:craft",
+        "stage": 9,
+        "coins": -140,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 9,
+        "coins": 24,
+        "energy": 0,
+        "xp": 10,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 9,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 10,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 10,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 10,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 10,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 10,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 10,
+        "coins": 42,
+        "energy": 0,
+        "xp": 12,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 10,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 11,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 11,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 11,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 11,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 11,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 11,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 11,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 11,
+        "coins": 67,
+        "energy": 4,
+        "xp": 12,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 11,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 12,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 12,
+        "coins": 78,
+        "energy": 0,
+        "xp": 16,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 12,
+        "coins": 60,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 1
+      },
+      {
+        "action": "produce",
+        "stage": 13,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "upgrade:garden",
+        "stage": 13,
+        "coins": -140,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "expand",
+        "stage": 13,
+        "coins": -80,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 13,
+        "coins": 24,
+        "energy": 0,
+        "xp": 10,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 13,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 14,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 14,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 14,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 14,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 14,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 14,
+        "coins": 42,
+        "energy": 0,
+        "xp": 12,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 14,
+        "coins": 25,
+        "energy": 4,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 15,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 15,
+        "coins": 66,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 15,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 16,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 16,
+        "coins": 78,
+        "energy": 0,
+        "xp": 16,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 16,
+        "coins": 60,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 1
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 17,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 17,
+        "coins": 54,
+        "energy": 0,
+        "xp": 14,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 17,
+        "coins": 25,
+        "energy": 4,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 18,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 18,
+        "coins": 66,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 18,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 19,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 19,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 19,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:tools",
+        "stage": 19,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:tools",
+        "stage": 19,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 19,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 19,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 19,
+        "coins": 66,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 19,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:craft",
+        "stage": 20,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:craft",
+        "stage": 20,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:craft",
+        "stage": 20,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 20,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 20,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 20,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 20,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 20,
+        "coins": 90,
+        "energy": 0,
+        "xp": 18,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 20,
+        "coins": 60,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 1
+      },
+      {
+        "action": "parcel:craft",
+        "stage": 21,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:craft",
+        "stage": 21,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:craft",
+        "stage": 21,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 21,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:tools",
+        "stage": 21,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 21,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 21,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 21,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 21,
+        "coins": 90,
+        "energy": 0,
+        "xp": 18,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 21,
+        "coins": 25,
+        "energy": 4,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:garden",
+        "stage": 22,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:garden",
+        "stage": 22,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 22,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 22,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:tea",
+        "stage": 22,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 22,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 22,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 22,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 22,
+        "coins": 90,
+        "energy": 0,
+        "xp": 18,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 22,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:bake",
+        "stage": 23,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:bake",
+        "stage": 23,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:bake",
+        "stage": 23,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:bake",
+        "stage": 23,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:bake",
+        "stage": 23,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:bake",
+        "stage": 23,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 23,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 23,
+        "coins": 162,
+        "energy": 0,
+        "xp": 26,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 23,
+        "coins": 0,
+        "energy": 0,
+        "xp": 15,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:garden",
+        "stage": 24,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:garden",
+        "stage": 24,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "parcel:garden",
+        "stage": 24,
+        "coins": -65,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "produce",
+        "stage": 24,
+        "coins": 0,
+        "energy": -1,
+        "xp": 0,
+        "scissors": 0
+      },
+      {
+        "action": "submitMain",
+        "stage": 24,
+        "coins": 258,
+        "energy": 0,
+        "xp": 36,
+        "scissors": 0
+      },
+      {
+        "action": "build",
+        "stage": 24,
+        "coins": 85,
+        "energy": 4,
+        "xp": 15,
+        "scissors": 1
+      },
+      {
+        "action": "claimLevelGift",
+        "stage": 24,
+        "coins": 120,
+        "energy": 0,
+        "xp": 0,
+        "scissors": 1
+      }
+    ],
+    "finalInventory": {
+      "boardMass": 15,
+      "storageMass": 0,
+      "pendingMass": 0,
+      "scissors": 12,
+      "producers": {
+        "clean": {
+          "level": 1,
+          "stock": 18,
+          "at": 1791510511250
+        },
+        "tools": {
+          "level": 2,
+          "stock": 24,
+          "at": 1791510511250
+        },
+        "bake": {
+          "level": 2,
+          "stock": 23,
+          "at": 1791510508750
+        },
+        "tea": {
+          "level": 1,
+          "stock": 18,
+          "at": 1791510511250
+        },
+        "craft": {
+          "level": 2,
+          "stock": 24,
+          "at": 1791510511250
+        },
+        "garden": {
+          "level": 2,
+          "stock": 24,
+          "at": 1791510511250
+        }
+      },
+      "capacity": 12
+    }
+  },
+  "limitations": [
+    "The expected-mass division is a planning approximation, not an exact integer recipe guarantee.",
+    "Virtual actions take 250 ms each; this is a solver convention, not a player-speed or retention measurement.",
+    "One policy and one seed do not establish optimal play or a distribution.",
+    "No real UI, mobile, real-world weather, paid monetization or real retention is verified."
+  ]
+}

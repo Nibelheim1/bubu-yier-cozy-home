@@ -1,0 +1,110 @@
+{
+  "version": "1.4.0",
+  "date": "2026-10-09",
+  "scope": "Nine requested game changes; short-video prompts designed after source changes and build. No generated daily videos or upload this turn.",
+  "delivery": {
+    "offline": "release/熊熊之家_双击即玩.html",
+    "staticHosting": "dist/",
+    "numericPlan": "docs/20_v1.4_数值闭环方案.md",
+    "videoPrompts": "docs/22_一起做小事_短视频提示词.md",
+    "videoManifest": "art/daily-video-plan-v1.4.json",
+    "nightAssets": [
+      "region-house-night",
+      "region-courtyard-night",
+      "region-garden-night"
+    ]
+  },
+  "verification": {
+    "economyRules": {
+      "passed": 10,
+      "owner": "economy_rules",
+      "method": "Relevant economy-v14 tests; initial fixture corrected, failing case rerun successfully."
+    },
+    "interaction": {
+      "passed": 10,
+      "owner": "orders_ui",
+      "method": "Tap, hold, immediate drag and invalid-drop pure helper tests."
+    },
+    "legacyAssertions": {
+      "passed": 9,
+      "owner": "economy_rules",
+      "method": "Only exact test-name-pattern for rules changed in this request."
+    },
+    "nightScenes": {
+      "passed": 3,
+      "owner": "root",
+      "command": "node --test tests/night-scenes.test.mjs"
+    },
+    "offlineBundle": {
+      "passed": 1,
+      "owner": "root",
+      "command": "node --test --test-name-pattern=\"built standalone\" tests/engine.test.mjs"
+    },
+    "deploymentCache": {
+      "passed": 3,
+      "owner": "root",
+      "command": "node --test tests/deployment-cache.test.mjs"
+    },
+    "legalCampaign": {
+      "status": "passed",
+      "seed": 20261009,
+      "evidence": "qa/balance-v1.4.json",
+      "mainOrders": 24,
+      "builds": 24,
+      "produce": 192,
+      "merge": 248,
+      "xp": 715,
+      "level": 10,
+      "firstWaitOrder": 22,
+      "naturalWaitSeconds": 6354.5,
+      "endingEnergy": 4,
+      "endingCoins": 634,
+      "meaning": "One policy using public actions; virtual time is not human playtime."
+    },
+    "nightVisual": {
+      "status": "native-images-reviewed",
+      "images": 3,
+      "notes": "Independent night skies, moonlight, warm windows and fireflies; no characters/text and central placement space retained."
+    },
+    "build": {
+      "status": "passed",
+      "version": "1.4.0",
+      "assets": 68,
+      "offlineMiB": 65.72,
+      "codeSyntax": "node --check dist/app.js passed"
+    },
+    "fullTestMatrix": {
+      "status": "not_run",
+      "reason": "User requested minimum relevant checks; no repeat campaigns or multi-seed tests."
+    }
+  },
+  "limitations": {
+    "browser": {
+      "status": "not_run_this_turn",
+      "previousAttempt": "Browser security check unavailable / saved browser permissions could not be verified",
+      "unverified": [
+        "Actual three-card mobile readability",
+        "Native touch drag and return feedback",
+        "Live day-to-night refresh",
+        "Video playback (files not generated)",
+        "Browser save and download"
+      ]
+    },
+    "performance": "No loading benchmark or real-device profiling this turn.",
+    "retention": "No real player telemetry; finite main content still does not establish long-term retention.",
+    "publication": {
+      "githubUploadedThisTurn": false,
+      "tencentDeployedThisTurn": false,
+      "taptapPublishedThisTurn": false
+    },
+    "video": {
+      "status": "12 complete prompts only",
+      "durationSeconds": [
+        5,
+        6
+      ],
+      "style": "flat 2D authoritative character cards",
+      "existingPlayback": "Legacy scene animation remains pending actual video production."
+    }
+  }
+}

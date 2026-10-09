@@ -1,0 +1,58 @@
+{
+  "version": "1.3.0",
+  "date": "2026-10-09",
+  "build": {
+    "version": "1.3.0",
+    "builtAt": "2026-10-09T13:29:34.715Z",
+    "buildId": "dad32ba19383",
+    "runtimeAssets": 65,
+    "spriteAtlases": 15,
+    "worldRegions": 3,
+    "offlineBytes": 59861107,
+    "runtimeAssetBytes": 44689131,
+    "networkRequiredToPlay": false,
+    "characterStyle": "flat-2d-reference",
+    "sourceFiles": [
+      "src/data.mjs",
+      "src/engine.mjs",
+      "src/visuals.mjs",
+      "src/life.mjs",
+      "src/scenes.mjs",
+      "src/interaction.mjs",
+      "src/ui.mjs",
+      "src/style.css"
+    ]
+  },
+  "checks": [
+    {
+      "file": "tests/life.test.mjs",
+      "passed": 6
+    },
+    {
+      "file": "tests/layout.test.mjs",
+      "passed": 5
+    },
+    {
+      "file": "tests/deployment-cache.test.mjs",
+      "passed": 3
+    },
+    {
+      "file": "tests/engine.test.mjs",
+      "filter": "built standalone retains",
+      "passed": 1
+    }
+  ],
+  "relatedTestsPassed": 15,
+  "builtRuntimeSyntax": "passed",
+  "browser": {
+    "status": "blocked",
+    "reason": "saved browser permissions could not be verified for http://127.0.0.1:4193",
+    "bypassUsed": false
+  },
+  "actualPageGesturesVerified": false,
+  "mobileTouchVerified": false,
+  "githubUploadedThisRound": false,
+  "weatherIsSimulated": true,
+  "saveKeyUnchanged": true,
+  "gifVisualReview": "art/action-contact-sheets/selected-frames.jpg"
+}

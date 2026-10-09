@@ -1,17 +1,26 @@
-import {VERSION,APP_VERSION,SCHEMA_VERSION,CATS,CHAINS,CFG,TASKS,DECOR,REGIONS,DAILY,SIDE_FLAVOR,MEMORY_GATES,TEA_CONDITIONS,TEA_PLANS,SOUVENIRS,teaResponse,itemKey,needMass,mass} from './data.mjs';
+import {VERSION,APP_VERSION,SCHEMA_VERSION,CATS,CHAINS,CFG,TASKS,DECOR,REGIONS,DAILY,SIDE_FLAVOR,MEMORY_GATES,TEA_CONDITIONS,TEA_PLANS,SOUVENIRS,teaResponse,itemKey,needMass,mass,orderXP} from './data.mjs';
 import {decorPlacement,decorBounds} from './scenes.mjs';
 
 /** Deterministic, DOM-free game model. Every public mutation validates before spending. */
 export const clone = (v)=>JSON.parse(JSON.stringify(v));
 export function localDay(t){const d=new Date(t);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
-export const levelOf=(s)=>Math.min(99,Math.floor(s.xp/60)+1);
+export const levelCost=(level)=>30+12*(level-1)+20*Math.floor((level-1)/10);
+export function levelReward(level){return level<=5?{energy:3,coins:20}:level<=10?{energy:4,coins:25}:level<=20?{energy:5,coins:35}:level<=40?{energy:6,coins:45}:{energy:8,coins:60};}
+const levelThreshold=(level)=>{let total=0;for(let l=1;l<level;l++)total+=levelCost(l);return total;};
+export function levelProgress(s){let level=1,total=0;while(level<CFG.maxPlayerLevel&&s.xp>=total+levelCost(level)){total+=levelCost(level++);}return {level,current:level===CFG.maxPlayerLevel?0:s.xp-total,required:level===CFG.maxPlayerLevel?0:levelCost(level),next:level===CFG.maxPlayerLevel?null:level+1,total};}
+export const levelOf=(s)=>levelProgress(s).level;
+export function levelGift(level,stage=0){
+ if(!Number.isInteger(level)||level<5||level>=CFG.maxPlayerLevel||level%CFG.levelGiftEvery!==0)return null;
+ const c=CATS.filter(c=>CHAINS[c].unlock<=stage).at(-1)||'clean',l=Math.min(4,2+Math.floor(level/10));
+ return {coins:40+level*8,scissors:Math.min(3,1+Math.floor(level/20)),items:[{k:'item',c,l},{k:'item',c,l}]};
+}
 export const stockCap=(p)=>CFG.stockBase+(p.level-1)*CFG.stockPerLevel;
 const good=(kind,extra={})=>({ok:true,kind,...extra});
 const bad=(code,message)=>({ok:false,code,message});
 const freshWorld=()=>({region:'house',activities:Object.fromEntries(REGIONS.map(r=>[r.id,{day:'',count:0}])),chapterGifts:[],memoryUnlocked:Object.fromEntries(REGIONS.map(r=>[r.id,false])),souvenirs:{},equipped:Object.fromEntries(REGIONS.map(r=>[r.id,null]))});
 const freshTea=()=>({round:0,plan:'warm',firstVisit:'locked',lastResult:null});
 // Exact v1.2.0 flavor pairs. Only these known old strings migrate by index;
-// recipe IDs, rewards and random state remain the original saved values.
+// Recipe IDs and random state stay unchanged; economy migration below updates rewards.
 const previousSideFlavor=[
  ['巷口留言','把小东西准备好，生活就方便一点。'],['下午的约定','不用赶，准备好了再送来就好。'],['邻里小纸条','今天也想分享一点热乎乎的心意。'],['窗边的请求','给平常的一天，添一点小颜色。'],['周末的准备','东西不用很多，合适就好。'],
 ];
@@ -26,19 +35,18 @@ export function freshState(now=Date.now(),seed=20261007){
  board[24]={k:'item',c:'tools',l:1,dust:true};
  board[29]={k:'item',c:'bake',l:1,dust:true};
  for(let i=35;i<49;i++)board[i]={k:'crate',openAt:2+Math.floor((i-35)/2)*2};
- return {schema:SCHEMA_VERSION,createdAt:now,lastSeen:now,energyAt:now,rng:seed>>>0,stage:0,mainPrepStep:0,producerLessons:Object.fromEntries(CATS.map(c=>[c,c==='clean'])),tea:freshTea(),delivered:false,stars:0,coins:120,energy:100,xp:0,board,
+ return {schema:SCHEMA_VERSION,economyVersion:CFG.economyVersion,levelGiftsClaimed:[],createdAt:now,lastSeen:now,energyAt:now,rng:seed>>>0,stage:0,mainPrepStep:0,producerLessons:Object.fromEntries(CATS.map(c=>[c,c==='clean'])),tea:freshTea(),delivered:false,stars:0,coins:120,energy:100,xp:0,board,
   producers:Object.fromEntries(CATS.map(c=>[c,{level:1,stock:CFG.stockBase,at:now}])),
-  storage:[],capacity:8,pending:[],bag:{scissors:3,energyPacks:2},
+  storage:[],capacity:8,pending:[],bag:{scissors:3},
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
   stats:{merge:0,produce:0,order:0,build:0,sold:0,unweb:0},
-  seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],restAt:0,
-  world:freshWorld(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,calm:false,reducedMotion:false}};
+  seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],
+  world:freshWorld(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,reducedMotion:false}};
 }
 
 export class GameEngine{
  constructor(state=null,now=Date.now()){
   this.s=state?clone(validateState(state)):freshState(now);
-  this.undoState=null;
   this.flushChapterGifts();
   this.checkMemories();
   if(this.s.stage===24&&this.s.tea.firstVisit==='locked')this.s.tea.firstVisit='available';
@@ -50,8 +58,7 @@ export class GameEngine{
  empty(){return this.s.board.findIndex(t=>t===null);}
  free(){return this.s.board.filter(t=>t===null).length;}
  unlockedCats(){return CATS.filter(c=>this.unlocked(c));}
- snapshot(){this.undoState=clone(this.s);}
- invalidate(){this.undoState=null;}
+ invalidate(){}
  visitRegion(id){
   const region=REGIONS.find(r=>r.id===id);
   if(!region)return bad('REGION','还没有找到这个地方。');
@@ -75,8 +82,8 @@ export class GameEngine{
   const record=this.s.world.activities[id];
   if(record.day>=this.s.daily.day)return bad('CLAIMED','今天已经一起做过啦，明天再来看看。');
   this.invalidate();this.s.world.region=id;record.day=this.s.daily.day;record.count++;
-  this.s.coins+=region.coins;this.addEnergy(region.energy);const unlocked=this.checkMemories(),details=this.activityDetails(id);
-  return good('homeActivity',{region:id,message:details.activityText,action:details.activityAction,coins:region.coins,energy:region.energy,memoryProgress:Math.min(3,record.count),milestone:unlocked.includes(id),memoryName:region.memoryName});
+  this.s.coins+=region.coins;const unlocked=this.checkMemories(),details=this.activityDetails(id);
+  return good('homeActivity',{region:id,message:details.activityText,action:details.activityAction,coins:region.coins,memoryProgress:Math.min(3,record.count),milestone:unlocked.includes(id),memoryName:region.memoryName});
  }
  // Legacy saves may already have all 1000 parcel slots occupied. Hold earned chapter
  // gifts separately until a slot is freed; retrieving a gift immediately refills it.
@@ -85,8 +92,8 @@ export class GameEngine{
   if(!Number.isFinite(now)||now<0)return;
   const s=this.s;
   // Moving the system clock backwards must never create a huge negative cooldown.
-  if(now<s.lastSeen){const d=now-s.lastSeen;s.energyAt=Math.max(0,s.energyAt+d);s.restAt=Math.max(0,s.restAt+d);s.sideRefreshAt=s.sideRefreshAt.map(t=>Math.max(0,t+d));for(const p of Object.values(s.producers))p.at=Math.max(0,p.at+d);}
-  if(s.energy>=CFG.energyCap){s.energyAt=now;}
+  if(now<s.lastSeen){const d=now-s.lastSeen;s.energyAt=Math.max(0,s.energyAt+d);s.sideRefreshAt=s.sideRefreshAt.map(t=>Math.max(0,t+d));for(const p of Object.values(s.producers))p.at=Math.max(0,p.at+d);}
+  if(s.energy>=CFG.energyCap){s.energy=CFG.energyCap;s.energyAt=now;}
   else {const n=Math.max(0,Math.floor((now-s.energyAt)/CFG.energyEvery));if(n){s.energy=Math.min(CFG.energyCap,s.energy+n);s.energyAt=s.energy>=CFG.energyCap?now:s.energyAt+n*CFG.energyEvery;}}
   for(const p of Object.values(s.producers)){
    const cap=stockCap(p);if(p.stock>=cap){p.at=now;}else{const n=Math.max(0,Math.floor((now-p.at)/CFG.stockEvery));if(n){p.stock=Math.min(cap,p.stock+n);p.at=p.stock>=cap?now:p.at+n*CFG.stockEvery;}}
@@ -97,8 +104,20 @@ export class GameEngine{
   s.lastSeen=now;
  }
  energyWait(now=Date.now()){return this.s.energy>=CFG.energyCap?0:Math.max(0,Math.ceil((this.s.energyAt+CFG.energyEvery-now)/1000));}
- addEnergy(n){this.s.energy=Math.min(10000,this.s.energy+n);}
- gainXP(n){const old=levelOf(this.s);this.s.xp+=n;const up=levelOf(this.s)-old;if(up){this.s.coins+=CFG.levelCoins*up;this.addEnergy(CFG.levelEnergy*up);}return up;}
+ gainXP(n){
+  if(!Number.isInteger(n)||n<0)return 0;
+  const old=levelOf(this.s);this.s.xp=Math.min(100000000,this.s.xp+n);const next=levelOf(this.s);
+  for(let l=old+1;l<=next;l++){const reward=levelReward(l);this.s.coins+=reward.coins;this.s.energy=Math.min(CFG.energyCap,this.s.energy+reward.energy);}
+  return next-old;
+ }
+ claimLevelGift(level){
+  const gift=levelGift(level,this.s.stage);
+  if(!gift||level>levelOf(this.s))return bad('LEVEL','升到对应等级后才能领取这份礼包。');
+  if(this.s.levelGiftsClaimed.includes(level))return bad('CLAIMED','这份升级礼包已经领取了。');
+  if(this.s.pending.length+gift.items.length>1000)return bad('QUEUE','待领物品太多，请先取出一些；礼包仍为你保留。');
+  this.s.coins+=gift.coins;this.s.bag.scissors+=gift.scissors;this.s.pending.push(...clone(gift.items));this.s.levelGiftsClaimed.push(level);this.s.levelGiftsClaimed.sort((a,b)=>a-b);
+  return good('levelGift',{level,...clone(gift)});
+ }
  discover(c,l){const k=itemKey(c,l);if(this.s.seen[k])return false;this.s.seen[k]=true;return true;}
  tutorialBlock(){return this.s.stage===0&&['deliver','build'].includes(this.s.tutorial);}
  produce(c,now=Date.now()){
@@ -107,11 +126,11 @@ export class GameEngine{
   if(this.tutorialBlock())return bad('TUTORIAL','第一份材料已经好了，先交付并布置门垫吧。');
   const idx=this.empty(),p=this.s.producers[c];
   if(idx<0)return bad('FULL','棋盘满啦。先合成、交付，或把物品收进仓库。');
-  if(!this.s.settings.calm&&this.s.energy<1)return bad('ENERGY','体力用完了。可以用点心补充，或免费喝杯茶。');
-  if(!this.s.settings.calm&&p.stock<1)return bad('STOCK','正在补货，每 6 秒补一件；也可以升级工作台。');
+  if(this.s.energy<1)return bad('ENERGY','体力用完了。每 100 秒自然恢复 1 点，升级也会增加少量体力。');
+  if(p.stock<1)return bad('STOCK','正在补货，每 6 秒补一件；也可以升级工作台。');
   this.invalidate();
   let l=this.s.tutorial==='done'&&(this.rng()<(0.2+(p.level-1)*0.12))?2:1;
-  if(!this.s.settings.calm){this.s.energy--;p.stock--;}
+  this.s.energy--;p.stock--;
   this.s.board[idx]={k:'item',c,l};
   this.s.stats.produce++;this.s.daily.produce++;
   if(this.s.tutorial==='produce')this.s.tutorial='done';
@@ -128,22 +147,18 @@ export class GameEngine{
   if(b?.dust&&!(b.c===a.c&&b.l===a.l))return bad('DUST','把同类同级的物品合过来，就能解开尘封。');
   if(b?.k==='item'&&a.c===b.c&&a.l===b.l){
    if(a.l>=CFG.maxLevel)return bad('MAX','已经是最高级啦，可以交付、收藏或收进仓库。');
-   this.snapshot();
+   this.invalidate();
    const dust=!!b.dust;
    this.s.board[from]=null;this.s.board[to]={k:'item',c:a.c,l:a.l+1};
    this.s.stats.merge++;this.s.daily.merge++;
    if(dust){this.s.stats.unweb++;this.s.coins+=5;}
-   const levelUps=this.gainXP(1),discovery=this.discover(a.c,a.l+1);
+   const levelUps=0,discovery=this.discover(a.c,a.l+1);
    if(this.s.stage===0&&a.c==='clean'&&a.l===1)this.s.tutorial='deliver';
    return good('merge',{from,to,c:a.c,l:a.l+1,dust,discovery,levelUps});
   }
-  this.snapshot();this.s.board[from]=b??null;this.s.board[to]=a;
-  return good('move',{from,to});
+  return bad('NO_MATCH','拖到同类同级物品上才能合成；物品保持原位。');
  }
- undo(now=Date.now()){
-  if(!this.undoState)return bad('NO_UNDO','现在没有可以撤销的操作。');
-  const back=this.undoState;this.undoState=null;this.s=back;this.tick(now);return good('undo');
- }
+ undo(){return bad('REMOVED','撤回功能已取消。');}
  count(c,l){return this.s.board.filter(t=>t?.k==='item'&&!t.dust&&t.c===c&&t.l===l).length+this.s.storage.filter(t=>t.c===c&&t.l===l).length;}
  canFulfill(needs){const grouped={};for(const r of needs){const k=itemKey(r.c,r.l);grouped[k]=(grouped[k]||0)+r.n;}return Object.entries(grouped).every(([k,n])=>{const [c,l]=k.split('-');return this.count(c,+l)>=n;});}
  consume(needs){
@@ -159,7 +174,7 @@ export class GameEngine{
   if(this.s.stage>=8&&this.rng()<0.4){const c2=cats[Math.floor(this.rng()*cats.length)];const l2=2+Math.floor(this.rng()*2);if(c2===c&&l2===l)needs[0].n++;else needs.push({c:c2,l:l2,n:1});}
   const f=SIDE_FLAVOR[Math.floor(this.rng()*SIDE_FLAVOR.length)];
   const m=needMass(needs);
-  return {id:`side-${++this.s.sideSerial}`,name:f[0],wish:f[1],needs,coins:12+m*2,energy:2+Math.floor(m/8)};
+  return {id:`side-${++this.s.sideSerial}`,name:f[0],wish:f[1],needs,coins:8+m*2,xp:orderXP(needs)};
  }
  mainOrder(){
   const task=TASKS[this.s.stage];if(!task)return null;
@@ -169,7 +184,7 @@ export class GameEngine{
  }
  teaOrder(){
   const {round,plan}=this.s.tea,c=TEA_CONDITIONS[round%3],p=TEA_PLANS[plan];
-  return {available:this.s.stage>=13&&CATS.every(cat=>this.s.producerLessons[cat]),id:`tea-${round}-${plan}`,round,plan,condition:c.id,conditionName:c.name,name:p.name,wish:p.wish,needs:clone(c.needs[plan]),coins:28,energy:3,region:p.region,participants:['bubu','yier',...(this.s.tea.firstVisit==='arrived'?['xiaoli']:[])],response:teaResponse(plan,c.id,this.s.tea.firstVisit==='arrived'),souvenirKey:`${c.souvenir}-${plan}`,souvenirName:c.souvenirName,souvenirRegion:c.souvenirRegion};
+  return {available:this.s.stage>=13&&CATS.every(cat=>this.s.producerLessons[cat]),id:`tea-${round}-${plan}`,round,plan,condition:c.id,conditionName:c.name,name:p.name,wish:p.wish,needs:clone(c.needs[plan]),coins:16+2*needMass(c.needs[plan]),xp:orderXP(c.needs[plan]),region:p.region,participants:['bubu','yier',...(this.s.tea.firstVisit==='arrived'?['xiaoli']:[])],response:teaResponse(plan,c.id,this.s.tea.firstVisit==='arrived'),souvenirKey:`${c.souvenir}-${plan}`,souvenirName:c.souvenirName,souvenirRegion:c.souvenirRegion};
  }
  chooseTeaPlan(plan){if(!(plan in TEA_PLANS))return bad('PLAN','请选择暖心茶点或花园小聚。');if(!this.teaOrder().available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');this.invalidate();this.s.tea.plan=plan;return good('teaPlan',{plan});}
  resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),decorPositions:clone(this.s.decorPositions),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
@@ -196,26 +211,26 @@ export class GameEngine{
   if(!this.canFulfill(task.needs))return bad('MISSING','材料还差一点，点物品图标可以查看合成路线。');
   this.invalidate();this.consume(task.needs);
   if(kind==='main'&&task.totalPhases>1){this.s.world.region=id===23&&task.phase===0?'garden':'courtyard';this.s.mainPrepStep++;if(this.s.mainPrepStep<task.totalPhases)return good('prepare',{orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});}
-  this.s.coins+=task.coins;this.addEnergy(task.energy);
+  this.s.coins+=task.coins;
   this.s.stats.order++;this.s.daily.order++;
-  const levelUps=this.gainXP(10+Math.floor(needMass(kind==='main'?task.fullNeeds:task.needs)/3));
+  const levelUps=this.gainXP(task.xp);
   if(kind==='main'){this.s.delivered=true;this.s.stars++;if(this.s.stage===0)this.s.tutorial='build';}
   else if(kind==='side'){this.s.sideOrders[slot]=this.makeSide();}
-  else{const first=!this.s.world.souvenirs[task.souvenirKey];if(first&&!this.s.world.equipped[task.souvenirRegion])this.s.world.equipped[task.souvenirRegion]=task.souvenirKey;const result=this.resultContext(task);this.s.tea.lastResult=result;if(first)this.s.world.souvenirs[task.souvenirKey]=clone(result);this.s.tea.round++;return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps,firstSouvenir:first,result:clone(result)});}
-  return good('submit',{orderKind:kind,id,coins:task.coins,energy:task.energy,levelUps,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});
+  else{const first=!this.s.world.souvenirs[task.souvenirKey];if(first&&!this.s.world.equipped[task.souvenirRegion])this.s.world.equipped[task.souvenirRegion]=task.souvenirKey;const result=this.resultContext(task);this.s.tea.lastResult=result;if(first)this.s.world.souvenirs[task.souvenirKey]=clone(result);this.s.tea.round++;return good('submit',{orderKind:kind,id,coins:task.coins,xp:task.xp,levelUps,firstSouvenir:first,result:clone(result)});}
+  return good('submit',{orderKind:kind,id,coins:task.coins,xp:task.xp,levelUps,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});
  }
  build(style=0){
   if(this.s.stage>=24)return bad('FINISHED','小屋已经准备好迎接每一天啦。');
   if(!this.s.delivered||this.s.stars<1)return bad('NEED_ORDER','先完成这一项心愿订单，获得心愿星。');
   if(![0,1].includes(style))return bad('STYLE','请选择一种布置颜色。');
   this.invalidate();const stage=this.s.stage;this.s.decorStyles[stage]=style;this.s.stars--;this.s.delivered=false;this.s.stage++;this.s.mainPrepStep=0;this.s.stats.build++;this.s.world.region=DECOR[stage].region;
-  const levelUps=this.gainXP(15);let opened=0;
+  const levelUps=this.gainXP(CFG.buildXP);let opened=0;
   this.s.board=this.s.board.map(t=>{if(t?.k==='crate'&&t.openAt<=this.s.stage){opened++;return null;}return t;});
   const unlocked=CATS.filter(c=>CHAINS[c].unlock===this.s.stage);
   for(const c of unlocked){const p=this.s.producers[c];p.stock=stockCap(p);p.at=this.s.lastSeen;}
   if(stage===0)this.s.tutorial='produce';
   const chapterDone=this.s.stage%4===0;
-  if(chapterDone){this.s.coins+=CFG.chapterCoins;this.addEnergy(CFG.chapterEnergy);this.s.bag.scissors++;const c=this.unlockedCats().at(-1),l=[4,8,12].includes(this.s.stage)?1:2;this.s.world.chapterGifts.push({k:'item',c,l},{k:'item',c,l});this.flushChapterGifts();}
+  if(chapterDone){this.s.coins+=CFG.chapterCoins;this.s.bag.scissors++;const c=this.unlockedCats().at(-1),l=[4,8,12].includes(this.s.stage)?1:2;this.s.world.chapterGifts.push({k:'item',c,l},{k:'item',c,l});this.flushChapterGifts();}
   const memories=this.checkMemories();if(this.s.stage===24)this.s.tea.firstVisit='available';
   return good('build',{stage,region:DECOR[stage].region,unlocked,opened,chapterDone,chapter:Math.floor(stage/4),finished:this.s.stage===24,levelUps,memories});
  }
@@ -239,18 +254,18 @@ export class GameEngine{
   if(this.s.stage===0)return bad('TUTORIAL','先完成门垫的小心愿，就能自由整理啦。');
   const t=this.s.board[index];if(t?.k!=='item'||t.dust)return bad('ITEM','只能收纳已经解开的物品。');
   if(this.s.storage.length>=this.s.capacity)return bad('STORAGE_FULL','仓库满啦。可以取出物品，或扩容。');
-  this.snapshot();this.s.storage.push(t);this.s.board[index]=null;return good('store');
+  this.invalidate();this.s.storage.push(t);this.s.board[index]=null;return good('store');
  }
  retrieve(index,source='storage'){
   if(!['storage','pending'].includes(source))return bad('SOURCE','找不到这个物品。');
   const arr=this.s[source];if(!Number.isInteger(index)||index<0||index>=arr.length)return bad('ITEM','物品已经被取走了。');
   const idx=this.empty();if(idx<0)return bad('FULL','棋盘还没空位，物品会继续安全保存在这里。');
-  this.snapshot();const [t]=arr.splice(index,1);this.s.board[idx]=t;if(source==='pending')this.flushChapterGifts();const discovery=this.discover(t.c,t.l);return good('retrieve',{idx,c:t.c,l:t.l,discovery});
+  this.invalidate();const [t]=arr.splice(index,1);this.s.board[idx]=t;if(source==='pending')this.flushChapterGifts();const discovery=this.discover(t.c,t.l);return good('retrieve',{idx,c:t.c,l:t.l,discovery});
  }
  sell(index){
   if(this.s.stage===0)return bad('TUTORIAL','先完成第一张心愿，再来整理物品吧。');
   const t=this.s.board[index];if(t?.k!=='item'||t.dust)return bad('ITEM','工作台、尘封物品和木箱不能出售。');
-  this.snapshot();const coins=mass(t);this.s.board[index]=null;this.s.coins+=coins;this.s.stats.sold++;return good('sell',{coins});
+  this.invalidate();const coins=mass(t);this.s.board[index]=null;this.s.coins+=coins;this.s.stats.sold++;return good('sell',{coins});
  }
  split(index){
   if(this.s.stage===0)return bad('TUTORIAL','先完成门口的小心愿吧。');
@@ -258,11 +273,11 @@ export class GameEngine{
   if(t?.k!=='item'||t.dust||t.l<=1)return bad('SPLIT','只能把二级以上的普通物品拆成两个低一级物品。');
   if(this.s.bag.scissors<=0)return bad('SCISSORS','剪刀用完了。小铺和章节奖励里都有。');
   if(idx<0)return bad('FULL','拆分需要多一个空格，剪刀不会被扣除。');
-  this.snapshot();this.s.bag.scissors--;this.s.board[index]={k:'item',c:t.c,l:t.l-1};this.s.board[idx]={k:'item',c:t.c,l:t.l-1};const discovery=this.discover(t.c,t.l-1);return good('split',{idx,c:t.c,l:t.l-1,discovery});
+  this.invalidate();this.s.bag.scissors--;this.s.board[index]={k:'item',c:t.c,l:t.l-1};this.s.board[idx]={k:'item',c:t.c,l:t.l-1};const discovery=this.discover(t.c,t.l-1);return good('split',{idx,c:t.c,l:t.l-1,discovery});
  }
  sort(){
   if(this.s.stage===0)return bad('TUTORIAL','先把第一张心愿做好，稍后再整理吧。');
-  this.snapshot();const movable=this.s.board.filter(t=>t?.k==='item'&&!t.dust).sort((a,b)=>CATS.indexOf(a.c)-CATS.indexOf(b.c)||a.l-b.l);
+  this.invalidate();const movable=this.s.board.filter(t=>t?.k==='item'&&!t.dust).sort((a,b)=>CATS.indexOf(a.c)-CATS.indexOf(b.c)||a.l-b.l);
   let j=0;this.s.board=this.s.board.map(t=>(!t||(t.k==='item'&&!t.dust))?(movable[j++]??null):t);return good('sort');
  }
  upgrade(c){
@@ -292,7 +307,7 @@ export class GameEngine{
   return good('parcelQuote',{target:clone(target),source:c,sources,items:[1,1,1,2].map(l=>({k:'item',c,l})),price:CFG.parcelCost,targetName:task.name});
  }
  buy(key,quote){
-  const costs={energy:CFG.energyCost,scissors:CFG.scissorCost,parcel:CFG.parcelCost};
+  const costs={scissors:CFG.scissorCost,parcel:CFG.parcelCost};
   if(!(key in costs))return bad('SHOP','没有这种商品。');
   let parcel;if(key==='parcel'){
    if(!quote?.ok||quote.kind!=='parcelQuote')return bad('QUOTE','先查看补给的目标、来源和内容，再确认购买。');
@@ -302,22 +317,14 @@ export class GameEngine{
   if(this.s.coins<costs[key])return bad('COINS','金币不够，可以先完成邻里委托。');
   if(key==='parcel'&&this.s.pending.length>996)return bad('QUEUE','待领物品太多啦，请先取出一些。');
   this.invalidate();this.s.coins-=costs[key];
-  if(key==='energy')this.s.bag.energyPacks++;
   if(key==='scissors')this.s.bag.scissors++;
   if(key==='parcel'){
    this.s.pending.push(...clone(parcel.items));
   }
   return good('buy',{key,...(parcel?{target:parcel.target,source:parcel.source,items:parcel.items}:{} )});
  }
- usePack(){
-  if(this.s.bag.energyPacks<=0)return bad('PACK','没有点心了，免费茶歇也能补充体力。');
-  if(this.s.energy>=CFG.energyCap)return bad('ENOUGH','体力已经足够，点心先留着吧。');
-  this.invalidate();this.s.bag.energyPacks--;this.addEnergy(30);return good('energy',{amount:30});
- }
- rest(now=Date.now()){
-  this.tick(now);if(now<this.s.restAt)return bad('COOLDOWN',`茶还在泡，${Math.ceil((this.s.restAt-now)/1000)} 秒后再来。`);
-  this.invalidate();this.s.restAt=now+CFG.restCooldown;this.addEnergy(CFG.restAmount);return good('rest',{amount:CFG.restAmount});
- }
+ usePack(){return bad('REMOVED','体力点心已取消，仅自然恢复和升级增加体力。');}
+ rest(){return bad('REMOVED','体力补充已取消，仅自然恢复和升级增加体力。');}
  refreshSide(slot,now=Date.now()){
   this.tick(now);
   if(![0,1].includes(slot)||this.s.stage===0)return bad('ORDER','先完成第一项小屋心愿。');
@@ -326,16 +333,16 @@ export class GameEngine{
  }
  dailyGift(now=Date.now()){
   this.tick(now);if(this.s.daily.gift)return bad('CLAIMED','今天的小礼物已经收好啦。');
-  this.invalidate();this.s.daily.gift=true;this.s.coins+=40;this.addEnergy(CFG.dailyGiftEnergy);this.s.bag.scissors++;return good('dailyGift');
+  this.invalidate();this.s.daily.gift=true;this.s.coins+=CFG.dailyGiftCoins;this.s.bag.scissors++;return good('dailyGift');
  }
  claimDaily(key,now=Date.now()){
   this.tick(now);const d=DAILY.find(x=>x.key===key);if(!d)return bad('DAILY','没有找到这个小目标。');
   if(this.s.daily.claimed.includes(key))return bad('CLAIMED','这份奖励已经领取了。');
   if(this.s.daily[key]<d.target)return bad('INCOMPLETE','小目标还没完成，不用着急。');
-  this.invalidate();this.s.daily.claimed.push(key);this.s.coins+=d.coins;this.addEnergy(d.energy);return good('dailyReward',{key});
+  this.invalidate();this.s.daily.claimed.push(key);this.s.coins+=d.coins;return good('dailyReward',{key});
  }
  setting(key,value){
-  if(!(key in this.s.settings)||typeof value!=='boolean')return bad('SETTING','无法更改这项设置。');
+  if(!['sound','music','reducedMotion'].includes(key)||typeof value!=='boolean')return bad('SETTING','无法更改这项设置。');
   this.invalidate();this.s.settings[key]=value;return good('setting',{key,value});
  }
  markIntro(){this.invalidate();this.s.introSeen=true;return good('intro');}
@@ -383,7 +390,7 @@ export function validateState(raw){
  }
  const integer=(v,min,max)=>Number.isInteger(v)&&v>=min&&v<=max;
  const check=(ok,msg)=>{if(!ok)throw Error(msg);};
- for(const k of ['createdAt','lastSeen','energyAt','restAt'])check(integer(s[k],0,9007199254740000),`时间字段 ${k} 无效。`);
+ for(const k of ['createdAt','lastSeen','energyAt'])check(integer(s[k],0,9007199254740000),`时间字段 ${k} 无效。`);
  for(const [k,max] of [['rng',4294967295],['coins',100000000],['xp',100000000],['energy',10000],['sideSerial',100000000]])check(integer(s[k],0,max),`${k} 超出合理范围。`);
  check(integer(s.stage,0,24)&&typeof s.delivered==='boolean','章节数据无效。');
  check(s.stars===Number(s.delivered)&&!(s.stage===24&&s.delivered),'心愿星与交付状态不一致。');
@@ -397,7 +404,7 @@ export function validateState(raw){
  check(integer(s.capacity,8,24)&&(s.capacity-8)%4===0,'仓库容量无效。');
  for(const [key,max] of [['storage',s.capacity],['pending',1000]])check(Array.isArray(s[key])&&s[key].length<=max&&s[key].every(t=>item(t)&&!t.dust),`${key} 内容无效。`);
  check(s.producers&&CATS.every(c=>{const p=s.producers[c];return p&&integer(p.level,1,3)&&integer(p.stock,0,stockCap(p))&&integer(p.at,0,9007199254740000);}),'工作台存货数据无效。');
- check(s.bag&&['scissors','energyPacks'].every(k=>integer(s.bag[k],0,100000)),'道具数量无效。');
+ check(s.bag&&integer(s.bag.scissors,0,100000),'道具数量无效。');
  check(s.stats&&['merge','produce','order','build','sold','unweb'].every(k=>integer(s.stats[k],0,100000000)),'累计记录无效。');
  check(s.stats.build===s.stage,'修缮次数不一致。');
  check(s.producerLessons&&CATS.every(c=>typeof s.producerLessons[c]==='boolean')&&s.producerLessons.clean,'来源教学记录无效。');
@@ -414,11 +421,23 @@ export function validateState(raw){
  check(positions(s.decorPositions,s.stage),'家具位置记录无效。');
  check(s.seen&&typeof s.seen==='object'&&!Array.isArray(s.seen)&&Object.entries(s.seen).every(([k,v])=>{const[c,l]=k.split('-');return v===true&&CATS.includes(c)&&integer(+l,1,6);}), '图鉴记录无效。');
  check(Array.isArray(s.sideOrders)&&[0,2].includes(s.sideOrders.length),'邻里订单数量无效。');
- check(s.sideOrders.every(o=>o&&typeof o.id==='string'&&o.id.length<40&&typeof o.name==='string'&&o.name.length<60&&typeof o.wish==='string'&&o.wish.length<200&&integer(o.coins,1,1000)&&integer(o.energy,1,100)&&Array.isArray(o.needs)&&o.needs.length>=1&&o.needs.length<=3&&o.needs.every(r=>CATS.includes(r.c)&&CHAINS[r.c].unlock<=s.stage&&integer(r.l,1,6)&&integer(r.n,1,3))),'邻里订单内容无效。');
+ check(s.sideOrders.every(o=>o&&typeof o.id==='string'&&o.id.length<40&&typeof o.name==='string'&&o.name.length<60&&typeof o.wish==='string'&&o.wish.length<200&&integer(o.coins,1,1000)&&Array.isArray(o.needs)&&o.needs.length>=1&&o.needs.length<=3&&o.needs.every(r=>CATS.includes(r.c)&&CHAINS[r.c].unlock<=s.stage&&integer(r.l,1,6)&&integer(r.n,1,3))),'邻里订单内容无效。');
  check(new Set(s.sideOrders.map(o=>o.id)).size===s.sideOrders.length,'邻里订单编号重复。');
  check(Array.isArray(s.sideRefreshAt)&&s.sideRefreshAt.length===2&&s.sideRefreshAt.every(t=>integer(t,0,9007199254740000)),'刷新时间无效。');
- check(s.settings&&['sound','music','calm','reducedMotion'].every(k=>typeof s.settings[k]==='boolean'),'设置无效。');
+ check(s.settings&&['sound','music','reducedMotion'].every(k=>typeof s.settings[k]==='boolean'),'设置无效。');
  check(['merge','deliver','build','produce','done'].includes(s.tutorial)&&typeof s.introSeen==='boolean'&&typeof s.finishedSeen==='boolean','教学记录无效。');
+ // Economic release version is independent of the storage schema and application name.
+ if(s.economyVersion===undefined){
+  const oldLevel=Math.min(CFG.maxPlayerLevel,Math.floor(s.xp/60)+1),fraction=(s.xp%60)/60;
+  s.xp=levelThreshold(oldLevel)+(oldLevel===CFG.maxPlayerLevel?0:Math.floor(fraction*levelCost(oldLevel)));
+  if(s.bag.energyPacks!==undefined){check(integer(s.bag.energyPacks,0,100000),'旧体力点心数量无效。');s.coins=Math.min(100000000,s.coins+s.bag.energyPacks*CFG.legacyPackCoins);}
+  s.economyVersion=CFG.economyVersion;
+ }
+ check(s.economyVersion===CFG.economyVersion,'不支持的经济版本。');
+ s.energy=Math.min(CFG.energyCap,s.energy);delete s.bag.energyPacks;delete s.settings.calm;delete s.restAt;
+ if(s.levelGiftsClaimed===undefined)s.levelGiftsClaimed=[];
+ check(Array.isArray(s.levelGiftsClaimed)&&new Set(s.levelGiftsClaimed).size===s.levelGiftsClaimed.length&&s.levelGiftsClaimed.every(l=>levelGift(l,s.stage)&&l<=levelOf(s)),'升级礼包领取记录无效。');
+ for(const o of s.sideOrders){delete o.energy;o.coins=8+2*needMass(o.needs);o.xp=orderXP(o.needs);}
  const result=clone(s);
  const w=result.world;
  check(w&&typeof w==='object'&&!Array.isArray(w)&&REGIONS.some(r=>r.id===w.region),'家园区域记录无效。');

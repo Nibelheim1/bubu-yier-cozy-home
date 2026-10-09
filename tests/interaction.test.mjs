@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {boardTapIntent,createPressHold} from '../src/interaction.mjs';
+import {boardTapIntent,boardDropIntent,createPressHold} from '../src/interaction.mjs';
 import {GameEngine,freshState} from '../src/engine.mjs';
 const item=(c,l=1)=>({k:'item',c,l});
 const board=()=>Array.from({length:49},()=>null);
@@ -20,6 +20,15 @@ test('a producer tap remains a produce action regardless of selected item',()=>{
 });
 function held(){let callback,timer=null,arms=0;const h=createPressHold({x:10,y:10,schedule:fn=>{callback=fn;timer=1;return 1;},cancel:()=>{timer=null;},onArm:()=>arms++});return {h,fire:()=>callback(),get timer(){return timer;},get arms(){return arms;}};}
 test('short tap releases without arming and clears its pending timer',()=>{const f=held();assert.equal(f.h.release(),'tap');assert.equal(f.timer,null);f.fire();assert.equal(f.arms,0);});
-test('early swipe cancels the hold and cannot turn into a move or late tap',()=>{const f=held();assert.equal(f.h.move(10,30),false);f.fire();assert.equal(f.arms,0);assert.equal(f.h.release(),'cancel');});
+test('moving beyond 8 pixels starts dragging before the hold timer without arming twice',()=>{const f=held();assert.equal(f.h.move(10,30),true);assert.equal(f.arms,1);assert.equal(f.timer,null);f.fire();assert.equal(f.arms,1);assert.equal(f.h.release(),'hold');});
 test('stationary hold arms once, then permits movement and reports a held release',()=>{const f=held();f.h.move(12,11);f.fire();assert.equal(f.arms,1);assert.equal(f.h.move(50,70),true);assert.equal(f.h.release(),'hold');assert.equal(f.h.armed,false);});
 test('pointer cancellation prevents late arming and any drop',()=>{const f=held();f.h.cancel();f.fire();assert.equal(f.arms,0);assert.equal(f.h.release(),'cancel');});
+test('matching drag drop merges the same pair as a tap, including a dust target',()=>{
+ const s=freshState();s.tutorial='done';s.board[7]=item('clean');s.board[8]={...item('clean'),dust:true};const g=new GameEngine(s),intent=boardDropIntent(g.s.board,7,8);
+ assert.deepEqual(intent,boardTapIntent(g.s.board,7,8));assert.ok(g.move(intent.from,intent.to).ok);assert.equal(g.s.board[7],null);assert.deepEqual(g.s.board[8],item('clean',2));
+});
+test('drops on empty, different items, different levels, max level or the source leave the board unchanged',()=>{
+ const b=board();b[7]=item('tea',2);b[8]=item('tools',2);b[9]=item('tea',3);b[11]=item('tea',6);b[12]=item('tea',6);const original=structuredClone(b);
+ for(const [from,to] of [[7,8],[7,9],[7,10],[7,7],[11,12],[7,null],[-1,7]])assert.deepEqual(boardDropIntent(b,from,to),{kind:'none'});
+ assert.deepEqual(b,original);b[7].dust=true;b[8]=item('tea',2);assert.equal(boardDropIntent(b,7,8).kind,'none');
+});

@@ -1,0 +1,1559 @@
+{
+  "version": "1.4.1",
+  "alphaThreshold": 16,
+  "coordinateSystem": "bounds [x,y,width,height] normalized to one image or one atlas slot; exclusive right/bottom pixels; includes all alpha-visible body, props and ground shadow",
+  "gifPolicy": "Union of alpha > 16 bounds across every composited GIF frame; use this fixed rectangle on every frame to prevent crop drift",
+  "visualReview": "Original atlas-bubu-motion, atlas-yier-motion, atlas-xiaoli, bubu-idle and yier-turn viewed directly. Both bears walk toward image right; Xiaoli walks toward image left. Facing is a 3/4 pose, not a pure profile.",
+  "standingWalkComparison": {
+    "bubu": {
+      "standingId": "bubu-idle",
+      "standingVisibleHeightFraction": 0.649038462,
+      "walkVisibleHeightFractionRange": [
+        0.858851675,
+        0.866028708
+      ],
+      "walkToStandingHeightRange": [
+        1.323268,
+        1.334326
+      ],
+      "walkFacing": "right"
+    },
+    "yier": {
+      "standingId": "yier-turn",
+      "standingVisibleHeightFraction": 0.670673077,
+      "walkVisibleHeightFractionRange": [
+        0.84741784,
+        0.94600939
+      ],
+      "walkToStandingHeightRange": [
+        1.263533,
+        1.410537
+      ],
+      "walkFacing": "right",
+      "note": "walk4 whole alpha bbox includes adjacent-row residue; main three walking frames are 84.74-85.45 percent tall, while walk4 raw bbox is 94.60 percent."
+    },
+    "xiaoli": {
+      "standingId": "xiaoli-idle",
+      "standingVisibleHeightFraction": 0.947368421,
+      "walkVisibleHeightFractionRange": [
+        0.918660287,
+        0.944976077
+      ],
+      "walkToStandingHeightRange": [
+        0.969697,
+        0.997475
+      ],
+      "walkFacing": "left"
+    }
+  },
+  "actors": {
+    "ambient-bubu-guitar": {
+      "bounds": [
+        0.111111111,
+        0.115555556,
+        0.708888889,
+        0.833333333
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-bubu-guitar",
+      "slotSize": [
+        450,
+        450
+      ],
+      "pixelBounds": [
+        50,
+        52,
+        319,
+        375
+      ]
+    },
+    "ambient-cuddle": {
+      "bounds": [
+        0.035,
+        0.15,
+        0.955,
+        0.85
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-cuddle",
+      "slotSize": [
+        200,
+        200
+      ],
+      "pixelBounds": [
+        7,
+        30,
+        191,
+        170
+      ]
+    },
+    "ambient-kiss": {
+      "bounds": [
+        0.020833333,
+        0.266666667,
+        0.979166667,
+        0.733333333
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-kiss",
+      "slotSize": [
+        240,
+        240
+      ],
+      "pixelBounds": [
+        5,
+        64,
+        235,
+        176
+      ]
+    },
+    "ambient-yier-tea": {
+      "bounds": [
+        0.191666667,
+        0.1375,
+        0.658333333,
+        0.85
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-yier-tea",
+      "slotSize": [
+        240,
+        240
+      ],
+      "pixelBounds": [
+        46,
+        33,
+        158,
+        204
+      ]
+    },
+    "bubu-back": {
+      "bounds": [
+        0.25,
+        0.326923077,
+        0.5,
+        0.644230769
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "bubu-back",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        96,
+        136,
+        192,
+        268
+      ]
+    },
+    "bubu-face": {
+      "bounds": [
+        0.203125,
+        0.4140625,
+        0.59375,
+        0.5546875
+      ],
+      "slotAspect": 1.0,
+      "asset": "bubu-face",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        78,
+        159,
+        228,
+        213
+      ]
+    },
+    "bubu-happy": {
+      "bounds": [
+        0.236979167,
+        0.3828125,
+        0.5234375,
+        0.5859375
+      ],
+      "slotAspect": 1.0,
+      "asset": "bubu-happy",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        91,
+        147,
+        201,
+        225
+      ]
+    },
+    "bubu-idle": {
+      "bounds": [
+        0.236979167,
+        0.322115385,
+        0.526041667,
+        0.649038462
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "bubu-idle",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        91,
+        134,
+        202,
+        270
+      ]
+    },
+    "bubu-joy": {
+      "bounds": [
+        0.205729167,
+        0.271634615,
+        0.588541667,
+        0.699519231
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "bubu-joy",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        79,
+        113,
+        226,
+        291
+      ]
+    },
+    "bubu-side": {
+      "bounds": [
+        0.2734375,
+        0.326923077,
+        0.453125,
+        0.644230769
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "bubu-side",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        105,
+        136,
+        174,
+        268
+      ]
+    },
+    "bubu-sit": {
+      "bounds": [
+        0.234375,
+        0.375,
+        0.53125,
+        0.596153846
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "bubu-sit",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        90,
+        156,
+        204,
+        248
+      ]
+    },
+    "bubu-sleep": {
+      "bounds": [
+        0.122395833,
+        0.533854167,
+        0.752604167,
+        0.434895833
+      ],
+      "slotAspect": 1.0,
+      "asset": "bubu-sleep",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        47,
+        205,
+        289,
+        167
+      ]
+    },
+    "bubu-surprise": {
+      "bounds": [
+        0.236979167,
+        0.380208333,
+        0.5234375,
+        0.588541667
+      ],
+      "slotAspect": 1.0,
+      "asset": "bubu-surprise",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        91,
+        146,
+        201,
+        226
+      ]
+    },
+    "bubu-turn": {
+      "bounds": [
+        0.25,
+        0.324519231,
+        0.5,
+        0.646634615
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "bubu-turn",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        96,
+        135,
+        192,
+        269
+      ]
+    },
+    "bubu-walk": {
+      "bounds": [
+        0.231770833,
+        0.324519231,
+        0.536458333,
+        0.646634615
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "bubu-walk",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        89,
+        135,
+        206,
+        269
+      ]
+    },
+    "yier-back": {
+      "bounds": [
+        0.2421875,
+        0.326923077,
+        0.515625,
+        0.644230769
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "yier-back",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        93,
+        136,
+        198,
+        268
+      ]
+    },
+    "yier-face": {
+      "bounds": [
+        0.111979167,
+        0.21875,
+        0.7734375,
+        0.75
+      ],
+      "slotAspect": 1.0,
+      "asset": "yier-face",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        43,
+        84,
+        297,
+        288
+      ]
+    },
+    "yier-happy": {
+      "bounds": [
+        0.203125,
+        0.4140625,
+        0.591145833,
+        0.5546875
+      ],
+      "slotAspect": 1.0,
+      "asset": "yier-happy",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        78,
+        159,
+        227,
+        213
+      ]
+    },
+    "yier-idle": {
+      "bounds": [
+        0.234375,
+        0.331730769,
+        0.528645833,
+        0.639423077
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "yier-idle",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        90,
+        138,
+        203,
+        266
+      ]
+    },
+    "yier-joy": {
+      "bounds": [
+        0.205729167,
+        0.300480769,
+        0.588541667,
+        0.670673077
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "yier-joy",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        79,
+        125,
+        226,
+        279
+      ]
+    },
+    "yier-paint": {
+      "bounds": [
+        0.166666667,
+        0.283653846,
+        0.666666667,
+        0.6875
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "yier-paint",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        64,
+        118,
+        256,
+        286
+      ]
+    },
+    "yier-rest": {
+      "bounds": [
+        0.177830941,
+        0.119617225,
+        0.632376396,
+        0.772727273
+      ],
+      "slotAspect": 1.0,
+      "asset": "yier-rest",
+      "slotSize": [
+        1254,
+        1254
+      ],
+      "pixelBounds": [
+        223,
+        150,
+        793,
+        969
+      ]
+    },
+    "yier-shy": {
+      "bounds": [
+        0.208333333,
+        0.380208333,
+        0.580729167,
+        0.588541667
+      ],
+      "slotAspect": 1.0,
+      "asset": "yier-shy",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        80,
+        146,
+        223,
+        226
+      ]
+    },
+    "yier-side": {
+      "bounds": [
+        0.229166667,
+        0.259615385,
+        0.5390625,
+        0.711538462
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "yier-side",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        88,
+        108,
+        207,
+        296
+      ]
+    },
+    "yier-surprise": {
+      "bounds": [
+        0.208333333,
+        0.4140625,
+        0.583333333,
+        0.5546875
+      ],
+      "slotAspect": 1.0,
+      "asset": "yier-surprise",
+      "slotSize": [
+        384,
+        384
+      ],
+      "pixelBounds": [
+        80,
+        159,
+        224,
+        213
+      ]
+    },
+    "yier-turn": {
+      "bounds": [
+        0.236979167,
+        0.300480769,
+        0.526041667,
+        0.670673077
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "yier-turn",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        91,
+        125,
+        202,
+        279
+      ]
+    },
+    "yier-walk": {
+      "bounds": [
+        0.203125,
+        0.252403846,
+        0.591145833,
+        0.71875
+      ],
+      "slotAspect": 0.923076923,
+      "asset": "yier-walk",
+      "slotSize": [
+        384,
+        416
+      ],
+      "pixelBounds": [
+        78,
+        105,
+        227,
+        299
+      ]
+    },
+    "bubu-walk1": {
+      "bounds": [
+        0.179425837,
+        0.131578947,
+        0.672248804,
+        0.866028708
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        75,
+        55,
+        281,
+        362
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 0
+      },
+      "renderBounds": [
+        0.179425837,
+        0.131578947,
+        0.672248804,
+        0.866028708
+      ]
+    },
+    "bubu-walk2": {
+      "bounds": [
+        0.181818182,
+        0.133971292,
+        0.674641148,
+        0.866028708
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        76,
+        56,
+        282,
+        362
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 0
+      },
+      "renderBounds": [
+        0.181818182,
+        0.133971292,
+        0.674641148,
+        0.868421053
+      ]
+    },
+    "bubu-walk3": {
+      "bounds": [
+        0.19138756,
+        0.141148325,
+        0.672248804,
+        0.858851675
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        80,
+        59,
+        281,
+        359
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 0
+      },
+      "renderBounds": [
+        0.19138756,
+        0.141148325,
+        0.672248804,
+        0.858851675
+      ]
+    },
+    "bubu-walk4": {
+      "bounds": [
+        0.186602871,
+        0.102870813,
+        0.674641148,
+        0.866028708
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        78,
+        43,
+        282,
+        362
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 1
+      },
+      "renderBounds": [
+        0.186602871,
+        0.102870813,
+        0.674641148,
+        0.866028708
+      ]
+    },
+    "bubu-handover1": {
+      "bounds": [
+        0.160287081,
+        0.0,
+        0.679425837,
+        0.968899522
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        67,
+        0,
+        284,
+        405
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 1
+      },
+      "renderBounds": [
+        0.160287081,
+        0.100478469,
+        0.679425837,
+        0.868421053
+      ]
+    },
+    "bubu-handover2": {
+      "bounds": [
+        0.181818182,
+        0.09569378,
+        0.700956938,
+        0.877990431
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        76,
+        40,
+        293,
+        367
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 1
+      },
+      "renderBounds": [
+        0.181818182,
+        0.09569378,
+        0.700956938,
+        0.877990431
+      ]
+    },
+    "bubu-handover3": {
+      "bounds": [
+        0.177033493,
+        0.040669856,
+        0.73923445,
+        0.861244019
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        74,
+        17,
+        309,
+        360
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 2
+      },
+      "renderBounds": [
+        0.177033493,
+        0.040669856,
+        0.73923445,
+        0.861244019
+      ]
+    },
+    "bubu-support1": {
+      "bounds": [
+        0.196172249,
+        0.074162679,
+        0.674641148,
+        0.830143541
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        82,
+        31,
+        282,
+        347
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 2
+      },
+      "renderBounds": [
+        0.196172249,
+        0.074162679,
+        0.674641148,
+        0.830143541
+      ]
+    },
+    "bubu-support2": {
+      "bounds": [
+        0.177033493,
+        0.141148325,
+        0.677033493,
+        0.763157895
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-bubu-motion",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        74,
+        59,
+        283,
+        319
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 2
+      },
+      "renderBounds": [
+        0.177033493,
+        0.141148325,
+        0.677033493,
+        0.763157895
+      ]
+    },
+    "yier-walk1": {
+      "bounds": [
+        0.209756098,
+        0.145539906,
+        0.675609756,
+        0.854460094
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        86,
+        62,
+        277,
+        364
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 0
+      },
+      "renderBounds": [
+        0.209756098,
+        0.145539906,
+        0.675609756,
+        0.856807512
+      ]
+    },
+    "yier-walk2": {
+      "bounds": [
+        0.175609756,
+        0.15258216,
+        0.665853659,
+        0.84741784
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        72,
+        65,
+        273,
+        361
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 0
+      },
+      "renderBounds": [
+        0.175609756,
+        0.15258216,
+        0.665853659,
+        0.854460094
+      ]
+    },
+    "yier-walk3": {
+      "bounds": [
+        0.143902439,
+        0.145539906,
+        0.673170732,
+        0.854460094
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        59,
+        62,
+        276,
+        364
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 0
+      },
+      "renderBounds": [
+        0.143902439,
+        0.145539906,
+        0.673170732,
+        0.861502347
+      ]
+    },
+    "yier-walk4": {
+      "bounds": [
+        0.207317073,
+        0.0,
+        0.680487805,
+        0.94600939
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        85,
+        0,
+        279,
+        403
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 1
+      },
+      "note": "Whole alpha bbox includes a small residue from the first-row walking cell crossing into this slot; do not interpret its extra height as body height.",
+      "occupiedRowSpans": [
+        [
+          0,
+          0
+        ],
+        [
+          45,
+          402
+        ]
+      ],
+      "renderBounds": [
+        0.207317073,
+        0.105633803,
+        0.680487805,
+        0.840375587
+      ]
+    },
+    "yier-handover1": {
+      "bounds": [
+        0.180487805,
+        0.0,
+        0.709756098,
+        0.94600939
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        74,
+        0,
+        291,
+        403
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 1
+      },
+      "renderBounds": [
+        0.180487805,
+        0.098591549,
+        0.709756098,
+        0.84741784
+      ]
+    },
+    "yier-handover2": {
+      "bounds": [
+        0.146341463,
+        0.0,
+        0.731707317,
+        0.943661972
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        60,
+        0,
+        300,
+        402
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 1
+      },
+      "renderBounds": [
+        0.146341463,
+        0.098591549,
+        0.731707317,
+        0.845070423
+      ]
+    },
+    "yier-handover3": {
+      "bounds": [
+        0.224390244,
+        0.098591549,
+        0.670731707,
+        0.762910798
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        92,
+        42,
+        275,
+        325
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 2
+      },
+      "renderBounds": [
+        0.224390244,
+        0.098591549,
+        0.670731707,
+        0.762910798
+      ]
+    },
+    "yier-support1": {
+      "bounds": [
+        0.202439024,
+        0.145539906,
+        0.67804878,
+        0.711267606
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        83,
+        62,
+        278,
+        303
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 2
+      },
+      "renderBounds": [
+        0.202439024,
+        0.145539906,
+        0.67804878,
+        0.711267606
+      ]
+    },
+    "yier-support2": {
+      "bounds": [
+        0.158536585,
+        0.178403756,
+        0.668292683,
+        0.680751174
+      ],
+      "slotAspect": 0.962441315,
+      "asset": "atlas-yier-motion",
+      "slotSize": [
+        410,
+        426
+      ],
+      "pixelBounds": [
+        65,
+        76,
+        274,
+        290
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 2
+      },
+      "renderBounds": [
+        0.158536585,
+        0.178403756,
+        0.668292683,
+        0.680751174
+      ]
+    },
+    "xiaoli-idle": {
+      "bounds": [
+        0.277511962,
+        0.043062201,
+        0.698564593,
+        0.947368421
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        116,
+        18,
+        292,
+        396
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 0
+      },
+      "renderBounds": [
+        0.277511962,
+        0.043062201,
+        0.698564593,
+        0.947368421
+      ]
+    },
+    "xiaoli-wave": {
+      "bounds": [
+        0.184210526,
+        0.040669856,
+        0.729665072,
+        0.947368421
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        77,
+        17,
+        305,
+        396
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 0
+      },
+      "renderBounds": [
+        0.184210526,
+        0.040669856,
+        0.729665072,
+        0.947368421
+      ]
+    },
+    "xiaoli-walk1": {
+      "bounds": [
+        0.086124402,
+        0.043062201,
+        0.772727273,
+        0.944976077
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        36,
+        18,
+        323,
+        395
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 0
+      },
+      "renderBounds": [
+        0.086124402,
+        0.043062201,
+        0.772727273,
+        0.944976077
+      ]
+    },
+    "xiaoli-walk2": {
+      "bounds": [
+        0.198564593,
+        0.043062201,
+        0.755980861,
+        0.918660287
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        83,
+        18,
+        316,
+        384
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 1
+      },
+      "renderBounds": [
+        0.198564593,
+        0.043062201,
+        0.755980861,
+        0.918660287
+      ]
+    },
+    "xiaoli-walk3": {
+      "bounds": [
+        0.141148325,
+        0.035885167,
+        0.772727273,
+        0.923444976
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        59,
+        15,
+        323,
+        386
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 1
+      },
+      "renderBounds": [
+        0.141148325,
+        0.035885167,
+        0.772727273,
+        0.923444976
+      ]
+    },
+    "xiaoli-walk4": {
+      "bounds": [
+        0.133971292,
+        0.043062201,
+        0.753588517,
+        0.923444976
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        56,
+        18,
+        315,
+        386
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 1
+      },
+      "renderBounds": [
+        0.133971292,
+        0.043062201,
+        0.753588517,
+        0.923444976
+      ]
+    },
+    "xiaoli-sit": {
+      "bounds": [
+        0.181818182,
+        0.0215311,
+        0.775119617,
+        0.923444976
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        76,
+        9,
+        324,
+        386
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 0,
+        "row": 2
+      },
+      "renderBounds": [
+        0.181818182,
+        0.0215311,
+        0.775119617,
+        0.923444976
+      ]
+    },
+    "xiaoli-receive": {
+      "bounds": [
+        0.136363636,
+        0.028708134,
+        0.803827751,
+        0.916267943
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        57,
+        12,
+        336,
+        383
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 1,
+        "row": 2
+      },
+      "renderBounds": [
+        0.136363636,
+        0.028708134,
+        0.803827751,
+        0.916267943
+      ]
+    },
+    "xiaoli-hold": {
+      "bounds": [
+        0.155502392,
+        0.0215311,
+        0.729665072,
+        0.928229665
+      ],
+      "slotAspect": 1.0,
+      "asset": "atlas-xiaoli",
+      "slotSize": [
+        418,
+        418
+      ],
+      "pixelBounds": [
+        65,
+        9,
+        305,
+        388
+      ],
+      "slot": {
+        "cols": 3,
+        "rows": 3,
+        "col": 2,
+        "row": 2
+      },
+      "renderBounds": [
+        0.155502392,
+        0.0215311,
+        0.729665072,
+        0.928229665
+      ]
+    },
+    "ambient-bubu-guitar-motion": {
+      "bounds": [
+        0.111111111,
+        0.115555556,
+        0.708888889,
+        0.833333333
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-bubu-guitar-motion",
+      "slotSize": [
+        450,
+        450
+      ],
+      "pixelBounds": [
+        50,
+        52,
+        319,
+        375
+      ],
+      "frameCount": 6,
+      "boundsMode": "all-frame-union"
+    },
+    "ambient-cuddle-motion": {
+      "bounds": [
+        0.01,
+        0.14,
+        0.98,
+        0.86
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-cuddle-motion",
+      "slotSize": [
+        200,
+        200
+      ],
+      "pixelBounds": [
+        2,
+        28,
+        196,
+        172
+      ],
+      "frameCount": 16,
+      "boundsMode": "all-frame-union"
+    },
+    "ambient-kiss-motion": {
+      "bounds": [
+        0.0,
+        0.0375,
+        1.0,
+        0.9625
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-kiss-motion",
+      "slotSize": [
+        240,
+        240
+      ],
+      "pixelBounds": [
+        0,
+        9,
+        240,
+        231
+      ],
+      "frameCount": 21,
+      "boundsMode": "all-frame-union"
+    },
+    "ambient-yier-tea-motion": {
+      "bounds": [
+        0.129166667,
+        0.133333333,
+        0.720833333,
+        0.854166667
+      ],
+      "slotAspect": 1.0,
+      "asset": "ambient-yier-tea-motion",
+      "slotSize": [
+        240,
+        240
+      ],
+      "pixelBounds": [
+        31,
+        32,
+        173,
+        205
+      ],
+      "frameCount": 16,
+      "boundsMode": "all-frame-union"
+    }
+  },
+  "presentationCorrection": {
+    "atlas-bubu-motion": "Whole-atlas connected body bounds preserve feet across the nominal cell boundary and exclude detached neighboring-frame fragments. Source PNG remains unchanged.",
+    "atlas-yier-motion": "Whole-atlas connected body bounds preserve feet across the nominal cell boundary and exclude detached neighboring-frame fragments. Source PNG remains unchanged.",
+    "atlas-xiaoli": "Whole-atlas connected body bounds preserve feet across the nominal cell boundary and exclude detached neighboring-frame fragments. Source PNG remains unchanged."
+  }
+}

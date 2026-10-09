@@ -1,0 +1,1014 @@
+[
+  {
+    "index": 0,
+    "source": "E:\\Desktop\\布布一二动作包\\831e792135537fc1.gif",
+    "size": [
+      200,
+      167
+    ],
+    "frames": 2,
+    "durationMs": 400,
+    "transparent": true
+  },
+  {
+    "index": 1,
+    "source": "E:\\Desktop\\布布一二动作包\\856a6e6b39b911f0.gif",
+    "size": [
+      543,
+      438
+    ],
+    "frames": 2,
+    "durationMs": 400,
+    "transparent": true
+  },
+  {
+    "index": 2,
+    "source": "E:\\Desktop\\布布一二动作包\\85f87aa1e29e855a.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 15,
+    "durationMs": 1980,
+    "transparent": true
+  },
+  {
+    "index": 3,
+    "source": "E:\\Desktop\\布布一二动作包\\86b93e2e616169b5.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 12,
+    "durationMs": 1080,
+    "transparent": true
+  },
+  {
+    "index": 4,
+    "source": "E:\\Desktop\\布布一二动作包\\873c6a726dc2319e.gif",
+    "size": [
+      295,
+      300
+    ],
+    "frames": 32,
+    "durationMs": 2320,
+    "transparent": true
+  },
+  {
+    "index": 5,
+    "source": "E:\\Desktop\\布布一二动作包\\878d6c787a5432b3.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 12,
+    "durationMs": 1080,
+    "transparent": true
+  },
+  {
+    "index": 6,
+    "source": "E:\\Desktop\\布布一二动作包\\87b17a6e25602fa5.gif",
+    "size": [
+      241,
+      240
+    ],
+    "frames": 21,
+    "durationMs": 1890,
+    "transparent": true
+  },
+  {
+    "index": 7,
+    "source": "E:\\Desktop\\布布一二动作包\\87b47863a1ce761a.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 4,
+    "durationMs": 280,
+    "transparent": true
+  },
+  {
+    "index": 8,
+    "source": "E:\\Desktop\\布布一二动作包\\87b56a5a65436a35.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 24,
+    "durationMs": 2160,
+    "transparent": true
+  },
+  {
+    "index": 9,
+    "source": "E:\\Desktop\\布布一二动作包\\8f31782627ce169b.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 10,
+    "durationMs": 1040,
+    "transparent": true
+  },
+  {
+    "index": 10,
+    "source": "E:\\Desktop\\布布一二动作包\\903e6ae165c73c9c.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 4,
+    "durationMs": 800,
+    "transparent": true
+  },
+  {
+    "index": 11,
+    "source": "E:\\Desktop\\布布一二动作包\\903f6ae06dc73c98.gif",
+    "size": [
+      500,
+      480
+    ],
+    "frames": 6,
+    "durationMs": 1200,
+    "transparent": true
+  },
+  {
+    "index": 12,
+    "source": "E:\\Desktop\\布布一二动作包\\905e292d3ff07ae0.gif",
+    "size": [
+      300,
+      300
+    ],
+    "frames": 3,
+    "durationMs": 300,
+    "transparent": true
+  },
+  {
+    "index": 13,
+    "source": "E:\\Desktop\\布布一二动作包\\92356d7861b66cc3.gif",
+    "size": [
+      450,
+      450
+    ],
+    "frames": 6,
+    "durationMs": 1080,
+    "transparent": true
+  },
+  {
+    "index": 14,
+    "source": "E:\\Desktop\\布布一二动作包\\926d3eb0c7493c39.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 20,
+    "durationMs": 1600,
+    "transparent": true
+  },
+  {
+    "index": 15,
+    "source": "E:\\Desktop\\布布一二动作包\\94127ab5a6666b69.gif",
+    "size": [
+      300,
+      300
+    ],
+    "frames": 20,
+    "durationMs": 2000,
+    "transparent": true
+  },
+  {
+    "index": 16,
+    "source": "E:\\Desktop\\布布一二动作包\\94b17a5a630b6f46.gif",
+    "size": [
+      250,
+      278
+    ],
+    "frames": 8,
+    "durationMs": 800,
+    "transparent": true
+  },
+  {
+    "index": 17,
+    "source": "E:\\Desktop\\布布一二动作包\\94d31a2a793d7165.gif",
+    "size": [
+      640,
+      546
+    ],
+    "frames": 2,
+    "durationMs": 1600,
+    "transparent": true
+  },
+  {
+    "index": 18,
+    "source": "E:\\Desktop\\布布一二动作包\\94e11b5e781e49f2.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 11,
+    "durationMs": 1100,
+    "transparent": true
+  },
+  {
+    "index": 19,
+    "source": "E:\\Desktop\\布布一二动作包\\94e46b3f63066dd0.gif",
+    "size": [
+      400,
+      400
+    ],
+    "frames": 7,
+    "durationMs": 700,
+    "transparent": true
+  },
+  {
+    "index": 20,
+    "source": "E:\\Desktop\\布布一二动作包\\94e81e13688f3bce.gif",
+    "size": [
+      170,
+      229
+    ],
+    "frames": 34,
+    "durationMs": 1700,
+    "transparent": true
+  },
+  {
+    "index": 21,
+    "source": "E:\\Desktop\\布布一二动作包\\953c7e682e616363.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 42,
+    "durationMs": 3360,
+    "transparent": true
+  },
+  {
+    "index": 22,
+    "source": "E:\\Desktop\\布布一二动作包\\953e5e692d60616b.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 42,
+    "durationMs": 3360,
+    "transparent": true
+  },
+  {
+    "index": 23,
+    "source": "E:\\Desktop\\布布一二动作包\\956a61959f396516.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 19,
+    "durationMs": 2420,
+    "transparent": true
+  },
+  {
+    "index": 24,
+    "source": "E:\\Desktop\\布布一二动作包\\956a61c59f396136.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 24,
+    "durationMs": 2420,
+    "transparent": true
+  },
+  {
+    "index": 25,
+    "source": "E:\\Desktop\\布布一二动作包\\95c37a1e633c6b90.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 68,
+    "durationMs": 1360,
+    "transparent": true
+  },
+  {
+    "index": 26,
+    "source": "E:\\Desktop\\布布一二动作包\\95ce3b3160bd6543.gif",
+    "size": [
+      360,
+      360
+    ],
+    "frames": 14,
+    "durationMs": 1700,
+    "transparent": true
+  },
+  {
+    "index": 27,
+    "source": "E:\\Desktop\\布布一二动作包\\95e80f43782f0f78.gif",
+    "size": [
+      604,
+      800
+    ],
+    "frames": 2,
+    "durationMs": 1000,
+    "transparent": true
+  },
+  {
+    "index": 28,
+    "source": "E:\\Desktop\\布布一二动作包\\95ee7925651127d2.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 10,
+    "durationMs": 1000,
+    "transparent": true
+  },
+  {
+    "index": 29,
+    "source": "E:\\Desktop\\布布一二动作包\\96397a6461e1369b.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 8,
+    "durationMs": 1600,
+    "transparent": true
+  },
+  {
+    "index": 30,
+    "source": "E:\\Desktop\\布布一二动作包\\9661383e61d36799.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 10,
+    "durationMs": 1000,
+    "transparent": true
+  },
+  {
+    "index": 31,
+    "source": "E:\\Desktop\\布布一二动作包\\96616863259eda9d.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 13,
+    "durationMs": 1330,
+    "transparent": true
+  },
+  {
+    "index": 32,
+    "source": "E:\\Desktop\\布布一二动作包\\9661783e613073d7.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 10,
+    "durationMs": 1000,
+    "transparent": true
+  },
+  {
+    "index": 33,
+    "source": "E:\\Desktop\\布布一二动作包\\96617a6e61a76a07.gif",
+    "size": [
+      408,
+      427
+    ],
+    "frames": 6,
+    "durationMs": 1200,
+    "transparent": true
+  },
+  {
+    "index": 34,
+    "source": "E:\\Desktop\\布布一二动作包\\96696863a596da9c.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 13,
+    "durationMs": 1330,
+    "transparent": true
+  },
+  {
+    "index": 35,
+    "source": "E:\\Desktop\\布布一二动作包\\9669696861a76a97.gif",
+    "size": [
+      320,
+      320
+    ],
+    "frames": 28,
+    "durationMs": 2740,
+    "transparent": true
+  },
+  {
+    "index": 36,
+    "source": "E:\\Desktop\\布布一二动作包\\9669697861a57a87.gif",
+    "size": [
+      320,
+      320
+    ],
+    "frames": 28,
+    "durationMs": 2740,
+    "transparent": true
+  },
+  {
+    "index": 37,
+    "source": "E:\\Desktop\\布布一二动作包\\9669783560b66bd2.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 16,
+    "durationMs": 1900,
+    "transparent": true
+  },
+  {
+    "index": 38,
+    "source": "E:\\Desktop\\布布一二动作包\\966b782568b66d92.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 16,
+    "durationMs": 1900,
+    "transparent": true
+  },
+  {
+    "index": 39,
+    "source": "E:\\Desktop\\布布一二动作包\\966c7827649667d8.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 36,
+    "durationMs": 4000,
+    "transparent": true
+  },
+  {
+    "index": 40,
+    "source": "E:\\Desktop\\布布一二动作包\\9678696b65362693.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 4,
+    "durationMs": 200,
+    "transparent": true
+  },
+  {
+    "index": 41,
+    "source": "E:\\Desktop\\布布一二动作包\\967b383e612617c9.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 20,
+    "durationMs": 2000,
+    "transparent": true
+  },
+  {
+    "index": 42,
+    "source": "E:\\Desktop\\布布一二动作包\\96a55a7e25716638.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 8,
+    "durationMs": 800,
+    "transparent": true
+  },
+  {
+    "index": 43,
+    "source": "E:\\Desktop\\布布一二动作包\\97656e6b30346366.gif",
+    "size": [
+      639,
+      694
+    ],
+    "frames": 8,
+    "durationMs": 600,
+    "transparent": true
+  },
+  {
+    "index": 44,
+    "source": "E:\\Desktop\\布布一二动作包\\97697a6a612e3394.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 6,
+    "durationMs": 600,
+    "transparent": true
+  },
+  {
+    "index": 45,
+    "source": "E:\\Desktop\\布布一二动作包\\976e6a999562a8c9.gif",
+    "size": [
+      200,
+      200
+    ],
+    "frames": 16,
+    "durationMs": 1440,
+    "transparent": true
+  },
+  {
+    "index": 46,
+    "source": "E:\\Desktop\\布布一二动作包\\97916a7a65636724.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 24,
+    "durationMs": 2160,
+    "transparent": true
+  },
+  {
+    "index": 47,
+    "source": "E:\\Desktop\\布布一二动作包\\97a17a3e61e16683.gif",
+    "size": [
+      300,
+      400
+    ],
+    "frames": 7,
+    "durationMs": 700,
+    "transparent": true
+  },
+  {
+    "index": 48,
+    "source": "E:\\Desktop\\布布一二动作包\\97b069e6e5c63419.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 7,
+    "durationMs": 1400,
+    "transparent": true
+  },
+  {
+    "index": 49,
+    "source": "E:\\Desktop\\布布一二动作包\\97b069f4e5c2141f.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 7,
+    "durationMs": 1400,
+    "transparent": true
+  },
+  {
+    "index": 50,
+    "source": "E:\\Desktop\\布布一二动作包\\97de396978493125.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 44,
+    "durationMs": 3960,
+    "transparent": true
+  },
+  {
+    "index": 51,
+    "source": "E:\\Desktop\\布布一二动作包\\97ec7ae12513151b.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 9,
+    "durationMs": 450,
+    "transparent": true
+  },
+  {
+    "index": 52,
+    "source": "E:\\Desktop\\布布一二动作包\\9a863969659667c3.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 50,
+    "durationMs": 2000,
+    "transparent": true
+  },
+  {
+    "index": 53,
+    "source": "E:\\Desktop\\布布一二动作包\\9b266469669c93cd.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 5,
+    "durationMs": 700,
+    "transparent": true
+  },
+  {
+    "index": 54,
+    "source": "E:\\Desktop\\布布一二动作包\\9c3972632668677c.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 21,
+    "durationMs": 1680,
+    "transparent": true
+  },
+  {
+    "index": 55,
+    "source": "E:\\Desktop\\布布一二动作包\\9c94676b5a64654b.gif",
+    "size": [
+      284,
+      321
+    ],
+    "frames": 21,
+    "durationMs": 1470,
+    "transparent": true
+  },
+  {
+    "index": 56,
+    "source": "E:\\Desktop\\布布一二动作包\\9ca55a5a2d63633c.gif",
+    "size": [
+      300,
+      300
+    ],
+    "frames": 6,
+    "durationMs": 540,
+    "transparent": true
+  },
+  {
+    "index": 57,
+    "source": "E:\\Desktop\\布布一二动作包\\9d472a706a6b636a.gif",
+    "size": [
+      450,
+      480
+    ],
+    "frames": 13,
+    "durationMs": 1960,
+    "transparent": true
+  },
+  {
+    "index": 58,
+    "source": "E:\\Desktop\\布布一二动作包\\9e666932a79aca89.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 4,
+    "durationMs": 400,
+    "transparent": true
+  },
+  {
+    "index": 59,
+    "source": "E:\\Desktop\\布布一二动作包\\9e67386e612437ca.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 10,
+    "durationMs": 2000,
+    "transparent": true
+  },
+  {
+    "index": 60,
+    "source": "E:\\Desktop\\布布一二动作包\\9f36644973988ec9.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 5,
+    "durationMs": 700,
+    "transparent": true
+  },
+  {
+    "index": 61,
+    "source": "E:\\Desktop\\布布一二动作包\\9fa5787a61286b45.gif",
+    "size": [
+      305,
+      310
+    ],
+    "frames": 12,
+    "durationMs": 600,
+    "transparent": true
+  },
+  {
+    "index": 62,
+    "source": "E:\\Desktop\\布布一二动作包\\a45b3b4a7bc4e885.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 20,
+    "durationMs": 1400,
+    "transparent": true
+  },
+  {
+    "index": 63,
+    "source": "E:\\Desktop\\布布一二动作包\\a5c7faf3d8c1030c.gif",
+    "size": [
+      239,
+      239
+    ],
+    "frames": 145,
+    "durationMs": 14500,
+    "transparent": true
+  },
+  {
+    "index": 64,
+    "source": "E:\\Desktop\\布布一二动作包\\bd6c6031b69273cc.gif",
+    "size": [
+      663,
+      682
+    ],
+    "frames": 9,
+    "durationMs": 900,
+    "transparent": true
+  },
+  {
+    "index": 65,
+    "source": "E:\\Desktop\\布布一二动作包\\becab0b48786c3c3.gif",
+    "size": [
+      318,
+      300
+    ],
+    "frames": 58,
+    "durationMs": 6970,
+    "transparent": false
+  },
+  {
+    "index": 66,
+    "source": "E:\\Desktop\\布布一二动作包\\c02f2f5ab443be31.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 5,
+    "durationMs": 60,
+    "transparent": true
+  },
+  {
+    "index": 67,
+    "source": "E:\\Desktop\\布布一二动作包\\c0372fb0ddc1c66c.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 17,
+    "durationMs": 1530,
+    "transparent": true
+  },
+  {
+    "index": 68,
+    "source": "E:\\Desktop\\布布一二动作包\\c03f3fdac4806739.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 21,
+    "durationMs": 2340,
+    "transparent": true
+  },
+  {
+    "index": 69,
+    "source": "E:\\Desktop\\布布一二动作包\\c04f2ebe36d06bc1.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 17,
+    "durationMs": 1700,
+    "transparent": true
+  },
+  {
+    "index": 70,
+    "source": "E:\\Desktop\\布布一二动作包\\c04f6ebc3ed028e3.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 17,
+    "durationMs": 1700,
+    "transparent": true
+  },
+  {
+    "index": 71,
+    "source": "E:\\Desktop\\布布一二动作包\\c12d17327bd22fc2.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 45,
+    "durationMs": 4050,
+    "transparent": true
+  },
+  {
+    "index": 72,
+    "source": "E:\\Desktop\\布布一二动作包\\c1422abf3a9cfcc4.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 4,
+    "durationMs": 400,
+    "transparent": true
+  },
+  {
+    "index": 73,
+    "source": "E:\\Desktop\\布布一二动作包\\c1422bbf3a94fcc4.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 8,
+    "durationMs": 1600,
+    "transparent": true
+  },
+  {
+    "index": 74,
+    "source": "E:\\Desktop\\布布一二动作包\\c1423abf1e94fc94.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 6,
+    "durationMs": 1200,
+    "transparent": true
+  },
+  {
+    "index": 75,
+    "source": "E:\\Desktop\\布布一二动作包\\c1432abf3e84fc94.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 4,
+    "durationMs": 400,
+    "transparent": true
+  },
+  {
+    "index": 76,
+    "source": "E:\\Desktop\\布布一二动作包\\c26d2f2f34b42bd0.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 7,
+    "durationMs": 490,
+    "transparent": true
+  },
+  {
+    "index": 77,
+    "source": "E:\\Desktop\\布布一二动作包\\c26f2d3f34b06bc0.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 7,
+    "durationMs": 490,
+    "transparent": true
+  },
+  {
+    "index": 78,
+    "source": "E:\\Desktop\\布布一二动作包\\c2be2f2d34e132c9.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 8,
+    "durationMs": 160,
+    "transparent": true
+  },
+  {
+    "index": 79,
+    "source": "E:\\Desktop\\布布一二动作包\\c52f36b179c10e87.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 2,
+    "durationMs": 1000,
+    "transparent": true
+  },
+  {
+    "index": 80,
+    "source": "E:\\Desktop\\布布一二动作包\\c81736b9e8637a31.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 25,
+    "durationMs": 2250,
+    "transparent": true
+  },
+  {
+    "index": 81,
+    "source": "E:\\Desktop\\布布一二动作包\\c8363db0d983ce71.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 16,
+    "durationMs": 1530,
+    "transparent": true
+  },
+  {
+    "index": 82,
+    "source": "E:\\Desktop\\布布一二动作包\\cb653e30249b33cd.gif",
+    "size": [
+      200,
+      200
+    ],
+    "frames": 63,
+    "durationMs": 1260,
+    "transparent": true
+  },
+  {
+    "index": 83,
+    "source": "E:\\Desktop\\布布一二动作包\\d06b6be017e04e97.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 9,
+    "durationMs": 720,
+    "transparent": true
+  },
+  {
+    "index": 84,
+    "source": "E:\\Desktop\\布布一二动作包\\d06b7b6081f50e97.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 9,
+    "durationMs": 720,
+    "transparent": true
+  },
+  {
+    "index": 85,
+    "source": "E:\\Desktop\\布布一二动作包\\d23d2d6a64d2c2d9.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 22,
+    "durationMs": 1980,
+    "transparent": true
+  },
+  {
+    "index": 86,
+    "source": "E:\\Desktop\\布布一二动作包\\d36b2cb4784b934c.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 2,
+    "durationMs": 300,
+    "transparent": true
+  },
+  {
+    "index": 87,
+    "source": "E:\\Desktop\\布布一二动作包\\efd86cf180e493c4.gif",
+    "size": [
+      497,
+      490
+    ],
+    "frames": 72,
+    "durationMs": 7200,
+    "transparent": true
+  },
+  {
+    "index": 88,
+    "source": "E:\\Desktop\\布布一二动作包\\一二工作.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 8,
+    "durationMs": 800,
+    "transparent": true
+  },
+  {
+    "index": 89,
+    "source": "E:\\Desktop\\布布一二动作包\\一二炸公司.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 18,
+    "durationMs": 1440,
+    "transparent": true
+  },
+  {
+    "index": 90,
+    "source": "E:\\Desktop\\布布一二动作包\\布布工作.gif",
+    "size": [
+      640,
+      640
+    ],
+    "frames": 16,
+    "durationMs": 1600,
+    "transparent": true
+  },
+  {
+    "index": 91,
+    "source": "E:\\Desktop\\布布一二动作包\\布布炸公司.gif",
+    "size": [
+      240,
+      240
+    ],
+    "frames": 18,
+    "durationMs": 1440,
+    "transparent": true
+  }
+]

@@ -1,9 +1,9 @@
 /** All story, progression, art coordinates, and economy data. No UI state here. */
-export const VERSION = '1.2.1';
+export const VERSION = '1.4.1';
 // App releases and storage migrations have different lifetimes.
 export const APP_VERSION = VERSION;
 export const SCHEMA_VERSION = 2;
-export const TITLE = '布布一二 · 好日子小屋';
+export const TITLE = '熊熊之家';
 export const CATS = ['clean','tools','bake','tea','craft','garden'];
 export const CHAINS = {
   clean:{name:'把家擦亮',producer:'清洁篮',unlock:0,color:'#c6d7ba',items:['小方巾','软海绵','清洁喷雾','小刷子','轻巧拖把','清洁推车'],desc:'从手边的小方巾，到能照顾整间屋子的清洁工具。'},
@@ -13,7 +13,7 @@ export const CHAINS = {
   craft:{name:'画点小心思',producer:'画画箱',unlock:8,color:'#e2c0b7',items:['铅笔','蜡笔盒','调色盘','小风景画','纸鲸风铃','绘画工作台'],desc:'一二的想象，从一根铅笔开始长大。'},
   garden:{name:'花园会开花',producer:'园艺篮',unlock:12,color:'#c7d7af',items:['种子包','小幼苗','绿叶盆栽','雏菊盆栽','郁金香花束','双层花架'],desc:'照顾一颗种子，也照顾慢慢长出来的期待。'},
 };
-export const CFG={boardSize:49,cols:7,maxLevel:6,energyCap:100,energyEvery:15000,stockEvery:6000,stockBase:18,stockPerLevel:6,storageBase:8,storageMax:24,restAmount:30,restCooldown:60000,upgradeCosts:[140,400],scissorCost:45,energyCost:60,parcelCost:65,sideCooldown:15000,levelEnergy:5,levelCoins:20,chapterEnergy:10,chapterCoins:60,dailyGiftEnergy:20};
+export const CFG={boardSize:49,cols:7,maxLevel:6,maxPlayerLevel:99,economyVersion:1,energyCap:100,energyEvery:100000,stockEvery:6000,stockBase:18,stockPerLevel:6,storageBase:8,storageMax:24,upgradeCosts:[140,400],scissorCost:45,parcelCost:65,sideCooldown:15000,chapterCoins:60,dailyGiftCoins:40,buildXP:15,levelGiftEvery:5,legacyPackCoins:20};
 export const CHAPTERS = [
  {name:'先把门打开',short:'迎着光',sub:'一束阳光，两双脚印。',memory:'门垫是软的',text:'门垫铺好的时候，一二特意踩了两下。布布没有催她进屋，只把第二双拖鞋放在旁边。',pose:['bubu-idle','yier-joy']},
  {name:'热乎乎的下午',short:'甜一口',sub:'面包刚好，茶也刚好。',memory:'留给你的那一口',text:'布布说只尝一小口。纸杯糕少了半边。一二瞪了他一会儿，把自己那半边也往中间推了推。',pose:['bubu-sit','yier-happy']},
@@ -33,7 +33,7 @@ const R=(c,l,n=1)=>({c,l,n});
 export const TASKS = [
  {name:'铺一块软软的门垫',who:'bubu',wish:'先擦干净门口，不然脚印会排着队进屋。',needs:[R('clean',2)],after:[['yier','joy','我试过了，踩起来软乎乎！'],['bubu','idle','那把另一边留给我，我们一起进门。']]},
  {name:'让窗帘接住阳光',who:'yier',wish:'把窗边擦亮吧。我想给阳光留个位置。',needs:[R('clean',3)],after:[['yier','turn','光真的落进来了，像一块暖暖的小饼干。'],['bubu','happy','这个不能吃。一二宝可以先晒一会儿。']]},
- {name:'立起第一块小屋牌',who:'bubu',wish:'牌子有点松。找到螺丝刀，再把木板擦一擦。',needs:[R('tools',2),R('clean',2)],after:[['yier','happy','写什么好呢？豪华超级大……'],['bubu','turn','写“好日子小屋”吧。我们住得开心，就算豪华。']]},
+ {name:'立起第一块小屋牌',who:'bubu',wish:'牌子有点松。找到螺丝刀，再把木板擦一擦。',needs:[R('tools',2),R('clean',2)],after:[['yier','happy','写什么好呢？豪华超级大……'],['bubu','turn','写“熊熊之家”吧。我们住得开心，就算豪华。']]},
  {name:'点亮门边的小灯',who:'yier',wish:'门边少一盏灯。天黑回来的时候，也要被好好迎接。',needs:[R('tools',3)],after:[['bubu','idle','装好了。站远一点看看，歪不歪？'],['yier','joy','不歪！以后晚归的臭布布，就不会找错门啦。']]},
  {name:'收拾香香的烘焙架',who:'yier',wish:'第一团面，要留给我们的第一炉小面包。',needs:[R('bake',2)],after:[['yier','happy','面团有一点点像你的肚子。'],['bubu','surprise','那……揉的时候轻一点。']]},
  {name:'把小圆桌修稳',who:'bubu',wish:'垫稳桌脚，再放一只热面包。它就不是空桌子了。',needs:[R('tools',3),R('bake',3)],after:[['bubu','idle','这回放几杯茶都不会晃。'],['yier','turn','我还没说你刚才一直扶着桌子呢。']]},
@@ -54,13 +54,13 @@ export const TASKS = [
  {name:'写一张小小邀请',who:'yier',wish:'给巷口的松鼠小栗写一张邀请，再挂起庭院小旗。',needs:[R('craft',5),R('tools',4)],after:[['yier','paint','小栗：花草茶准备好时，来我们家坐坐吧。'],['bubu','happy','我把纸条送到巷口了。她回信说，会带一件路上发现的小东西。']]},
  {name:'把春天铺到门外',who:'bubu',wish:'摆好花束和圆肚茶壶，野餐垫就在门前的树影下。',needs:[R('garden',5),R('tea',4)],after:[['yier','turn','这不是我们之前量好的地方。'],['bubu','happy','这里有阴凉。一二宝晒久了会眯眼睛。']]},
  {name:'做一桌可以分享的甜',who:'yier',wish:'先把点心塔摆好，再准备茶盘。小栗来时，茶和甜点都刚刚好。',needs:[R('bake',6),R('tea',5)],phases:['点心塔上桌','双人茶盘到位'],after:[['yier','happy','点心我来摆。臭布布，帮我拿稳茶盘。'],['bubu','happy','拿稳了。最大的一块，留给第一次来的小栗。']]},
- {name:'好日子小屋，开门啦',who:'bubu',wish:'把双层花架摆到花园，在庭院备好绘画工作台，再端上双层小蛋糕。都备好后，我们去门口迎接小栗。',needs:[R('garden',6),R('craft',6),R('bake',5)],phases:['花园双层花架','备好绘画工作台','端上双层小蛋糕'],after:[['yier','joy','花架、画台和蛋糕都好了！布布，我们去门口迎接小栗吧。'],['bubu','happy','杯子你来摆，茶壶我来端。今天的好日子，也分给她。']]},
-].map((t,i)=>({...t,id:i,chapter:Math.floor(i/4),decor:`decor-${String(i+1).padStart(2,'0')}`,coins:18+t.needs.reduce((a,r)=>a+2**(r.l-1)*r.n*3,0),energy:2+Math.floor(i/8)}));
+ {name:'熊熊之家，开门啦',who:'bubu',wish:'把双层花架摆到花园，在庭院备好绘画工作台，再端上双层小蛋糕。都备好后，我们去门口迎接小栗。',needs:[R('garden',6),R('craft',6),R('bake',5)],phases:['花园双层花架','备好绘画工作台','端上双层小蛋糕'],after:[['yier','joy','花架、画台和蛋糕都好了！布布，我们去门口迎接小栗吧。'],['bubu','happy','杯子你来摆，茶壶我来端。今天的好日子，也分给她。']]},
+].map((t,i)=>({...t,id:i,chapter:Math.floor(i/4),decor:`decor-${String(i+1).padStart(2,'0')}`,coins:18+t.needs.reduce((a,r)=>a+2**(r.l-1)*r.n*3,0),xp:orderXP(t.needs)}));
 // Each near view has its own coordinates. Keep the central walkway clear for both characters.
 export const REGIONS = [
- {id:'house',name:'暖暖小屋',subtitle:'烤面包、喝茶，给故事留一个角落',unlock:0,background:'region-house',activityLabel:'一起喝杯茶',activityText:'布布把茶吹凉，一二摆好两只杯子。忙完的两只熊，一起歇一会儿。',coins:8,energy:5,memoryName:'一起喝茶的下午'},
- {id:'garden',name:'晴天小花园',subtitle:'花圃、纸鲸和慢慢长大的期待',unlock:0,background:'region-garden',activityLabel:'给花浇浇水',activityText:'一二扶住小苗，布布慢慢浇水。今天的叶子又精神了一点。',coins:8,energy:5,memoryName:'看见新叶的一天'},
- {id:'courtyard',name:'门前小庭院',subtitle:'摆好点心，让好日子可以分给别人',unlock:0,background:'region-courtyard',activityLabel:'准备来客茶点',activityText:'两只熊一起擦好桌子，摆好干净杯子，等朋友来坐坐。',coins:8,energy:5,memoryName:'给朋友留一个位置'},
+ {id:'house',name:'暖暖小屋',subtitle:'烤面包、喝茶，给故事留一个角落',unlock:0,background:'region-house',activityLabel:'一起喝杯茶',activityText:'布布把茶吹凉，一二摆好两只杯子。忙完的两只熊，一起歇一会儿。',coins:8,memoryName:'一起喝茶的下午'},
+ {id:'garden',name:'晴天小花园',subtitle:'花圃、纸鲸和慢慢长大的期待',unlock:0,background:'region-garden',activityLabel:'给花浇浇水',activityText:'一二扶住小苗，布布慢慢浇水。今天的叶子又精神了一点。',coins:8,memoryName:'看见新叶的一天'},
+ {id:'courtyard',name:'门前小庭院',subtitle:'摆好点心，让好日子可以分给别人',unlock:0,background:'region-courtyard',activityLabel:'准备来客茶点',activityText:'两只熊一起擦好桌子，摆好干净杯子，等朋友来坐坐。',coins:8,memoryName:'给朋友留一个位置'},
 ];
 export const DECOR = [
  ['courtyard',53,47,22,1],['house',49,27,39,1],['courtyard',20,37,18,3],['courtyard',81,29,13,3],
@@ -71,9 +71,9 @@ export const DECOR = [
  ['courtyard',50,18,67,4],['courtyard',23,77,36,0],['courtyard',74,78,29,8],['garden',22,82,28,8],
 ].map(([region,x,y,w,z],i)=>({region,x,y,w,z,id:i}));
 export const DAILY = [
- {key:'merge',title:'合一合，松口气',target:15,coins:30,energy:8,desc:'完成 15 次合成'},
- {key:'order',title:'把小心愿送出去',target:3,coins:45,energy:10,desc:'完成 3 张主线、邻里或茶会订单'},
- {key:'produce',title:'今天也有新点子',target:25,coins:35,energy:8,desc:'从工作台取出 25 件物品'},
+ {key:'merge',title:'合一合，松口气',target:15,coins:30,desc:'完成 15 次合成'},
+ {key:'order',title:'把小心愿送出去',target:3,coins:45,desc:'完成 3 张主线、邻里或茶会订单'},
+ {key:'produce',title:'今天也有新点子',target:25,coins:35,desc:'从工作台取出 25 件物品'},
 ];
 export const SIDE_FLAVOR = [
  ['巷口留言','把小东西准备好，生活就方便一点。'],['邻里的约定','不用赶，准备好了再送来就好。'],['邻里小纸条','今天也想分享一点小小的心意。'],['窗边的请求','给平常的一天，添一点心意。'],['下一次的准备','东西不用很多，合适就好。'],
@@ -104,3 +104,6 @@ export function itemName(c,l){return CHAINS[c]?.items[l-1]??'未知物品';}
 export function itemKey(c,l){return `${c}-${l}`;}
 export function mass(t){return t?.k==='item'?2**(t.l-1):0;}
 export function needMass(needs){return needs.reduce((n,r)=>n+2**(r.l-1)*r.n,0);}
+
+// Delivery experience scales with the quantity of base materials committed.
+export function orderXP(needs){return 10+Math.floor(needMass(needs)/3);}

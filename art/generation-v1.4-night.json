@@ -1,0 +1,29 @@
+{
+  "version": "1.4.0",
+  "tool": "image_gen.imagegen",
+  "created": "2026-10-09",
+  "assets": [
+    {
+      "id": "region-house-night",
+      "reference": "public/assets/region-house.png",
+      "source": "C:\\Users\\92108\\.codex\\generated_images\\01a120aa-573c-7ea2-b744-2057bb3ad038\\exec-31f978e3-491d-4dd8-bb11-7532c69ed9fe.png",
+      "adopted": "public/assets/region-house-night.png",
+      "prompt": "将参考图改绘成《熊熊之家》夏夜房间的完整夜景背景，保持完全相同的房间结构、拱形窗位置、门、梁柱、地板透视和空地，所有家具位置仍由游戏叠加，不添加家具或人物。窗外重新绘制深蓝夜空、小弯月、细小星星、蓝绿树影，窗边外有几点萤火虫微光；室内暖蜜色灯光与窗外青蓝月光形成柔和双色照明，木地板呈暖棕与月蓝过渡的可读色彩，不保留白天阳光斑，不是原图降低亮度。温馨精细的平面绘本游戏插画，柔和手绘笔触和清晰边缘，不使用3D模型或写实摄影，不要文字或水印。保持参考图纵向1182:1330比例与镜头，中央下方保持宽阔可摆家具的空地。"
+    },
+    {
+      "id": "region-courtyard-night",
+      "reference": "public/assets/region-courtyard.png",
+      "source": "C:\\Users\\92108\\.codex\\generated_images\\01a120aa-573c-7ea2-b744-2057bb3ad038\\exec-7d452e57-dee9-4a47-886b-b2fe4a30511b.png",
+      "adopted": "public/assets/region-courtyard-night.png",
+      "prompt": "将参考图改绘成《熊熊之家》夏夜庭院的完整夜景背景，保持同样的木门、左右窗、石墙、台阶、树、两边花坛和石地路径透视，不增加家具、人物。重新绘制靛蓝夜空、轻薄夏夜云、一点月光，房屋两个窗里有柔和暖黄色光，门口石地有温暖窗口光斑与淡蓝月影，花叶呈有层次的夜间蓝绿和粉紫；左右花坛与树下有散落的暖金绿色萤火虫。细腻平面手绘绘本游戏背景，清楚、温柔、梦幻可爱，不只是降低原图亮度，不做3D建模，不要摄影、文字、logo、水印。原图结构、位置、纵向比例1182:1330和空旷中心完全一致，方便已有家具叠加。"
+    },
+    {
+      "id": "region-garden-night",
+      "reference": "public/assets/region-garden.png",
+      "source": "C:\\Users\\92108\\.codex\\generated_images\\01a120aa-573c-7ea2-b744-2057bb3ad038\\exec-46dcdff1-2c86-4374-bc7a-54399ca1264d.png",
+      "adopted": "public/assets/region-garden-night.png",
+      "prompt": "将参考图改绘成《熊熊之家》独立的夏夜花园背景，保留同样的白栅栏、大树、右上房屋门窗、左右花丛和中央空草地的几何位置与透视。夜空变为深蓝到蓝紫渐变，小星星与月光，草地重新绘制为层次柔和的墨绿与青蓝，边缘花朵有月光银蓝色泽，房屋窗内暖光，前后草丛间点缀稀疏的暖绿色萤火虫微光。禁止出现人物或新家具、花架或摆件，中央保持空旷供游戏摆放家具。温馨平面绘本插画，保留原有柔软手绘细节，不是简单调暗原图，不是3D渲染，不要文字/水印。与参考图同一机位、纵向比例1182:1330。"
+    }
+  ],
+  "visualQA": "Reviewed all three native images: no characters or text; independent night sky, warm windows, moonlight and fireflies. Room, fence, doors and open furniture space retained."
+}
