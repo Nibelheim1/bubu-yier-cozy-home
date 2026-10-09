@@ -1,12 +1,12 @@
 {
-  "version": "1.4.1",
-  "builtAt": "2026-10-09T16:23:15.950Z",
-  "buildId": "2b1dd643dcf3",
-  "runtimeAssets": 68,
+  "version": "1.4.2",
+  "builtAt": "2026-10-09T17:53:30.090Z",
+  "buildId": "5b482bdf5fb9",
+  "runtimeAssets": 74,
   "spriteAtlases": 15,
   "worldRegions": 3,
-  "offlineBytes": 68925460,
-  "runtimeAssetBytes": 51475745,
+  "offlineBytes": 86318786,
+  "runtimeAssetBytes": 64520561,
   "networkRequiredToPlay": false,
   "characterStyle": "flat-2d-reference",
   "sourceFiles": [

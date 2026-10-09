@@ -14,7 +14,7 @@ function harness(event='tea',region='house',participants=['bubu','yier']){
 const layer=(s,key)=>s.layers.find(l=>l.key===key);
 
 test('support, watering and cup placement finish walking before operating',()=>{
- const h=harness('homeActivity-garden','garden');h.player.start();
+ const h=harness('tea','garden');h.player.start();
  const support=h.sample(.7),x=layer(support,'yier').x;
  assert.equal(layer(support,'yier').id,'yier-support2');assert.equal(layer(support,'yier').flip,true);
  assert.equal(layer(h.sample(.2),'yier').x,x);h.sample(.1);h.player.advance();
@@ -44,7 +44,7 @@ test('pause and resume preserve progress and do not advance a waiting step',()=>
 });
 
 test('skip leaves placed props detached and preserves prep item size',()=>{
- const h=harness('homeActivity-garden','garden');h.player.skip();
+ const h=harness('tea','garden');h.player.skip();
  assert.equal(layer(h.frame,'watering-can').heldBy,undefined);assert.equal(layer(h.frame,'watering-can').handOffset,undefined);assert.equal(layer(h.frame,'watering-can').w,13);
  const state=freshState(0);state.stage=23;state.mainPrepStep=1;let end;
  const p=createScenePlayer({event:'prep-23',scene:describeScene(state,{region:'garden'}),onComplete:s=>{end=s;}});p.skip();

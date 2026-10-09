@@ -191,12 +191,10 @@ function moveSceneActor(scene,who,from,to,t,pose='walk'){
 function sceneMotionSteps(event,scene){
  const c=scene.result?.condition,region=scene.region;
  const guestStep=scene.result?.participants?.includes('xiaoli')?[{label:'小栗接过这一杯',kind:'guest-cup',duration:800}]:[];
- if((event==='homeActivity-house'&&scene.stage<7)||(event==='homeActivity-garden'&&scene.stage<13)||(event==='homeActivity-courtyard'&&scene.stage<23))return [{label:'两只熊一起整理这个角落',kind:'tidy',duration:2700}];
  if(event==='firstVisit')return [{label:'两熊让出位置，在入口迎接小栗',kind:'enter',duration:1200},{label:'一二走到桌边，摆好三只杯子',kind:'cups',duration:1200},{label:'布布拿稳茶壶，走到桌边倒茶',kind:'pour',duration:1800},{label:'一二递出杯子，小栗坐好接住',kind:'guest-cup',duration:1600}];
- if(event==='homeActivity-garden'||(event==='tea'&&scene.result?.plan==='garden'&&c!=='wind'))return [{label:'一二先扶稳小苗',kind:'support',duration:1700},{label:'布布拿水壶，慢慢浇水',kind:'water',duration:2000},{label:'放下水壶，端茶回树荫下',kind:'garden-tea',duration:1400},...guestStep];
+ if(event==='tea'&&scene.result?.plan==='garden'&&c!=='wind')return [{label:'一二先扶稳小苗',kind:'support',duration:1700},{label:'布布拿水壶，慢慢浇水',kind:'water',duration:2000},{label:'放下水壶，端茶回树荫下',kind:'garden-tea',duration:1400},...guestStep];
  if(event==='tea'&&c==='wind')return [{label:'选好先压稳还是先固定一角',kind:'wind',duration:1800},{label:'另一只熊接着把茶巾夹好',kind:'clip',duration:2100},...guestStep];
  if(/^prep-/.test(event))return [{label:event.includes('22')?'把准备好的茶点摆到桌上':'把这份准备亲手放好',kind:'prep',duration:2400}];
- if(event==='homeActivity-garden-tidy'||event==='homeActivity-house-tidy'||event==='homeActivity-courtyard-tidy')return [{label:'两只熊一起整理这个角落',kind:'tidy',duration:2700}];
  return [{label:'一二走到桌边，放好杯子',kind:'cups',duration:1800},{label:'布布拿稳茶壶，走过来倒茶',kind:'pour',duration:2300},...(scene.result?.participants?.includes('xiaoli')?[{label:'小栗接过这一杯',kind:'guest-cup',duration:900}]:[])];
 }
 
@@ -277,8 +275,6 @@ function animatedSceneFrame(base,step,t,index,{choice='anchor'}={}){
   if(item){s.layers=s.layers.filter(l=>l.key!==item.key);sceneHand(s,'yier',item.id,item.key,7,7,item.w);
    if(t>=.7){const held=s.layers.find(l=>l.key===item.key);scenePlace(s,item.key,held,item,(t-.7)/.25);}}
   b.id='bubu-support1';
- }else if(k==='tidy'){
-  sceneApproach(s,'bubu',startOf('bubu'),[27,65],t,.65,'support1',37);sceneApproach(s,'yier',startOf('yier'),[47,66],t,.65,'support2',37);sceneHand(s,'bubu','clean-2','tidy-cloth',5,6,9);sceneHand(s,'yier','clean-1','tidy-sponge',5,6,8);
  }
  for(const l of s.layers.filter(l=>l.heldBy)){const a=getSceneActor(s,l.heldBy);if(a){l.x=a.x+l.handOffset[0];l.y=a.y+l.handOffset[1];}}
  s.action={kind:k,step:index,progress:t,choice};s.caption=step.label;return s;

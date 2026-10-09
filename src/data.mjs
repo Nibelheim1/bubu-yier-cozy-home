@@ -1,5 +1,5 @@
 /** All story, progression, art coordinates, and economy data. No UI state here. */
-export const VERSION = '1.4.1';
+export const VERSION = '1.4.2';
 // App releases and storage migrations have different lifetimes.
 export const APP_VERSION = VERSION;
 export const SCHEMA_VERSION = 2;

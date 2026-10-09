@@ -46,22 +46,20 @@ export function ambientFrame(state,region,environment,now=Date.now(),decorLayers
  ];
  const cycle=90000,slot=15000,local=((time%cycle)+cycle)%cycle,index=Math.floor(local/slot),elapsed=local%slot;
  const previous=destinations[(index+5)%6],target=destinations[index],p=smooth(elapsed/(index===0||index===2?slot:6000));
- const walking=elapsed<(index===0||index===2?slot:6000),activity=walking?'walk':['walk','personal','walk','rest','together','tidy'][index];
+ const walking=elapsed<(index===0||index===2?slot:6000),activity=walking?'walk':['walk','personal','walk','rest','together','look'][index];
  const actors=['bubu','yier'].map((who,i)=>{
   const from=previous[i],to=target[i],x=from[0]+(to[0]-from[0])*p,y=from[1]+(to[1]-from[1])*p;
   let own=activity,id=walking?`${who}-walk${Math.floor(time/180)%4+1}`:`${who}-${who==='bubu'?'idle':'turn'}`;
   if(!walking&&index===1){own=i===0&&book?'read':i===1&&painting?'view-painting':i===1&&flowers?'view-flowers':'look';id=own==='read'?'bubu-sit':`${who}-turn`;}
   if(!walking&&index===3){own=seat?'rest':'look';id=seat?`${who}-${i===0?'sit':'rest'}`:`${who}-turn`;}
   if(!walking&&index===4)id=`${who}-${i===0?'joy':'shy'}`;
-  if(!walking&&index===5)id=`${who}-support${i+1}`;
   // Walk atlases face right; yier-turn faces left toward a nearby exhibit.
   const flip=walking?to[0]<from[0]:i===1&&index===1&&lookAt?lookAt.x>x:false;
   return actor(who,id,x,y,own,flip);
  });
  const props=[];
  if(!walking&&index===4)props.push({key:'ambient-heart',kind:'ambient-effect',id:null,glyph:'♡',x:52,y:47,w:8,h:7,z:16,rotation:0});
- if(!walking&&index===5)actors.forEach((a,i)=>props.push({key:`ambient-cloth-${i}`,kind:'prop',id:`clean-${i+1}`,x:a.x+(i? -5:5),y:a.y+6,w:8,h:7,z:13,rotation:Math.sin(time/400)*12}));
- let caption=walking?'布布和一二在家里慢慢走走':index===1?`${book?'布布在喜欢的故事旁歇一会儿':'布布看看这个角落'}，${painting?'一二看看自己的画':flowers?'一二看看新叶和花朵':'一二停下来看看风景'}`:index===3?(seat?'忙完一点点，一起坐下歇一会儿':'两只熊停下来，看看这个角落'):index===4?'走到你身边，今天也想和你贴贴':'一起擦一擦，把日子收拾得软软的';
+ let caption=walking?'布布和一二在家里慢慢走走':index===1?`${book?'布布在喜欢的故事旁歇一会儿':'布布看看这个角落'}，${painting?'一二看看自己的画':flowers?'一二看看新叶和花朵':'一二停下来看看风景'}`:index===3?(seat?'忙完一点点，一起坐下歇一会儿':'两只熊停下来，看看这个角落'):index===4?'走到你身边，今天也想和你贴贴':'两只熊停下来，享受刚刚好的安静';
  if(walking&&region!=='house')caption='两只熊沿着小路，慢慢散步';
  if(environment?.night&&activity==='rest')caption=seat?'夜深了，布布陪一二一起歇一会儿':caption;
  return {actors,props,caption,activity,index,walking};

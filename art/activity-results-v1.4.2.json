@@ -1,0 +1,104 @@
+{
+  "version": "1.4.2",
+  "created": "2026-10-10",
+  "status": "generated-and-adopted-static-results",
+  "provider": "built-in image_gen",
+  "format": "png",
+  "selectionGates": {
+    "house": 7,
+    "garden": 13,
+    "courtyard": 23
+  },
+  "items": [
+    {
+      "id": "activity-house-early",
+      "region": "house",
+      "stage": "early",
+      "name": "窗边留个位置",
+      "detail": "Inside the empty warm wooden cottage of reference1 after tidying the window area. The arched window is bare, no curtains. Brown Bubu and white Yier stand side by side on the clean wood floor, arms empty, gently leaning shoulders together and looking at their newly cleared cozy corner. Warm light on the floor, peaceful pleased expressions. No cups, no tea table or furniture.",
+      "prompt": "Create ONE finished static cozy-game result illustration, 4:3 landscape, full opaque background. Reference1 is the existing environment/style; references2 and3 are ONLY authoritative character designs, NOT collage/layout references. Exactly TWO bears: Bubu caramel-brown with round yellow cheeks and dark brown outline; Yier white with brown ears, pink cheeks, tiny dark neck tuft and dot eyes. Bears are FLAT 2D cel-color drawings with uniform fill and crisp brown outline, never 3D, no volumetric shading on bodies. Preserve reference identity and proportions. Both full small bodies visible including feet, natural short arms, no extra limbs or hands. Beautiful warm softly painted cottage setting matching reference1, medium-close view, readable at 340px width, characters together occupy center45% of frame. A single completed moment, not an action sequence. No UI, no grid, no panel border, no words/letters/logos/watermarks/hearts printed in image. No third character, no squirrel, no clothes. ABSOLUTELY NO cleaning cloth, soap, sponge, broom or scrubbing gesture. Do not recreate reference-card captions. No advanced furniture, no framed painting, shelf, chair, curtain, lamp, banner, picnic rug or permanent garden fixtures. Only specifically mentioned temporary objects. Keep background opaque and don't fade the bears. Inside the empty warm wooden cottage of reference1 after tidying the window area. The arched window is bare, no curtains. Brown Bubu and white Yier stand side by side on the clean wood floor, arms empty, gently leaning shoulders together and looking at their newly cleared cozy corner. Warm light on the floor, peaceful pleased expressions. No cups, no tea table or furniture.",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/region-house.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "output": "public/assets/activity-house-early.png",
+      "generatedSource": "E:\\codex-home\\generated_images\\01a12137-520f-7b60-9cb7-8758494bd181\\exec-1ed0e785-7251-40fb-8ff0-97be8d865e33.png"
+    },
+    {
+      "id": "activity-house-ready",
+      "region": "house",
+      "stage": "ready",
+      "name": "茶刚好，你也在",
+      "detail": "Inside the same cottage, a small low ROUND wooden tea table with turquoise legs, on the table exactly TWO little floral cups, one pink and one turquoise. Bubu and Yier sit close together on the clean floor behind the low table, empty hands resting naturally, warmly smiling at each other after the tea is ready. No other furniture. This is the quiet result of sharing tea, not pouring/holding utensils.",
+      "prompt": "Create ONE finished static cozy-game result illustration, 4:3 landscape, full opaque background. Reference1 is the existing environment/style; references2 and3 are ONLY authoritative character designs, NOT collage/layout references. Exactly TWO bears: Bubu caramel-brown with round yellow cheeks and dark brown outline; Yier white with brown ears, pink cheeks, tiny dark neck tuft and dot eyes. Bears are FLAT 2D cel-color drawings with uniform fill and crisp brown outline, never 3D, no volumetric shading on bodies. Preserve reference identity and proportions. Both full small bodies visible including feet, natural short arms, no extra limbs or hands. Beautiful warm softly painted cottage setting matching reference1, medium-close view, readable at 340px width, characters together occupy center45% of frame. A single completed moment, not an action sequence. No UI, no grid, no panel border, no words/letters/logos/watermarks/hearts printed in image. No third character, no squirrel, no clothes. ABSOLUTELY NO cleaning cloth, soap, sponge, broom or scrubbing gesture. Do not recreate reference-card captions. No advanced furniture, no framed painting, shelf, chair, curtain, lamp, banner, picnic rug or permanent garden fixtures. Only specifically mentioned temporary objects. Keep background opaque and don't fade the bears. Inside the same cottage, a small low ROUND wooden tea table with turquoise legs, on the table exactly TWO little floral cups, one pink and one turquoise. Bubu and Yier sit close together on the clean floor behind the low table, empty hands resting naturally, warmly smiling at each other after the tea is ready. No other furniture. This is the quiet result of sharing tea, not pouring/holding utensils.",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/region-house.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "output": "public/assets/activity-house-ready.png",
+      "generatedSource": "E:\\codex-home\\generated_images\\01a12137-520f-7b60-9cb7-8758494bd181\\exec-8aaf809a-c018-4860-bf60-9c96d875ff43.png"
+    },
+    {
+      "id": "activity-garden-early",
+      "region": "garden",
+      "stage": "early",
+      "name": "给未来的花留块晴天",
+      "detail": "In the open grassy flower garden of reference1, white picket fence and little cottage edge in soft focus. Bubu and Yier stand or crouch side by side looking with happy anticipation at a small neat empty cleared earth patch in the grass, as if they have chosen a future planting spot. Empty hands; no broom/seed bags/tools/potted plant/planter/furniture. No leaves scattered on the cleaned central patch.",
+      "prompt": "Create ONE finished static cozy-game result illustration, 4:3 landscape, full opaque background. Reference1 is the existing environment/style; references2 and3 are ONLY authoritative character designs, NOT collage/layout references. Exactly TWO bears: Bubu caramel-brown with round yellow cheeks and dark brown outline; Yier white with brown ears, pink cheeks, tiny dark neck tuft and dot eyes. Bears are FLAT 2D cel-color drawings with uniform fill and crisp brown outline, never 3D, no volumetric shading on bodies. Preserve reference identity and proportions. Both full small bodies visible including feet, natural short arms, no extra limbs or hands. Beautiful warm softly painted cottage setting matching reference1, medium-close view, readable at 340px width, characters together occupy center45% of frame. A single completed moment, not an action sequence. No UI, no grid, no panel border, no words/letters/logos/watermarks/hearts printed in image. No third character, no squirrel, no clothes. ABSOLUTELY NO cleaning cloth, soap, sponge, broom or scrubbing gesture. Do not recreate reference-card captions. No advanced furniture, no framed painting, shelf, chair, curtain, lamp, banner, picnic rug or permanent garden fixtures. Only specifically mentioned temporary objects. Keep background opaque and don't fade the bears. In the open grassy flower garden of reference1, white picket fence and little cottage edge in soft focus. Bubu and Yier stand or crouch side by side looking with happy anticipation at a small neat empty cleared earth patch in the grass, as if they have chosen a future planting spot. Empty hands; no broom/seed bags/tools/potted plant/planter/furniture. No leaves scattered on the cleaned central patch.",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/region-garden.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "output": "public/assets/activity-garden-early.png",
+      "generatedSource": "E:\\codex-home\\generated_images\\01a12137-520f-7b60-9cb7-8758494bd181\\exec-5a23f49b-e248-4f87-92dd-c15b12c6ff91.png"
+    },
+    {
+      "id": "activity-garden-ready",
+      "region": "garden",
+      "stage": "ready",
+      "name": "今天的新叶更精神",
+      "detail": "In the flower garden of reference1. One modest terracotta pot contains a single healthy green young seedling with two fresh leaves and tiny water droplets. Bubu and Yier squat next to it with EMPTY hands, proud gentle smiles looking at the newly watered leaves. Small flat 2D bears, warm fresh green environment. No watering-can held in hands; no stream; no garden rack/large flowerbeds or furniture. The planted seedling is the clear result focal point.",
+      "prompt": "Create ONE finished static cozy-game result illustration, 4:3 landscape, full opaque background. Reference1 is the existing environment/style; references2 and3 are ONLY authoritative character designs, NOT collage/layout references. Exactly TWO bears: Bubu caramel-brown with round yellow cheeks and dark brown outline; Yier white with brown ears, pink cheeks, tiny dark neck tuft and dot eyes. Bears are FLAT 2D cel-color drawings with uniform fill and crisp brown outline, never 3D, no volumetric shading on bodies. Preserve reference identity and proportions. Both full small bodies visible including feet, natural short arms, no extra limbs or hands. Beautiful warm softly painted cottage setting matching reference1, medium-close view, readable at 340px width, characters together occupy center45% of frame. A single completed moment, not an action sequence. No UI, no grid, no panel border, no words/letters/logos/watermarks/hearts printed in image. No third character, no squirrel, no clothes. ABSOLUTELY NO cleaning cloth, soap, sponge, broom or scrubbing gesture. Do not recreate reference-card captions. No advanced furniture, no framed painting, shelf, chair, curtain, lamp, banner, picnic rug or permanent garden fixtures. Only specifically mentioned temporary objects. Keep background opaque and don't fade the bears. In the flower garden of reference1. One modest terracotta pot contains a single healthy green young seedling with two fresh leaves and tiny water droplets. Bubu and Yier squat next to it with EMPTY hands, proud gentle smiles looking at the newly watered leaves. Small flat 2D bears, warm fresh green environment. No watering-can held in hands; no stream; no garden rack/large flowerbeds or furniture. The planted seedling is the clear result focal point.",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/region-garden.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "output": "public/assets/activity-garden-ready.png",
+      "generatedSource": "E:\\codex-home\\generated_images\\01a12137-520f-7b60-9cb7-8758494bd181\\exec-55dac67d-6deb-48da-8dd1-501c67ed91dd.png"
+    },
+    {
+      "id": "activity-courtyard-early",
+      "region": "courtyard",
+      "stage": "early",
+      "name": "门口整齐，心里也暖",
+      "detail": "On the clean pink stone patio by the round-top cottage door in reference1, flowers on the wall and leafy tree edge. A simple teal circular door mat is neatly aligned before the doorstep (first already unlocked furniture). Bubu and Yier stand close together with EMPTY hands, looking happily at the now tidy entrance. No soap, cloth, tea, dessert, furniture or other characters.",
+      "prompt": "Create ONE finished static cozy-game result illustration, 4:3 landscape, full opaque background. Reference1 is the existing environment/style; references2 and3 are ONLY authoritative character designs, NOT collage/layout references. Exactly TWO bears: Bubu caramel-brown with round yellow cheeks and dark brown outline; Yier white with brown ears, pink cheeks, tiny dark neck tuft and dot eyes. Bears are FLAT 2D cel-color drawings with uniform fill and crisp brown outline, never 3D, no volumetric shading on bodies. Preserve reference identity and proportions. Both full small bodies visible including feet, natural short arms, no extra limbs or hands. Beautiful warm softly painted cottage setting matching reference1, medium-close view, readable at 340px width, characters together occupy center45% of frame. A single completed moment, not an action sequence. No UI, no grid, no panel border, no words/letters/logos/watermarks/hearts printed in image. No third character, no squirrel, no clothes. ABSOLUTELY NO cleaning cloth, soap, sponge, broom or scrubbing gesture. Do not recreate reference-card captions. No advanced furniture, no framed painting, shelf, chair, curtain, lamp, banner, picnic rug or permanent garden fixtures. Only specifically mentioned temporary objects. Keep background opaque and don't fade the bears. On the clean pink stone patio by the round-top cottage door in reference1, flowers on the wall and leafy tree edge. A simple teal circular door mat is neatly aligned before the doorstep (first already unlocked furniture). Bubu and Yier stand close together with EMPTY hands, looking happily at the now tidy entrance. No soap, cloth, tea, dessert, furniture or other characters.",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/region-courtyard.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "output": "public/assets/activity-courtyard-early.png",
+      "generatedSource": "E:\\codex-home\\generated_images\\01a12137-520f-7b60-9cb7-8758494bd181\\exec-5cafa95f-aa67-41eb-86dd-a411fea3b4aa.png"
+    },
+    {
+      "id": "activity-courtyard-ready",
+      "region": "courtyard",
+      "stage": "ready",
+      "name": "把甜甜的一口准备好",
+      "detail": "On the pink stone courtyard by the cottage of reference1. A small temporary low WOOD serving tray set neatly on the stone ground holds a pretty small round cream-and-strawberry cake and exactly THREE little floral tea cups, ready for the invited friend. Bubu and Yier sit or crouch side by side behind the tray, EMPTY hands, satisfied warm smiles looking at the prepared treat. Only these TWO bears visible. No squirrel; no banner, picnic rug, table or permanent added furniture. Quiet still completed hospitality moment.",
+      "prompt": "Create ONE finished static cozy-game result illustration, 4:3 landscape, full opaque background. Reference1 is the existing environment/style; references2 and3 are ONLY authoritative character designs, NOT collage/layout references. Exactly TWO bears: Bubu caramel-brown with round yellow cheeks and dark brown outline; Yier white with brown ears, pink cheeks, tiny dark neck tuft and dot eyes. Bears are FLAT 2D cel-color drawings with uniform fill and crisp brown outline, never 3D, no volumetric shading on bodies. Preserve reference identity and proportions. Both full small bodies visible including feet, natural short arms, no extra limbs or hands. Beautiful warm softly painted cottage setting matching reference1, medium-close view, readable at 340px width, characters together occupy center45% of frame. A single completed moment, not an action sequence. No UI, no grid, no panel border, no words/letters/logos/watermarks/hearts printed in image. No third character, no squirrel, no clothes. ABSOLUTELY NO cleaning cloth, soap, sponge, broom or scrubbing gesture. Do not recreate reference-card captions. No advanced furniture, no framed painting, shelf, chair, curtain, lamp, banner, picnic rug or permanent garden fixtures. Only specifically mentioned temporary objects. Keep background opaque and don't fade the bears. On the pink stone courtyard by the cottage of reference1. A small temporary low WOOD serving tray set neatly on the stone ground holds a pretty small round cream-and-strawberry cake and exactly THREE little floral tea cups, ready for the invited friend. Bubu and Yier sit or crouch side by side behind the tray, EMPTY hands, satisfied warm smiles looking at the prepared treat. Only these TWO bears visible. No squirrel; no banner, picnic rug, table or permanent added furniture. Quiet still completed hospitality moment.",
+      "references": [
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/public/assets/region-courtyard.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/bubu.png",
+        "E:/Desktop/布布一二：好日子小屋/bubu-yier-cozy-home-v1.2/art/reference/yier.png"
+      ],
+      "output": "public/assets/activity-courtyard-ready.png",
+      "generatedSource": "E:\\codex-home\\generated_images\\01a12137-520f-7b60-9cb7-8758494bd181\\exec-db714fff-9881-4aca-86a1-efe34306deb1.png"
+    }
+  ]
+}

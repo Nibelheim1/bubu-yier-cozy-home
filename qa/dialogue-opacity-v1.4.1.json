@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-10",
+  "version": "1.4.1",
+  "issue": "一二在剧情对话中有时半透明",
+  "userConfirmedLocation": "剧情对话",
+  "cause": "src/style.css .story-character opacity .77 for inactive speakers; .speaking opacity1. Reproduced before fix in actual intro replay.",
+  "fix": "All dialogue character sprites use opacity1; remove opacity transition. Preserve speaking class, entrance motion, speaker name and avatar.",
+  "sourceImagesChanged": false,
+  "verification": {
+    "buildPassed": true,
+    "runtimeAssets": 68,
+    "browser": "Current dist on local HTTP, actual intro replay via UI",
+    "before": {
+      "yierSpeaking": {
+        "bubu": 0.77,
+        "yier": 1
+      },
+      "bubuSpeaking": {
+        "bubu": 1,
+        "yier": 0.77
+      }
+    },
+    "after": {
+      "yierSpeaking": {
+        "bubu": 1,
+        "yier": 1
+      },
+      "bubuSpeaking": {
+        "bubu": 1,
+        "yier": 1
+      }
+    },
+    "screenshots": {
+      "before": "output/playwright/dialogue-opacity-before.png",
+      "after": "output/playwright/dialogue-opacity-after.png"
+    },
+    "assetReview": "Viewed original Yier nine-pose motion atlas, inspected alpha data for walk, handover, support, idle, turn, shy, rest and tea GIF. Motion visible alpha means250.6–250.8/255; static turn/idle/shy body255; tea GIF visible pixels255, no blank frames.",
+    "testScope": "Build plus actual browser before/after checks; no unrelated tests."
+  },
+  "delivery": "release/熊熊之家_双击即玩.html",
+  "remoteSync": "Not pushed in this bugfix turn."
+}

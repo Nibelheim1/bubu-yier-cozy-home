@@ -27,6 +27,15 @@ test('ambient actors really change position and walk frames with continuous segm
  }
 });
 
+test('idle return cycle leaves both bears empty-handed in every region',()=>{
+ for(const region of ['house','garden','courtyard'])for(const stage of [1,24]){
+  const frame=ambientFrame(state(stage),region,null,83000);
+  assert.equal(frame.walking,false);assert.equal(frame.activity,'look');
+  assert.deepEqual(frame.actors.map(a=>a.id),['bubu-idle','yier-turn']);
+  assert.deepEqual(frame.props,[]);
+ }
+});
+
 test('personal activities require built furniture and use its moved coordinates without changing save',()=>{
  const early=ambientFrame(state(0),'house',null,23000);assert.equal(early.actors.some(a=>['read','paint'].includes(a.activity)),false);
  const s=state();s.decorPositions={16:{x:35,y:44},8:{x:60,y:41},17:{x:50,y:66}};const before=JSON.stringify(s);

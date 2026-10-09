@@ -1,0 +1,190 @@
+{
+  "version": "1.4.2",
+  "checkedAt": "2026-10-09T17:50:54.490Z",
+  "tests": {
+    "command": "node --test tests/life.test.mjs tests/scenes-motion.test.mjs",
+    "passed": 12,
+    "failed": 0
+  },
+  "build": {
+    "version": "1.4.2",
+    "runtimeAssets": 74,
+    "buildId": "5b482bdf5fb9",
+    "postBrowserChange": "Only help text adjusted after browser QA; same result UI and images."
+  },
+  "browser": {
+    "url": "http://127.0.0.1:4173/?qa",
+    "fixtures": "Existing v1.2 campaign checkpoints migrated through validateState; test activity days cleared. Replay unlocked by two additional engine days, not by assigning unlock flags.",
+    "resultCases": [
+      {
+        "region": "house",
+        "phase": "early",
+        "stage": 4,
+        "beforeCoins": 454,
+        "animations": [],
+        "loaded": true,
+        "size": [
+          1448,
+          1086
+        ],
+        "src": "assets/activity-house-early.png",
+        "text": "整理窗边一二把窗边擦亮，布布留出一个能一起歇脚的位置。已收好 8 金币今天的小事已完成，奖励已到账，明天还能一起做新的小事。把今天收好",
+        "coins": 462,
+        "modal": "activityResult",
+        "playerActive": false
+      },
+      {
+        "region": "garden",
+        "phase": "early",
+        "stage": 12,
+        "beforeCoins": 1104,
+        "animations": [],
+        "loaded": true,
+        "size": [
+          1448,
+          1086
+        ],
+        "src": "assets/activity-garden-early.png",
+        "text": "扫扫落叶两只熊扫好落叶，一起选一个将来种花的位置。已收好 8 金币今天的小事已完成，奖励已到账，明天还能一起做新的小事。把今天收好",
+        "coins": 1112,
+        "modal": "activityResult",
+        "playerActive": false
+      },
+      {
+        "region": "courtyard",
+        "phase": "early",
+        "stage": 20,
+        "beforeCoins": 1810,
+        "animations": [],
+        "loaded": true,
+        "size": [
+          1448,
+          1086
+        ],
+        "src": "assets/activity-courtyard-early.png",
+        "text": "整理门口两只熊把门口整理好，给将来的客人留出位置。已收好 8 金币今天的小事已完成，奖励已到账，明天还能一起做新的小事。把今天收好",
+        "coins": 1818,
+        "modal": "activityResult",
+        "playerActive": false
+      },
+      {
+        "region": "house",
+        "phase": "ready",
+        "stage": 24,
+        "beforeCoins": 2570,
+        "animations": [],
+        "loaded": true,
+        "size": [
+          1448,
+          1086
+        ],
+        "src": "assets/activity-house-ready.png",
+        "text": "一起喝杯茶布布把茶吹凉，一二摆好两只杯子。忙完的两只熊，一起歇一会儿。已收好 8 金币今天的小事已完成，奖励已到账，明天还能一起做新的小事。把今天收好",
+        "coins": 2578,
+        "modal": "activityResult",
+        "playerActive": false
+      },
+      {
+        "region": "garden",
+        "phase": "ready",
+        "stage": 24,
+        "beforeCoins": 2570,
+        "animations": [],
+        "loaded": true,
+        "size": [
+          1448,
+          1086
+        ],
+        "src": "assets/activity-garden-ready.png",
+        "text": "扶苗浇浇水一二扶稳小苗，布布慢慢浇水，叶子又精神了一点。已收好 8 金币今天的小事已完成，奖励已到账，明天还能一起做新的小事。把今天收好",
+        "coins": 2578,
+        "modal": "activityResult",
+        "playerActive": false
+      },
+      {
+        "region": "courtyard",
+        "phase": "ready",
+        "stage": 24,
+        "beforeCoins": 2570,
+        "animations": [],
+        "loaded": true,
+        "size": [
+          1448,
+          1086
+        ],
+        "src": "assets/activity-courtyard-ready.png",
+        "text": "准备分享的茶点一二摆好点心，布布端稳茶盘，等邀请中的小栗来坐坐。已收好 8 金币今天的小事已完成，奖励已到账，明天还能一起做新的小事。把今天收好",
+        "coins": 2578,
+        "modal": "activityResult",
+        "playerActive": false
+      }
+    ],
+    "repeatClaim": {
+      "code": "CLAIMED",
+      "coinsUnchanged": true,
+      "buttonDisabled": true
+    },
+    "replay": {
+      "src": "assets/activity-courtyard-ready.png",
+      "coinsUnchanged": true,
+      "playerActive": false,
+      "animations": [],
+      "rewardTextAbsent": true
+    },
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "documentWidth": 390,
+      "modal": {
+        "bottom": 832,
+        "height": 553.671875,
+        "left": 10,
+        "right": 380,
+        "top": 278.328125,
+        "width": 370,
+        "x": 10,
+        "y": 278.328125
+      },
+      "img": {
+        "bottom": 609.828125,
+        "height": 250.5,
+        "left": 28,
+        "right": 362,
+        "top": 359.328125,
+        "width": 334,
+        "x": 28,
+        "y": 359.328125
+      }
+    },
+    "ambient": [
+      {
+        "actors": [
+          "bubu-idle",
+          "yier-turn"
+        ],
+        "heldCleaning": 0,
+        "region": "house"
+      },
+      {
+        "actors": [
+          "bubu-idle",
+          "yier-turn"
+        ],
+        "heldCleaning": 0,
+        "region": "garden"
+      },
+      {
+        "actors": [
+          "bubu-idle",
+          "yier-turn"
+        ],
+        "heldCleaning": 0,
+        "region": "courtyard"
+      }
+    ]
+  },
+  "limitations": [
+    "Desktop browser with mobile viewport emulation, not phone hardware",
+    "No new full campaign, audio, native download or load benchmark verification"
+  ]
+}

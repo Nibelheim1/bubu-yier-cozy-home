@@ -13,6 +13,7 @@ const sourceNames=['data.mjs','engine.mjs','actor-bounds.mjs','visuals.mjs','lif
 const sources=await Promise.all(sourceNames.map(f=>fs.readFile(path.join(root,'src',f),'utf8')));
 const code=sources.map(s=>s.replace(/^import .*?;\s*$/gm,'').replace(/^export\s*\{[^}]*\}\s*from\s*['"][^'"]+['"];?\s*$/gm,'').replace(/^export /gm,'')).join('\n\n');
 const assetsDir=path.join(root,'public/assets');
+const activityResultIds=['house','garden','courtyard'].flatMap(region=>['early','ready'].map(phase=>`activity-${region}-${phase}`));
 // Editable originals live in art/source; public/assets contains current runtime media.
 const runtimeIds=[
   'app-icon','paper-texture','cozy-loop',
@@ -20,10 +21,10 @@ const runtimeIds=[
   ...['bubu','yier'].flatMap(who=>['back','face','happy','idle','joy','side','sit','sleep','surprise','turn','walk','paint','shy'].map(pose=>`${who}-${pose}`)),
   'story-companion','story-garden','story-night','story-rest',
   ...['coin','crate','energy','gift','scissors','star','storage'].map(id=>`util-${id}`),
-  ...SPRITE_ATLAS_IDS,...WORLD_ASSET_IDS,
+  ...SPRITE_ATLAS_IDS,...WORLD_ASSET_IDS,...activityResultIds,
 ];
 const available=new Set(await fs.readdir(assetsDir));
-const required=[...SPRITE_ATLAS_IDS,...WORLD_ASSET_IDS];
+const required=[...SPRITE_ATLAS_IDS,...WORLD_ASSET_IDS,...activityResultIds];
 const missing=required.filter(id=>!available.has(`${id}.png`));
 if(missing.length)throw new Error(`新版素材尚未齐备：${missing.join('、')}。请将原始生成图放入 public/assets 后再构建。`);
 const files=runtimeIds.map(id=>`${id}.${id==='cozy-loop'?'wav':id.startsWith('ambient-')&&id.endsWith('-motion')?'gif':'png'}`).filter(f=>available.has(f)).sort();

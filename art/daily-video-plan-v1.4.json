@@ -1,6 +1,7 @@
 {
   "version": "1.4.0",
-  "status": "prompts-only-not-generated",
+  "status": "historical-prompts-superseded-by-static-results",
+  "supersededBy": "art/activity-results-v1.4.2.json",
   "created": "2026-10-09",
   "items": [
     {

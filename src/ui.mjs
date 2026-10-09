@@ -1,4 +1,4 @@
-import {VERSION,TITLE,CATS,CHAINS,CFG,CHAPTERS,INTRO,TASKS,DECOR,REGIONS,DAILY,HOME_CHAT,TEA_PLANS,SOUVENIRS,itemName,itemKey,mass} from './data.mjs';
+import {VERSION,TITLE,CATS,CHAINS,CFG,CHAPTERS,INTRO,TASKS,DECOR,REGIONS,DAILY,HOME_CHAT,TEA_PLANS,SOUVENIRS,MEMORY_GATES,itemName,itemKey,mass} from './data.mjs';
 import {GameEngine,validateState,freshState,levelOf,levelReward,levelProgress,levelGift,stockCap,clone} from './engine.mjs';
 import {spriteSpec,spriteContentRect,drawSprite,describeScene,renderSceneHTML,drawSceneCanvas,createScenePlayer,SCENE_STYLES,renderWorldOverlays,decorPlacement} from './visuals.mjs';
 import {boardTapIntent,boardDropIntent,createPressHold} from './interaction.mjs';
@@ -117,7 +117,7 @@ function run(r,{quiet=false}={}){
  else if(r.kind==='expand'){sounds.play('success');toast('又能多收好四件小东西啦。');}
  else if(r.kind==='buy'){sounds.play('tap');toast(r.key==='parcel'?'四件补给已放进“待领礼物”，满盘也不会丢失。':'已经放进随身道具。');}
  else if(['dailyGift','dailyReward'].includes(r.kind)){sounds.play('success');toast('今天的小奖励，收好啦！');burst(null);}
- else if(r.kind==='homeActivity'){sounds.play('success');playHomeActivity(r);toast(`${r.message} · 金币 +${r.coins}`,4000);burst(null);if(r.milestone)toast('新的家园回忆已经收进手帐。',4500);}
+ else if(r.kind==='homeActivity'){sounds.play('success');playHomeActivity(r);}
  else if(r.kind==='levelGift'){sounds.play('success');toast(`Lv.${r.level} 成长礼包已收好，材料在待领礼物。`);burst(null);}
  else if(r.kind==='refresh'){toast('换了一张新纸条。原来的物品都还在。');}
  else if(r.kind==='sort'){toast('按类别和等级整理好了，没有自动合成。');}
@@ -365,12 +365,13 @@ function dailyContent(){
 
 // ------- Sheets -------
 function openModal(m){
+ if(m.type==='activityResult'||m.type==='worldMemory'){ui.scenePlayer?.destroy();ui.scenePlayer=null;ui.sceneSnapshot=null;ui.sceneAwaitChoice=false;}
  cancelDrag();cancelFurnitureDrag();if(!ui.modal)modalReturnFocus=focusKey(document.activeElement);ui.modal=m;renderModal();syncInert();$('.modal [data-action="closeModal"]')?.focus({preventScroll:true});
 }
 function closeModal(){
  ui.scenePlayer?.destroy();ui.scenePlayer=null;ui.sceneSnapshot=null;ui.sceneAwaitChoice=false;ui.modal=null;modalRoot.innerHTML='';syncInert();findFocus(modalReturnFocus)?.focus({preventScroll:true});modalReturnFocus=null;
 }
-function sheet(title,body){return `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="modal-handle"></div><div class="modal-title"><h2>${title}</h2>${ib('close','closeModal','关闭')}</div>${body}</section></div>`;}
+function sheet(title,body,staticResult=false){return `<div class="modal-backdrop${staticResult?' activity-result-backdrop':''}"><section class="modal${staticResult?' activity-result-modal':''}" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="modal-handle"></div><div class="modal-title"><h2>${title}</h2>${ib('close','closeModal','关闭')}</div>${body}</section></div>`;}
 function renderModal(){
  const focus=focusKey(document.activeElement),m=ui.modal;if(!m){modalRoot.innerHTML='';return;}const s=game.s;let title='',body='';
  if(m.type==='parcel'){title='给哪一份心愿补给？';body=parcelContent(m);}
@@ -414,8 +415,10 @@ function renderModal(){
  }else if(m.type==='furniture'){
   const t=TASKS[m.id],region=REGIONS.find(r=>r.id===DECOR[m.id].region);title=t.name;
   body=`<div class="furniture-detail">${picture(t.decor)}</div><p class="description center">${region.name}里的第 ${DECOR.filter(d=>d.region===region.id&&d.id<=m.id).length} 个小愿望。<br>${esc(t.wish)}</p><div class="actions">${btn('重温这段故事','replayTask','alt',`data-id="${m.id}"`)}${btn('换个配色','redecorate','',`data-id="${m.id}"`)}${btn('回到场景移动','editFurniture','alt',`data-id="${m.id}"`)}</div><p class="note">点击家具可显示“移动”；按住拖动，松手保存。位置和配色都会保留。</p>`;
- }else if(m.type==='worldMemory'){
-  title=m.result?.memoryName||'家园的日常回忆';body=`<div class="activity-memory-scene">${homeScene(s.stage,{mini:true,region:m.result?.region||s.world.region})}</div><p class="warm-text">整理过，陪伴过，<br>每一天都多一点共同的记忆。</p><p class="description center">在同一片家园，累计三天陪伴。<br>回忆已收进手帐，明天还能一起做新的小事。</p>${btn('把今天收好','closeModal','wide')}`;
+ }else if(m.type==='activityResult'||m.type==='worldMemory'){
+  const r=m.result||{},region=REGIONS.find(v=>v.id===r.region)||REGIONS[0],details=game.activityDetails(region.id),ready=s.stage>=MEMORY_GATES[region.id],replay=m.replay||m.type==='worldMemory';
+  title=replay?(r.memoryName||region.memoryName):details.activityLabel;
+  body=`<img class="activity-result-art" src="${asset(`activity-${region.id}-${ready?'ready':'early'}`)}" alt="${esc(region.name+' · '+details.activityLabel+'的结果图')}" draggable="false"><p class="activity-result-message">${esc(r.message||details.activityText)}</p>${!replay&&r.coins?`<p class="activity-result-reward">已收好 ${r.coins} 金币${r.xp?' · '+r.xp+' 经验':''}</p>`:''}${r.milestone?'<p class="description center">新的家园回忆已收进手帐。</p>':''}<p class="note">${replay?'重温回忆不会重复发放奖励。':'今天的小事已完成，奖励已到账，明天还能一起做新的小事。'}</p>${btn(replay?'收好这份回忆':'把今天收好','closeModal','wide')}`;
  }else if(m.type==='ending'){
   const arrived=s.tea.firstVisit==='arrived';title=arrived?'熊熊之家，继续一起过':'熊熊之家，等你来坐坐';body=`${picture('party-memory','ending-party')}<div class="warm-text">${speechRow('yier','布布，我们真的把它变成家了。')}${speechRow('bubu','嗯。花园和庭院，也都是我们的家。')}</div><div class="stats-grid" style="margin-top:18px"><div class="stat"><strong>24</strong><span>个愿望变成真的</span></div><div class="stat"><strong>${s.stats.merge}</strong><span>次小小合成</span></div><div class="stat"><strong>${Object.keys(s.seen).length}</strong><span>件可爱收藏</span></div></div><p class="description center">${arrived?'六章故事已经收好。去花园照顾花草，回小屋准备点心，再与小栗一起喝茶，继续积累家园回忆。':'六章待客准备已经收好。点心和杯子都备齐了，去迎接受邀的小栗，再一起喝杯茶吧。'}</p>${arrived?'':btn('迎接小栗首访','firstVisit','wide alt')}${btn(arrived?'明天，也一起可爱':'把家园收好','endingDone','wide')}`;
  }else if(m.type==='confirmSell'){
@@ -438,10 +441,10 @@ function renderModal(){
    ['07 · 记得保管熊熊之家','这是单机游戏，只保存在当前浏览器。换设备前导出 JSON 存档，再到新设备导入。浏览器无痕模式和直接打开文件时的保存能力，取决于浏览器本身。'],
    ['08 · 自己摆放喜欢的家','在小屋、花园或庭院点击已布置家具，会显示“移动”按钮。按住按钮拖动，松手保存位置；可恢复原位。也可聚焦移动按钮，用方向键微调，位置随存档和照片保留。'],
    ['09 · 看看窗外的天气','家园会跟随本地时间改变晨昼暮夜，天气是游戏内模拟。在设置中可预览时段和天气，点“跟随时间”恢复自动，不影响订单与奖励。'],
-   ['10 · 两只熊也有自己的小日常','布布和一二会散步、整理、在已摆好的家具旁做事，偶尔走到一起贴贴。移动家具、聊天和读剧情时会暂停；设置中的“减少动态”可让家园安静下来。']
+   ['10 · 两只熊也有自己的小日常','布布和一二会散步、看看风景、在已摆好的家具旁歇一会儿，偶尔走到一起贴贴。“一起做”的小事直接展示结果图。移动家具、聊天和读剧情时会暂停；设置中的“减少动态”可让家园安静下来。']
   ].map(([h,p])=>`<div class="help-section"><h3>${h}</h3><p>${p}</p></div>`).join('')}`;
  }
- modalRoot.innerHTML=sheet(title,body);syncInert();if(m.type==='event')syncEventControls();const restored=findFocus(focus,modalRoot);(restored||$('.modal [data-action="closeModal"]'))?.focus({preventScroll:true});
+ modalRoot.innerHTML=sheet(title,body,m.type==='activityResult'||m.type==='worldMemory');syncInert();if(m.type==='event')syncEventControls();const restored=findFocus(focus,modalRoot);(restored||$('.modal [data-action="closeModal"]'))?.focus({preventScroll:true});
 }
 
 // ------- Launch and comic dialogue -------
@@ -474,7 +477,8 @@ function chat(who){
  if(ui.tab!=='home')return;clearTimeout(chatTimer);$('.room-chat')?.remove();const lines=HOME_CHAT.filter(l=>l[0]===who);if(!lines.length)return;const [,pose,text]=lines[Math.floor(Math.random()*lines.length)];const scene=$('.home-view .home-scene');if(!scene)return;const el=document.createElement('div');el.className='room-chat';el.innerHTML=speechRow(who,text);scene.append(el);sounds.play(who==='yier'?'yier':'talk');chatTimer=setTimeout(()=>{el.remove();refreshLivingScene();},3500);
 }
 function playHomeActivity(r){
- playEvent('homeActivity-'+r.region,{result:r});
+ clearTimeout(toastTimer);$('#toast').className='';
+ openModal({type:'activityResult',result:r});
 }
 // ------- Board pointer handling: primary pointer only; cancellations never move items -------
 function selectCell(index){
@@ -595,7 +599,7 @@ app.addEventListener('click',async(e)=>{
   case 'worldMap':ui.homeMode='map';render();main.scrollTop=0;break;
   case 'visitRegion':{cancelFurnitureDrag();ui.decorSelected=null;const r=game.visitRegion(d.region);if(r.ok){persist();ui.homeMode='region';ui.tab='home';render();main.scrollTop=0;sounds.play('tap');}else run(r);break;}
   case 'homeActivity':run(game.homeActivity(d.region));break;
-  case 'worldMemory':{const m=game.worldProgress().memories.find(v=>v.region===d.region);if(m?.unlocked)openModal({type:'worldMemory',result:{region:d.region,memoryName:m.name}});break;}
+  case 'worldMemory':{const m=game.worldProgress().memories.find(v=>v.region===d.region);if(m?.unlocked)openModal({type:'activityResult',replay:true,result:{region:d.region,memoryName:m.name}});break;}
   case 'furniture':if(+d.id<game.s.stage){ui.decorSelected=+d.id;render();$('.furniture-move-handle button')?.focus({preventScroll:true});}break;
   case 'furnitureDetails':if(+d.id<game.s.stage)openModal({type:'furniture',id:+d.id});break;
   case 'editFurniture':{const id=+d.id;if(id>=game.s.stage)break;closeModal();game.visitRegion(DECOR[id].region);ui.homeMode='region';ui.tab='home';ui.decorSelected=id;persist();render();main.scrollTop=0;$('.furniture-move-handle button')?.focus({preventScroll:true});break;}
