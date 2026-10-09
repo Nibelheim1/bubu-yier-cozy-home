@@ -5,12 +5,18 @@ import {resolve} from 'node:path';
 import {GameEngine,freshState,validateState,clone,levelOf,levelCost,levelReward,levelGift} from '../src/engine.mjs';
 import {VERSION,CFG,CATS,CHAINS,TASKS,DAILY,REGIONS,needMass,mass} from '../src/data.mjs';
 
-// One fixed seed, legal public actions only. Virtual waiting is not human playtime.
+// One fixed seed, legal public economy actions. Virtual waiting is not human playtime.
+// Resident travel is a model assumption: the player brings both bears to each
+// activity region. This changes only their model location, and does not simulate
+// pointer gestures, door transitions, or the time spent dragging them there.
 export function runBalanceCampaign(seed=20261009){
 const start=Date.parse('2026-10-09T08:00:00+08:00');
 let now=start,calls=0,waitMs=0,naturalEnergy=0,firstWaitAt=null,currentGoal=null;
 const g=new GameEngine(freshState(now,seed),now),log=[],transactions=[],gifts=[],levels=[],production={},checkpoints={};
 const initialMass=g.s.board.reduce((s,t)=>s+mass(t),0);
+function modelPlayerBringsBothBearsTo(region){
+ for(const who of ['bubu','yier'])g.s.residents[who].region=region;
+}
 const tickTo=(t)=>{const before=g.s.energy;now=t;g.tick(now);naturalEnergy+=g.s.energy-before;};
 function act(label,fn){
  tickTo(now+250);const before={coins:g.s.coins,energy:g.s.energy,xp:g.s.xp,level:levelOf(g.s),stage:g.s.stage,bag:g.s.bag.scissors};
@@ -88,7 +94,7 @@ for(let stage=0;stage<TASKS.length;stage++){
   act('submitMain',()=>g.submit('main',stage,o.phase));claimRewards();
  }
  act('build',()=>g.build(stage%2));claimRewards();
- for(const r of REGIONS)if(g.s.world.activities[r.id].day!==g.s.daily.day)act(`activity:${r.id}`,()=>g.homeActivity(r.id,now));
+ for(const r of REGIONS)if(g.s.world.activities[r.id].day!==g.s.daily.day){modelPlayerBringsBothBearsTo(r.id);act(`activity:${r.id}`,()=>g.homeActivity(r.id,now));}
  validateState(g.s);
  if(g.s.stage%4===0)checkpoints[g.s.stage]=clone(g.s);
  log.push({task:stage+1,title:TASKS[stage].name,baseMass:needMass(TASKS[stage].needs),produce:g.s.stats.produce-before.produce,merge:g.s.stats.merge-before.merge,waitSeconds:(waitMs-before.wait)/1000,virtualSeconds:(now-before.now)/1000,energyStart:before.energy,energyEnd:g.s.energy,coinsStart:before.coins,coinsEnd:g.s.coins,level:levelOf(g.s),boardFree:g.free(),storage:g.s.storage.length,capacity:g.s.capacity});
@@ -97,7 +103,7 @@ const chapterLog=Array.from({length:6},(_,i)=>{const rows=log.slice(i*4,i*4+4);r
 const coinTotals={};for(const t of transactions)if(t.coins)coinTotals[t.action]=(coinTotals[t.action]||0)+t.coins;
 const mainMass=TASKS.reduce((a,t)=>a+needMass(t.needs),0),mainXP=TASKS.reduce((a,t)=>a+10+Math.floor(needMass(t.needs)/3)+CFG.buildXP,0);
 const theoretical={mainMass,mainXP,initialMass,bySource:Object.fromEntries(CATS.map(c=>[c,needMass(TASKS.flatMap(t=>t.needs).filter(r=>r.c===c))])),productionMassPerEnergy:[1.2,1.32,1.44],chapterMass:chapterLog.map(r=>r.baseMass),grossEnergyIgnoringGifts:[1.2,1.32,1.44].map(p=>Number((mainMass/p).toFixed(2))),naturalEnergyPerHour:3600000/CFG.energyEvery,emptyToFullSeconds:CFG.energyCap*CFG.energyEvery/1000,upgradeRewards:Array.from({length:9},(_,i)=>({level:i+2,costFromPrevious:levelCost(i+1),...levelReward(i+2)})),levelGifts:[5,10,20,40,60,95].map(level=>({level,...levelGift(level,24)}))};
-const result={version:VERSION,date:'2026-10-09',seed,status:'passed',method:'One fixed-seed legal public-action campaign; no resource injection, no removed energy methods, no undo/calm, no human session estimate.',strategy:'Main only, immediate needed-chain merges, claim chapter/level/daily material and coins; future-mass >=50 level-2 producer upgrades retaining145 coins, one storage expansion; at <=10 energy repeatedly buy current-needs parcels if relevant missing base mass >=5, retaining145 coins. No side/tea submits, no sales/splits unless board recovery needs sale.',theoretical,simulation:{calls,virtualSeconds:(now-start)/1000,waitSeconds:waitMs/1000,produce:g.s.stats.produce,merge:g.s.stats.merge,mainOrders:g.s.stats.order,build:g.s.stage,xp:g.s.xp,level:levelOf(g.s),energy:g.s.energy,naturalEnergy,coins:g.s.coins,initialCoins:120,coinTotals,firstWaitAt,gifts,levels,production,chapterLog,taskLog:log,transactions,finalInventory:{boardMass:g.s.board.reduce((a,t)=>a+mass(t),0),storageMass:g.s.storage.reduce((a,t)=>a+mass(t),0),pendingMass:g.s.pending.reduce((a,t)=>a+mass(t),0),scissors:g.s.bag.scissors,producers:g.s.producers,capacity:g.s.capacity}},limitations:['The expected-mass division is a planning approximation, not an exact integer recipe guarantee.','Virtual actions take 250 ms each; this is a solver convention, not a player-speed or retention measurement.','One policy and one seed do not establish optimal play or a distribution.','No real UI, mobile, real-world weather, paid monetization or real retention is verified.']};
+const result={version:VERSION,date:'2026-10-09',seed,status:'passed',method:'One fixed-seed legal public economy-action campaign, with modeled resident travel before regional activities; no resource injection, no removed energy methods, no undo/calm, no human session estimate.',strategy:'Main only, immediate needed-chain merges, claim chapter/level/daily material and coins; future-mass >=50 level-2 producer upgrades retaining145 coins, one storage expansion; at <=10 energy repeatedly buy current-needs parcels if relevant missing base mass >=5, retaining145 coins. No side/tea submits, no sales/splits unless board recovery needs sale.',theoretical,simulation:{calls,virtualSeconds:(now-start)/1000,waitSeconds:waitMs/1000,produce:g.s.stats.produce,merge:g.s.stats.merge,mainOrders:g.s.stats.order,build:g.s.stage,xp:g.s.xp,level:levelOf(g.s),energy:g.s.energy,naturalEnergy,coins:g.s.coins,initialCoins:120,coinTotals,firstWaitAt,gifts,levels,production,chapterLog,taskLog:log,transactions,finalInventory:{boardMass:g.s.board.reduce((a,t)=>a+mass(t),0),storageMass:g.s.storage.reduce((a,t)=>a+mass(t),0),pendingMass:g.s.pending.reduce((a,t)=>a+mass(t),0),scissors:g.s.bag.scissors,producers:g.s.producers,capacity:g.s.capacity}},limitations:['The expected-mass division is a planning approximation, not an exact integer recipe guarantee.','Virtual actions take 250 ms each; this is a solver convention, not a player-speed or retention measurement.','Resident travel sets model locations directly; drag gestures, door transitions and travel time are not simulated.','One policy and one seed do not establish optimal play or a distribution.','No real UI, mobile, real-world weather, paid monetization or real retention is verified.']};
 return {result,final:clone(g.s),checkpoints};
 }
 

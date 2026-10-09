@@ -47,8 +47,10 @@ test('reset restores original default layout, including untouched old arrangemen
 
 test('tea, first visit and souvenirs freeze layout; older and chapter replays use defaults',()=>{
  const g=setup();g.moveDecor(5,35,76);const order=g.teaOrder();
+ for(const who of ['bubu','yier'])g.s.residents[who].region=order.region;
  for(const r of order.needs)for(let n=0;n<r.n;n++)g.s.storage.push({k:'item',c:r.c,l:r.l});
  const tea=g.submit('tea',order.id);assert.ok(tea.ok);assert.deepEqual(tea.result.decorPositions[5],{x:35,y:76});
+ for(const who of ['bubu','yier'])g.s.residents[who].region='courtyard';
  const first=g.beginFirstVisit();assert.ok(first.ok);g.moveDecor(5,70,50);
  const remembered=describeScene(g.s,{teaResult:tea.result});assert.equal(decor(remembered,5).x,35);
  assert.equal(decor(describeScene(g.s,{region:'house'}),5).x,70);
@@ -61,14 +63,17 @@ test('tea, first visit and souvenirs freeze layout; older and chapter replays us
 });
 
 test('garden support and watering follow a relocated seedling',()=>{
- const g=setup();g.moveDecor(12,50,70);const pending=[],frames=[];
- const player=createScenePlayer({event:'homeActivity-garden',scene:describeScene(g.s,{region:'garden'}),reducedMotion:true,schedule:fn=>{pending.push(fn);return pending.length;},cancel:()=>{},onFrame:s=>frames.push(s)});
+ const g=setup();assert.ok(g.chooseTeaPlan('garden').ok);
+ for(const who of ['bubu','yier'])g.s.residents[who].region='garden';
+ const prepareGardenTea=()=>{const order=g.teaOrder();for(const r of order.needs)for(let n=0;n<r.n;n++)g.s.storage.push({k:'item',c:r.c,l:r.l});const tea=g.submit('tea',order.id);assert.ok(tea.ok);return tea.result;};
+ g.moveDecor(12,50,70);const pending=[],frames=[];
+ const player=createScenePlayer({event:'tea',scene:describeScene(g.s,{teaResult:prepareGardenTea()}),reducedMotion:true,schedule:fn=>{pending.push(fn);return pending.length;},cancel:()=>{},onFrame:s=>frames.push(s)});
  player.start();pending.shift()();player.advance();pending.shift()();
  const water=frames.findLast(s=>s.action?.kind==='water');
- assert.equal(water.layers.find(l=>l.who==='yier').x,62);assert.equal(water.layers.find(l=>l.who==='bubu').x,75);
- assert.equal(water.layers.find(l=>l.key==='watering-can').x,69);player.destroy();
+ assert.equal(water.layers.find(l=>l.who==='yier').x,62);assert.equal(water.layers.find(l=>l.who==='bubu').x,84);
+ assert.equal(water.layers.find(l=>l.key==='watering-can').x,78);player.destroy();
  g.moveDecor(12,100,100);const jobs=[],edgeFrames=[];
- const edge=createScenePlayer({event:'homeActivity-garden',scene:describeScene(g.s,{region:'garden'}),reducedMotion:true,schedule:fn=>{jobs.push(fn);return jobs.length;},cancel:()=>{},onFrame:s=>edgeFrames.push(s)});
+ const edge=createScenePlayer({event:'tea',scene:describeScene(g.s,{teaResult:prepareGardenTea()}),reducedMotion:true,schedule:fn=>{jobs.push(fn);return jobs.length;},cancel:()=>{},onFrame:s=>edgeFrames.push(s)});
  edge.start();jobs.shift()();edge.advance();jobs.shift()();
  const edgeWater=edgeFrames.findLast(s=>s.action?.kind==='water');
  for(const who of ['bubu','yier']){const a=edgeWater.layers.find(l=>l.who===who);assert.ok(a.x>=11&&a.x<=89&&a.y>=14&&a.y<=86);assert.ok(a.x<g.s.decorPositions[12].x);}

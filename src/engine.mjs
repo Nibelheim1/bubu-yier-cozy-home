@@ -1,5 +1,6 @@
 import {VERSION,APP_VERSION,SCHEMA_VERSION,CATS,CHAINS,CFG,TASKS,DECOR,REGIONS,DAILY,SIDE_FLAVOR,MEMORY_GATES,TEA_CONDITIONS,TEA_PLANS,SOUVENIRS,teaResponse,itemKey,needMass,mass,orderXP} from './data.mjs';
 import {decorPlacement,decorBounds} from './scenes.mjs';
+import {freshResidents,validResidents} from './residents.mjs';
 
 /** Deterministic, DOM-free game model. Every public mutation validates before spending. */
 export const clone = (v)=>JSON.parse(JSON.stringify(v));
@@ -41,7 +42,7 @@ export function freshState(now=Date.now(),seed=20261007){
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
   stats:{merge:0,produce:0,order:0,build:0,sold:0,unweb:0},
   seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],
-  world:freshWorld(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,reducedMotion:false}};
+  world:freshWorld(),residents:freshResidents(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,reducedMotion:false}};
 }
 
 export class GameEngine{
@@ -81,6 +82,7 @@ export class GameEngine{
   if(this.s.stage<Math.max(1,region.unlock))return bad('TUTORIAL','先铺好第一块门垫，再一起照顾家园吧。');
   const record=this.s.world.activities[id];
   if(record.day>=this.s.daily.day)return bad('CLAIMED','今天已经一起做过啦，明天再来看看。');
+  if(['bubu','yier'].some(who=>this.s.residents[who].region!==id))return bad('APART','先把布布和一二带到同一个地方，再一起做小事。');
   this.invalidate();this.s.world.region=id;record.day=this.s.daily.day;record.count++;
   this.s.coins+=region.coins;const unlocked=this.checkMemories(),details=this.activityDetails(id);
   return good('homeActivity',{region:id,message:details.activityText,action:details.activityAction,coins:region.coins,memoryProgress:Math.min(3,record.count),milestone:unlocked.includes(id),memoryName:region.memoryName});
@@ -190,6 +192,7 @@ export class GameEngine{
  resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),decorPositions:clone(this.s.decorPositions),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
  beginFirstVisit(){
   if(this.s.tea.firstVisit!=='available')return bad(this.s.tea.firstVisit==='arrived'?'ARRIVED':'LOCKED',this.s.tea.firstVisit==='arrived'?'小栗已经来过啦，可以重看这次回忆。':'等家园准备好，再迎接小栗吧。');
+  if(['bubu','yier'].some(who=>this.s.residents[who].region!=='courtyard'))return bad('APART','先把布布和一二都带到庭院，再一起迎接小栗。');
   this.invalidate();this.s.tea.firstVisit='arrived';const order={...this.teaOrder(),id:'firstVisit',region:'courtyard',participants:['bubu','yier','xiaoli'],souvenirKey:null,response:firstVisitResponse()};
   this.s.tea.lastResult=this.resultContext(order,'firstVisit');return good('firstVisit',{result:clone(this.s.tea.lastResult)});
  }
@@ -209,6 +212,7 @@ export class GameEngine{
    task=this.teaOrder();if(!task.available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');if(id!==task.id)return bad('STALE','本次茶会的轮次或方案已改变。');
   }else return bad('ORDER','找不到这张订单。');
   if(!this.canFulfill(task.needs))return bad('MISSING','材料还差一点，点物品图标可以查看合成路线。');
+  if(kind==='tea'&&['bubu','yier'].some(who=>this.s.residents[who].region!==task.region))return bad('APART','先把布布和一二都带到茶会地点，再一起喝茶。');
   this.invalidate();this.consume(task.needs);
   if(kind==='main'&&task.totalPhases>1){this.s.world.region=id===23&&task.phase===0?'garden':'courtyard';this.s.mainPrepStep++;if(this.s.mainPrepStep<task.totalPhases)return good('prepare',{orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});}
   this.s.coins+=task.coins;
@@ -390,6 +394,8 @@ export function validateState(raw){
  }
  const integer=(v,min,max)=>Number.isInteger(v)&&v>=min&&v<=max;
  const check=(ok,msg)=>{if(!ok)throw Error(msg);};
+ if(s.residents===undefined)s.residents=freshResidents();
+ check(validResidents(s.residents),'角色位置记录无效。');
  for(const k of ['createdAt','lastSeen','energyAt'])check(integer(s[k],0,9007199254740000),`时间字段 ${k} 无效。`);
  for(const [k,max] of [['rng',4294967295],['coins',100000000],['xp',100000000],['energy',10000],['sideSerial',100000000]])check(integer(s[k],0,max),`${k} 超出合理范围。`);
  check(integer(s.stage,0,24)&&typeof s.delivered==='boolean','章节数据无效。');

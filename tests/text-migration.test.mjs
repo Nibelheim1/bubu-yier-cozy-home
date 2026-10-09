@@ -29,7 +29,7 @@ test('tea text migrates from each recorded plan, condition and guest list while 
 });
 
 test('new and migrated first-visit responses share current text without modifying earned state',()=>{
- const g=setup();g.moveDecor(21,60,75);const visit=g.beginFirstVisit();assert.ok(visit.ok);
+ const g=setup();g.moveDecor(21,60,75);for(const who of ['bubu','yier'])g.s.residents[who].region='courtyard';const visit=g.beginFirstVisit();assert.ok(visit.ok);
  assert.deepEqual(visit.result.response,firstVisitResponse());assert.match(visit.result.response[0].text,/花架和画台/);
  g.s.tea.lastResult.response=[{who:'yier',text:'花架和纪念画都摆好了。'}];g.s.tea.lastResult.displayChoice='anchor';g.s.tea.lastResult.seen=true;g.moveDecor(21,35,65);
  const input=clone(g.s),expected=clone(input);expected.tea.lastResult.response=firstVisitResponse(expected.tea.lastResult.participants);

@@ -1,9 +1,9 @@
-/* 1.4.2 | 2026-10-09T17:53:29.682Z | locally built; no network dependencies */
-window.__ASSET_IDS__=["activity-courtyard-early","activity-courtyard-ready","activity-garden-early","activity-garden-ready","activity-house-early","activity-house-ready","ambient-bubu-guitar-motion","ambient-bubu-guitar","ambient-cuddle-motion","ambient-cuddle","ambient-kiss-motion","ambient-kiss","ambient-yier-tea-motion","ambient-yier-tea","app-icon","atlas-bake","atlas-bubu-motion","atlas-clean","atlas-craft","atlas-decor-a","atlas-decor-b","atlas-decor-c","atlas-decor-d","atlas-garden","atlas-generators","atlas-tea-props","atlas-tea","atlas-tools","atlas-xiaoli","atlas-yier-motion","bubu-back","bubu-face","bubu-happy","bubu-idle","bubu-joy","bubu-side","bubu-sit","bubu-sleep","bubu-surprise","bubu-turn","bubu-walk","cozy-loop","paper-texture","party-memory","region-courtyard-night","region-courtyard","region-garden-night","region-garden","region-house-night","region-house","story-companion","story-garden","story-night","story-rest","util-coin","util-crate","util-energy","util-gift","util-scissors","util-star","util-storage","world-map","yier-back","yier-face","yier-happy","yier-idle","yier-joy","yier-paint","yier-rest","yier-shy","yier-side","yier-surprise","yier-turn","yier-walk"];
-window.__ASSET_SIZES__={"activity-courtyard-early":[1448,1086],"activity-courtyard-ready":[1448,1086],"activity-garden-early":[1448,1086],"activity-garden-ready":[1448,1086],"activity-house-early":[1448,1086],"activity-house-ready":[1448,1086],"ambient-bubu-guitar":[450,450],"ambient-cuddle":[200,200],"ambient-kiss":[240,240],"ambient-yier-tea":[240,240],"app-icon":[512,512],"atlas-bake":[1536,1024],"atlas-bubu-motion":[1254,1254],"atlas-clean":[1536,1024],"atlas-craft":[1536,1024],"atlas-decor-a":[1536,1024],"atlas-decor-b":[1536,1024],"atlas-decor-c":[1536,1024],"atlas-decor-d":[1536,1024],"atlas-garden":[1536,1024],"atlas-generators":[1536,1024],"atlas-tea-props":[1536,1024],"atlas-tea":[1536,1024],"atlas-tools":[1536,1024],"atlas-xiaoli":[1254,1254],"atlas-yier-motion":[1230,1278],"bubu-back":[384,416],"bubu-face":[384,384],"bubu-happy":[384,384],"bubu-idle":[384,416],"bubu-joy":[384,416],"bubu-side":[384,416],"bubu-sit":[384,416],"bubu-sleep":[384,384],"bubu-surprise":[384,384],"bubu-turn":[384,416],"bubu-walk":[384,416],"paper-texture":[192,192],"party-memory":[1536,1024],"region-courtyard-night":[1182,1330],"region-courtyard":[1182,1330],"region-garden-night":[1182,1330],"region-garden":[1182,1330],"region-house-night":[1183,1330],"region-house":[1182,1330],"story-companion":[409,247],"story-garden":[278,96],"story-night":[278,95],"story-rest":[278,99],"util-coin":[256,256],"util-crate":[256,256],"util-energy":[256,256],"util-gift":[256,256],"util-scissors":[256,256],"util-star":[256,256],"util-storage":[256,256],"world-map":[1536,1024],"yier-back":[384,416],"yier-face":[384,384],"yier-happy":[384,384],"yier-idle":[384,416],"yier-joy":[384,416],"yier-paint":[384,416],"yier-rest":[1254,1254],"yier-shy":[384,384],"yier-side":[384,416],"yier-surprise":[384,384],"yier-turn":[384,416],"yier-walk":[384,416]};
+/* 1.5.0 | 2026-10-09T18:54:26.684Z | locally built; no network dependencies */
+window.__ASSET_IDS__=["activity-courtyard-early","activity-courtyard-ready","activity-garden-early","activity-garden-ready","activity-house-early","activity-house-ready","actor-motion-bubu-cheer","actor-motion-bubu-doze","actor-motion-bubu-drag-1","actor-motion-bubu-drag-2","actor-motion-bubu-eat","actor-motion-bubu-goose","actor-motion-bubu-kick","actor-motion-bubu-laundry","actor-motion-bubu-play","actor-motion-bubu-pudding","actor-motion-bubu-recline","actor-motion-bubu-rocking-horse","actor-motion-bubu-sing","actor-motion-bubu-swing","actor-motion-bubu-watermelon","actor-motion-bubu-work","actor-motion-pair-bonk","actor-motion-pair-cuddle","actor-motion-pair-hug","actor-motion-pair-kiss","actor-motion-yier-cheer","actor-motion-yier-drag-1","actor-motion-yier-drag-2","actor-motion-yier-exercise","actor-motion-yier-fart","actor-motion-yier-goose","actor-motion-yier-jump","actor-motion-yier-kick","actor-motion-yier-pajamas","actor-motion-yier-question","actor-motion-yier-recline","actor-motion-yier-search","actor-motion-yier-sleep","actor-motion-yier-sneak","actor-motion-yier-spin","actor-motion-yier-swing","actor-motion-yier-work","app-icon","atlas-bake","atlas-bubu-motion","atlas-clean","atlas-craft","atlas-decor-a","atlas-decor-b","atlas-decor-c","atlas-decor-d","atlas-garden","atlas-generators","atlas-tea-props","atlas-tea","atlas-tools","atlas-xiaoli","atlas-yier-motion","bubu-back","bubu-face","bubu-happy","bubu-idle","bubu-joy","bubu-side","bubu-sit","bubu-sleep","bubu-surprise","bubu-turn","bubu-walk","cozy-loop","paper-texture","party-memory","region-courtyard-night","region-courtyard","region-garden-night","region-garden","region-house-night","region-house","story-companion","story-garden","story-night","story-rest","util-coin","util-crate","util-energy","util-gift","util-scissors","util-star","util-storage","world-map","yier-back","yier-face","yier-happy","yier-idle","yier-joy","yier-paint","yier-rest","yier-shy","yier-side","yier-surprise","yier-turn","yier-walk"];
+window.__ASSET_SIZES__={"activity-courtyard-early":[1448,1086],"activity-courtyard-ready":[1448,1086],"activity-garden-early":[1448,1086],"activity-garden-ready":[1448,1086],"activity-house-early":[1448,1086],"activity-house-ready":[1448,1086],"app-icon":[512,512],"atlas-bake":[1536,1024],"atlas-bubu-motion":[1254,1254],"atlas-clean":[1536,1024],"atlas-craft":[1536,1024],"atlas-decor-a":[1536,1024],"atlas-decor-b":[1536,1024],"atlas-decor-c":[1536,1024],"atlas-decor-d":[1536,1024],"atlas-garden":[1536,1024],"atlas-generators":[1536,1024],"atlas-tea-props":[1536,1024],"atlas-tea":[1536,1024],"atlas-tools":[1536,1024],"atlas-xiaoli":[1254,1254],"atlas-yier-motion":[1230,1278],"bubu-back":[384,416],"bubu-face":[384,384],"bubu-happy":[384,384],"bubu-idle":[384,416],"bubu-joy":[384,416],"bubu-side":[384,416],"bubu-sit":[384,416],"bubu-sleep":[384,384],"bubu-surprise":[384,384],"bubu-turn":[384,416],"bubu-walk":[384,416],"paper-texture":[192,192],"party-memory":[1536,1024],"region-courtyard-night":[1182,1330],"region-courtyard":[1182,1330],"region-garden-night":[1182,1330],"region-garden":[1182,1330],"region-house-night":[1183,1330],"region-house":[1182,1330],"story-companion":[409,247],"story-garden":[278,96],"story-night":[278,95],"story-rest":[278,99],"util-coin":[256,256],"util-crate":[256,256],"util-energy":[256,256],"util-gift":[256,256],"util-scissors":[256,256],"util-star":[256,256],"util-storage":[256,256],"world-map":[1536,1024],"yier-back":[384,416],"yier-face":[384,384],"yier-happy":[384,384],"yier-idle":[384,416],"yier-joy":[384,416],"yier-paint":[384,416],"yier-rest":[1254,1254],"yier-shy":[384,384],"yier-side":[384,416],"yier-surprise":[384,384],"yier-turn":[384,416],"yier-walk":[384,416],"actor-motion-bubu-cheer":[240,246],"actor-motion-bubu-doze":[283,304],"actor-motion-bubu-drag-1":[566,566],"actor-motion-bubu-drag-2":[424,424],"actor-motion-bubu-eat":[240,240],"actor-motion-bubu-goose":[240,240],"actor-motion-bubu-kick":[640,640],"actor-motion-bubu-laundry":[639,580],"actor-motion-bubu-play":[240,240],"actor-motion-bubu-pudding":[240,240],"actor-motion-bubu-recline":[240,240],"actor-motion-bubu-rocking-horse":[240,240],"actor-motion-bubu-sing":[640,640],"actor-motion-bubu-swing":[240,240],"actor-motion-bubu-watermelon":[240,240],"actor-motion-bubu-work":[1000,1000],"actor-motion-pair-bonk":[240,240],"actor-motion-pair-cuddle":[300,300],"actor-motion-pair-hug":[240,240],"actor-motion-pair-kiss":[240,240],"actor-motion-yier-cheer":[240,246],"actor-motion-yier-drag-1":[640,640],"actor-motion-yier-drag-2":[561,561],"actor-motion-yier-exercise":[240,240],"actor-motion-yier-fart":[240,240],"actor-motion-yier-goose":[240,240],"actor-motion-yier-jump":[240,240],"actor-motion-yier-kick":[566,566],"actor-motion-yier-pajamas":[240,240],"actor-motion-yier-question":[640,640],"actor-motion-yier-recline":[240,240],"actor-motion-yier-search":[240,240],"actor-motion-yier-sleep":[500,476],"actor-motion-yier-sneak":[640,640],"actor-motion-yier-spin":[200,200],"actor-motion-yier-swing":[240,240],"actor-motion-yier-work":[1000,1000]};
 (function(){'use strict';
 /** All story, progression, art coordinates, and economy data. No UI state here. */
-const VERSION = '1.4.2';
+const VERSION = '1.5.0';
 // App releases and storage migrations have different lifetimes.
 const APP_VERSION = VERSION;
 const SCHEMA_VERSION = 2;
@@ -113,6 +113,762 @@ function needMass(needs){return needs.reduce((n,r)=>n+2**(r.l-1)*r.n,0);}
 function orderXP(needs){return 10+Math.floor(needMass(needs)/3);}
 
 
+/** Original GIF action catalog. All assets are copied unchanged from the supplied 动作gif folder.
+ * durationMs is one complete GIF cycle; callers can repeat short cycles for a readable action.
+ * furnitureIds are optional nearby anchors, not unlock requirements: each GIF includes its own props.
+ * Composite pair GIFs replace both separate actor images while the interaction is active.
+ * Drag variants are selected by who, never by the ambiguous source suffix alone.
+ */
+const ACTOR_ACTIONS = [
+  {
+    "id": "yier-cheer",
+    "asset": "actor-motion-yier-cheer",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 360,
+    "label": "为布布打call",
+    "width": 240,
+    "height": 246,
+    "loop": 0
+  },
+  {
+    "id": "yier-search",
+    "asset": "actor-motion-yier-search",
+    "who": "yier",
+    "kind": "search",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1040,
+    "label": "人呢",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "yier-work",
+    "asset": "actor-motion-yier-work",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house"
+    ],
+    "durationMs": 800,
+    "label": "工作",
+    "furnitureIds": [
+      "decor-06"
+    ],
+    "width": 1000,
+    "height": 1000,
+    "loop": 0
+  },
+  {
+    "id": "yier-jump",
+    "asset": "actor-motion-yier-jump",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1440,
+    "label": "开心蹦跳",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "yier-spin",
+    "asset": "actor-motion-yier-spin",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1260,
+    "label": "开心转圈",
+    "width": 200,
+    "height": 200,
+    "loop": 0
+  },
+  {
+    "id": "yier-fart",
+    "asset": "actor-motion-yier-fart",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 640,
+    "label": "放屁",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "yier-recline",
+    "asset": "actor-motion-yier-recline",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house"
+    ],
+    "durationMs": 1710,
+    "label": "瘫倒",
+    "furnitureIds": [
+      "decor-18"
+    ],
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "yier-sleep",
+    "asset": "actor-motion-yier-sleep",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house"
+    ],
+    "durationMs": 1200,
+    "label": "睡大觉",
+    "furnitureIds": [
+      "decor-08",
+      "decor-18"
+    ],
+    "width": 500,
+    "height": 476,
+    "loop": 0
+  },
+  {
+    "id": "yier-pajamas",
+    "asset": "actor-motion-yier-pajamas",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house"
+    ],
+    "durationMs": 1800,
+    "label": "睡衣撒娇",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "yier-swing",
+    "asset": "actor-motion-yier-swing",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1530,
+    "label": "荡秋千",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "yier-drag-1",
+    "asset": "actor-motion-yier-drag-1",
+    "who": "yier",
+    "kind": "drag",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 800,
+    "label": "被拖动1",
+    "width": 640,
+    "height": 640,
+    "loop": 0
+  },
+  {
+    "id": "yier-drag-2",
+    "asset": "actor-motion-yier-drag-2",
+    "who": "yier",
+    "kind": "drag",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 2550,
+    "label": "被拖动2",
+    "width": 561,
+    "height": 561,
+    "loop": 0
+  },
+  {
+    "id": "yier-kick",
+    "asset": "actor-motion-yier-kick",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 720,
+    "label": "踢腿",
+    "width": 566,
+    "height": 566,
+    "loop": 0
+  },
+  {
+    "id": "yier-exercise",
+    "asset": "actor-motion-yier-exercise",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 2160,
+    "label": "运动",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "yier-question",
+    "asset": "actor-motion-yier-question",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 700,
+    "label": "问号",
+    "width": 640,
+    "height": 640,
+    "loop": 0
+  },
+  {
+    "id": "yier-goose",
+    "asset": "actor-motion-yier-goose",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1280,
+    "label": "骑鹅冲",
+    "width": 240,
+    "height": 240,
+    "loop": null
+  },
+  {
+    "id": "yier-sneak",
+    "asset": "actor-motion-yier-sneak",
+    "who": "yier",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 5000,
+    "label": "鬼鬼祟祟",
+    "width": 640,
+    "height": 640,
+    "loop": 0
+  },
+  {
+    "id": "pair-kiss",
+    "asset": "actor-motion-pair-kiss",
+    "who": "pair",
+    "kind": "interaction",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 2340,
+    "label": "亲亲",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "pair-hug",
+    "asset": "actor-motion-pair-hug",
+    "who": "pair",
+    "kind": "interaction",
+    "regions": [
+      "house",
+      "courtyard"
+    ],
+    "durationMs": 1170,
+    "label": "壁咚",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "pair-bonk",
+    "asset": "actor-motion-pair-bonk",
+    "who": "pair",
+    "kind": "interaction",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 60,
+    "label": "打布布",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "pair-cuddle",
+    "asset": "actor-motion-pair-cuddle",
+    "who": "pair",
+    "kind": "interaction",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1080,
+    "label": "贴贴",
+    "width": 300,
+    "height": 300,
+    "loop": 0
+  },
+  {
+    "id": "bubu-cheer",
+    "asset": "actor-motion-bubu-cheer",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 360,
+    "label": "为一二打call",
+    "width": 240,
+    "height": 246,
+    "loop": 0
+  },
+  {
+    "id": "bubu-watermelon",
+    "asset": "actor-motion-bubu-watermelon",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 3060,
+    "label": "吃西瓜",
+    "furnitureIds": [
+      "decor-06",
+      "decor-22"
+    ],
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "bubu-pudding",
+    "asset": "actor-motion-bubu-pudding",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 240,
+    "label": "吹小布丁",
+    "furnitureIds": [
+      "decor-06",
+      "decor-22"
+    ],
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "bubu-sing",
+    "asset": "actor-motion-bubu-sing",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 300,
+    "label": "唱歌",
+    "width": 640,
+    "height": 640,
+    "loop": 0
+  },
+  {
+    "id": "bubu-work",
+    "asset": "actor-motion-bubu-work",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house"
+    ],
+    "durationMs": 800,
+    "label": "工作",
+    "furnitureIds": [
+      "decor-06"
+    ],
+    "width": 1000,
+    "height": 1000,
+    "loop": 0
+  },
+  {
+    "id": "bubu-eat",
+    "asset": "actor-motion-bubu-eat",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 3060,
+    "label": "干饭",
+    "furnitureIds": [
+      "decor-06",
+      "decor-22"
+    ],
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "bubu-laundry",
+    "asset": "actor-motion-bubu-laundry",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "courtyard"
+    ],
+    "durationMs": 600,
+    "label": "洗衣服",
+    "width": 639,
+    "height": 580,
+    "loop": 0
+  },
+  {
+    "id": "bubu-play",
+    "asset": "actor-motion-bubu-play",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house"
+    ],
+    "durationMs": 720,
+    "label": "玩耍",
+    "furnitureIds": [
+      "decor-08",
+      "decor-18"
+    ],
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "bubu-recline",
+    "asset": "actor-motion-bubu-recline",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house"
+    ],
+    "durationMs": 1710,
+    "label": "瘫倒",
+    "furnitureIds": [
+      "decor-18"
+    ],
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "bubu-doze",
+    "asset": "actor-motion-bubu-doze",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 400,
+    "label": "站着睡着了",
+    "width": 283,
+    "height": 304,
+    "loop": 0
+  },
+  {
+    "id": "bubu-swing",
+    "asset": "actor-motion-bubu-swing",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1530,
+    "label": "荡秋千",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "bubu-drag-1",
+    "asset": "actor-motion-bubu-drag-1",
+    "who": "bubu",
+    "kind": "drag",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 2550,
+    "label": "被拖动1",
+    "width": 566,
+    "height": 566,
+    "loop": 0
+  },
+  {
+    "id": "bubu-drag-2",
+    "asset": "actor-motion-bubu-drag-2",
+    "who": "bubu",
+    "kind": "drag",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1000,
+    "label": "被拖动2",
+    "width": 424,
+    "height": 424,
+    "loop": 0
+  },
+  {
+    "id": "bubu-kick",
+    "asset": "actor-motion-bubu-kick",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "house",
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 720,
+    "label": "连环踢",
+    "width": 640,
+    "height": 640,
+    "loop": 0
+  },
+  {
+    "id": "bubu-rocking-horse",
+    "asset": "actor-motion-bubu-rocking-horse",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 2400,
+    "label": "骑木马玩耍",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  },
+  {
+    "id": "bubu-goose",
+    "asset": "actor-motion-bubu-goose",
+    "who": "bubu",
+    "kind": "random",
+    "regions": [
+      "garden",
+      "courtyard"
+    ],
+    "durationMs": 1280,
+    "label": "骑鹅冲",
+    "width": 240,
+    "height": 240,
+    "loop": 0
+  }
+];
+const ACTOR_ACTION_ASSET_IDS = ACTOR_ACTIONS.map(action => action.asset);
+
+
+
+const RESIDENT_WHO=['bubu','yier'],RESIDENT_REGIONS=['house','garden','courtyard'];
+const residentClamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+const RESIDENT_BASE_HEIGHT=22/1.12*1.2;
+const residentDistance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const freshResidents=()=>({bubu:{region:'house',x:28,y:65},yier:{region:'house',x:74,y:70}});
+function validResidents(value){
+ return !!value&&typeof value==='object'&&!Array.isArray(value)&&Object.keys(value).length===2&&RESIDENT_WHO.every(who=>{
+  const r=value[who];return !!r&&typeof r==='object'&&!Array.isArray(r)&&Object.keys(r).length===3&&Object.keys(r).every(k=>['region','x','y'].includes(k))&&RESIDENT_REGIONS.includes(r.region)&&Number.isFinite(r.x)&&r.x>=8&&r.x<=92&&Number.isFinite(r.y)&&r.y>=12&&r.y<=88;
+ });
+}
+
+const RESIDENT_EXITS=[
+ {id:'house-door',region:'house',x:8,y:34,rx:11,ry:10,destination:'courtyard',spawn:{x:49,y:37},label:'去庭院'},
+ {id:'courtyard-house',region:'courtyard',x:49,y:23,rx:11,ry:10,destination:'house',spawn:{x:19,y:51},label:'进小屋'},
+ {id:'courtyard-garden',region:'courtyard',x:88,y:43,rx:11,ry:10,destination:'garden',spawn:{x:82,y:40},label:'去花园'},
+ {id:'garden-gate',region:'garden',x:92,y:27,rx:11,ry:10,destination:'courtyard',spawn:{x:77,y:48},label:'去庭院'},
+];
+function residentExitAt(region,x,y){
+ if(!Number.isFinite(x)||!Number.isFinite(y))return null;
+ return RESIDENT_EXITS.find(e=>e.region===region&&((x-e.x)/e.rx)**2+((y-e.y)/e.ry)**2<=1)||null;
+}
+
+/** Only region/x/y are persistent. Runtime clocks advance once per tick, never per render. */
+class ResidentController{
+ constructor(residents,{random=Math.random,clock=Date.now}={}){
+  if(!validResidents(residents))throw Error('角色位置记录无效。');
+  this.residents=residents;this.random=random;this.clock=clock;this.lastAt=clock();this.elapsed=0;this.pair=null;this.pairCooldown=0;this.pairBag=[];this.reducedMotion=false;
+  this.runtime=Object.fromEntries(RESIDENT_WHO.map(who=>[who,{mode:'idle',action:null,remaining:2800+this.roll()*3500,target:null,flip:false,dragOrigin:null,bags:{}}]));
+ }
+ roll(){const value=this.random();return Number.isFinite(value)?residentClamp(value,0,.999999999):.5;}
+ shuffle(values){const list=[...values];for(let i=list.length-1;i>0;i--){const j=Math.floor(this.roll()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list;}
+ stopPair(){
+  if(!this.pair)return;
+  this.pair=null;this.pairCooldown=12000;
+  for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.mode!=='drag'){rt.mode='idle';rt.action=null;rt.target=null;rt.remaining=1500+this.roll()*1300;}}
+ }
+ wait(who,remaining=1500){const r=this.runtime[who];r.mode='idle';r.action=null;r.target=null;r.remaining=remaining;}
+ chooseAction(who,decor){
+  const resident=this.residents[who],rt=this.runtime[who];
+  if(who==='yier'&&resident.region!==this.residents.bubu.region&&this.roll()<.7)return ACTOR_ACTIONS.find(a=>a.kind==='search');
+  const region=resident.region;
+  if(!rt.bags[region]?.length)rt.bags[region]=this.shuffle(ACTOR_ACTIONS.filter(a=>a.who===who&&a.kind==='random'&&a.regions.includes(region)));
+  const bag=rt.bags[region];
+  // Nearby furniture changes which remaining action plays first, never removes an action.
+  const near=(decor||[]).filter(d=>Number.isFinite(d.x)&&Number.isFinite(d.y)&&residentDistance(resident,d)<24).map(d=>typeof d.id==='string'&&d.id.startsWith('decor-')?d.id:`decor-${String((d.decorId??d.id)+1).padStart(2,'0')}`);
+  const anchored=bag.findIndex(a=>a.furnitureIds?.some(id=>near.includes(id)));
+  return bag.splice(anchored>=0&&this.roll()<.6?anchored:0,1)[0]||null;
+ }
+ startNext(who,decor){
+  const r=this.residents[who],rt=this.runtime[who];
+  if(this.roll()<.45){
+   const minY=r.region==='house'?52:45;
+   rt.target={x:18+this.roll()*66,y:minY+this.roll()*(80-minY)};rt.flip=rt.target.x<r.x;rt.mode='walk';rt.action=null;rt.remaining=0;
+  }else{
+   const action=this.chooseAction(who,decor);
+   if(!action){this.wait(who,3000);return;}
+   rt.mode='action';rt.action=action;rt.target=null;rt.remaining=Math.max(2600,Math.min(6500,action.durationMs*2));
+  }
+ }
+ tryPair(){
+  if(this.pair||this.pairCooldown>0)return;
+  const [a,b]=RESIDENT_WHO.map(w=>this.residents[w]);
+  if(a.region!==b.region||residentDistance(a,b)>=18||RESIDENT_WHO.some(w=>!['idle','walk'].includes(this.runtime[w].mode))||this.roll()>=.35)return;
+  const eligible=ACTOR_ACTIONS.filter(a=>a.kind==='interaction'&&a.regions.includes(this.residents.bubu.region));
+  this.pairBag=this.pairBag.filter(a=>eligible.includes(a));if(!this.pairBag.length)this.pairBag=this.shuffle(eligible);
+  this.pair={action:this.pairBag.shift(),region:a.region,remaining:5000};
+  for(const who of RESIDENT_WHO){this.runtime[who].target=null;this.runtime[who].mode='pair';}
+ }
+ tick(now=this.clock(),{paused=false,reducedMotion=false,decorByRegion={}}={}){
+  if(!Number.isFinite(now))return;
+  const delta=residentClamp(now-this.lastAt,0,500);this.lastAt=now;
+  this.reducedMotion=Boolean(reducedMotion);
+  if(paused||reducedMotion)return;
+  this.elapsed+=delta;this.pairCooldown=Math.max(0,this.pairCooldown-delta);
+  if(this.pair){
+   const [a,b]=RESIDENT_WHO.map(w=>this.residents[w]);
+   this.pair.remaining-=delta;
+   if(a.region!==b.region||a.region!==this.pair.region||residentDistance(a,b)>=18||this.pair.remaining<=0)this.stopPair();
+   else return;
+  }
+  for(const who of RESIDENT_WHO){
+   const rt=this.runtime[who],r=this.residents[who];if(rt.mode==='drag')continue;
+   if(rt.mode==='walk'){
+    const d=residentDistance(r,rt.target),step=delta*.0085;
+    if(d<=step){r.x=rt.target.x;r.y=rt.target.y;this.wait(who,1600+this.roll()*2600);}
+    else if(d>0){r.x+=(rt.target.x-r.x)*step/d;r.y+=(rt.target.y-r.y)*step/d;}
+   }else{
+    rt.remaining-=delta;
+    if(rt.remaining<=0){if(rt.mode==='action')this.wait(who,1400+this.roll()*2400);else this.startNext(who,decorByRegion[r.region]);}
+   }
+  }
+  this.tryPair();
+ }
+ state(who){
+  if(!RESIDENT_WHO.includes(who))return null;
+  const r=this.residents[who],rt=this.runtime[who];
+  return Object.freeze({...r,mode:rt.mode,dragging:rt.mode==='drag',action:rt.action?.id||this.pair?.action.id||null,id:rt.action?.asset||null,remaining:rt.remaining,pair:!!this.pair,target:rt.target?Object.freeze({...rt.target}):null});
+ }
+ frame(region,now=this.clock()){
+  const present=RESIDENT_WHO.filter(w=>this.residents[w].region===region);
+  const actor=(who,id,x,y,w,h,extra={})=>({key:who,kind:'actor',who,id,x,y,w,h,z:12,anchor:'center',rotation:0,flip:false,label:who==='bubu'?'布布':'一二',...extra});
+  if(!this.reducedMotion&&this.pair&&this.pair.region===region){
+   const a=this.residents.bubu,b=this.residents.yier,action=this.pair.action,w=38,h=w/1.12*(action.height/action.width),x=(a.x+b.x)/2,feet=(a.y+b.y)/2+RESIDENT_BASE_HEIGHT/2,y=feet-h/2;
+   const stacked=action.asset==='actor-motion-pair-bonk';
+   const handles=RESIDENT_WHO.map((who,i)=>stacked
+    ?actor(who,null,x,y+(i?-1:1)*h/4,w,h/2,{z:13,hitOnly:true,pairHit:true})
+    :actor(who,null,x+(i?1:-1)*w/4,y,w/2,h,{z:13,hitOnly:true,pairHit:true}));
+   return [actor('pair',action.asset,x,y,w,h,{key:'resident-pair',label:action.label}),...handles];
+  }
+  return present.map(who=>{
+   const r=this.residents[who],rt=this.runtime[who],action=(!this.reducedMotion||rt.mode==='drag')?rt.action:null;
+   const w=action?28:22,h=action?w/1.12*(action.height/action.width):RESIDENT_BASE_HEIGHT;
+   const id=action?.asset||(!this.reducedMotion&&rt.mode==='walk'?`${who}-walk${Math.floor(this.elapsed/180)%4+1}`:who==='bubu'?'bubu-idle':'yier-turn');
+   return actor(who,id,r.x,r.y+RESIDENT_BASE_HEIGHT/2-h/2,w,h,{flip:rt.mode==='walk'&&rt.flip,label:action?`${who==='bubu'?'布布':'一二'}：${action.label}`:who==='bubu'?'布布':'一二'});
+  });
+ }
+ beginDrag(who,now=this.clock()){
+  if(!RESIDENT_WHO.includes(who)||this.runtime[who].mode==='drag'||RESIDENT_WHO.some(w=>this.runtime[w].mode==='drag'))return false;
+  this.stopPair();const rt=this.runtime[who];rt.dragOrigin={...this.residents[who]};rt.mode='drag';rt.target=null;
+  const choices=ACTOR_ACTIONS.filter(a=>a.who===who&&a.kind==='drag');rt.action=choices[Math.floor(this.roll()*choices.length)];rt.remaining=0;this.lastAt=now;return true;
+ }
+ dragTo(who,x,y){
+  if(!RESIDENT_WHO.includes(who)||this.runtime[who].mode!=='drag'||!Number.isFinite(x)||!Number.isFinite(y))return false;
+  Object.assign(this.residents[who],{x:residentClamp(x,8,92),y:residentClamp(y,12,88)});return true;
+ }
+ endDrag(who,now=this.clock(),{cancel=false}={}){
+  if(!RESIDENT_WHO.includes(who)||this.runtime[who].mode!=='drag')return false;
+  const rt=this.runtime[who];if(cancel&&rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);
+  rt.dragOrigin=null;this.wait(who,1500);this.lastAt=now;return true;
+ }
+ transfer(who,destination,x,y,now=this.clock()){
+  if(!RESIDENT_WHO.includes(who)||!RESIDENT_REGIONS.includes(destination)||!Number.isFinite(x)||!Number.isFinite(y)||this.residents[who].region===destination)return false;
+  this.stopPair();const rt=this.runtime[who];rt.dragOrigin=null;
+  Object.assign(this.residents[who],{region:destination,x:residentClamp(x,8,92),y:residentClamp(y,12,88)});this.wait(who,1500);this.lastAt=now;return true;
+ }
+ cancelAll(now=this.clock()){
+  this.stopPair();for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);rt.dragOrigin=null;this.wait(who,1800+this.roll()*1800);}this.lastAt=now;
+ }
+}
+
+
+
 
 
 /** Deterministic, DOM-free game model. Every public mutation validates before spending. */
@@ -155,7 +911,7 @@ function freshState(now=Date.now(),seed=20261007){
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
   stats:{merge:0,produce:0,order:0,build:0,sold:0,unweb:0},
   seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],
-  world:freshWorld(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,reducedMotion:false}};
+  world:freshWorld(),residents:freshResidents(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,reducedMotion:false}};
 }
 
 class GameEngine{
@@ -195,6 +951,7 @@ class GameEngine{
   if(this.s.stage<Math.max(1,region.unlock))return bad('TUTORIAL','先铺好第一块门垫，再一起照顾家园吧。');
   const record=this.s.world.activities[id];
   if(record.day>=this.s.daily.day)return bad('CLAIMED','今天已经一起做过啦，明天再来看看。');
+  if(['bubu','yier'].some(who=>this.s.residents[who].region!==id))return bad('APART','先把布布和一二带到同一个地方，再一起做小事。');
   this.invalidate();this.s.world.region=id;record.day=this.s.daily.day;record.count++;
   this.s.coins+=region.coins;const unlocked=this.checkMemories(),details=this.activityDetails(id);
   return good('homeActivity',{region:id,message:details.activityText,action:details.activityAction,coins:region.coins,memoryProgress:Math.min(3,record.count),milestone:unlocked.includes(id),memoryName:region.memoryName});
@@ -304,6 +1061,7 @@ class GameEngine{
  resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),decorPositions:clone(this.s.decorPositions),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
  beginFirstVisit(){
   if(this.s.tea.firstVisit!=='available')return bad(this.s.tea.firstVisit==='arrived'?'ARRIVED':'LOCKED',this.s.tea.firstVisit==='arrived'?'小栗已经来过啦，可以重看这次回忆。':'等家园准备好，再迎接小栗吧。');
+  if(['bubu','yier'].some(who=>this.s.residents[who].region!=='courtyard'))return bad('APART','先把布布和一二都带到庭院，再一起迎接小栗。');
   this.invalidate();this.s.tea.firstVisit='arrived';const order={...this.teaOrder(),id:'firstVisit',region:'courtyard',participants:['bubu','yier','xiaoli'],souvenirKey:null,response:firstVisitResponse()};
   this.s.tea.lastResult=this.resultContext(order,'firstVisit');return good('firstVisit',{result:clone(this.s.tea.lastResult)});
  }
@@ -323,6 +1081,7 @@ class GameEngine{
    task=this.teaOrder();if(!task.available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');if(id!==task.id)return bad('STALE','本次茶会的轮次或方案已改变。');
   }else return bad('ORDER','找不到这张订单。');
   if(!this.canFulfill(task.needs))return bad('MISSING','材料还差一点，点物品图标可以查看合成路线。');
+  if(kind==='tea'&&['bubu','yier'].some(who=>this.s.residents[who].region!==task.region))return bad('APART','先把布布和一二都带到茶会地点，再一起喝茶。');
   this.invalidate();this.consume(task.needs);
   if(kind==='main'&&task.totalPhases>1){this.s.world.region=id===23&&task.phase===0?'garden':'courtyard';this.s.mainPrepStep++;if(this.s.mainPrepStep<task.totalPhases)return good('prepare',{orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});}
   this.s.coins+=task.coins;
@@ -504,6 +1263,8 @@ function validateState(raw){
  }
  const integer=(v,min,max)=>Number.isInteger(v)&&v>=min&&v<=max;
  const check=(ok,msg)=>{if(!ok)throw Error(msg);};
+ if(s.residents===undefined)s.residents=freshResidents();
+ check(validResidents(s.residents),'角色位置记录无效。');
  for(const k of ['createdAt','lastSeen','energyAt'])check(integer(s[k],0,9007199254740000),`时间字段 ${k} 无效。`);
  for(const [k,max] of [['rng',4294967295],['coins',100000000],['xp',100000000],['energy',10000],['sideSerial',100000000]])check(integer(s[k],0,max),`${k} 超出合理范围。`);
  check(integer(s.stage,0,24)&&typeof s.delivered==='boolean','章节数据无效。');
@@ -821,9 +1582,9 @@ function sceneWeatherHTML(scene){
 }
 function renderSceneHTML(scene,{assetURL=id=>`assets/${id}.png`,interactive=scene.interactive}={}){
  const layers=scene.layers.map(l=>{
-  const click=interactive&&['decor','actor','souvenir'].includes(l.kind),tag=click?'button':'div';
+  const click=interactive&&['decor','actor','souvenir'].includes(l.kind)&&l.who!=='pair',tag=click?'button':'div';
   const action=l.kind==='decor'?`data-action="furniture" data-id="${l.decorId}"`:l.kind==='actor'?`data-action="chat" data-who="${l.who}"`:`data-action="souvenirReplay" data-key="${escapeSceneText(l.souvenirKey)}"`;
-  return `<${tag} class="scene-layer scene-${l.kind} ${l.who||''}" data-scene-layer="${escapeSceneText(l.key)}" data-sprite="${escapeSceneText(l.id)}" style="${sceneLayerStyle(l,scene)}" ${click?`${action} aria-label="${escapeSceneText(l.label)}"`: 'aria-hidden="true"'}>${l.id?sceneSpriteHTML(l.id,assetURL):l.glyph?escapeSceneText(l.glyph):''}</${tag}>`;
+  return `<${tag} class="scene-layer scene-${l.kind} ${l.who||''}${l.hitOnly?' resident-hit-only':''}" data-scene-layer="${escapeSceneText(l.key)}" data-sprite="${escapeSceneText(l.id)}" style="${sceneLayerStyle(l,scene)}" ${click?`${action} aria-label="${escapeSceneText(l.label)}"`: 'aria-hidden="true"'}>${l.id?sceneSpriteHTML(l.id,assetURL):l.glyph?escapeSceneText(l.glyph):''}</${tag}>`;
  }).join('');
  return `<img class="scene-background" src="${escapeSceneText(assetURL(scene.background))}" alt="" draggable="false" style="filter:${sceneBackgroundFilter(scene)}">${layers}${sceneWeatherHTML(scene)}`;
 }
@@ -835,7 +1596,7 @@ async function drawSceneCanvas(ctx,input,{loadImage,width=1000,height=1120}={}){
  const ids=[...new Set([scene.background,...scene.layers.filter(l=>l.id).map(l=>spriteSpec(l.id)?.asset||l.id)])];
  const images=new Map(await Promise.all(ids.map(async id=>[id,await loadImage(id)])));
  ctx.save();ctx.beginPath();ctx.rect(0,0,width,height);ctx.clip();ctx.filter=sceneBackgroundFilter(scene);ctx.drawImage(images.get(scene.background),0,0,width,height);ctx.filter='none';
- for(const l of [...scene.layers].sort((a,b)=>a.z-b.z)){
+ for(const l of scene.layers.filter(l=>!l.hitOnly).sort((a,b)=>a.z-b.z)){
   ctx.save();ctx.translate(l.x/100*width,l.y/100*height);ctx.rotate((l.rotation||0)*Math.PI/180);if(l.flip)ctx.scale(-1,1);
   ctx.filter=l.kind==='actor'?'none':[l.variant?'hue-rotate(24deg) saturate(.85)':'',scene.night?'brightness(.84)':''].filter(Boolean).join(' ')||'none';
   const w=l.w/100*width,h=l.h/100*height;
@@ -1066,10 +1827,12 @@ function createPressHold({x,y,delay=360,threshold=8,onArm=()=>{},schedule=setTim
 
 
 
+
+
 const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const esc=(v)=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const asset=(id)=>window.__ASSETS__?.[id]||`assets/${id}.${id==='cozy-loop'?'wav':id.startsWith('ambient-')&&id.endsWith('-motion')?'gif':'png'}`;
+const asset=(id)=>window.__ASSETS__?.[id]||`assets/${id}.${id==='cozy-loop'?'wav':id.startsWith('actor-motion-')||id.startsWith('ambient-')&&id.endsWith('-motion')?'gif':'png'}`;
 const picture=(id,cls='',alt='')=>{
  const p=spriteSpec(id);
  if(!p)return `<img src="${asset(id)}" class="${cls}" alt="${esc(alt)}" draggable="false">`;
@@ -1124,11 +1887,12 @@ let game=new GameEngine(load());
 const ui={tab:game.s.stage===0?'merge':'home',homeMode:'map',mapScroll:0,bookMode:'memories',selected:null,highlight:[],modal:null,story:null,splash:true,styleChoice:0,storageTab:'storage',night:game.s.stage>=16&&game.s.stage<20,newDecor:null,scenePlayer:null,sceneSnapshot:null,parcelTarget:null,parcelSource:null,photoBusy:false};
 const app=$('#app'),main=$('#main'),modalRoot=$('#modal-root'),overlayRoot=$('#overlay-root');
 let toastTimer=0,highlightTimer=0,chatTimer=0,drag=null,furnitureDrag=null,ignoreClickUntil=0,hasStarted=false;
+let actorDrag=null,residentLife=null,residentSaveRef=null;
 ui.decorSelected=null;
 let imageCache=new Map(),modalReturnFocus=null;
 const sceneStyle=document.createElement('style');sceneStyle.textContent=SCENE_STYLES;document.head.append(sceneStyle);
 function persist(){
- try{const raw=JSON.stringify(game.s);if(raw===lastValid)return true;if(lastValid)localStorage.setItem(BACKUP,lastValid);localStorage.setItem(STORE,raw);lastValid=raw;storageFailed=false;try{localStorage.setItem(INITIALIZED,'1');}catch{}return true;}
+ try{const saved=clone(game.s);if(actorDrag?.armed)saved.residents[actorDrag.who]={region:actorDrag.base.region,x:actorDrag.base.x,y:actorDrag.base.y};const raw=JSON.stringify(saved);if(raw===lastValid)return true;if(lastValid)localStorage.setItem(BACKUP,lastValid);localStorage.setItem(STORE,raw);lastValid=raw;storageFailed=false;try{localStorage.setItem(INITIALIZED,'1');}catch{}return true;}
  catch{if(!storageFailed){storageFailed=true;saveWarning='本地保存失败。请在设置里导出存档，避免关闭后丢失。';toast(saveWarning,5000);}return false;}
 }
 
@@ -1188,6 +1952,7 @@ function run(r,{quiet=false}={}){
  return r;
 }
 function render(){
+ cancelActorDrag();
  if(furnitureDrag)cancelFurnitureDrag();
  const scroll=main.scrollTop,orderScroll=$('.order-row')?.scrollLeft||0,viewport=$('.world-viewport');if(viewport)ui.mapScroll=viewport.scrollLeft;app.classList.toggle('reduced-motion',game.s.settings.reducedMotion);renderHeader();renderNav();
  main.innerHTML=ui.tab==='home'?renderHome():ui.tab==='book'?renderBook():ui.tab==='shop'?renderShop():renderMerge();
@@ -1196,7 +1961,7 @@ function render(){
  if(ui.modal)renderModal();
  syncInert();
 }
-function navigate(tab){cancelDrag();cancelFurnitureDrag();ui.decorSelected=null;if(tab==='home'&&game.s.delivered)focusBuildRegion();ui.tab=tab;ui.selected=null;ui.highlight=[];render();main.scrollTop=0;}
+function navigate(tab){cancelActorDrag();cancelDrag();cancelFurnitureDrag();ui.decorSelected=null;if(tab==='home'&&game.s.delivered)focusBuildRegion();ui.tab=tab;ui.selected=null;ui.highlight=[];render();main.scrollTop=0;}
 function focusBuildRegion(){const region=DECOR[game.s.stage]?.region;if(region){game.visitRegion(region);persist();ui.homeMode='region';}}
 function renderHeader(){
  const s=game.s,chapter=CHAPTERS[Math.min(5,Math.floor(s.stage/4))];
@@ -1212,11 +1977,11 @@ function activeOrders(){const mainOrder=game.mainOrder(),tea=game.teaOrder();ret
 function allOrderCards(){const list=activeOrders(),tea=game.teaOrder(),neighbors=game.s.stage===0?[1,2].map(n=>`<article class="order-card order-mini locked-order"><span class="order-kind">邻里 ${n}</span><h3>巷口的小委托</h3><p>铺好第一块门垫后开放。帮邻里整备物品，收获金币与经验。</p></article>`).join(''):'';return list.map(({task,kind,slot})=>orderCard(task,kind,slot)).join('')+neighbors+(!tea.available?`<article class="order-card order-mini locked-order"><span class="order-kind">茶会</span><h3>留一张茶会邀请</h3><p>完成第13处布置，并亲手认识已开启的工作台后开放。</p>${btn('了解茶会','openTea','small alt')}</article>`:'');}
 function teaContent(){
  const t=game.teaOrder();if(!t.available)return `<article class="tea-intro"><h3>在花园认识小苗之后，一起喝茶吧。</h3><p>完成第13处布置，亲手试过每个已开启的工作台，就可以准备两熊茶会。每场都可自由换方案，错过一天不会失去进度。</p>${game.mainOrder()?.lesson?btn('认识新工作台','source','small',`data-cat="${game.mainOrder().lesson}"`):''}</article>`;
- return `<div class="tea-condition"><span class="tag">第 ${t.round+1} 场 · ${esc(t.conditionName)}</span><p>${t.condition==='sunny'?'今天放晴了，选一个喜欢的地方坐坐。':t.condition==='memory'?'想留下今天，一起做一张小小纪念吧。':'有点风，用夹子固定茶布，再把杯子放稳。'} ${t.participants.includes('xiaoli')?'小栗也来坐坐。':'这一场，先留给布布和一二。'}</p></div><div class="tea-plans">${Object.entries(TEA_PLANS).map(([key,p])=>`<button data-action="teaPlan" data-plan="${key}" class="${t.plan===key?'active':''}" aria-pressed="${t.plan===key}"><b>${p.name}</b><span>${p.wish}</span></button>`).join('')}</div>${orderCard(t,'tea')}<p class="note">交付前可免费换方案，物品保持原样。完成后出现动作与不同回应，纪念物永久收藏，不要求连续登录。</p>`;
+ return `<div class="tea-condition"><span class="tag">第 ${t.round+1} 场 · ${esc(t.conditionName)}</span><p>${t.condition==='sunny'?'今天放晴了，选一个喜欢的地方坐坐。':t.condition==='memory'?'想留下今天，一起做一张小小纪念吧。':'有点风，用夹子固定茶布，再把杯子放稳。'} ${t.participants.includes('xiaoli')?'小栗也来坐坐。':'这一场，先留给布布和一二。'}</p></div><div class="tea-plans">${Object.entries(TEA_PLANS).map(([key,p])=>`<button data-action="teaPlan" data-plan="${key}" class="${t.plan===key?'active':''}" aria-pressed="${t.plan===key}"><b>${p.name}</b><span>${p.wish}</span></button>`).join('')}</div>${orderCard(t,'tea')}<p class="note">交付前可免费换方案，物品保持原样。两只熊先到${esc(REGIONS.find(r=>r.id===t.region).name)}才能开始茶会。完成后出现动作与不同回应，纪念物永久收藏，不要求连续登录。</p>`;
 }
 function teaHomeCard(){
  const t=game.teaOrder(),first=game.s.tea.firstVisit;
- return `<article class="tea-home-card"><h3>${first==='available'?'邀请小栗来坐坐':t.available?'今天，想怎样喝茶？':'留出一个一起坐下的位置'}</h3><p>${first==='available'?'邀请中的日子到了，布布一二准备好迎接小栗。':t.available?`选暖心茶点或花园小聚，准备材料，让${first==='arrived'?'三位朋友':'布布一二'}一起坐坐，留下今天的纪念。`:'认领第一株小苗，并亲手认识各工作台后，两熊茶会就会开放。'}</p><div class="actions">${first==='available'?btn('迎接小栗首访','firstVisit'):btn(t.available?'准备茶会':'看看茶会','openTea','alt')}${game.s.tea.lastResult?btn('重看最近一次','teaReplay','alt'):''}</div></article>`;
+ return `<article class="tea-home-card"><h3>${first==='available'?'邀请小栗来坐坐':t.available?'今天，想怎样喝茶？':'留出一个一起坐下的位置'}</h3><p>${first==='available'?'邀请中的日子到了，请先把布布和一二都带到庭院，再迎接小栗。':t.available?`选暖心茶点或花园小聚，准备材料，让${first==='arrived'?'三位朋友':'布布一二'}一起坐坐，留下今天的纪念。`:'认领第一株小苗，并亲手认识各工作台后，两熊茶会就会开放。'}</p><div class="actions">${first==='available'?btn(residentsTogether('courtyard')?'迎接小栗首访':'请带两熊到庭院','firstVisit','',residentsTogether('courtyard')?'':'disabled'):btn(t.available?'准备茶会':'看看茶会','openTea','alt')}${game.s.tea.lastResult?btn('重看最近一次','teaReplay','alt'):''}</div></article>`;
 }
 function souvenirEntries(){return game.worldProgress().souvenirs.map(v=>({...v,snapshot:v.record}));}
 function renderSouvenirs(){
@@ -1281,8 +2046,8 @@ function playEvent(event,{teaResult=null,result=null,reward=null,after=null}={})
  ui.sceneAwaitChoice=event==='tea'&&teaResult?.condition==='wind'&&!teaResult.displayChoice;if(teaResult?.displayChoice){ui.scenePlayer.setChoice(teaResult.displayChoice);$$('[data-action="sceneChoice"]',modalRoot).forEach(b=>{b.disabled=true;b.setAttribute('aria-pressed',String(b.dataset.choice===teaResult.displayChoice));});}if(!ui.sceneAwaitChoice)ui.scenePlayer.start();else{const caption=$('.event-caption');if(caption)caption.textContent='风吹起茶布了，先选一种固定方式。';}syncEventControls();
 }
 function orderCard(task,kind='main',slot=0){
- const delivered=kind==='main'&&game.s.delivered,lesson=kind==='main'&&task.lesson,ready=game.canFulfill(task.needs)&&!lesson,who=kind==='main'?task.who:(slot===0?'yier':'bubu');
- return `<article class="order-card order-mini ${kind==='side'?'side-order':''} ${ready||delivered?'fulfilled':''}" data-order-kind="${kind}" data-order-id="${task.id}"><div class="order-top"><span class="order-kind">${kind==='main'?'小屋心愿':kind==='tea'?'一起茶会':`邻里 ${slot+1}`}</span>${kind==='side'?`<button class="refresh-order" data-action="refreshSide" data-slot="${slot}" aria-label="免费更换第${slot+1}张邻里委托">${icon('refresh')}</button>`:''}</div><button class="order-name" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}">${esc(task.phaseLabel||task.name)}</button>${task.totalPhases>1?`<span class="phase-line">准备 ${task.phase+1}/${task.totalPhases}</span>`:''}${lesson?`<button class="lesson-line" data-action="source" data-cat="${lesson}">${picture('gen-'+lesson)}认识来源</button>`:''}<div class="requirements">${task.needs.map(requirement).join('')}</div>${rewardLine(task,kind==='main')}<div class="order-action">${delivered?btn('前往布置','goBuild','small'):btn(ready?(kind==='tea'?'开始茶会':'交付'):'准备中','submit','small',`data-kind="${kind}" data-id="${task.id}" data-step="${task.phase||0}" ${ready?'':'disabled'}`)}${kind==='tea'?btn('换方案','openTea','small alt'):''}</div></article>`;
+ const delivered=kind==='main'&&game.s.delivered,lesson=kind==='main'&&task.lesson,ready=game.canFulfill(task.needs)&&!lesson,actorsReady=kind!=='tea'||residentsTogether(task.region),who=kind==='main'?task.who:(slot===0?'yier':'bubu');
+ return `<article class="order-card order-mini ${kind==='side'?'side-order':''} ${ready||delivered?'fulfilled':''}" data-order-kind="${kind}" data-order-id="${task.id}"><div class="order-top"><span class="order-kind">${kind==='main'?'小屋心愿':kind==='tea'?'一起茶会':`邻里 ${slot+1}`}</span>${kind==='side'?`<button class="refresh-order" data-action="refreshSide" data-slot="${slot}" aria-label="免费更换第${slot+1}张邻里委托">${icon('refresh')}</button>`:''}</div><button class="order-name" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}">${esc(task.phaseLabel||task.name)}</button>${task.totalPhases>1?`<span class="phase-line">准备 ${task.phase+1}/${task.totalPhases}</span>`:''}${lesson?`<button class="lesson-line" data-action="source" data-cat="${lesson}">${picture('gen-'+lesson)}认识来源</button>`:''}<div class="requirements">${task.needs.map(requirement).join('')}</div>${rewardLine(task,kind==='main')}<div class="order-action">${delivered?btn('前往布置','goBuild','small'):btn(!actorsReady?'等两熊到齐':ready?(kind==='tea'?'开始茶会':'交付'):'准备中','submit','small',`data-kind="${kind}" data-id="${task.id}" data-step="${task.phase||0}" ${ready&&actorsReady?'':'disabled'}`)}${kind==='tea'?btn('换方案','openTea','small alt'):''}</div></article>`;
 }
 function renderMerge(){
  const s=game.s,compact=window.innerHeight<=710;
@@ -1336,24 +2101,23 @@ function homeEnvironment(now=Date.now()){
  if(ui.environmentWeather){env.weather=ui.environmentWeather;env.weatherLabel={sunny:'晴朗',cloudy:'多云',rain:'小雨',wind:'微风'}[env.weather];}
  env.preview=!!(ui.environmentPhase||ui.environmentWeather);return env;
 }
-function decorateLivingScene(scene,now){
- const a=scene.ambient;if(!a||a.walking)return scene;
- if(scene.region!=='garden'&&a.activity==='rest'&&a.actors.some(actor=>actor.activity==='rest')){
-  for(const actor of scene.layers.filter(l=>l.kind==='actor')){const original=actor.h;actor.id=actor.who==='bubu'?'ambient-bubu-guitar':'ambient-yier-tea';actor.w=actor.who==='bubu'?25:24;actor.h=actor.w/1.12;actor.y+=original/2-actor.h/2;actor.flip=false;}
-  scene.caption='布布拨几下琴弦，一二捧着热茶，慢慢歇一会儿';
- }
- if(a.activity==='together'){
-  const id=Math.floor(now/90000)%2?'ambient-kiss':'ambient-cuddle';
-  const feet=Math.max(...a.actors.map(actor=>actor.y+actor.h/2));
-  scene.layers=scene.layers.filter(l=>l.kind!=='actor'&&l.key!=='ambient-heart');
-  scene.layers.push({key:'ambient-pair-moment',kind:'actor',who:'yier',id,x:52,y:feet-40/1.12/2,w:40,h:40/1.12,z:12,rotation:0,label:'布布和一二贴贴，点击聊聊'});
- }
- return scene;
+function getResidentLife(){
+ if(residentSaveRef!==game.s.residents){residentLife?.cancelAll();residentSaveRef=game.s.residents;residentLife=new ResidentController(residentSaveRef);}
+ return residentLife;
+}
+function residentsTogether(region){return ['bubu','yier'].every(w=>game.s.residents[w].region===region);}
+function residentLocations(){return ['bubu','yier'].map(w=>`${w==='bubu'?'布布':'一二'}在${REGIONS.find(r=>r.id===game.s.residents[w].region).name}`).join(' · ');}
+function residentDoorMarkup(region){return `<div class="resident-exits">${RESIDENT_EXITS.filter(e=>e.region===region).map(e=>`<div class="resident-exit" data-resident-exit="${e.id}" style="left:${e.x}%;top:${e.y}%;width:${e.rx*2}%;height:${e.ry*2}%"><span>${esc(e.label)}</span></div>`).join('')}</div>`;}
+function tickResidents(now=Date.now()){
+ const paused=document.hidden||ui.tab!=='home'||ui.modal||ui.story||ui.splash||drag||furnitureDrag||actorDrag||ui.decorSelected!==null||$('.room-chat');
+ const decorByRegion=Object.fromEntries(REGIONS.map(r=>[r.id,DECOR.filter(d=>d.id<game.s.stage&&d.region===r.id).map(d=>({...decorPlacement(d.id,game.s.decorPositions[d.id]),decorId:d.id}))]));
+ getResidentLife().tick(now,{paused:!!paused,reducedMotion:game.s.settings.reducedMotion,decorByRegion});
 }
 function livingScene(region=game.s.world.region,now=Date.now()){
- return decorateLivingScene(describeScene(game.s,{region,environment:homeEnvironment(now),ambient:!game.s.settings.reducedMotion,now,interactive:true}),now);
+ const scene=describeScene(game.s,{region,environment:homeEnvironment(now),characters:false,now,interactive:true});
+ scene.layers.push(...getResidentLife().frame(region,now));return scene;
 }
-function livingAsset(id){return asset(id.startsWith('ambient-')&&!id.endsWith('-motion')&&!game.s.settings.reducedMotion?id+'-motion':id);}
+function livingAsset(id){return asset(id);}
 function environmentSettings(){const env=homeEnvironment();return `<div class="section-title">家园环境预览</div><p class="description">${env.phaseLabel} · ${env.weatherLabel} · ${env.preview?'正在预览':'跟随本地时间，游戏内模拟天气'}</p><div class="actions">${btn('切换时段','cycleTime','small alt')}${btn('切换天气','cycleWeather','small alt')}${env.preview?btn('跟随时间','environmentAuto','small alt'):''}</div>`;}
 function homeScene(progress=game.s.stage,{interactive=false,characters=true,mini=false,night=false,poses=null,region=game.s.world?.region||'house',teaResult=null,scene=null,historical=false}={}){
  const info=REGIONS.find(r=>r.id===region)||REGIONS[0];
@@ -1361,10 +2125,10 @@ function homeScene(progress=game.s.stage,{interactive=false,characters=true,mini
  const frozen=scene||(live?livingScene(info.id):describeScene(game.s,{stage:progress,region:info.id,night,poses,characters,teaResult,...(historical?{decorPositions:{},equipped:{house:null,garden:null,courtyard:null},replay:true}:{})}));
  if(live){liveHomeScene=clone(frozen);liveWeatherKey=frozen.environment.phase+':'+frozen.environment.weather;}
  const target=decorPlacement(Math.min(progress,23)),canBuild=progress<24&&target.region===info.id;
- return `<div class="home-scene region-${info.id}" data-region-scene="${info.id}"><div class="scene-layers">${renderSceneHTML(frozen,{assetURL:live?livingAsset:asset,interactive})}</div>${interactive?`<div class="room-number">${info.name} · ${DECOR.filter(d=>d.id<progress&&d.region===info.id).length} 处心愿</div>${canBuild?`<button type="button" class="build-pin ${game.s.delivered?'ready':''}" data-action="goBuild" aria-label="${game.s.delivered?'可以布置啦，前往布置':'查看下一项布置'}" style="left:${Math.max(18,Math.min(82,target.x))}%;top:${Math.max(25,Math.min(83,target.y))}%">${icon('plus')}${game.s.delivered?'可以布置啦':'下一个小愿望'}</button>`:''}${furnitureControlMarkup(frozen)}`:''}</div>${interactive?furnitureToolsMarkup(frozen):''}`;
+ return `<div class="home-scene region-${info.id}" data-region-scene="${info.id}"><div class="scene-layers">${renderSceneHTML(frozen,{assetURL:live?livingAsset:asset,interactive})}</div>${interactive?`<div class="room-number">${info.name} · ${DECOR.filter(d=>d.id<progress&&d.region===info.id).length} 处心愿</div>${canBuild?`<button type="button" class="build-pin ${game.s.delivered?'ready':''}" data-action="goBuild" aria-label="${game.s.delivered?'可以布置啦，前往布置':'查看下一项布置'}" style="left:${Math.max(18,Math.min(82,target.x))}%;top:${Math.max(25,Math.min(83,target.y))}%">${icon('plus')}${game.s.delivered?'可以布置啦':'下一个小愿望'}</button>`:''}${furnitureControlMarkup(frozen)}${residentDoorMarkup(info.id)}`:''}</div>${interactive?furnitureToolsMarkup(frozen):''}`;
 }
 function refreshLivingScene(now=Date.now()){
- if(document.hidden||ui.tab!=='home'||ui.homeMode!=='region'||ui.modal||ui.story||ui.splash||drag||furnitureDrag||ui.decorSelected!==null||$('.room-chat'))return;
+ if(document.hidden||ui.tab!=='home'||ui.homeMode!=='region'||ui.modal||ui.story||ui.splash||drag||furnitureDrag||actorDrag&&!actorDrag.armed||ui.decorSelected!==null||$('.room-chat'))return;
  const host=$('.home-view .scene-layers');if(!host)return;
  const scene=livingScene(game.s.world.region,now);liveHomeScene=clone(scene);
  const dynamic=scene.layers.filter(l=>l.kind==='actor'||l.key.startsWith('ambient-'));
@@ -1401,8 +2165,8 @@ function renderWorldMemories(){
 }
 function renderHome(){
  const s=game.s,ch=Math.min(5,Math.floor(s.stage/4)),chapter=CHAPTERS[ch],t=TASKS[s.stage];
- const region=REGIONS.find(r=>r.id===s.world.region)||REGIONS[0],p=game.worldProgress(),r=p.regions.find(r=>r.id===region.id),nextRegion=REGIONS.find(r=>r.id===DECOR[s.stage]?.region);
- return `<section class="home-view"><div class="page-heading"><div><span class="eyebrow">BEARS AT HOME · CHAPTER ${String(ch+1).padStart(2,'0')}</span><h2>${ui.homeMode==='map'?'熊熊之家，逛逛我们的家':region.name}</h2><p>${ui.homeMode==='map'?'小屋 · 花园 · 庭院，把生活慢慢铺开':region.subtitle}</p><div class="chapter-progress">${Array.from({length:6},(_,i)=>`<i class="${s.stage>=i*4+4?'done':''}"></i>`).join('')}</div></div>${ib('book','book','翻开回忆手帐')}</div><div class="home-toolbar">${ui.homeMode==='region'?btn(icon('back')+'家园全景','worldMap','small alt'):''}${btn(icon('merge')+'回合成台','merge','small')}</div>${ui.homeMode==='map'?worldMap():`<div class="region-tabs">${REGIONS.map(v=>`<button class="${v.id===region.id?'active':''}" data-action="visitRegion" data-region="${v.id}">${v.name}</button>`).join('')}</div><div class="home-scene-shell">${homeScene(s.stage,{interactive:true,night:ui.night})}</div><div class="home-actions"><button data-action="photo">${icon('camera')}拍张合照</button><button data-action="decorate">${icon('palette')}换个配色</button></div><article class="region-activity"><span class="activity-flower">${region.id==='garden'?'✿':region.id==='courtyard'?'☀':'♡'}</span><div><h3>${r.activityLabel||region.activityLabel}</h3><p>${s.stage===0?'先铺好第一块门垫，再一起做今天的小事。':r.activityDone?'今天的小事已经一起做过，明天再来。':r.activityText||region.activityText}</p></div>${btn(r.activityDone?'明天再来':'一起做','homeActivity','small',`data-region="${region.id}" ${r.activityDone||s.stage===0?'disabled':''}`)}</article>`}${teaHomeCard()}<div class="world-memory-track">${icon('book')}家园回忆 ${p.memoryCount} / 3 张<span>各区域每天一次陪伴，收集新的日常</span></div>${t?`<article class="home-quest">${picture(t.decor,'home-quest-thumb')}<span class="eyebrow">下一处心愿 · ${nextRegion?.name||'小屋'} · ${s.stage+1}/24</span><h3>${t.name}</h3><p>${s.delivered?'心愿星已经备好。走到对应区域，亲手布置新角落。':t.wish}</p><div class="home-quest-row"><span class="tag ${s.delivered?'':'coral'}">${icon(s.delivered?'star':'merge')}${s.delivered?'心愿星 ×1 已就绪':'先准备合成物品'}</span>${btn(s.delivered?'前往布置':'去合成','build',s.delivered?'':'alt')}</div></article>`:`<article class="home-quest"><span class="eyebrow">BEARS AT HOME</span><h3>家园变大了，陪伴也更多了。</h3><p>${s.tea.firstVisit==='arrived'?'去花园照顾花草，回小屋准备点心，再与小栗一起喝茶。':'家园和茶点都准备好了，去迎接受邀的小栗吧。'}每天都有一件可以一起做的小事。</p><div class="home-quest-row">${btn('继续合成','merge')}${btn(s.tea.firstVisit==='arrived'?'重温待客准备':'看看待客准备','ending','alt')}</div></article>`}</section>`;
+ const region=REGIONS.find(r=>r.id===s.world.region)||REGIONS[0],p=game.worldProgress(),r=p.regions.find(r=>r.id===region.id),nextRegion=REGIONS.find(r=>r.id===DECOR[s.stage]?.region),bothHere=residentsTogether(region.id);
+ return `<section class="home-view"><div class="page-heading"><div><span class="eyebrow">BEARS AT HOME · CHAPTER ${String(ch+1).padStart(2,'0')}</span><h2>${ui.homeMode==='map'?'熊熊之家，逛逛我们的家':region.name}</h2><p>${ui.homeMode==='map'?'小屋 · 花园 · 庭院，把生活慢慢铺开':region.subtitle}</p><div class="chapter-progress">${Array.from({length:6},(_,i)=>`<i class="${s.stage>=i*4+4?'done':''}"></i>`).join('')}</div></div>${ib('book','book','翻开回忆手帐')}</div><div class="home-toolbar">${ui.homeMode==='region'?btn(icon('back')+'家园全景','worldMap','small alt'):''}${btn(icon('merge')+'回合成台','merge','small')}</div>${ui.homeMode==='map'?worldMap():`<div class="region-tabs">${REGIONS.map(v=>`<button class="${v.id===region.id?'active':''}" data-action="visitRegion" data-region="${v.id}">${v.name}</button>`).join('')}</div><div class="home-scene-shell">${homeScene(s.stage,{interactive:true,night:ui.night})}</div><div class="home-actions"><button data-action="photo">${icon('camera')}拍张合照</button><button data-action="decorate">${icon('palette')}换个配色</button></div><p class="resident-guide"><span class="resident-status">${esc(residentLocations())}</span>长按角色后拖动 · 在门口松手带它去另一处家园</p><article class="region-activity"><span class="activity-flower">${region.id==='garden'?'✿':region.id==='courtyard'?'☀':'♡'}</span><div><h3>${r.activityLabel||region.activityLabel}</h3><p>${s.stage===0?'先铺好第一块门垫，再一起做今天的小事。':r.activityDone?'今天的小事已经一起做过，明天再来。':!bothHere?'先把两只熊带到这里，再一起做今天的小事。':r.activityText||region.activityText}</p></div>${btn(r.activityDone?'明天再来':bothHere?'一起做':'等两熊到齐','homeActivity','small',`data-region="${region.id}" ${r.activityDone||s.stage===0||!bothHere?'disabled':''}`)}</article>`}${teaHomeCard()}<div class="world-memory-track">${icon('book')}家园回忆 ${p.memoryCount} / 3 张<span>各区域每天一次陪伴，收集新的日常</span></div>${t?`<article class="home-quest">${picture(t.decor,'home-quest-thumb')}<span class="eyebrow">下一处心愿 · ${nextRegion?.name||'小屋'} · ${s.stage+1}/24</span><h3>${t.name}</h3><p>${s.delivered?'心愿星已经备好。走到对应区域，亲手布置新角落。':t.wish}</p><div class="home-quest-row"><span class="tag ${s.delivered?'':'coral'}">${icon(s.delivered?'star':'merge')}${s.delivered?'心愿星 ×1 已就绪':'先准备合成物品'}</span>${btn(s.delivered?'前往布置':'去合成','build',s.delivered?'':'alt')}</div></article>`:`<article class="home-quest"><span class="eyebrow">BEARS AT HOME</span><h3>家园变大了，陪伴也更多了。</h3><p>${s.tea.firstVisit==='arrived'?'去花园照顾花草，回小屋准备点心，再与小栗一起喝茶。':'家园和茶点都准备好了，去迎接受邀的小栗吧。'}每天都有一件可以一起做的小事。</p><div class="home-quest-row">${btn('继续合成','merge')}${btn(s.tea.firstVisit==='arrived'?'重温待客准备':'看看待客准备','ending','alt')}</div></article>`}</section>`;
 }
 function renderBook(){
  const s=game.s;let content='';
@@ -1427,6 +2191,7 @@ function dailyContent(){
 
 // ------- Sheets -------
 function openModal(m){
+ cancelActorDrag();
  if(m.type==='activityResult'||m.type==='worldMemory'){ui.scenePlayer?.destroy();ui.scenePlayer=null;ui.sceneSnapshot=null;ui.sceneAwaitChoice=false;}
  cancelDrag();cancelFurnitureDrag();if(!ui.modal)modalReturnFocus=focusKey(document.activeElement);ui.modal=m;renderModal();syncInert();$('.modal [data-action="closeModal"]')?.focus({preventScroll:true});
 }
@@ -1503,7 +2268,7 @@ function renderModal(){
    ['07 · 记得保管熊熊之家','这是单机游戏，只保存在当前浏览器。换设备前导出 JSON 存档，再到新设备导入。浏览器无痕模式和直接打开文件时的保存能力，取决于浏览器本身。'],
    ['08 · 自己摆放喜欢的家','在小屋、花园或庭院点击已布置家具，会显示“移动”按钮。按住按钮拖动，松手保存位置；可恢复原位。也可聚焦移动按钮，用方向键微调，位置随存档和照片保留。'],
    ['09 · 看看窗外的天气','家园会跟随本地时间改变晨昼暮夜，天气是游戏内模拟。在设置中可预览时段和天气，点“跟随时间”恢复自动，不影响订单与奖励。'],
-   ['10 · 两只熊也有自己的小日常','布布和一二会散步、看看风景、在已摆好的家具旁歇一会儿，偶尔走到一起贴贴。“一起做”的小事直接展示结果图。移动家具、聊天和读剧情时会暂停；设置中的“减少动态”可让家园安静下来。']
+   ['10 · 两只熊也有自己的小日常','布布和一二各自在自己的场景随机散步、做小动作，靠近时可能亲亲或抱抱。长按420毫秒后拖动，门口松手可带角色过门；切换场景只移动视角。分开时一二经常找布布，两熊到齐才能一起做小事或喝茶。小事仍直接展示结果图。移动家具、聊天和读剧情时会暂停；设置中的“减少动态”可让家园安静下来。']
   ].map(([h,p])=>`<div class="help-section"><h3>${h}</h3><p>${p}</p></div>`).join('')}`;
  }
  modalRoot.innerHTML=sheet(title,body,m.type==='activityResult'||m.type==='worldMemory');syncInert();if(m.type==='event')syncEventControls();const restored=findFocus(focus,modalRoot);(restored||$('.modal [data-action="closeModal"]'))?.focus({preventScroll:true});
@@ -1542,6 +2307,53 @@ function playHomeActivity(r){
  clearTimeout(toastTimer);$('#toast').className='';
  openModal({type:'activityResult',result:r});
 }
+
+// Residents need a stationary hold; moving early cancels instead of arming a drag.
+function startActorDrag(e){
+ const button=e.target.closest('.home-view .scene-actor[data-action="chat"]'),who=button?.dataset.who;
+ if(!button||!['bubu','yier'].includes(who)||e.button!==0||!e.isPrimary||ui.modal||ui.story||ui.splash||actorDrag)return;
+ const scene=button.closest('.home-scene');if(!scene)return;
+ e.preventDefault();cancelDrag();cancelFurnitureDrag();sounds.unlock();
+ const controller=getResidentLife(),base=controller.state(who);
+ if(base.region!==game.s.world.region)return;
+ const d=actorDrag={who,controller,base,scene,button,pointerId:e.pointerId,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,rect:scene.getBoundingClientRect(),armed:false,timer:null};
+ button.classList.add('resident-hold-pending');try{scene.setPointerCapture(e.pointerId);}catch{}
+ d.timer=setTimeout(()=>{
+  if(actorDrag!==d||!scene.isConnected||!controller.beginDrag(who))return;
+  d.armed=true;ui.decorSelected=null;button.classList.remove('resident-hold-pending');scene.classList.add('resident-dragging');
+  refreshLivingScene();scene.querySelector('[data-scene-layer="'+who+'"]')?.classList.add('resident-being-dragged');
+ },420);
+}
+function moveActorDrag(e){
+ const d=actorDrag;if(!d||e.pointerId!==d.pointerId)return;e.preventDefault();d.lastX=e.clientX;d.lastY=e.clientY;
+ if(!d.armed){if(Math.hypot(e.clientX-d.startX,e.clientY-d.startY)>8){ignoreClickUntil=Date.now()+400;cancelActorDrag();}return;}
+ d.controller.dragTo(d.who,d.base.x+(e.clientX-d.startX)/d.rect.width*100,d.base.y+(e.clientY-d.startY)/d.rect.height*100);
+ refreshLivingScene();
+ const exit=residentExitAt(d.base.region,(e.clientX-d.rect.left)/d.rect.width*100,(e.clientY-d.rect.top)/d.rect.height*100);
+ d.scene.querySelectorAll('[data-resident-exit]').forEach(n=>n.classList.toggle('resident-exit-ready',n.dataset.residentExit===exit?.id));
+}
+function releaseActorCapture(d){
+ clearTimeout(d.timer);d.button.classList.remove('resident-hold-pending');d.scene.classList.remove('resident-dragging');
+ d.scene.querySelectorAll('.resident-exit-ready,.resident-being-dragged').forEach(n=>n.classList.remove('resident-exit-ready','resident-being-dragged'));
+ try{d.scene.releasePointerCapture(d.pointerId);}catch{}
+}
+function cancelActorDrag(repaint=true){
+ const d=actorDrag;if(!d)return;actorDrag=null;releaseActorCapture(d);if(d.armed)d.controller.endDrag(d.who,Date.now(),{cancel:true});
+ ignoreClickUntil=Date.now()+350;if(repaint)refreshLivingScene();
+}
+function finishActorDrag(e){
+ const d=actorDrag;if(!d||e.pointerId!==d.pointerId)return;e.preventDefault();actorDrag=null;releaseActorCapture(d);ignoreClickUntil=Date.now()+400;
+ if(!d.armed){chat(d.who);return;}
+ const exit=residentExitAt(d.base.region,(e.clientX-d.rect.left)/d.rect.width*100,(e.clientY-d.rect.top)/d.rect.height*100);
+ d.controller.endDrag(d.who);
+ if(exit){d.controller.transfer(d.who,exit.destination,exit.spawn.x,exit.spawn.y);game.visitRegion(exit.destination);ui.homeMode='region';ui.decorSelected=null;}
+ persist();render();if(exit)toast((d.who==='bubu'?'布布':'一二')+'已经'+exit.label+'啦。');
+}
+app.addEventListener('pointerdown',startActorDrag);
+document.addEventListener('pointermove',moveActorDrag,{passive:false});document.addEventListener('pointerup',finishActorDrag);
+document.addEventListener('pointercancel',()=>cancelActorDrag());document.addEventListener('lostpointercapture',e=>{if(actorDrag?.pointerId===e.pointerId)cancelActorDrag();});
+window.addEventListener('blur',()=>cancelActorDrag());
+
 // ------- Board pointer handling: primary pointer only; cancellations never move items -------
 function selectCell(index){
  const intent=boardTapIntent(game.s.board,ui.selected,index);
@@ -1575,7 +2387,7 @@ function endDrag(e){
 function cancelDrag(){if(drag){drag.hold?.cancel();drag.ghost?.remove();drag.cell?.classList.remove('source');try{drag.cell?.releasePointerCapture(drag.pointerId);}catch{}}drag=null;$$('.cell.target').forEach(c=>c.classList.remove('target'));}
 app.addEventListener('pointerdown',startDrag);document.addEventListener('pointermove',dragMove,{passive:false});document.addEventListener('pointerup',endDrag);document.addEventListener('pointercancel',cancelDrag);window.addEventListener('blur',cancelDrag);
 document.addEventListener('lostpointercapture',e=>{if(drag?.pointerId===e.pointerId)cancelDrag();});
-app.addEventListener('contextmenu',e=>{if(e.target.closest('[data-cell],[data-action="decorMoveHandle"]'))e.preventDefault();});
+app.addEventListener('contextmenu',e=>{if(e.target.closest('[data-cell],[data-action="decorMoveHandle"],.scene-actor[data-who]'))e.preventDefault();});
 // A furniture handle moves the actual scene layer; only a completed release changes the save.
 function paintFurniturePosition(d,p){
  d.layer.style.left=p.x+'%';d.layer.style.top=p.y+'%';
@@ -1703,7 +2515,7 @@ app.addEventListener('click',async(e)=>{
   case 'replayTask':replayTask(+d.id);break;
   case 'nextStory':nextStory();break;
   case 'skipStory':finishStory();break;
-  case 'chat':{const rect=b.getBoundingClientRect(),left=e.clientX<rect.left+rect.width/2;chat(d.sceneLayer==='ambient-pair-moment'&&e.detail!==0?((left!==(d.sprite==='ambient-kiss'))?'bubu':'yier'):d.who);break;}
+  case 'chat':chat(d.who);break;
   case 'dayNight':ui.environmentPhase=homeEnvironment().night?'day':'night';render();break;
   case 'cycleTime':ui.environmentPhase=PHASES[(PHASES.indexOf(homeEnvironment().phase)+1)%PHASES.length];render();break;
   case 'cycleWeather':ui.environmentWeather=WEATHERS[(WEATHERS.indexOf(homeEnvironment().weather)+1)%WEATHERS.length];render();break;
@@ -1711,12 +2523,12 @@ app.addEventListener('click',async(e)=>{
   case 'photo':await capturePhoto();break;
   case 'export':try{downloadBlob(new Blob([game.export()],{type:'application/json'}),`熊熊之家_存档_${new Date().toISOString().slice(0,10)}.json`);toast('已请求下载存档。请确认下载列表中的 JSON 文件并收好。');}catch(err){toast('存档下载未成功，请检查浏览器下载权限：'+err.message,5000);}break;
   case 'import':$('#import-file').click();break;
-  case 'importConfirm':{const state=ui.modal.state;game=new GameEngine(state);closeModal();ui.selected=null;ui.highlight=[];ui.tab=game.s.stage===0?'merge':'home';ui.night=game.s.stage>=16&&game.s.stage<20;persist();render();sounds.syncMusic();toast('存档已搬进熊熊之家，继续一起生活吧。');break;}
+  case 'importConfirm':{const state=ui.modal.state;cancelActorDrag(false);residentLife?.cancelAll();game=new GameEngine(state);getResidentLife();closeModal();ui.selected=null;ui.highlight=[];ui.tab=game.s.stage===0?'merge':'home';ui.night=game.s.stage>=16&&game.s.stage<20;persist();render();sounds.syncMusic();toast('存档已搬进熊熊之家，继续一起生活吧。');break;}
   case 'resetAsk':openModal({type:'reset'});break;
   case 'resetConfirm':{
    const next=new GameEngine(),raw=JSON.stringify(next.s);try{localStorage.setItem(STORE,raw);}catch{toast('重新开始未能保存，原进度已保留。请先导出存档并检查本地保存权限。',5000);break;}
    let backupWarning=false;try{localStorage.setItem(INITIALIZED,'1');localStorage.removeItem(BACKUP);}catch{backupWarning=true;}
-   lastValid=raw;storageFailed=false;game=next;ui.tab='merge';ui.homeMode='map';ui.selected=null;ui.highlight=[];ui.night=false;closeModal();render();playIntro();if(backupWarning)toast('新小屋已保存，但浏览器未能清理旧版备份。',5000);break;
+   lastValid=raw;storageFailed=false;cancelActorDrag(false);residentLife?.cancelAll();game=next;getResidentLife();ui.tab='merge';ui.homeMode='map';ui.selected=null;ui.highlight=[];ui.night=false;closeModal();render();playIntro();if(backupWarning)toast('新小屋已保存，但浏览器未能清理旧版备份。',5000);break;
   }
  }
 });
@@ -1728,7 +2540,7 @@ $('#import-file').addEventListener('change',async(e)=>{
  catch(err){toast(`没有载入这份存档：${err.message}`,5000);}
 });
 document.addEventListener('keydown',e=>{
- if(e.key==='Escape'){cancelFurnitureDrag();if(ui.decorSelected!==null){ui.decorSelected=null;render();}if(ui.story)finishStory();else closeModal();cancelDrag();return;}
+ if(e.key==='Escape'){cancelActorDrag();cancelFurnitureDrag();if(ui.decorSelected!==null){ui.decorSelected=null;render();}if(ui.story)finishStory();else closeModal();cancelDrag();return;}
  if(ui.story&&[' ','Enter','ArrowRight'].includes(e.key)){e.preventDefault();nextStory();return;}
  if(ui.modal&&e.key==='Tab'){
   const focusable=$$('.modal button:not(:disabled),.modal input');if(!focusable.length)return;const first=focusable[0],last=focusable.at(-1);if(!$('.modal')?.contains(document.activeElement)){e.preventDefault();first.focus();}else if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
@@ -1766,23 +2578,23 @@ async function loadImage(id){
 }
 
 // Only visible home actors move; board and furniture DOM stay untouched.
-setInterval(()=>refreshLivingScene(),200);
+setInterval(()=>{tickResidents();refreshLivingScene();},200);
 // Resource ticks do not recreate the board during a drag.
 setInterval(()=>{
  if(document.hidden)return;const day=game.s.daily.day;game.tick();
  const e=$('#energy-count');if(e)e.textContent=game.s.energy;
  $$('[data-stock]').forEach(el=>{const p=game.s.producers[el.dataset.stock];el.textContent=`${p.stock}/${stockCap(p)}`;});
- if(day!==game.s.daily.day&&!drag&&!furnitureDrag){render();persist();}
+ if(day!==game.s.daily.day&&!drag&&!furnitureDrag&&!actorDrag){render();persist();}
 },1000);
 setInterval(persist,15000);
-document.addEventListener('visibilitychange',()=>{cancelDrag();cancelFurnitureDrag();if(document.hidden){ui.scenePlayer?.pause();game.tick();persist();}else{game.tick();render();ui.scenePlayer?.resume();}sounds.syncMusic();});
-window.addEventListener('pagehide',()=>{game.tick();persist();});
-window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{cancelActorDrag();tickResidents();cancelDrag();cancelFurnitureDrag();if(document.hidden){ui.scenePlayer?.pause();game.tick();persist();}else{game.tick();render();ui.scenePlayer?.resume();}sounds.syncMusic();});
+window.addEventListener('pagehide',()=>{cancelActorDrag(false);game.tick();persist();});
+window.addEventListener('beforeunload',()=>{cancelActorDrag(false);persist();});
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{cancelDrag();render();},120);});
 
 async function boot(){
  app.style.setProperty('--grain',`url("${asset('paper-texture')}")`);render();
- const ids=['region-house','bubu-idle','bubu-sit','bubu-turn','bubu-face','bubu-happy','yier-turn','yier-face','yier-happy','bubu-surprise','yier-surprise','util-energy','util-coin','util-star','util-crate','atlas-clean','atlas-generators'];
+ const ids=[...ACTOR_ACTION_ASSET_IDS.filter(id=>id.includes('-drag-')||id.endsWith('-search')),'region-house','bubu-idle','bubu-sit','bubu-turn','bubu-face','bubu-happy','yier-turn','yier-face','yier-happy','bubu-surprise','yier-surprise','util-energy','util-coin','util-star','util-crate','atlas-clean','atlas-generators'];
  // Resume page needs its region/decor now; later chapters never block the launch button.
  if(game.s.stage){ids.push('world-map',...REGIONS.filter(r=>r.id===game.s.world.region).map(r=>r.background),...DECOR.filter(d=>d.id<game.s.stage&&d.region===game.s.world.region).map(d=>d.image||`decor-${String(d.id+1).padStart(2,'0')}`));}
  ids.push(...game.s.board.filter(t=>t?.k==='item').map(t=>itemKey(t.c,t.l)));
@@ -1790,7 +2602,8 @@ async function boot(){
  await Promise.all(keys.map(async id=>{try{await loadImage(id);}catch{failed.push(id);}loaded++;const bar=$('#load-bar');if(bar)bar.style.width=`${loaded/keys.length*100}%`;}));
  if(failed.length){$('#loading-text').textContent=`有 ${failed.length} 件当前页面素材未能打开，请确认 assets 与入口在一起。`;const retry=document.createElement('button');retry.className='button';retry.textContent='重新打开素材';retry.onclick=()=>location.reload();$('#loading').append(retry);return;}
  $('#loading').remove();renderSplash();syncInert();
- if(new URLSearchParams(location.search).has('qa'))window.__COZY_QA__={get game(){return game;},render,navigate,openModal,closeModal,ui,validateState,capturePhoto,livingScene,refreshLivingScene,playEvent,describeScene,drawSceneCanvas,renderSceneHTML,createScenePlayer};
+ for(const id of ACTOR_ACTION_ASSET_IDS)loadImage(id).catch(()=>{});
+ if(new URLSearchParams(location.search).has('qa'))window.__COZY_QA__={get game(){return game;},render,navigate,openModal,closeModal,ui,validateState,capturePhoto,livingScene,refreshLivingScene,tickResidents,get residentLife(){return getResidentLife();},get actorDrag(){return actorDrag?{who:actorDrag.who,armed:actorDrag.armed}:null;},cancelActorDrag,playEvent,describeScene,drawSceneCanvas,renderSceneHTML,createScenePlayer};
  if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)&&!window.__OFFLINE_SINGLE__)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{});
 }
 boot().catch(err=>{const loading=$('#loading-text');if(loading)loading.textContent=TITLE+'启动遇到问题：'+err.message;console.error(err);});

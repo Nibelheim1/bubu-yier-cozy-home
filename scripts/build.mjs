@@ -4,12 +4,13 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {SPRITE_ATLAS_IDS,WORLD_ASSET_IDS} from '../src/visuals.mjs';
 import {VERSION} from '../src/data.mjs';
+import {ACTOR_ACTION_ASSET_IDS} from '../src/actor-actions.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dist=path.join(root,'dist'),release=path.join(root,'release');
 await fs.mkdir(dist,{recursive:true});await fs.mkdir(release,{recursive:true});
 const html=await fs.readFile(path.join(root,'src/index.html'),'utf8');
 const css=await fs.readFile(path.join(root,'src/style.css'),'utf8');
-const sourceNames=['data.mjs','engine.mjs','actor-bounds.mjs','visuals.mjs','life.mjs','scenes.mjs','interaction.mjs','ui.mjs'];
+const sourceNames=['data.mjs','actor-actions.mjs','residents.mjs','engine.mjs','actor-bounds.mjs','visuals.mjs','life.mjs','scenes.mjs','interaction.mjs','ui.mjs'];
 const sources=await Promise.all(sourceNames.map(f=>fs.readFile(path.join(root,'src',f),'utf8')));
 const code=sources.map(s=>s.replace(/^import .*?;\s*$/gm,'').replace(/^export\s*\{[^}]*\}\s*from\s*['"][^'"]+['"];?\s*$/gm,'').replace(/^export /gm,'')).join('\n\n');
 const assetsDir=path.join(root,'public/assets');
@@ -17,20 +18,21 @@ const activityResultIds=['house','garden','courtyard'].flatMap(region=>['early',
 // Editable originals live in art/source; public/assets contains current runtime media.
 const runtimeIds=[
   'app-icon','paper-texture','cozy-loop',
-  ...['ambient-cuddle','ambient-kiss','ambient-bubu-guitar','ambient-yier-tea'].flatMap(id=>[id,id+'-motion']),
   ...['bubu','yier'].flatMap(who=>['back','face','happy','idle','joy','side','sit','sleep','surprise','turn','walk','paint','shy'].map(pose=>`${who}-${pose}`)),
   'story-companion','story-garden','story-night','story-rest',
   ...['coin','crate','energy','gift','scissors','star','storage'].map(id=>`util-${id}`),
-  ...SPRITE_ATLAS_IDS,...WORLD_ASSET_IDS,...activityResultIds,
+  ...SPRITE_ATLAS_IDS,...WORLD_ASSET_IDS,...activityResultIds,...ACTOR_ACTION_ASSET_IDS,
 ];
 const available=new Set(await fs.readdir(assetsDir));
 const required=[...SPRITE_ATLAS_IDS,...WORLD_ASSET_IDS,...activityResultIds];
 const missing=required.filter(id=>!available.has(`${id}.png`));
+missing.push(...ACTOR_ACTION_ASSET_IDS.filter(id=>!available.has(`${id}.gif`)));
 if(missing.length)throw new Error(`新版素材尚未齐备：${missing.join('、')}。请将原始生成图放入 public/assets 后再构建。`);
-const files=runtimeIds.map(id=>`${id}.${id==='cozy-loop'?'wav':id.startsWith('ambient-')&&id.endsWith('-motion')?'gif':'png'}`).filter(f=>available.has(f)).sort();
+const files=runtimeIds.map(id=>`${id}.${id==='cozy-loop'?'wav':id.startsWith('actor-motion-')||id.startsWith('ambient-')&&id.endsWith('-motion')?'gif':'png'}`).filter(f=>available.has(f)).sort();
 const ids=files.map(f=>path.parse(f).name);
 const sizes={};
 for(const f of files.filter(f=>f.endsWith('.png'))){const png=await fs.readFile(path.join(assetsDir,f));sizes[path.parse(f).name]=[png.readUInt32BE(16),png.readUInt32BE(20)];}
+for(const f of files.filter(f=>f.endsWith('.gif'))){const gif=await fs.readFile(path.join(assetsDir,f));sizes[path.parse(f).name]=[gif.readUInt16LE(6),gif.readUInt16LE(8)];}
 const codeBundle=`/* ${VERSION} | ${new Date().toISOString()} | locally built; no network dependencies */\nwindow.__ASSET_IDS__=${JSON.stringify(ids)};\nwindow.__ASSET_SIZES__=${JSON.stringify(sizes)};\n(function(){'use strict';\n${code}\n})();`;
 const digest=crypto.createHash('sha256').update(codeBundle).update(css).digest('hex').slice(0,12);
 await fs.writeFile(path.join(dist,'app.js'),codeBundle);

@@ -11,6 +11,7 @@ function setup(stage=24){
 }
 const tile=(c='clean',l=1)=>({k:'item',c,l});
 const boardMass=(g)=>g.s.board.reduce((n,t)=>n+mass(t),0)+g.s.storage.reduce((n,t)=>n+mass(t),0);
+function placeResidents(g,region){for(const r of Object.values(g.s.residents))r.region=region;}
 function fillBoard(g){for(let i=6;i<49;i++)if(g.s.board[i]===null)g.s.board[i]=tile();}
 
 test('24 story tasks and all requirements have an unlocked source',()=>{
@@ -60,9 +61,9 @@ test('legacy saves migrate home state without changing progress, inventory or th
  assert.equal(g.visitRegion('elsewhere').code,'REGION');
 });
 test('each home activity awards once per day, waits for real objects and resists clock reversal',()=>{
- const g=setup(1),coins=g.s.coins;for(const r of REGIONS){assert.ok(g.homeActivity(r.id,NOW).ok);const before=clone(g.s);assert.equal(g.homeActivity(r.id,NOW).code,'CLAIMED');assert.deepEqual(g.s,before);}
+ const g=setup(1),coins=g.s.coins;for(const r of REGIONS){placeResidents(g,r.id);assert.ok(g.homeActivity(r.id,NOW).ok);const before=clone(g.s);assert.equal(g.homeActivity(r.id,NOW).code,'CLAIMED');assert.deepEqual(g.s,before);}
  assert.equal(g.s.coins,coins+24);assert.equal(g.worldProgress().totalActivities,3);assert.ok(g.worldProgress().regions.every(r=>r.activityDone));
- for(const day of [1,2])for(const r of REGIONS)assert.ok(g.homeActivity(r.id,NOW+day*86400000).ok);
+ for(const day of [1,2])for(const r of REGIONS){placeResidents(g,r.id);assert.ok(g.homeActivity(r.id,NOW+day*86400000).ok);}
  assert.equal(g.worldProgress().memoryCount,0);assert.equal(g.worldProgress().totalActivities,9);const c=g.s.coins;
  assert.equal(g.homeActivity('house',NOW).code,'CLAIMED');assert.equal(g.s.coins,c);validateState(g.s);
  const intro=new GameEngine(null,NOW);assert.equal(intro.homeActivity('house',NOW).code,'TUTORIAL');
@@ -101,11 +102,11 @@ test('v1.2 six tea choices preserve first souvenirs, rewards, result reload and 
  const g=setup(13);const outcomes=[];
  // Three conditions per round: choose each plan over two cycles.
  for(let round=0;round<6;round++){
-  assert.ok(g.chooseTeaPlan(round<3?'warm':'garden').ok);const order=g.teaOrder();assert.equal(order.needs.reduce((n,r)=>n+2**(r.l-1)*r.n,0),8);order.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));const beforeOrders=g.s.stats.order,beforeCoins=g.s.coins,beforeLevel=levelOf(g.s);const result=g.submit('tea',order.id);assert.ok(result.ok);assert.equal(result.coins,order.coins);assert.equal(result.xp,order.xp);assert.equal(Object.hasOwn(result,'energy'),false);assert.equal(g.s.stats.order,beforeOrders+1);assert.equal(g.s.coins,beforeCoins+order.coins+Array.from({length:levelOf(g.s)-beforeLevel},(_,i)=>levelReward(beforeLevel+i+1).coins).reduce((a,b)=>a+b,0));assert.deepEqual(result.result.participants,['bubu','yier']);assert.ok(result.firstSouvenir);outcomes.push(result.result);const saved=clone(g.s);assert.equal(g.submit('tea',order.id).code,'STALE');assert.deepEqual(g.s,saved);assert.deepEqual(new GameEngine(JSON.parse(g.export()),NOW).s,saved);
+  assert.ok(g.chooseTeaPlan(round<3?'warm':'garden').ok);const order=g.teaOrder();placeResidents(g,order.region);assert.equal(order.needs.reduce((n,r)=>n+2**(r.l-1)*r.n,0),8);order.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));const beforeOrders=g.s.stats.order,beforeCoins=g.s.coins,beforeLevel=levelOf(g.s);const result=g.submit('tea',order.id);assert.ok(result.ok);assert.equal(result.coins,order.coins);assert.equal(result.xp,order.xp);assert.equal(Object.hasOwn(result,'energy'),false);assert.equal(g.s.stats.order,beforeOrders+1);assert.equal(g.s.coins,beforeCoins+order.coins+Array.from({length:levelOf(g.s)-beforeLevel},(_,i)=>levelReward(beforeLevel+i+1).coins).reduce((a,b)=>a+b,0));assert.deepEqual(result.result.participants,['bubu','yier']);assert.ok(result.firstSouvenir);outcomes.push(result.result);const saved=clone(g.s);assert.equal(g.submit('tea',order.id).code,'STALE');assert.deepEqual(g.s,saved);assert.deepEqual(new GameEngine(JSON.parse(g.export()),NOW).s,saved);
  }
  assert.equal(Object.keys(g.s.world.souvenirs).length,6);assert.ok(g.equipSouvenir('house','coaster-garden').ok);assert.equal(g.s.world.equipped.house,'coaster-garden');assert.equal(g.equipSouvenir('garden','coaster-warm').code,'SOUVENIR');
- g.chooseTeaPlan('warm');const repeat=g.teaOrder();repeat.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));assert.equal(g.submit('tea',repeat.id).firstSouvenir,false);assert.deepEqual(g.s.world.souvenirs['coaster-warm'],outcomes[0]);validateState(g.s);
- const ready=setup();const coins=ready.s.coins,orders=ready.s.stats.order;assert.ok(ready.beginFirstVisit().ok);assert.equal(ready.s.tea.firstVisit,'arrived');assert.ok(ready.teaOrder().participants.includes('xiaoli'));assert.equal(ready.beginFirstVisit().code,'ARRIVED');assert.equal(ready.s.coins,coins);assert.equal(ready.s.stats.order,orders);validateState(ready.s);
+ g.chooseTeaPlan('warm');const repeat=g.teaOrder();placeResidents(g,repeat.region);repeat.needs.forEach((r,i)=>g.s.board[7+i]=tile(r.c,r.l));assert.equal(g.submit('tea',repeat.id).firstSouvenir,false);assert.deepEqual(g.s.world.souvenirs['coaster-warm'],outcomes[0]);validateState(g.s);
+ const ready=setup();placeResidents(ready,'courtyard');const coins=ready.s.coins,orders=ready.s.stats.order;assert.ok(ready.beginFirstVisit().ok);assert.equal(ready.s.tea.firstVisit,'arrived');assert.ok(ready.teaOrder().participants.includes('xiaoli'));assert.equal(ready.beginFirstVisit().code,'ARRIVED');assert.equal(ready.s.coins,coins);assert.equal(ready.s.stats.order,orders);validateState(ready.s);
 });
 
 test('v1.2 living conditions unlock an already-earned memory without another daily reward',()=>{
@@ -117,7 +118,7 @@ test('v1.2 result snapshots freeze equipment and preparation stages choose their
  assert.deepEqual(result.equipped,{house:'coaster-warm',garden:null,courtyard:null});assert.deepEqual(g.s.world.souvenirs['coaster-warm'].equipped,result.equipped);g.s.world.equipped.house=null;assert.equal(g.s.tea.lastResult.equipped.house,'coaster-warm');assert.deepEqual(new GameEngine(JSON.parse(g.export()),NOW).s.tea.lastResult.equipped,result.equipped);
  const older=clone(g.s);delete older.tea.lastResult.equipped;delete older.world.souvenirs['coaster-warm'].equipped;older.world.equipped.house='coaster-warm';const migrated=validateState(older);assert.deepEqual(migrated.tea.lastResult.equipped,{house:null,garden:null,courtyard:null});assert.equal(older.tea.lastResult.equipped,undefined);
  const prep=setup(23);TASKS[23].needs.forEach((r,i)=>prep.s.board[7+i]=tile(r.c,r.l));const first=prep.submit('main',23,0);assert.equal(first.region,'garden');assert.equal(prep.s.world.region,'garden');const next=prep.submit('main',23,1);assert.equal(next.region,'courtyard');assert.equal(prep.s.world.region,'courtyard');const last=prep.submit('main',23,2);assert.equal(last.region,'courtyard');assert.equal(prep.s.stats.order,1);assert.equal(prep.s.stars,1);
- const visit=setup();assert.deepEqual(visit.beginFirstVisit().result.equipped,visit.s.world.equipped);
+ const visit=setup();placeResidents(visit,'courtyard');assert.deepEqual(visit.beginFirstVisit().result.equipped,visit.s.world.equipped);
 });
 test('side hints follow the visible order and remain useful after the campaign',()=>{
  const g=setup(1);g.s.sideOrders[0].needs=[{c:'clean',l:3,n:1}];g.s.sideOrders[1].needs=[{c:'clean',l:2,n:1}];g.s.board[7]=tile('clean',2);g.s.delivered=true;g.s.stars=1;

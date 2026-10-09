@@ -1,0 +1,992 @@
+{
+  "version": "1.5.0",
+  "checkedAt": "2026-10-09T19:03:10.472Z",
+  "build": {
+    "version": "1.5.0",
+    "builtAt": "2026-10-09T18:54:27.137Z",
+    "buildId": "5ac9c84610fb",
+    "runtimeAssets": 103,
+    "spriteAtlases": 15,
+    "worldRegions": 3,
+    "offlineBytes": 94368854,
+    "runtimeAssetBytes": 70533781,
+    "networkRequiredToPlay": false,
+    "characterStyle": "flat-2d-reference",
+    "sourceFiles": [
+      "src/data.mjs",
+      "src/actor-actions.mjs",
+      "src/residents.mjs",
+      "src/engine.mjs",
+      "src/actor-bounds.mjs",
+      "src/visuals.mjs",
+      "src/life.mjs",
+      "src/scenes.mjs",
+      "src/interaction.mjs",
+      "src/ui.mjs",
+      "src/style.css"
+    ]
+  },
+  "tests": {
+    "passed": 21,
+    "failed": 0,
+    "runs": [
+      {
+        "command": "node --test tests/residents.test.mjs",
+        "passed": 14
+      },
+      {
+        "command": "node --test --test-name-pattern \"home activity|six tea choices|result snapshots\" tests/engine.test.mjs",
+        "passed": 3
+      },
+      {
+        "command": "node --test --test-name-pattern=\"daily, regional, order and chapter rewards cannot add stamina|tea, first visit and souvenirs freeze layout|garden support and watering follow a relocated seedling|new and migrated first-visit responses share current text\" tests/economy-v14.test.mjs tests/layout.test.mjs tests/text-migration.test.mjs",
+        "passed": 4
+      }
+    ]
+  },
+  "buildChecks": [
+    "node scripts/build.mjs",
+    "node --check dist/app.js"
+  ],
+  "browser": {
+    "browserUrl": "http://127.0.0.1:4173/?qa",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "steps": [
+      {
+        "case": "pre-hold movement cancels",
+        "pass": true,
+        "state": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "house",
+              "x": 28,
+              "y": 65
+            },
+            "yier": {
+              "region": "house",
+              "x": 74,
+              "y": 70
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "bubu-idle",
+              "who": "bubu"
+            },
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 2988.5765471660707,
+              "target": null,
+              "x": 28,
+              "y": 65
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 5613.705235615709,
+              "target": null,
+              "x": 74,
+              "y": 70
+            }
+          ]
+        }
+      },
+      {
+        "case": "Bubu held drag GIF",
+        "pass": true,
+        "state": {
+          "drag": {
+            "armed": true,
+            "who": "bubu"
+          },
+          "residents": {
+            "bubu": {
+              "region": "house",
+              "x": 28,
+              "y": 65
+            },
+            "yier": {
+              "region": "house",
+              "x": 74,
+              "y": 70
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "actor-motion-bubu-drag-2",
+              "who": "bubu"
+            },
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": "bubu-drag-2",
+              "dragging": true,
+              "id": "actor-motion-bubu-drag-2",
+              "mode": "drag",
+              "pair": false,
+              "region": "house",
+              "remaining": 0,
+              "target": null,
+              "x": 28,
+              "y": 65
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 5613.705235615709,
+              "target": null,
+              "x": 74,
+              "y": 70
+            }
+          ]
+        }
+      },
+      {
+        "case": "house door transfers only Bubu to courtyard",
+        "pass": true,
+        "state": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 49,
+              "y": 37
+            },
+            "yier": {
+              "region": "house",
+              "x": 74,
+              "y": 70
+            }
+          },
+          "scene": "courtyard",
+          "sprites": [
+            {
+              "id": "bubu-idle",
+              "who": "bubu"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 1500,
+              "target": null,
+              "x": 49,
+              "y": 37
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 5613.705235615709,
+              "target": null,
+              "x": 74,
+              "y": 70
+            }
+          ]
+        }
+      },
+      {
+        "case": "Yier original drag GIF and house door",
+        "pass": true,
+        "during": {
+          "drag": {
+            "armed": true,
+            "who": "yier"
+          },
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.494964419145017,
+              "y": 52.92356853837932
+            },
+            "yier": {
+              "region": "house",
+              "x": 59.875050873829544,
+              "y": 73.06918684144307
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "actor-motion-yier-drag-2",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.494964419145017,
+              "y": 52.92356853837932
+            },
+            {
+              "action": "yier-drag-2",
+              "dragging": true,
+              "id": "actor-motion-yier-drag-2",
+              "mode": "drag",
+              "pair": false,
+              "region": "house",
+              "remaining": 0,
+              "target": null,
+              "x": 59.875050873829544,
+              "y": 73.06918684144307
+            }
+          ]
+        },
+        "after": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            "yier": {
+              "region": "courtyard",
+              "x": 49,
+              "y": 37
+            }
+          },
+          "scene": "courtyard",
+          "sprites": [
+            {
+              "id": "bubu-walk4",
+              "who": "bubu"
+            },
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 1486,
+              "target": null,
+              "x": 49,
+              "y": 37
+            }
+          ]
+        }
+      },
+      {
+        "case": "courtyard side passage to garden, Bubu remains courtyard",
+        "pass": true,
+        "during": {
+          "drag": {
+            "armed": true,
+            "who": "yier"
+          },
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            "yier": {
+              "region": "courtyard",
+              "x": 49,
+              "y": 37
+            }
+          },
+          "scene": "courtyard",
+          "sprites": [
+            {
+              "id": "bubu-walk4",
+              "who": "bubu"
+            },
+            {
+              "id": "actor-motion-yier-drag-1",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            {
+              "action": "yier-drag-1",
+              "dragging": true,
+              "id": "actor-motion-yier-drag-1",
+              "mode": "drag",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": null,
+              "x": 49,
+              "y": 37
+            }
+          ]
+        },
+        "after": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            "yier": {
+              "region": "garden",
+              "x": 82,
+              "y": 40
+            }
+          },
+          "scene": "garden",
+          "sprites": [
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "garden",
+              "remaining": 1500,
+              "target": null,
+              "x": 82,
+              "y": 40
+            }
+          ]
+        }
+      },
+      {
+        "case": "garden blue door returns to courtyard",
+        "pass": true,
+        "during": {
+          "drag": {
+            "armed": true,
+            "who": "yier"
+          },
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            "yier": {
+              "region": "garden",
+              "x": 82,
+              "y": 40
+            }
+          },
+          "scene": "garden",
+          "sprites": [
+            {
+              "id": "actor-motion-yier-drag-1",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            {
+              "action": "yier-drag-1",
+              "dragging": true,
+              "id": "actor-motion-yier-drag-1",
+              "mode": "drag",
+              "pair": false,
+              "region": "garden",
+              "remaining": 0,
+              "target": null,
+              "x": 82,
+              "y": 40
+            }
+          ]
+        },
+        "after": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            "yier": {
+              "region": "courtyard",
+              "x": 77,
+              "y": 48
+            }
+          },
+          "scene": "courtyard",
+          "sprites": [
+            {
+              "id": "bubu-walk4",
+              "who": "bubu"
+            },
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 1500,
+              "target": null,
+              "x": 77,
+              "y": 48
+            }
+          ]
+        }
+      },
+      {
+        "case": "courtyard main door returns only Yier to house",
+        "pass": true,
+        "during": {
+          "drag": {
+            "armed": true,
+            "who": "yier"
+          },
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            "yier": {
+              "region": "courtyard",
+              "x": 77,
+              "y": 48
+            }
+          },
+          "scene": "courtyard",
+          "sprites": [
+            {
+              "id": "bubu-walk4",
+              "who": "bubu"
+            },
+            {
+              "id": "actor-motion-yier-drag-2",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            {
+              "action": "yier-drag-2",
+              "dragging": true,
+              "id": "actor-motion-yier-drag-2",
+              "mode": "drag",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": null,
+              "x": 77,
+              "y": 48
+            }
+          ]
+        },
+        "after": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            "yier": {
+              "region": "house",
+              "x": 19,
+              "y": 51
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "walk",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 0,
+              "target": {
+                "x": 22.090267971166,
+                "y": 52.5082433814436
+              },
+              "x": 23.380847963374137,
+              "y": 52.88982784303537
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 1500,
+              "target": null,
+              "x": 19,
+              "y": 51
+            }
+          ]
+        }
+      },
+      {
+        "case": "opening modal cancels active drag and restores origin",
+        "pass": true,
+        "state": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "courtyard",
+              "x": 49,
+              "y": 55
+            },
+            "yier": {
+              "region": "house",
+              "x": 66,
+              "y": 68
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "courtyard",
+              "remaining": 5840.332667875642,
+              "target": null,
+              "x": 49,
+              "y": 55
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 1500,
+              "target": null,
+              "x": 66,
+              "y": 68
+            }
+          ]
+        }
+      },
+      {
+        "case": "separated Yier uses supplied search GIF",
+        "pass": true,
+        "state": {
+          "actors": [
+            {
+              "src": "assets/actor-motion-yier-search.gif",
+              "who": "yier"
+            }
+          ],
+          "seen": true,
+          "state": {
+            "action": "yier-search",
+            "dragging": false,
+            "id": "actor-motion-yier-search",
+            "mode": "action",
+            "pair": false,
+            "region": "house",
+            "remaining": 2600,
+            "target": null,
+            "x": 66,
+            "y": 68
+          }
+        }
+      },
+      {
+        "case": "close distance creates one pair GIF with two independent hit targets",
+        "pass": true,
+        "state": {
+          "pair": "actor-motion-pair-hug",
+          "render": [
+            {
+              "hitOnly": false,
+              "id": "actor-motion-pair-hug",
+              "who": "pair",
+              "x": 47,
+              "y": 61.82142857142857
+            },
+            {
+              "hitOnly": true,
+              "id": null,
+              "who": "bubu",
+              "x": 37.5,
+              "y": 61.82142857142857
+            },
+            {
+              "hitOnly": true,
+              "id": null,
+              "who": "yier",
+              "x": 56.5,
+              "y": 61.82142857142857
+            }
+          ]
+        }
+      },
+      {
+        "case": "drag Yier interrupts pair without losing Bubu",
+        "pass": true,
+        "state": {
+          "drag": {
+            "armed": true,
+            "who": "yier"
+          },
+          "residents": {
+            "bubu": {
+              "region": "house",
+              "x": 42,
+              "y": 67
+            },
+            "yier": {
+              "region": "house",
+              "x": 52,
+              "y": 67
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "bubu-idle",
+              "who": "bubu"
+            },
+            {
+              "id": "actor-motion-yier-drag-1",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 1500,
+              "target": null,
+              "x": 42,
+              "y": 67
+            },
+            {
+              "action": "yier-drag-1",
+              "dragging": true,
+              "id": "actor-motion-yier-drag-1",
+              "mode": "drag",
+              "pair": false,
+              "region": "house",
+              "remaining": 0,
+              "target": null,
+              "x": 52,
+              "y": 67
+            }
+          ]
+        }
+      },
+      {
+        "case": "real Canvas photo with composite pair ignores invisible hit targets",
+        "pass": true,
+        "state": {
+          "hitOnly": 2,
+          "pair": "actor-motion-pair-hug",
+          "photoDrawSucceeded": true
+        }
+      },
+      {
+        "case": "v1.4 static daily result remains static",
+        "pass": true,
+        "state": {
+          "images": [
+            {
+              "complete": true,
+              "src": "assets/activity-house-ready.png",
+              "width": 1448
+            }
+          ],
+          "modal": "activityResult",
+          "scenePlayer": false
+        }
+      },
+      {
+        "case": "reduced motion uses static residents, resumes pair and permits manual own drag GIF",
+        "pass": true,
+        "fixtureNote": "Manual Bubu hold uses separated initial positions; overlapping static actors can put Yier above Bubu at the center pointer.",
+        "during": {
+          "drag": {
+            "armed": true,
+            "who": "bubu"
+          },
+          "residents": {
+            "bubu": {
+              "region": "house",
+              "x": 28,
+              "y": 65
+            },
+            "yier": {
+              "region": "house",
+              "x": 74,
+              "y": 70
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "actor-motion-bubu-drag-2",
+              "who": "bubu"
+            },
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": "bubu-drag-2",
+              "dragging": true,
+              "id": "actor-motion-bubu-drag-2",
+              "mode": "drag",
+              "pair": false,
+              "region": "house",
+              "remaining": 0,
+              "target": null,
+              "x": 28,
+              "y": 65
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 3157.9371513128226,
+              "target": null,
+              "x": 74,
+              "y": 70
+            }
+          ]
+        },
+        "after": {
+          "drag": null,
+          "residents": {
+            "bubu": {
+              "region": "house",
+              "x": 28,
+              "y": 65
+            },
+            "yier": {
+              "region": "house",
+              "x": 74,
+              "y": 70
+            }
+          },
+          "scene": "house",
+          "sprites": [
+            {
+              "id": "bubu-idle",
+              "who": "bubu"
+            },
+            {
+              "id": "yier-turn",
+              "who": "yier"
+            }
+          ],
+          "states": [
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 1500,
+              "target": null,
+              "x": 28,
+              "y": 65
+            },
+            {
+              "action": null,
+              "dragging": false,
+              "id": null,
+              "mode": "idle",
+              "pair": false,
+              "region": "house",
+              "remaining": 3157.9371513128226,
+              "target": null,
+              "x": 74,
+              "y": 70
+            }
+          ]
+        }
+      }
+    ],
+    "allPassed": true,
+    "fixtures": "Existing campaign checkpoint 24 migrated by validateState. Region/actor positions configured only via local ?qa hook. Search/pair selection uses controlled random and bounded clock advancement. Door and drag tests use native mouse input on the rendered page. Final build separately verified for reduced-motion behavior and loaded static result image.",
+    "screenshots": [
+      "output/playwright/residents-search-v1.5.png",
+      "output/playwright/residents-pair-v1.5.png"
+    ],
+    "limits": [
+      "Desktop app browser with 390x844 viewport emulation; not physical phone validation.",
+      "Native touch injection unsupported by the app browser. Mouse long press and early movement cancellation verified.",
+      "No full campaign rerun, audio/download/mobile hardware/performance certification."
+    ]
+  }
+}

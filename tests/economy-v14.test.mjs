@@ -28,8 +28,8 @@ test('natural recovery is 100 seconds, capped, and full stamina cannot bank reco
 
 test('daily, regional, order and chapter rewards cannot add stamina',()=>{
  const g=setup(15);g.s.xp=xpAt(99);g.s.energy=0;g.s.energyAt=NOW;
- assert.ok(g.dailyGift(NOW).ok);for(const d of DAILY){g.s.daily[d.key]=d.target;assert.ok(g.claimDaily(d.key,NOW).ok);}for(const r of REGIONS)assert.ok(g.homeActivity(r.id,NOW).ok);
- let o=g.s.sideOrders[0];supply(g,o.needs);assert.ok(g.submit('side',o.id).ok);o=g.teaOrder();supply(g,o.needs);assert.ok(g.submit('tea',o.id).ok);o=g.mainOrder();supply(g,o.needs);assert.ok(g.submit('main',o.id).ok);assert.ok(g.build(0).ok);assert.equal(g.s.stage,16);assert.equal(g.s.energy,0);assert.ok(g.s.bag.scissors>3);
+ assert.ok(g.dailyGift(NOW).ok);for(const d of DAILY){g.s.daily[d.key]=d.target;assert.ok(g.claimDaily(d.key,NOW).ok);}for(const r of REGIONS){for(const who of ['bubu','yier'])g.s.residents[who].region=r.id;assert.ok(g.homeActivity(r.id,NOW).ok);}
+ let o=g.s.sideOrders[0];supply(g,o.needs);assert.ok(g.submit('side',o.id).ok);o=g.teaOrder();for(const who of ['bubu','yier'])g.s.residents[who].region=o.region;supply(g,o.needs);assert.ok(g.submit('tea',o.id).ok);o=g.mainOrder();supply(g,o.needs);assert.ok(g.submit('main',o.id).ok);assert.ok(g.build(0).ok);assert.equal(g.s.stage,16);assert.equal(g.s.energy,0);assert.ok(g.s.bag.scissors>3);
  assert.ok(TASKS.every(t=>!Object.hasOwn(t,'energy')));assert.ok(DAILY.every(t=>!Object.hasOwn(t,'energy')));assert.ok(REGIONS.every(t=>!Object.hasOwn(t,'energy')));assert.equal(g.addEnergy,undefined);
 });
 

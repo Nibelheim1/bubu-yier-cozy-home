@@ -109,9 +109,9 @@ function sceneWeatherHTML(scene){
 }
 export function renderSceneHTML(scene,{assetURL=id=>`assets/${id}.png`,interactive=scene.interactive}={}){
  const layers=scene.layers.map(l=>{
-  const click=interactive&&['decor','actor','souvenir'].includes(l.kind),tag=click?'button':'div';
+  const click=interactive&&['decor','actor','souvenir'].includes(l.kind)&&l.who!=='pair',tag=click?'button':'div';
   const action=l.kind==='decor'?`data-action="furniture" data-id="${l.decorId}"`:l.kind==='actor'?`data-action="chat" data-who="${l.who}"`:`data-action="souvenirReplay" data-key="${escapeSceneText(l.souvenirKey)}"`;
-  return `<${tag} class="scene-layer scene-${l.kind} ${l.who||''}" data-scene-layer="${escapeSceneText(l.key)}" data-sprite="${escapeSceneText(l.id)}" style="${sceneLayerStyle(l,scene)}" ${click?`${action} aria-label="${escapeSceneText(l.label)}"`: 'aria-hidden="true"'}>${l.id?sceneSpriteHTML(l.id,assetURL):l.glyph?escapeSceneText(l.glyph):''}</${tag}>`;
+  return `<${tag} class="scene-layer scene-${l.kind} ${l.who||''}${l.hitOnly?' resident-hit-only':''}" data-scene-layer="${escapeSceneText(l.key)}" data-sprite="${escapeSceneText(l.id)}" style="${sceneLayerStyle(l,scene)}" ${click?`${action} aria-label="${escapeSceneText(l.label)}"`: 'aria-hidden="true"'}>${l.id?sceneSpriteHTML(l.id,assetURL):l.glyph?escapeSceneText(l.glyph):''}</${tag}>`;
  }).join('');
  return `<img class="scene-background" src="${escapeSceneText(assetURL(scene.background))}" alt="" draggable="false" style="filter:${sceneBackgroundFilter(scene)}">${layers}${sceneWeatherHTML(scene)}`;
 }
@@ -123,7 +123,7 @@ export async function drawSceneCanvas(ctx,input,{loadImage,width=1000,height=112
  const ids=[...new Set([scene.background,...scene.layers.filter(l=>l.id).map(l=>spriteSpec(l.id)?.asset||l.id)])];
  const images=new Map(await Promise.all(ids.map(async id=>[id,await loadImage(id)])));
  ctx.save();ctx.beginPath();ctx.rect(0,0,width,height);ctx.clip();ctx.filter=sceneBackgroundFilter(scene);ctx.drawImage(images.get(scene.background),0,0,width,height);ctx.filter='none';
- for(const l of [...scene.layers].sort((a,b)=>a.z-b.z)){
+ for(const l of scene.layers.filter(l=>!l.hitOnly).sort((a,b)=>a.z-b.z)){
   ctx.save();ctx.translate(l.x/100*width,l.y/100*height);ctx.rotate((l.rotation||0)*Math.PI/180);if(l.flip)ctx.scale(-1,1);
   ctx.filter=l.kind==='actor'?'none':[l.variant?'hue-rotate(24deg) saturate(.85)':'',scene.night?'brightness(.84)':''].filter(Boolean).join(' ')||'none';
   const w=l.w/100*width,h=l.h/100*height;
