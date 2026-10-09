@@ -45,4 +45,4 @@ export const SPRITE_ATLAS_IDS = [
 ];
 export const WORLD_ASSET_IDS = ['region-house','region-garden','region-courtyard','world-map','party-memory','yier-rest'];
 
-export {describeScene,freezeScene,renderSceneHTML,drawSceneCanvas,describeWorldMap,renderWorldOverlays,createScenePlayer,SCENE_STYLES} from './scenes.mjs';
+export {describeScene,freezeScene,renderSceneHTML,drawSceneCanvas,describeWorldMap,renderWorldOverlays,createScenePlayer,SCENE_STYLES,decorPlacement,decorBounds} from './scenes.mjs';

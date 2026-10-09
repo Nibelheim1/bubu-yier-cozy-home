@@ -9,7 +9,7 @@ const dist=path.join(root,'dist'),release=path.join(root,'release');
 await fs.mkdir(dist,{recursive:true});await fs.mkdir(release,{recursive:true});
 const html=await fs.readFile(path.join(root,'src/index.html'),'utf8');
 const css=await fs.readFile(path.join(root,'src/style.css'),'utf8');
-const sourceNames=['data.mjs','engine.mjs','visuals.mjs','scenes.mjs','ui.mjs'];
+const sourceNames=['data.mjs','engine.mjs','visuals.mjs','scenes.mjs','interaction.mjs','ui.mjs'];
 const sources=await Promise.all(sourceNames.map(f=>fs.readFile(path.join(root,'src',f),'utf8')));
 const code=sources.map(s=>s.replace(/^import .*?;\s*$/gm,'').replace(/^export\s*\{[^}]*\}\s*from\s*['"][^'"]+['"];?\s*$/gm,'').replace(/^export /gm,'')).join('\n\n');
 const assetsDir=path.join(root,'public/assets');

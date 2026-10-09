@@ -1,4 +1,5 @@
 import {VERSION,APP_VERSION,SCHEMA_VERSION,CATS,CHAINS,CFG,TASKS,DECOR,REGIONS,DAILY,SIDE_FLAVOR,MEMORY_GATES,TEA_CONDITIONS,TEA_PLANS,SOUVENIRS,teaResponse,itemKey,needMass,mass} from './data.mjs';
+import {decorPlacement,decorBounds} from './scenes.mjs';
 
 /** Deterministic, DOM-free game model. Every public mutation validates before spending. */
 export const clone = (v)=>JSON.parse(JSON.stringify(v));
@@ -9,6 +10,14 @@ const good=(kind,extra={})=>({ok:true,kind,...extra});
 const bad=(code,message)=>({ok:false,code,message});
 const freshWorld=()=>({region:'house',activities:Object.fromEntries(REGIONS.map(r=>[r.id,{day:'',count:0}])),chapterGifts:[],memoryUnlocked:Object.fromEntries(REGIONS.map(r=>[r.id,false])),souvenirs:{},equipped:Object.fromEntries(REGIONS.map(r=>[r.id,null]))});
 const freshTea=()=>({round:0,plan:'warm',firstVisit:'locked',lastResult:null});
+// Exact v1.2.0 flavor pairs. Only these known old strings migrate by index;
+// recipe IDs, rewards and random state remain the original saved values.
+const previousSideFlavor=[
+ ['巷口留言','把小东西准备好，生活就方便一点。'],['下午的约定','不用赶，准备好了再送来就好。'],['邻里小纸条','今天也想分享一点热乎乎的心意。'],['窗边的请求','给平常的一天，添一点小颜色。'],['周末的准备','东西不用很多，合适就好。'],
+];
+export function firstVisitResponse(participants=['bubu','yier','xiaoli']){
+ return [{who:'yier',text:'小栗，你来了！花架和画台都摆好了，这块蛋糕是留给你的。'},{who:'bubu',text:'请坐。一二摆好杯子，我把热茶端过来，慢一点喝。'},{who:'xiaoli',text:'谢谢你们的邀请。我带来了巷口捡到的小叶子，想画进给你们的回信。下次，再一起喝花草茶吧。'}].filter(line=>participants.includes(line.who));
+}
 export function freshState(now=Date.now(),seed=20261007){
  const board=Array(CFG.boardSize).fill(null);
  CATS.forEach((c,i)=>board[i]={k:'gen',c});
@@ -22,7 +31,7 @@ export function freshState(now=Date.now(),seed=20261007){
   storage:[],capacity:8,pending:[],bag:{scissors:3,energyPacks:2},
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
   stats:{merge:0,produce:0,order:0,build:0,sold:0,unweb:0},
-  seen:{'clean-1':true},decorStyles:Array(24).fill(null),sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],restAt:0,
+  seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],restAt:0,
   world:freshWorld(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,calm:false,reducedMotion:false}};
 }
 
@@ -56,7 +65,7 @@ export class GameEngine{
  }
  activityDetails(id){
   const ready=this.s.stage>=MEMORY_GATES[id],arrived=this.s.tea.firstVisit==='arrived';
-  return id==='house'?(ready?{activityLabel:'一起喝杯茶',activityText:'布布把茶吹凉，一二把最后一块饼干掰成两半。',activityAction:'share-tea'}:{activityLabel:'整理窗边',activityText:'一二把窗边擦亮，布布留出一个能一起歇脚的位置。',activityAction:'tidy-window'}):id==='garden'?(ready?{activityLabel:'扶苗浇浇水',activityText:'一二扶稳小苗，布布慢慢浇水，叶子又精神了一点。',activityAction:'water-seedling'}:{activityLabel:'扫扫落叶',activityText:'两只熊扫好落叶，一起选一个将来种花的位置。',activityAction:'sweep-leaves'}):(ready?{activityLabel:arrived?'给朋友摆茶点':'准备分享的茶点',activityText:arrived?'小栗来了。一二摆杯，布布端茶，给朋友留一个位置。':'一二摆好点心，布布端稳茶盘，等邀请中的小栗来坐坐。',activityAction:arrived?'welcome-friend':'prepare-tea'}:{activityLabel:'整理门口',activityText:'两只熊把门口整理好，给将来的客人留出位置。',activityAction:'tidy-door'});
+  return id==='house'?(ready?{activityLabel:'一起喝杯茶',activityText:'布布把茶吹凉，一二摆好两只杯子。忙完的两只熊，一起歇一会儿。',activityAction:'share-tea'}:{activityLabel:'整理窗边',activityText:'一二把窗边擦亮，布布留出一个能一起歇脚的位置。',activityAction:'tidy-window'}):id==='garden'?(ready?{activityLabel:'扶苗浇浇水',activityText:'一二扶稳小苗，布布慢慢浇水，叶子又精神了一点。',activityAction:'water-seedling'}:{activityLabel:'扫扫落叶',activityText:'两只熊扫好落叶，一起选一个将来种花的位置。',activityAction:'sweep-leaves'}):(ready?{activityLabel:arrived?'给朋友摆茶点':'准备分享的茶点',activityText:arrived?'小栗来了。一二摆杯，布布端茶，给朋友留一个位置。':'一二摆好点心，布布端稳茶盘，等邀请中的小栗来坐坐。',activityAction:arrived?'welcome-friend':'prepare-tea'}:{activityLabel:'整理门口',activityText:'两只熊把门口整理好，给将来的客人留出位置。',activityAction:'tidy-door'});
  }
  checkMemories(){const unlocked=[];for(const r of REGIONS)if(!this.s.world.memoryUnlocked[r.id]&&this.s.world.activities[r.id].count>=3&&this.s.stage>=MEMORY_GATES[r.id]){this.s.world.memoryUnlocked[r.id]=true;unlocked.push(r.id);}return unlocked;}
  homeActivity(id=this.s.world.region,now=Date.now()){
@@ -163,10 +172,10 @@ export class GameEngine{
   return {available:this.s.stage>=13&&CATS.every(cat=>this.s.producerLessons[cat]),id:`tea-${round}-${plan}`,round,plan,condition:c.id,conditionName:c.name,name:p.name,wish:p.wish,needs:clone(c.needs[plan]),coins:28,energy:3,region:p.region,participants:['bubu','yier',...(this.s.tea.firstVisit==='arrived'?['xiaoli']:[])],response:teaResponse(plan,c.id,this.s.tea.firstVisit==='arrived'),souvenirKey:`${c.souvenir}-${plan}`,souvenirName:c.souvenirName,souvenirRegion:c.souvenirRegion};
  }
  chooseTeaPlan(plan){if(!(plan in TEA_PLANS))return bad('PLAN','请选择暖心茶点或花园小聚。');if(!this.teaOrder().available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');this.invalidate();this.s.tea.plan=plan;return good('teaPlan',{plan});}
- resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
+ resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),decorPositions:clone(this.s.decorPositions),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
  beginFirstVisit(){
   if(this.s.tea.firstVisit!=='available')return bad(this.s.tea.firstVisit==='arrived'?'ARRIVED':'LOCKED',this.s.tea.firstVisit==='arrived'?'小栗已经来过啦，可以重看这次回忆。':'等家园准备好，再迎接小栗吧。');
-  this.invalidate();this.s.tea.firstVisit='arrived';const order={...this.teaOrder(),id:'firstVisit',region:'courtyard',participants:['bubu','yier','xiaoli'],souvenirKey:null,response:[{who:'yier',text:'小栗，你来了！花架和纪念画都摆好了，这块蛋糕是留给你的。'},{who:'bubu',text:'请坐。一二摆好杯子，我把热茶端过来，慢一点喝。'},{who:'xiaoli',text:'谢谢你们的邀请。我带来了巷口捡到的小叶子，想画进给你们的回信。下次，再一起喝花草茶吧。'}]};
+  this.invalidate();this.s.tea.firstVisit='arrived';const order={...this.teaOrder(),id:'firstVisit',region:'courtyard',participants:['bubu','yier','xiaoli'],souvenirKey:null,response:firstVisitResponse()};
   this.s.tea.lastResult=this.resultContext(order,'firstVisit');return good('firstVisit',{result:clone(this.s.tea.lastResult)});
  }
  equipSouvenir(region,key){const spec=SOUVENIRS.find(s=>s.key===key&&s.region===region);if(!spec||!this.s.world.souvenirs[key])return bad('SOUVENIR','先在茶会中收好这件纪念物。');this.invalidate();this.s.world.equipped[region]=key;return good('equipSouvenir',{region,key});}
@@ -213,6 +222,18 @@ export class GameEngine{
  redecorate(id,style){
   if(!Number.isInteger(id)||id<0||id>=this.s.stage||![0,1].includes(style))return bad('DECOR','这个角落还没布置好。');
   this.invalidate();this.s.decorStyles[id]=style;return good('redecorate',{id,style});
+ }
+ moveDecor(id,x,y){
+  if(!Number.isInteger(id)||id<0||id>=this.s.stage||!DECOR[id])return bad('DECOR','这个角落还没布置好。');
+  if(!Number.isFinite(x)||!Number.isFinite(y))return bad('POSITION','请把家具放在画面里。');
+  const p=decorPlacement(id,{x,y});
+  this.invalidate();this.s.decorPositions[id]={x:p.x,y:p.y};
+  return good('moveDecor',{id,region:p.region,x:p.x,y:p.y});
+ }
+ resetDecorPosition(id){
+  if(!Number.isInteger(id)||id<0||id>=this.s.stage||!DECOR[id])return bad('DECOR','这个角落还没布置好。');
+  this.invalidate();delete this.s.decorPositions[id];const p=decorPlacement(id);
+  return good('resetDecorPosition',{id,region:p.region,x:p.x,y:p.y});
  }
  store(index){
   if(this.s.stage===0)return bad('TUTORIAL','先完成门垫的小心愿，就能自由整理啦。');
@@ -385,6 +406,12 @@ export function validateState(raw){
  check(s.daily&&/^\d{4}-\d{2}-\d{2}$/.test(s.daily.day)&&['merge','produce','order'].every(k=>integer(s.daily[k],0,100000000))&&typeof s.daily.gift==='boolean','每日记录无效。');
  check(Array.isArray(s.daily.claimed)&&new Set(s.daily.claimed).size===s.daily.claimed.length&&s.daily.claimed.every(k=>DAILY.some(d=>d.key===k)),'每日奖励无效。');
  check(Array.isArray(s.decorStyles)&&s.decorStyles.length===24&&s.decorStyles.every((v,i)=>i<s.stage?[0,1].includes(v):v===null),'布置记录无效。');
+ const positions=(p,stage)=>p&&typeof p==='object'&&!Array.isArray(p)&&Object.entries(p).length<=stage&&Object.entries(p).every(([key,v])=>{
+  const id=Number(key),b=decorBounds(id);
+  return String(id)===key&&integer(id,0,stage-1)&&b&&v&&typeof v==='object'&&!Array.isArray(v)&&Number.isFinite(v.x)&&Number.isFinite(v.y)&&v.x>=b.minX&&v.x<=b.maxX&&v.y>=b.minY&&v.y<=b.maxY&&Object.keys(v).every(k=>k==='x'||k==='y');
+ });
+ if(s.decorPositions===undefined)s.decorPositions={};
+ check(positions(s.decorPositions,s.stage),'家具位置记录无效。');
  check(s.seen&&typeof s.seen==='object'&&!Array.isArray(s.seen)&&Object.entries(s.seen).every(([k,v])=>{const[c,l]=k.split('-');return v===true&&CATS.includes(c)&&integer(+l,1,6);}), '图鉴记录无效。');
  check(Array.isArray(s.sideOrders)&&[0,2].includes(s.sideOrders.length),'邻里订单数量无效。');
  check(s.sideOrders.every(o=>o&&typeof o.id==='string'&&o.id.length<40&&typeof o.name==='string'&&o.name.length<60&&typeof o.wish==='string'&&o.wish.length<200&&integer(o.coins,1,1000)&&integer(o.energy,1,100)&&Array.isArray(o.needs)&&o.needs.length>=1&&o.needs.length<=3&&o.needs.every(r=>CATS.includes(r.c)&&CHAINS[r.c].unlock<=s.stage&&integer(r.l,1,6)&&integer(r.n,1,3))),'邻里订单内容无效。');
@@ -407,8 +434,16 @@ export function validateState(raw){
  // Older result snapshots did not record display slots. Show empty slots rather
  // than borrowing decorations the player equipped after the remembered event.
  for(const record of [tea.lastResult,...Object.values(w.souvenirs)].filter(Boolean)){
+  if(record.decorPositions===undefined)record.decorPositions={};
+  check(positions(record.decorPositions,record.stage),'家具位置展示快照无效。');
   if(record.equipped===undefined)record.equipped=Object.fromEntries(REGIONS.map(r=>[r.id,null]));
   check(record.equipped&&REGIONS.every(region=>{const key=record.equipped[region.id];return key===null||SOUVENIRS.some(a=>a.key===key&&a.region===region.id);}),'纪念位展示快照无效。');
+ }
+ // Refresh text from the remembered event, never from today's guests or layout.
+ for(const record of [tea.lastResult,...Object.values(w.souvenirs)].filter(Boolean))record.response=record.kind==='firstVisit'?firstVisitResponse(record.participants):teaResponse(record.plan,record.condition,record.participants.includes('xiaoli'));
+ for(const order of result.sideOrders){
+  const index=previousSideFlavor.findIndex(([name,wish])=>order.name===name&&order.wish===wish);
+  if(index>=0){[order.name,order.wish]=SIDE_FLAVOR[index];}
  }
  return result;
 }

@@ -1,11 +1,11 @@
 {
-  "version": "1.2.0",
-  "builtAt": "2026-10-08T12:13:54.682Z",
-  "buildId": "e1c48d79a4ad",
+  "version": "1.2.1",
+  "builtAt": "2026-10-09T08:31:09.018Z",
+  "buildId": "62069e6e3b85",
   "runtimeAssets": 57,
   "spriteAtlases": 15,
   "worldRegions": 3,
-  "offlineBytes": 59016446,
+  "offlineBytes": 59030027,
   "runtimeAssetBytes": 44080020,
   "networkRequiredToPlay": false,
   "characterStyle": "flat-2d-reference",
@@ -14,6 +14,7 @@
     "src/engine.mjs",
     "src/visuals.mjs",
     "src/scenes.mjs",
+    "src/interaction.mjs",
     "src/ui.mjs",
     "src/style.css"
   ]

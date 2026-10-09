@@ -146,3 +146,13 @@
 .setting-row .toggle{height:44px;min-width:54px;border-radius:24px}.toggle i{top:10px}.resource,.level-badge{min-height:44px}.bag-line button,.world-memory-cards button,.past-stories button,.decor-picker button{min-height:44px}.setting-row p,.daily-item p,.memory-card p,.world-memory-track,#nav button{font-size:12px}.save-notice{font-size:12px}.event-scene .scene-layer{min-width:0;min-height:0}.event-scene~.actions .button{white-space:normal}.modal .actions{flex-wrap:wrap}
 .compact-orders{flex-wrap:wrap}.compact-name{flex:1 1 110px}.compact-orders .requirements{flex:1 1 auto;flex-wrap:wrap;min-width:0}.compact-orders>.button{flex-shrink:0}.board-header{flex-wrap:wrap;gap:5px}.board-tools{flex-wrap:wrap;justify-content:flex-end;max-width:100%}.board-frame{width:100%;min-width:0}.board{width:100%}.merge-view{padding-bottom:8px}#main{overflow-y:auto;min-height:0}.story-character,.splash-bears :is(img,.sprite-shell){filter:none}
 @media(max-width:375px){.compact-name{flex-basis:100%}.compact-orders .requirements{justify-content:flex-start}.board-tools{margin-left:auto}.detail-bar{position:relative;bottom:auto}}
+
+/* Explicit handles distinguish selection, merging and placement. */
+.board .cell{touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.cell.source{outline:3px dashed #ce8c40;opacity:.38}
+.furniture-move-handle{position:absolute;z-index:40;transform:translate(-50%,-50%)}
+.furniture-move-handle button{min-height:44px;min-width:88px;padding:7px 12px;border-radius:22px;background:#fff8d9;border:2px solid #c89b4d;box-shadow:0 3px 8px #69481e33;color:#765321;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;touch-action:none;cursor:grab;user-select:none;-webkit-touch-callout:none}
+.furniture-move-handle button:active{cursor:grabbing;background:#ffedaa}.furniture-move-handle .icon{width:20px;height:20px}
+.scene-layer.furniture-moving{outline:2px dashed #c69245;z-index:24!important;pointer-events:none}
+.furniture-placement-tools{position:relative;display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:6px;padding:8px;border:1px solid #d0ba8d;border-radius:15px;background:#fffbef;box-shadow:0 2px 10px #69513722}
+.furniture-placement-tools>span{flex-basis:100%;font-size:13px;line-height:1.5}.furniture-placement-tools small{display:block;font-size:12px;color:#8a765c}.furniture-placement-tools .button{flex:1;font-size:12px;min-height:44px;padding:5px}

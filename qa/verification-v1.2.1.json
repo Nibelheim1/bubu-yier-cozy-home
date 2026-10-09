@@ -1,0 +1,21 @@
+{
+  "version": "1.2.1",
+  "date": "2026-10-09",
+  "tests": [
+    {"command": "node --test tests/interaction.test.mjs", "passed": 8, "failed": 0},
+    {"command": "node --test tests/layout.test.mjs", "passed": 5, "failed": 0},
+    {"command": "node --test tests/text-migration.test.mjs", "passed": 3, "failed": 0},
+    {"command": "node --test --test-name-pattern='built standalone retains' tests/engine.test.mjs", "passed": 1, "failed": 0}
+  ],
+  "relatedTestsPassed": 17,
+  "build": {"command": "node scripts/build.mjs", "status": "passed", "offlineBytes": 59030027, "runtimeAssets": 57, "spriteAtlases": 15, "regions": 3},
+  "builtRuntimeSyntax": {"command": "node --check dist/app.js", "status": "passed"},
+  "browser": {"status": "blocked", "reason": "Browser Use could not request permission; saved browser permissions could not be verified for http://127.0.0.1:4193", "bypassUsed": false},
+  "actualPageGesturesVerified": false,
+  "mobileTouchVerified": false,
+  "nativeDownloadVerified": false,
+  "audioListeningVerified": false,
+  "loadingBenchmarkPerformed": false,
+  "githubUploadedThisRound": false,
+  "scope": "Text-story consistency, board tap/hold interaction, movable furniture with saved positions and historical snapshots"
+}

@@ -8,6 +8,18 @@ const sceneClamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const sceneMix=(a,b,t)=>a+(b-a)*t;
 const sceneSmooth=t=>{t=sceneClamp(t,0,1);return t*t*(3-2*t);};
 const SCENE_LAYOUT={0:{x:53,y:34,w:20},1:{x:49,y:18,w:35},4:{x:84,y:46,w:23},5:{x:84,y:72,w:24},6:{x:84,y:66,w:13},7:{x:23,y:67,w:18},9:{x:22,y:67,w:27},11:{x:82,y:22,w:22},13:{x:24,y:36,w:29},14:{x:83,y:43,w:26},15:{x:74,y:19,w:16},16:{x:82,y:91,w:19},17:{x:25,y:86,w:22},18:{x:62,y:86,w:13},19:{x:48,y:94,w:15},20:{x:50,y:22,w:54},21:{x:22,y:86,w:30},22:{x:79,y:86,w:30},23:{x:20,y:84,w:25}};
+/** The displayed sprite box, not the source data's obsolete width, bounds a move. */
+export function decorBounds(id){
+ const d=DECOR[id];if(!Number.isInteger(id)||!d)return null;
+ const w=SCENE_LAYOUT[id]?.w??d.w,h=w/1.12;
+ return {minX:w/2,maxX:100-w/2,minY:h/2,maxY:100-h/2};
+}
+/** Shared default, drag preview and saved-layout coordinates, in scene percentages. */
+export function decorPlacement(id,position){
+ const d=DECOR[id];if(!Number.isInteger(id)||!d)return null;
+ const p={...d,...SCENE_LAYOUT[id]},bounds=decorBounds(id);
+ return {...p,h:p.w/1.12,bounds,...(position&&Number.isFinite(position.x)&&Number.isFinite(position.y)?{x:sceneClamp(position.x,bounds.minX,bounds.maxX),y:sceneClamp(position.y,bounds.minY,bounds.maxY)}:{})};
+}
 const SCENE_SOUVENIR_LAYOUT={coaster:{id:'prop-coaster',region:'house',x:72,y:70,w:10,label:'一起选的杯垫'},card:{id:'prop-postcard',region:'courtyard',x:68,y:39,w:13,label:'手绘小卡'},chime:{id:'prop-wind-chime',region:'garden',x:72,y:23,w:12,label:'小风铃'}};
 const SCENE_WORLD_COORDS={house:[25,41],garden:[54,61],courtyard:[82,44]};
 export const freezeScene=scene=>cloneSceneData(scene);
@@ -24,9 +36,10 @@ export function describeScene(state,options={}){
  const info=REGIONS.find(r=>r.id===region)||REGIONS[0];
  const night=Boolean(options.night??result?.night??false);
  const styles=cloneSceneData(options.decorStyles??result?.decorStyles??state.decorStyles??{});
- const scene={schema:1,region:info.id,name:info.name,stage,night,background:info.background,aspect:1000/1120,decorStyles:styles,interactive:Boolean(options.interactive),layers:[],result:result?cloneSceneData(result):null};
+ const positions=cloneSceneData(options.decorPositions??(result?(result.decorPositions??{}):stage===state.stage?(state.decorPositions??{}):{}));
+ const scene={schema:1,region:info.id,name:info.name,stage,night,background:info.background,aspect:1000/1120,decorStyles:styles,decorPositions:positions,interactive:Boolean(options.interactive),layers:[],result:result?cloneSceneData(result):null};
  for(const d of DECOR.filter(d=>d.id<stage&&d.region===info.id)){
-  const p={...d,...SCENE_LAYOUT[d.id]};scene.layers.push({key:'decor-'+d.id,kind:'decor',decorId:d.id,id:`decor-${String(d.id+1).padStart(2,'0')}`,x:p.x,y:p.y,w:p.w,h:p.w/1.12,z:p.z+1,anchor:'center',variant:styles[d.id]===1,label:TASKS[d.id]?.name||'家园布置'});
+  const p=decorPlacement(d.id,positions[d.id]);scene.layers.push({key:'decor-'+d.id,kind:'decor',decorId:d.id,id:`decor-${String(d.id+1).padStart(2,'0')}`,x:p.x,y:p.y,w:p.w,h:p.h,z:p.z+1,anchor:'center',variant:styles[d.id]===1,label:TASKS[d.id]?.name||'家园布置'});
  }
  // Historic replays do not invent souvenirs that had not yet been earned.
  if(stage===state.stage||result||options.includeSouvenirs){
@@ -169,13 +182,13 @@ function animatedSceneFrame(base,step,t,index,{choice='anchor'}={}){
   if(t>.82)setSceneProp(s,{key:'tea-stream',kind:'water',id:null,x:(bx+6+tx-5)/2+2,y:70,w:.65,h:7,z:16,rotation:-65});
  }else if(k==='support'||k==='water'){
   // The actual seedling is at the same position as its scene decor, never floating elsewhere.
-  const seed=s.layers.find(l=>l.decorId===12),sx=seed?.x??22,sy=seed?.y??57;
-  moveSceneActor(s,'yier',startOf('yier'),[sx+12,sy],t,k==='support'&&t<.72?'walk':'support2');
+  const seed=s.layers.find(l=>l.decorId===12),sx=seed?.x??22,sy=seed?.y??57,side=sx>60?-1:1;
+  moveSceneActor(s,'yier',startOf('yier'),[sceneClamp(sx+12*side,11,89),sceneClamp(sy,14,86)],t,k==='support'&&t<.72?'walk':'support2');
   y.id=t>.45||k==='water'?'yier-support2':'yier-walk'+(Math.floor(t*9)%4+1);
   if(k==='water'){
-   moveSceneActor(s,'bubu',startOf('bubu'),[sx+25,sy-2],t,t<.64?'walk':'support1');
-   sceneHand(s,'bubu','prop-watering-can','watering-can',-6,5,13,t>.65?-25:0);
-   if(t>.7)for(let j=0;j<3;j++)setSceneProp(s,{key:'water-'+j,kind:'water',id:null,x:sx+4+j*2,y:sy-3+(t*18+j*3)%9,w:1,h:1.6,z:16,rotation:-20});
+   moveSceneActor(s,'bubu',startOf('bubu'),[sceneClamp(sx+25*side,11,89),sceneClamp(sy-2,14,86)],t,t<.64?'walk':'support1');
+   sceneHand(s,'bubu','prop-watering-can','watering-can',-6*side,5,13,t>.65?-25*side:0);
+   if(t>.7)for(let j=0;j<3;j++)setSceneProp(s,{key:'water-'+j,kind:'water',id:null,x:sx+side*(4+j*2),y:sy-3+(t*18+j*3)%9,w:1,h:1.6,z:16,rotation:-20*side});
   }
  }else if(k==='wind'||k==='clip'){
   const cloth=s.layers.find(l=>l.key==='tea-cloth');cloth.x=tx+(k==='wind'?(1-t)*5*Math.sin(t*10):0);cloth.rotation=(garden?-5:0)+(k==='wind'?(1-t)*14*Math.sin(t*13):0);
