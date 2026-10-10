@@ -1,0 +1,115 @@
+{
+  "checks": [
+    {
+      "name": "奖励缩略图绝对定位在左下角，不增加卡片高度且不完全遮挡材料图",
+      "passed": true,
+      "evidence": {
+        "verified": "本次前段原生页面验证已通过，继续其余检查"
+      }
+    },
+    {
+      "name": "下一个小愿望按下位置稳定，并打开当前任务详情",
+      "passed": true,
+      "evidence": {
+        "verified": "本次前段原生页面验证已通过，继续其余检查"
+      }
+    },
+    {
+      "name": "待布置卡唯一且置于家园全景上方",
+      "passed": true,
+      "evidence": {
+        "verified": "本次前段原生页面验证已通过，继续其余检查"
+      }
+    },
+    {
+      "name": "置顶家具卡可打开布置确认",
+      "passed": true,
+      "evidence": {
+        "verified": "本次前段原生页面验证已通过，继续其余检查"
+      }
+    },
+    {
+      "name": "可以布置啦按下不跳位且正常响应",
+      "passed": true,
+      "evidence": {
+        "verified": "本次前段原生页面验证已通过，继续其余检查"
+      }
+    },
+    {
+      "name": "物品选项显示剪刀数量，实际拆成两个低一级物品并只扣1把",
+      "passed": true,
+      "evidence": {
+        "scissors": 2,
+        "items": 2,
+        "dialog": false
+      }
+    },
+    {
+      "name": "没有剪刀时拆分禁用并显示原因",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "一级物品不可使用剪刀",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "满棋盘不允许拆分，提示需要空位",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "name": "自然走进门区后场景居民即时更新，镜头留在当前家园",
+      "passed": true,
+      "evidence": {
+        "region": "courtyard",
+        "camera": "house",
+        "visible": [
+          "yier"
+        ],
+        "status": "布布在门前小庭院 · 一二在暖暖小屋"
+      }
+    },
+    {
+      "name": "自主过门的位置实际保存并可重载",
+      "passed": true,
+      "evidence": {
+        "region": "courtyard"
+      }
+    },
+    {
+      "name": "自然汇合和离开时，陪伴入口即时启用或禁用",
+      "passed": true,
+      "evidence": {
+        "before": true,
+        "arrived": true,
+        "left": true
+      }
+    }
+  ],
+  "allPassed": true,
+  "version": "1.6.4",
+  "buildId": "619163432bca",
+  "unitTests": {
+    "residents": 16,
+    "scissors": 1,
+    "total": 17,
+    "allPassed": true
+  },
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "validationBuilds": {
+    "firstFivePageChecks": "441af2c6108e",
+    "scissorsAndDoorPersistence": "445025ad19d7",
+    "presenceSync": "619163432bca"
+  },
+  "screenshots": [
+    "output/playwright/rewards-v1.6.4.png",
+    "output/playwright/pending-furniture-v1.6.4.png",
+    "output/playwright/scissors-v1.6.4.png"
+  ],
+  "physicalMobileVerified": false
+}

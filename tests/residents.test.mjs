@@ -111,11 +111,39 @@ test('all four interactions use handles matching their actual left-right or stac
  assert.deepEqual([...seen].sort(),ACTOR_ACTIONS.filter(a=>a.kind==='interaction'&&a.regions.includes('house')).map(a=>a.asset).sort());
 });
 
-test('separated Yier frequently looks for Bubu while continuing walks and other GIFs',()=>{
- const r=freshResidents();r.bubu.region='garden';const c=controller(r);let actions=0,searches=0,walk=false,last='';const seen=new Set();
- for(let t=500;t<=900000;t+=500){c.tick(t);const s=c.state('yier');if(s.mode==='walk')walk=true;if(s.action&&s.action!==last){actions++;if(s.action==='yier-search')searches++;seen.add(s.action);}last=s.action;}
- assert.ok(searches/actions>.55,`${searches}/${actions}`);assert.ok(walk);assert.ok(seen.size>3);
- const together=controller();for(let t=500;t<=300000;t+=500){together.tick(t);assert.notEqual(together.state('yier').action,'yier-search');}
+test('separated Yier frequently chooses search without dropping other GIFs; together never chooses search',()=>{
+ const r=freshResidents();r.bubu.region='garden';const c=controller(r);let searches=0;const seen=new Set();
+ // Inspect action choices while apart; free movement now naturally reunites the bears.
+ for(let i=0;i<1000;i++){const action=c.chooseAction('yier');if(action.kind==='search')searches++;seen.add(action.id);}
+ assert.ok(searches/1000>.55,`${searches}/1000`);assert.ok(seen.size>3);
+ r.bubu.region='house';for(let i=0;i<100;i++)assert.notEqual(c.chooseAction('yier').id,'yier-search');
+});
+
+test('autonomous walking through all four doors uses their spawns and cooldown prevents bouncing',()=>{
+ for(const door of RESIDENT_EXITS){
+  const c=controller(),r=c.residents.bubu,rt=c.runtime.bubu;
+  Object.assign(r,{region:door.region,x:door.x,y:door.y});rt.mode='walk';rt.target={x:door.x,y:door.y};c.runtime.yier.remaining=100000;
+  c.tick(500,{paused:true});assert.equal(r.region,door.region);
+  c.tick(1000,{reducedMotion:true});assert.equal(r.region,door.region);
+  c.tick(1500);assert.deepEqual(r,{region:door.destination,...door.spawn});assert.equal(rt.doorCooldown,18000);
+  const back=RESIDENT_EXITS.find(e=>e.region===r.region&&e.destination===door.region);
+  Object.assign(r,{x:back.x,y:back.y});rt.mode='walk';rt.target={x:back.x,y:back.y};c.tick(2000);assert.equal(r.region,door.destination);
+  const persisted=structuredClone(c.residents);assert.deepEqual(Object.keys(persisted.bubu).sort(),['region','x','y']);
+ }
+});
+
+test('separated bears prefer the route to one another and use the courtyard for a two-door journey',()=>{
+ const apart=controller({bubu:{region:'house',x:28,y:65},yier:{region:'garden',x:74,y:70}},()=>0);
+ apart.startNext('bubu');assert.deepEqual(apart.state('bubu').target,{x:8,y:34});assert.equal(apart.runtime.bubu.journeyRegion,'garden');
+ apart.startNext('yier');assert.notDeepEqual(apart.state('yier').target,{x:92,y:27});
+ let reunited=false,visitedCourtyard=false;
+ for(let t=500;t<=90000;t+=500){apart.tick(t);if(apart.residents.bubu.region==='courtyard')visitedCourtyard=true;if(apart.residents.bubu.region===apart.residents.yier.region){reunited=true;break;}}
+ assert.ok(visitedCourtyard);assert.ok(reunited);assert.equal(apart.residents.bubu.region,'garden');
+ // A draw of 0.5 goes to a door when apart (75%), but remains an ordinary walk together (30%).
+ for(const separate of [false,true]){
+  const c=controller();if(separate)c.residents.yier.region='courtyard';const draws=[.1,.5,.5,.5];c.random=()=>draws.shift()??.5;c.startNext('bubu');
+  assert.equal(c.state('bubu').target.y===34,separate);
+ }
 });
 
 test('each door has a single destination and an elliptical release zone',()=>{

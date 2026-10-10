@@ -27,7 +27,7 @@ export class ResidentController{
  constructor(residents,{random=Math.random,clock=Date.now}={}){
   if(!validResidents(residents))throw Error('角色位置记录无效。');
   this.residents=residents;this.random=random;this.clock=clock;this.lastAt=clock();this.elapsed=0;this.pair=null;this.pairCooldown=0;this.pairBag=[];this.reducedMotion=false;
-  this.runtime=Object.fromEntries(RESIDENT_WHO.map(who=>[who,{mode:'idle',action:null,remaining:2800+this.roll()*3500,target:null,flip:false,dragOrigin:null,bags:{}}]));
+  this.runtime=Object.fromEntries(RESIDENT_WHO.map(who=>[who,{mode:'idle',action:null,remaining:2800+this.roll()*3500,target:null,flip:false,dragOrigin:null,bags:{},doorCooldown:0,journeyRegion:null}]));
  }
  roll(){const value=this.random();return Number.isFinite(value)?residentClamp(value,0,.999999999):.5;}
  shuffle(values){const list=[...values];for(let i=list.length-1;i>0;i--){const j=Math.floor(this.roll()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list;}
@@ -52,7 +52,16 @@ export class ResidentController{
   const r=this.residents[who],rt=this.runtime[who];
   if(this.roll()<.45){
    const minY=r.region==='house'?52:45;
-   rt.target={x:18+this.roll()*66,y:minY+this.roll()*(80-minY)};rt.flip=rt.target.x<r.x;rt.mode='walk';rt.action=null;rt.remaining=0;
+   const other=who==='bubu'?'yier':'bubu',peer=this.residents[other],peerRuntime=this.runtime[other],apart=peer.region!==r.region;
+   // One bear leads a reunion journey; the other waits rather than crossing past it.
+   const peerComing=apart&&peerRuntime.journeyRegion===r.region;
+   let door=null;
+   if(rt.doorCooldown<=0&&!peerComing&&this.roll()<(apart?.75:.3)){
+    const exits=RESIDENT_EXITS.filter(e=>e.region===r.region);
+    door=apart?(exits.find(e=>e.destination===peer.region)||exits.find(e=>e.destination==='courtyard')):exits[Math.floor(this.roll()*exits.length)];
+   }
+   rt.journeyRegion=apart&&(door||rt.doorCooldown>0)?peer.region:null;
+   rt.target=door?{x:door.x,y:door.y}:{x:18+this.roll()*66,y:minY+this.roll()*(80-minY)};rt.flip=rt.target.x<r.x;rt.mode='walk';rt.action=null;rt.remaining=0;
   }else{
    const action=this.chooseAction(who,decor);
    if(!action){this.wait(who,3000);return;}
@@ -81,11 +90,13 @@ export class ResidentController{
    else return;
   }
   for(const who of RESIDENT_WHO){
-   const rt=this.runtime[who],r=this.residents[who];if(rt.mode==='drag')continue;
+   const rt=this.runtime[who],r=this.residents[who];rt.doorCooldown=Math.max(0,rt.doorCooldown-delta);if(rt.mode==='drag')continue;
    if(rt.mode==='walk'){
     const d=residentDistance(r,rt.target),step=delta*.0085;
     if(d<=step){r.x=rt.target.x;r.y=rt.target.y;this.wait(who,1600+this.roll()*2600);}
     else if(d>0){r.x+=(rt.target.x-r.x)*step/d;r.y+=(rt.target.y-r.y)*step/d;}
+    const door=rt.doorCooldown<=0?residentExitAt(r.region,r.x,r.y):null;
+    if(door){const journey=rt.journeyRegion;this.transfer(who,door.destination,door.spawn.x,door.spawn.y,now);rt.journeyRegion=journey===door.destination?null:journey;this.wait(who,4000+this.roll()*2000);}
    }else{
     rt.remaining-=delta;
     if(rt.remaining<=0){if(rt.mode==='action')this.wait(who,1400+this.roll()*2400);else this.startNext(who,decorByRegion[r.region]);}
@@ -118,7 +129,7 @@ export class ResidentController{
  }
  beginDrag(who,now=this.clock()){
   if(!RESIDENT_WHO.includes(who)||this.runtime[who].mode==='drag'||RESIDENT_WHO.some(w=>this.runtime[w].mode==='drag'))return false;
-  this.stopPair();const rt=this.runtime[who];rt.dragOrigin={...this.residents[who]};rt.mode='drag';rt.target=null;
+  this.stopPair();const rt=this.runtime[who];rt.journeyRegion=null;rt.dragOrigin={...this.residents[who]};rt.mode='drag';rt.target=null;
   const choices=ACTOR_ACTIONS.filter(a=>a.who===who&&a.kind==='drag');rt.action=choices[Math.floor(this.roll()*choices.length)];rt.remaining=0;this.lastAt=now;return true;
  }
  dragTo(who,x,y){
@@ -132,10 +143,10 @@ export class ResidentController{
  }
  transfer(who,destination,x,y,now=this.clock()){
   if(!RESIDENT_WHO.includes(who)||!RESIDENT_REGIONS.includes(destination)||!Number.isFinite(x)||!Number.isFinite(y)||this.residents[who].region===destination)return false;
-  this.stopPair();const rt=this.runtime[who];rt.dragOrigin=null;
+  this.stopPair();const rt=this.runtime[who];rt.dragOrigin=null;rt.journeyRegion=null;rt.doorCooldown=18000;
   Object.assign(this.residents[who],{region:destination,x:residentClamp(x,8,92),y:residentClamp(y,12,88)});this.wait(who,1500);this.lastAt=now;return true;
  }
  cancelAll(now=this.clock()){
-  this.stopPair();for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);rt.dragOrigin=null;this.wait(who,1800+this.roll()*1800);}this.lastAt=now;
+  this.stopPair();for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);rt.dragOrigin=null;rt.journeyRegion=null;this.wait(who,1800+this.roll()*1800);}this.lastAt=now;
  }
 }

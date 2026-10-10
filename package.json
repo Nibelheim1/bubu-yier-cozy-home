@@ -1,6 +1,6 @@
 {
   "name": "bubu-yier-cozy-home",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "private": true,
   "type": "module",
   "description": "A locally playable cozy merge game with flat 2D characters, cooperative tea parties and permanent keepsakes.",

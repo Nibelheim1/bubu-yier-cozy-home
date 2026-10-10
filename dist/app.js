@@ -1,9 +1,9 @@
-/* 1.6.3 | 2026-10-10T01:28:12.430Z | locally built; no network dependencies */
+/* 1.6.4 | 2026-10-10T08:21:52.234Z | locally built; no network dependencies */
 window.__ASSET_IDS__=["activity-courtyard-early","activity-courtyard-ready","activity-garden-early","activity-garden-ready","activity-house-early","activity-house-ready","actor-motion-bubu-cheer","actor-motion-bubu-doze","actor-motion-bubu-drag-1","actor-motion-bubu-drag-2","actor-motion-bubu-eat","actor-motion-bubu-goose","actor-motion-bubu-kick","actor-motion-bubu-laundry","actor-motion-bubu-play","actor-motion-bubu-pudding","actor-motion-bubu-recline","actor-motion-bubu-rocking-horse","actor-motion-bubu-sing","actor-motion-bubu-swing","actor-motion-bubu-watermelon","actor-motion-bubu-work","actor-motion-pair-bonk","actor-motion-pair-cuddle","actor-motion-pair-hug","actor-motion-pair-kiss","actor-motion-yier-cheer","actor-motion-yier-drag-1","actor-motion-yier-drag-2","actor-motion-yier-exercise","actor-motion-yier-fart","actor-motion-yier-goose","actor-motion-yier-jump","actor-motion-yier-kick","actor-motion-yier-pajamas","actor-motion-yier-question","actor-motion-yier-recline","actor-motion-yier-search","actor-motion-yier-sleep","actor-motion-yier-sneak","actor-motion-yier-swing","actor-motion-yier-work","app-icon","atlas-bake","atlas-bubu-motion","atlas-clean","atlas-craft","atlas-decor-a","atlas-decor-b","atlas-decor-c","atlas-decor-d","atlas-garden","atlas-generators","atlas-tea-props","atlas-tea","atlas-tools","atlas-xiaoli","atlas-yier-motion","bubu-back","bubu-face","bubu-happy","bubu-idle","bubu-joy","bubu-side","bubu-sit","bubu-sleep","bubu-surprise","bubu-turn","bubu-walk","cozy-loop","paper-texture","party-memory","region-courtyard-night","region-courtyard","region-garden-night","region-garden","region-house-night","region-house","story-companion","story-garden","story-night","story-rest","util-coin","util-crate","util-energy","util-gift","util-scissors","util-star","util-storage","world-map","yier-back","yier-face","yier-happy","yier-idle","yier-joy","yier-paint","yier-rest","yier-shy","yier-side","yier-surprise","yier-turn","yier-walk"];
 window.__ASSET_SIZES__={"activity-courtyard-early":[1448,1086],"activity-courtyard-ready":[1448,1086],"activity-garden-early":[1448,1086],"activity-garden-ready":[1448,1086],"activity-house-early":[1448,1086],"activity-house-ready":[1448,1086],"app-icon":[512,512],"atlas-bake":[1536,1024],"atlas-bubu-motion":[1254,1254],"atlas-clean":[1536,1024],"atlas-craft":[1536,1024],"atlas-decor-a":[1536,1024],"atlas-decor-b":[1536,1024],"atlas-decor-c":[1536,1024],"atlas-decor-d":[1536,1024],"atlas-garden":[1536,1024],"atlas-generators":[1536,1024],"atlas-tea-props":[1536,1024],"atlas-tea":[1536,1024],"atlas-tools":[1536,1024],"atlas-xiaoli":[1254,1254],"atlas-yier-motion":[1230,1278],"bubu-back":[384,416],"bubu-face":[384,384],"bubu-happy":[384,384],"bubu-idle":[384,416],"bubu-joy":[384,416],"bubu-side":[384,416],"bubu-sit":[384,416],"bubu-sleep":[384,384],"bubu-surprise":[384,384],"bubu-turn":[384,416],"bubu-walk":[384,416],"paper-texture":[192,192],"party-memory":[1536,1024],"region-courtyard-night":[1182,1330],"region-courtyard":[1182,1330],"region-garden-night":[1182,1330],"region-garden":[1182,1330],"region-house-night":[1183,1330],"region-house":[1182,1330],"story-companion":[409,247],"story-garden":[278,96],"story-night":[278,95],"story-rest":[278,99],"util-coin":[256,256],"util-crate":[256,256],"util-energy":[256,256],"util-gift":[256,256],"util-scissors":[256,256],"util-star":[256,256],"util-storage":[256,256],"world-map":[1536,1024],"yier-back":[384,416],"yier-face":[384,384],"yier-happy":[384,384],"yier-idle":[384,416],"yier-joy":[384,416],"yier-paint":[384,416],"yier-rest":[1254,1254],"yier-shy":[384,384],"yier-side":[384,416],"yier-surprise":[384,384],"yier-turn":[384,416],"yier-walk":[384,416],"actor-motion-bubu-cheer":[240,246],"actor-motion-bubu-doze":[283,304],"actor-motion-bubu-drag-1":[566,566],"actor-motion-bubu-drag-2":[424,424],"actor-motion-bubu-eat":[240,240],"actor-motion-bubu-goose":[240,240],"actor-motion-bubu-kick":[640,640],"actor-motion-bubu-laundry":[639,580],"actor-motion-bubu-play":[240,240],"actor-motion-bubu-pudding":[240,240],"actor-motion-bubu-recline":[240,240],"actor-motion-bubu-rocking-horse":[240,240],"actor-motion-bubu-sing":[640,640],"actor-motion-bubu-swing":[240,240],"actor-motion-bubu-watermelon":[240,240],"actor-motion-bubu-work":[1000,1000],"actor-motion-pair-bonk":[240,240],"actor-motion-pair-cuddle":[300,300],"actor-motion-pair-hug":[240,240],"actor-motion-pair-kiss":[240,240],"actor-motion-yier-cheer":[240,246],"actor-motion-yier-drag-1":[640,640],"actor-motion-yier-drag-2":[561,561],"actor-motion-yier-exercise":[240,240],"actor-motion-yier-fart":[240,240],"actor-motion-yier-goose":[240,240],"actor-motion-yier-jump":[240,240],"actor-motion-yier-kick":[566,566],"actor-motion-yier-pajamas":[240,240],"actor-motion-yier-question":[640,640],"actor-motion-yier-recline":[240,240],"actor-motion-yier-search":[240,240],"actor-motion-yier-sleep":[500,476],"actor-motion-yier-sneak":[640,640],"actor-motion-yier-swing":[240,240],"actor-motion-yier-work":[1000,1000]};
 (function(){'use strict';
 /** All story, progression, art coordinates, and economy data. No UI state here. */
-const VERSION = '1.6.3';
+const VERSION = '1.6.4';
 // App releases and storage migrations have different lifetimes.
 const APP_VERSION = VERSION;
 const SCHEMA_VERSION = 2;
@@ -927,7 +927,7 @@ class ResidentController{
  constructor(residents,{random=Math.random,clock=Date.now}={}){
   if(!validResidents(residents))throw Error('角色位置记录无效。');
   this.residents=residents;this.random=random;this.clock=clock;this.lastAt=clock();this.elapsed=0;this.pair=null;this.pairCooldown=0;this.pairBag=[];this.reducedMotion=false;
-  this.runtime=Object.fromEntries(RESIDENT_WHO.map(who=>[who,{mode:'idle',action:null,remaining:2800+this.roll()*3500,target:null,flip:false,dragOrigin:null,bags:{}}]));
+  this.runtime=Object.fromEntries(RESIDENT_WHO.map(who=>[who,{mode:'idle',action:null,remaining:2800+this.roll()*3500,target:null,flip:false,dragOrigin:null,bags:{},doorCooldown:0,journeyRegion:null}]));
  }
  roll(){const value=this.random();return Number.isFinite(value)?residentClamp(value,0,.999999999):.5;}
  shuffle(values){const list=[...values];for(let i=list.length-1;i>0;i--){const j=Math.floor(this.roll()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list;}
@@ -952,7 +952,16 @@ class ResidentController{
   const r=this.residents[who],rt=this.runtime[who];
   if(this.roll()<.45){
    const minY=r.region==='house'?52:45;
-   rt.target={x:18+this.roll()*66,y:minY+this.roll()*(80-minY)};rt.flip=rt.target.x<r.x;rt.mode='walk';rt.action=null;rt.remaining=0;
+   const other=who==='bubu'?'yier':'bubu',peer=this.residents[other],peerRuntime=this.runtime[other],apart=peer.region!==r.region;
+   // One bear leads a reunion journey; the other waits rather than crossing past it.
+   const peerComing=apart&&peerRuntime.journeyRegion===r.region;
+   let door=null;
+   if(rt.doorCooldown<=0&&!peerComing&&this.roll()<(apart?.75:.3)){
+    const exits=RESIDENT_EXITS.filter(e=>e.region===r.region);
+    door=apart?(exits.find(e=>e.destination===peer.region)||exits.find(e=>e.destination==='courtyard')):exits[Math.floor(this.roll()*exits.length)];
+   }
+   rt.journeyRegion=apart&&(door||rt.doorCooldown>0)?peer.region:null;
+   rt.target=door?{x:door.x,y:door.y}:{x:18+this.roll()*66,y:minY+this.roll()*(80-minY)};rt.flip=rt.target.x<r.x;rt.mode='walk';rt.action=null;rt.remaining=0;
   }else{
    const action=this.chooseAction(who,decor);
    if(!action){this.wait(who,3000);return;}
@@ -981,11 +990,13 @@ class ResidentController{
    else return;
   }
   for(const who of RESIDENT_WHO){
-   const rt=this.runtime[who],r=this.residents[who];if(rt.mode==='drag')continue;
+   const rt=this.runtime[who],r=this.residents[who];rt.doorCooldown=Math.max(0,rt.doorCooldown-delta);if(rt.mode==='drag')continue;
    if(rt.mode==='walk'){
     const d=residentDistance(r,rt.target),step=delta*.0085;
     if(d<=step){r.x=rt.target.x;r.y=rt.target.y;this.wait(who,1600+this.roll()*2600);}
     else if(d>0){r.x+=(rt.target.x-r.x)*step/d;r.y+=(rt.target.y-r.y)*step/d;}
+    const door=rt.doorCooldown<=0?residentExitAt(r.region,r.x,r.y):null;
+    if(door){const journey=rt.journeyRegion;this.transfer(who,door.destination,door.spawn.x,door.spawn.y,now);rt.journeyRegion=journey===door.destination?null:journey;this.wait(who,4000+this.roll()*2000);}
    }else{
     rt.remaining-=delta;
     if(rt.remaining<=0){if(rt.mode==='action')this.wait(who,1400+this.roll()*2400);else this.startNext(who,decorByRegion[r.region]);}
@@ -1018,7 +1029,7 @@ class ResidentController{
  }
  beginDrag(who,now=this.clock()){
   if(!RESIDENT_WHO.includes(who)||this.runtime[who].mode==='drag'||RESIDENT_WHO.some(w=>this.runtime[w].mode==='drag'))return false;
-  this.stopPair();const rt=this.runtime[who];rt.dragOrigin={...this.residents[who]};rt.mode='drag';rt.target=null;
+  this.stopPair();const rt=this.runtime[who];rt.journeyRegion=null;rt.dragOrigin={...this.residents[who]};rt.mode='drag';rt.target=null;
   const choices=ACTOR_ACTIONS.filter(a=>a.who===who&&a.kind==='drag');rt.action=choices[Math.floor(this.roll()*choices.length)];rt.remaining=0;this.lastAt=now;return true;
  }
  dragTo(who,x,y){
@@ -1032,11 +1043,11 @@ class ResidentController{
  }
  transfer(who,destination,x,y,now=this.clock()){
   if(!RESIDENT_WHO.includes(who)||!RESIDENT_REGIONS.includes(destination)||!Number.isFinite(x)||!Number.isFinite(y)||this.residents[who].region===destination)return false;
-  this.stopPair();const rt=this.runtime[who];rt.dragOrigin=null;
+  this.stopPair();const rt=this.runtime[who];rt.dragOrigin=null;rt.journeyRegion=null;rt.doorCooldown=18000;
   Object.assign(this.residents[who],{region:destination,x:residentClamp(x,8,92),y:residentClamp(y,12,88)});this.wait(who,1500);this.lastAt=now;return true;
  }
  cancelAll(now=this.clock()){
-  this.stopPair();for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);rt.dragOrigin=null;this.wait(who,1800+this.roll()*1800);}this.lastAt=now;
+  this.stopPair();for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);rt.dragOrigin=null;rt.journeyRegion=null;this.wait(who,1800+this.roll()*1800);}this.lastAt=now;
  }
 }
 
@@ -2261,10 +2272,15 @@ function playEvent(event,{teaResult=null,result=null,reward=null,after=null}={})
 }
 function orderCard(task,kind='main',slot=0,{full=false}={}){
  const summaryTitle=task.loop&&task.name.includes('：')?task.name.slice(task.name.indexOf('：')+1):task.name;
- if(!full)return `<button class="order-card order-mini order-summary" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}" data-order-kind="${kind}" data-order-id="${task.id}" aria-label="展开${esc(task.name)}的任务详情" aria-haspopup="dialog"><span class="order-summary-title">${esc(summaryTitle)}</span><span class="requirements">${task.needs.map(r=>requirement(r,{summary:true})).join('')}</span></button>`;
+ if(!full)return `<button class="order-card order-mini order-summary" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}" data-order-kind="${kind}" data-order-id="${task.id}" aria-label="展开${esc(task.name)}的任务详情" aria-haspopup="dialog"><span class="order-summary-title">${esc(summaryTitle)}</span><span class="requirements">${task.needs.map(r=>requirement(r,{summary:true})).join('')}</span>${orderRewardThumbnails(task,kind)}</button>`;
  const delivered=kind==='main'&&!task.expanded&&game.s.delivered,lesson=kind==='main'&&task.lesson,ready=game.canFulfill(task.needs)&&!lesson,actorsReady=kind!=='tea'||residentsTogether(task.region),label=kind==='main'?task.expanded?'生活主线':'家园布置':kind==='tea'?'一起茶会':task.loop?slot===0?'循环 · 轻委托':'循环 · 长委托':`邻里 ${slot+1}`;
  const visibleNeeds=full?task.needs:task.needs.slice(0,3),remaining=task.needs.length-visibleNeeds.length;
  return `<article class="order-card order-mini ${kind==='side'?'side-order':''} ${ready||delivered?'fulfilled':''}" data-order-kind="${kind}" data-order-id="${task.id}"><div class="order-top"><span class="order-kind">${label}</span>${kind==='side'?`<button class="refresh-order" data-action="refreshSide" data-slot="${slot}" aria-label="免费更换第${slot+1}张邻里委托">${icon('refresh')}</button>`:''}</div><button class="order-name" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}">${esc(task.name)}</button>${task.totalPhases>1?`<span class="phase-line">准备 ${task.phase+1}/${task.totalPhases} · ${esc(task.phaseLabel)}</span>`:''}${task.loop?`<span class="phase-line">第 ${task.loop} 轮 · 难度 ${task.tier+1}</span>`:''}${lesson?`<button class="lesson-line" data-action="source" data-cat="${lesson}">${picture('gen-'+lesson)}认识来源</button>`:''}<div class="requirements">${visibleNeeds.map(requirement).join('')}</div>${remaining?`<button class="order-material-more" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}">共 ${task.needs.length} 种 · 还有 ${remaining} 种</button>`:''}${kind==='main'&&task.totalPhases>1&&task.phase<task.totalPhases-1?'<span class="order-reward-note">整单完成后获得</span>':''}${rewardLine(task,kind==='main'&&!task.expanded)}<div class="order-action">${delivered?btn('前往布置','goBuild','small'):btn(!actorsReady?'等两熊到齐':ready?(kind==='tea'?'开始茶会':task.totalPhases>1&&task.phase<task.totalPhases-1?'交这一份':'交付'):'准备中','submit','small',`data-kind="${kind}" data-id="${task.id}" data-step="${task.phase||0}" ${ready&&actorsReady?'':'disabled'}`)}${kind==='tea'?btn('换方案','openTea','small alt'):''}</div></article>`;
+}
+function orderRewardThumbnails(task,kind){
+ const star=kind==='main'&&!task.expanded,label=task.totalPhases>1?'整单完成奖励':'任务奖励';
+ const badge=(id,count,name)=>`<span class="order-reward-thumb" title="${name} ${count}" aria-label="${name} ${count}">${id==='xp'?'<span class="reward-xp-icon">XP</span>':picture(id)}<small>${count}</small></span>`;
+ return `<span class="order-reward-thumbnails" role="group" aria-label="${label}">${star?badge('util-star',1,'心愿星'):''}${badge('util-coin',task.coins,'金币')}${task.xp?badge('xp',task.xp,'经验'):''}</span>`;
 }
 function fitOrderSummaryTitles(){
  for(const title of $$('.order-summary-title',main)){
@@ -2304,7 +2320,7 @@ function detailBar(){
   return `<div class="detail-bar">${picture('gen-'+t.c,'detail-art')}<div class="detail-content"><h4>${CHAINS[t.c].producer} · Lv.${p.level}</h4><p>${unlocked?`每次 1 体力 · 二阶产出率 ${Math.round((.2+(p.level-1)*.12)*100)}%`:`完成第 ${CHAINS[t.c].unlock} 处修缮后自动解锁`}</p><p>${unlocked?'库存每 6 秒恢复 1 件 · 可升级':''}</p></div>${ib('info','chain','查看产出路线',`data-cat="${t.c}"`,true)}${unlocked&&p.level<3?btn(`升级 ${CFG.upgradeCosts[p.level-1]}`,'upgrade','small',`data-cat="${t.c}"`):''}</div>`;
  }
  if(t.k==='crate')return `<div class="detail-bar">${picture('util-crate','detail-art')}<div class="detail-content"><h4>还没整理的纸箱</h4><p>完成第 ${t.openAt} 处小屋布置后，自动腾出空间。</p><p>不需要金币，不会丢失已收好的物品。</p></div>${ib('home','home','回小屋')}</div>`;
- return `<div class="detail-bar">${picture(itemKey(t.c,t.l),'detail-art')}<div class="detail-content"><h4>${itemName(t.c,t.l)} · ${t.l} 级</h4><p>${t.dust?'用同类同级物品合入，解开尘封。':t.l===6?'最高级 · 可以交付或收藏':`下一阶：${itemName(t.c,t.l+1)}`}</p></div><div class="detail-actions">${ib('info','item','查看物品路线',`data-cat="${t.c}" data-level="${t.l}"`)}${!t.dust?`${ib('box','store','收进仓库')}${ib('info','itemActions','出售或拆分此物品')}`:''}</div></div>`;
+ return `<div class="detail-bar">${picture(itemKey(t.c,t.l),'detail-art')}<div class="detail-content"><h4>${itemName(t.c,t.l)} · ${t.l} 级</h4><p>${t.dust?'用同类同级物品合入，解开尘封。':t.l===6?'最高级 · 可以交付或收藏':`下一阶：${itemName(t.c,t.l+1)}`}</p></div><div class="detail-actions">${ib('info','item','查看物品路线',`data-cat="${t.c}" data-level="${t.l}"`)}${!t.dust?`${ib('box','store','收进仓库')}${btn(icon('scissors')+'剪刀 ×'+game.s.bag.scissors,'itemActions','small alt','aria-label="使用剪刀或出售物品，剩余'+game.s.bag.scissors+'把剪刀"')}`:''}</div></div>`;
 }
 let liveHomeScene=null,liveWeatherKey='';
 const PHASES=['morning','day','dusk','night'],WEATHERS=['sunny','cloudy','rain','wind'];
@@ -2324,7 +2340,15 @@ function residentDoorMarkup(region){return `<div class="resident-exits">${RESIDE
 function tickResidents(now=Date.now()){
  const paused=document.hidden||ui.tab!=='home'||ui.modal||ui.story||ui.splash||drag||furnitureDrag||actorDrag||ui.decorSelected!==null||$('.room-chat');
  const decorByRegion=Object.fromEntries(REGIONS.map(r=>[r.id,DECOR.filter(d=>d.id<game.s.stage&&d.region===r.id).map(d=>({...decorPlacement(d.id,game.s.decorPositions[d.id]),decorId:d.id}))]));
- getResidentLife().tick(now,{paused:!!paused,reducedMotion:game.s.settings.reducedMotion,decorByRegion});
+ const life=getResidentLife(),before=['bubu','yier'].map(w=>life.residents[w].region);
+ life.tick(now,{paused:!!paused,reducedMotion:game.s.settings.reducedMotion,decorByRegion});
+ if(before.some((region,i)=>region!==life.residents[['bubu','yier'][i]].region)){persist();syncResidentPresence();}
+}
+function syncResidentPresence(){
+ const status=$('.resident-status');if(status)status.textContent=residentLocations();
+ const region=game.s.world.region,both=residentsTogether(region),record=game.worldProgress().regions.find(r=>r.id===region),activity=$('[data-action="homeActivity"]',main);
+ if(activity&&record){activity.disabled=record.activityDone||game.s.stage===0||!both;activity.textContent=record.activityDone?'明天再来':both?'一起做':'等两熊到齐';const text=$('.region-activity p');if(text)text.textContent=game.s.stage===0?'先铺好第一块门垫，再一起做今天的小事。':record.activityDone?'今天的小事已经一起做过，明天再来。':!both?'先把两只熊带到这里，再一起做今天的小事。':record.activityText;}
+ const visit=$('[data-action="firstVisit"]',main);if(visit){const ready=residentsTogether('courtyard');visit.disabled=!ready;visit.textContent=ready?'迎接小栗首访':'请带两熊到庭院';}
 }
 function livingScene(region=game.s.world.region,now=Date.now()){
  const scene=describeScene(game.s,{region,environment:homeEnvironment(now),characters:false,now,interactive:true});
@@ -2354,7 +2378,7 @@ function refreshLivingScene(now=Date.now()){
  if(key!==liveWeatherKey){const temp=document.createElement('template');temp.innerHTML=renderSceneHTML({...scene,layers:[]},{assetURL:asset});const background=host.querySelector('.scene-background');background.src=asset(scene.background);background.style.filter=temp.content.querySelector('.scene-background').style.filter;host.querySelectorAll('.scene-weather,.scene-time-tint,.scene-night-glow').forEach(n=>n.remove());temp.content.querySelectorAll('.scene-weather,.scene-time-tint,.scene-night-glow').forEach(n=>host.append(n));liveWeatherKey=key;for(const node of host.querySelectorAll('.scene-decor,.scene-souvenir,.scene-prop')){const layer=scene.layers.find(l=>l.key===node.dataset.sceneLayer);node.style.filter=[layer?.variant?'hue-rotate(24deg) saturate(.85)':'',scene.night?'brightness(.84)':''].filter(Boolean).join(' ')||'none';}}
 }
 function openBuildPlacement(){
- if(!game.s.delivered){navigate('merge');showHint();return;}
+ if(!game.s.delivered){const task=game.mainOrder();navigate('merge');if(task)openModal({type:'orderDetails',kind:'main',id:task.id});return;}
  cancelDrag();cancelFurnitureDrag();ui.decorSelected=null;focusBuildRegion();ui.tab='home';ui.styleChoice=0;render();main.scrollTop=0;openModal({type:'build'});
 }
 function speakerPortrait(who){return picture(who==='xiaoli'?'xiaoli-idle':who+'-face','speaker-avatar',who==='bubu'?'布布头像':who==='yier'?'一二头像':'小栗头像');}
@@ -2376,10 +2400,16 @@ function renderWorldMemories(){
  const p=game.worldProgress();
  return `<div class="section-title">家园日常 · ${p.memoryCount}/3 张回忆</div><div class="world-memory-cards">${p.memories.map(m=>`<button data-action="${m.unlocked?'worldMemory':'visitRegion'}" data-region="${m.region}" class="${m.unlocked?'collected':''}">${icon(m.unlocked?'heart':'sun')}<b>${m.name}</b><small>${m.unlocked?'已收进手帐 · 点击重温':`累计陪伴 ${m.progress}/${m.target} 天${m.conditionMet?'':` · 还需${m.conditionLabel}`} · 去看看`}</small></button>`).join('')}</div>`;
 }
+function pendingBuildCard(task){
+ if(!task||!game.s.delivered)return '';
+ const region=REGIONS.find(r=>r.id===DECOR[game.s.stage]?.region);
+ return `<article class="home-quest pending-build" aria-label="新家具待布置">${orderThumbnail(task,'home-quest-thumb')}<span class="eyebrow">新家具待布置 · ${esc(region?.name||'小屋')}</span><h3>${esc(task.name)}</h3><div class="home-quest-row"><span class="tag">${icon('star')}心愿星已就绪</span>${btn('布置新家具','goBuild','small')}</div></article>`;
+}
 function renderHome(){
  const s=game.s,expanded=s.stage===24,ch=expanded?Math.min(8,Math.floor(s.campaign.completed/8)):Math.min(5,Math.floor(s.stage/4)),chapter=journeyChapter(s),t=game.mainOrder();
  const region=REGIONS.find(r=>r.id===s.world.region)||REGIONS[0],p=game.worldProgress(),r=p.regions.find(r=>r.id===region.id),nextRegion=REGIONS.find(r=>r.id===(t?.region||DECOR[s.stage]?.region)),bothHere=residentsTogether(region.id);
- return `<section class="home-view"><div class="page-heading"><div><span class="eyebrow">BEARS AT HOME · ${expanded?'LIFE':'HOME'} CHAPTER ${String(ch+1).padStart(2,'0')}</span><h2>${ui.homeMode==='map'?'熊熊之家，逛逛我们的家':region.name}</h2><p>${ui.homeMode==='map'?'小屋 · 花园 · 庭院，把生活慢慢铺开':region.subtitle}</p><div class="chapter-progress">${Array.from({length:expanded?9:6},(_,i)=>`<i class="${expanded?s.campaign.completed>=i*8+8?'done':'':s.stage>=i*4+4?'done':''}"></i>`).join('')}</div></div>${ib('book','book','翻开回忆手帐')}</div><div class="home-toolbar">${ui.homeMode==='region'?btn(icon('back')+'家园全景','worldMap','small alt'):''}${btn(icon('merge')+'回合成台','merge','small')}</div>${ui.homeMode==='map'?worldMap():`<div class="region-tabs">${REGIONS.map(v=>`<button class="${v.id===region.id?'active':''}" data-action="visitRegion" data-region="${v.id}">${v.name}</button>`).join('')}</div><div class="home-scene-shell">${homeScene(s.stage,{interactive:true,night:ui.night})}</div><div class="home-actions"><button data-action="photo">${icon('camera')}拍张合照</button><button data-action="decorate">${icon('palette')}换个配色</button></div><p class="resident-guide"><span class="resident-status">${esc(residentLocations())}</span>长按角色后拖动 · 在门口松手带它去另一处家园</p><article class="region-activity"><span class="activity-flower">${region.id==='garden'?'✿':region.id==='courtyard'?'☀':'♡'}</span><div><h3>${r.activityLabel||region.activityLabel}</h3><p>${s.stage===0?'先铺好第一块门垫，再一起做今天的小事。':r.activityDone?'今天的小事已经一起做过，明天再来。':!bothHere?'先把两只熊带到这里，再一起做今天的小事。':r.activityText||region.activityText}</p></div>${btn(r.activityDone?'明天再来':bothHere?'一起做':'等两熊到齐','homeActivity','small',`data-region="${region.id}" ${r.activityDone||s.stage===0||!bothHere?'disabled':''}`)}</article>`}${teaHomeCard()}<div class="world-memory-track">${icon('book')}家园回忆 ${p.memoryCount} / 3 张<span>各区域每天一次陪伴，收集新的日常</span></div>${t?`<article class="home-quest">${orderThumbnail(t,'home-quest-thumb')}<span class="eyebrow">${t.expanded?'生活主线':'下一处布置'} · ${nextRegion?.name||'小屋'} · ${journeyCount(s)+1}/96</span><h3>${t.name}</h3><p>${s.delivered?'心愿星已经备好。走到对应区域，亲手布置新角落。':esc(t.wish)}</p>${t.expanded?`<p class="note">${esc(chapter.name)} · 准备 ${t.phase+1}/${t.totalPhases}：${esc(t.phaseLabel)}<br>分批交付、进度保留；这一项不新增家具。</p>`:''}<div class="home-quest-row"><span class="tag ${s.delivered?'':'coral'}">${icon(s.delivered?'star':'merge')}${s.delivered?'心愿星 ×1 已就绪':'先准备合成物品'}</span>${btn(s.delivered?'前往布置':'去合成',s.delivered?'build':'merge',s.delivered?'':'alt')}${t.expanded?btn('看看故事地点','visitRegion','small alt',`data-region="${t.region}"`):''}</div></article>`:`<article class="home-quest"><span class="eyebrow">BEARS AT HOME</span><h3>96项主线收好啦，日子继续。</h3><p>家园布置与九章生活故事已经完成。邻里轻委托、长委托会循环更新；茶会、回忆和每天的小事都可以继续。</p><div class="home-quest-row">${btn('继续合成','merge')}${btn(s.tea.firstVisit==='arrived'?'重温待客准备':'看看待客准备','ending','alt')}</div></article>`}</section>`;
+ const quest=t?`<article class="home-quest">${orderThumbnail(t,'home-quest-thumb')}<span class="eyebrow">${t.expanded?'生活主线':'下一处布置'} · ${nextRegion?.name||'小屋'} · ${journeyCount(s)+1}/96</span><h3>${t.name}</h3><p>${s.delivered?'心愿星已经备好。走到对应区域，亲手布置新角落。':esc(t.wish)}</p>${t.expanded?`<p class="note">${esc(chapter.name)} · 准备 ${t.phase+1}/${t.totalPhases}：${esc(t.phaseLabel)}<br>分批交付、进度保留；这一项不新增家具。</p>`:''}<div class="home-quest-row"><span class="tag ${s.delivered?'':'coral'}">${icon(s.delivered?'star':'merge')}${s.delivered?'心愿星 ×1 已就绪':'先准备合成物品'}</span>${btn(s.delivered?'前往布置':'去合成',s.delivered?'build':'merge',s.delivered?'':'alt')}${t.expanded?btn('看看故事地点','visitRegion','small alt',`data-region="${t.region}"`):''}</div></article>`:`<article class="home-quest"><span class="eyebrow">BEARS AT HOME</span><h3>96项主线收好啦，日子继续。</h3><p>家园布置与九章生活故事已经完成。邻里轻委托、长委托会循环更新；茶会、回忆和每天的小事都可以继续。</p><div class="home-quest-row">${btn('继续合成','merge')}${btn(s.tea.firstVisit==='arrived'?'重温待客准备':'看看待客准备','ending','alt')}</div></article>`;
+ return `<section class="home-view"><div class="page-heading"><div><span class="eyebrow">BEARS AT HOME · ${expanded?'LIFE':'HOME'} CHAPTER ${String(ch+1).padStart(2,'0')}</span><h2>${ui.homeMode==='map'?'熊熊之家，逛逛我们的家':region.name}</h2><p>${ui.homeMode==='map'?'小屋 · 花园 · 庭院，把生活慢慢铺开':region.subtitle}</p><div class="chapter-progress">${Array.from({length:expanded?9:6},(_,i)=>`<i class="${expanded?s.campaign.completed>=i*8+8?'done':'':s.stage>=i*4+4?'done':''}"></i>`).join('')}</div></div>${ib('book','book','翻开回忆手帐')}</div>${s.delivered?pendingBuildCard(t):''}<div class="home-toolbar">${ui.homeMode==='region'?btn(icon('back')+'家园全景','worldMap','small alt'):''}${btn(icon('merge')+'回合成台','merge','small')}</div>${ui.homeMode==='map'?worldMap():`<div class="region-tabs">${REGIONS.map(v=>`<button class="${v.id===region.id?'active':''}" data-action="visitRegion" data-region="${v.id}">${v.name}</button>`).join('')}</div><div class="home-scene-shell">${homeScene(s.stage,{interactive:true,night:ui.night})}</div><div class="home-actions"><button data-action="photo">${icon('camera')}拍张合照</button><button data-action="decorate">${icon('palette')}换个配色</button></div><p class="resident-guide"><span class="resident-status">${esc(residentLocations())}</span>角色会自行串门 · 长按拖动，在门口松手也可过门</p><article class="region-activity"><span class="activity-flower">${region.id==='garden'?'✿':region.id==='courtyard'?'☀':'♡'}</span><div><h3>${r.activityLabel||region.activityLabel}</h3><p>${s.stage===0?'先铺好第一块门垫，再一起做今天的小事。':r.activityDone?'今天的小事已经一起做过，明天再来。':!bothHere?'先把两只熊带到这里，再一起做今天的小事。':r.activityText||region.activityText}</p></div>${btn(r.activityDone?'明天再来':bothHere?'一起做':'等两熊到齐','homeActivity','small',`data-region="${region.id}" ${r.activityDone||s.stage===0||!bothHere?'disabled':''}`)}</article>`}${teaHomeCard()}<div class="world-memory-track">${icon('book')}家园回忆 ${p.memoryCount} / 3 张<span>各区域每天一次陪伴，收集新的日常</span></div>${s.delivered?'':quest}</section>`;
 }
 function renderBook(){
  const s=game.s;let content='';
@@ -2427,7 +2457,10 @@ function sheet(title,body,staticResult=false){return `<div class="modal-backdrop
 function renderModal(){
  const focus=focusKey(document.activeElement),m=ui.modal;if(!m){modalRoot.innerHTML='';return;}const s=game.s;let title='',body='';
  if(m.type==='parcel'){title='给哪一份心愿补给？';body=parcelContent(m);}
- else if(m.type==='itemActions'){const t=s.board[m.index];title='收好、拆分或出售';body=t?.k==='item'?`${picture(itemKey(t.c,t.l),'hero-img')}<h3 class="center">${itemName(t.c,t.l)}</h3><p class="description">拆分会消耗一把剪刀，并需要一个额外空位；出售得到 ${mass(t)} 金币。出售会直接移除物品，无法撤回。</p><div class="actions">${btn('用剪刀拆分','split','alt')}${btn('出售此物品','sell','danger')}</div>`:'<p>先选择棋盘上的物品。</p>';}
+ else if(m.type==='itemActions'){
+  const t=s.board[m.index],reason=s.stage===0?'先完成门口的小心愿':!t||t.k!=='item'||t.dust||t.l<=1?'仅能拆分2级以上的普通物品':s.bag.scissors<=0?'剪刀已用完':game.free()===0?'棋盘需要至少一个空位':'';
+  title='收好、拆分或出售';body=t?.k==='item'?`${picture(itemKey(t.c,t.l),'hero-img')}<h3 class="center">${itemName(t.c,t.l)}</h3><p class="description">剪刀剩余 ${s.bag.scissors} 把。使用1把，将物品拆成两个低一级物品，并需要一个额外空位。${reason?`<br>${reason}。`:''}<br>出售得到 ${mass(t)} 金币，无法撤回。</p><div class="actions">${btn(icon('scissors')+'使用剪刀 · 剩余 '+s.bag.scissors+' 把','split','alt',`data-index="${m.index}" ${reason?'disabled':''}`)}${btn('出售此物品','sell','danger')}</div>`:'<p>先选择棋盘上的物品。</p>';
+ }
  else if(m.type==='event'){title=m.title;body=`<div class="event-scene">${homeScene(m.scene.stage,{mini:true,scene:ui.sceneSnapshot||m.scene,region:m.scene.region,night:m.scene.night})}</div>${m.scene.result?.condition==='wind'?`<div class="wind-choices"><span>风来了，先把茶布固定好：</span>${btn('夹子夹好','sceneChoice','small alt','data-choice="clip"')}${btn('杯垫压稳','sceneChoice','small alt','data-choice="anchor"')}</div>`:''}<div class="event-caption" aria-live="polite">${m.reply?eventReplyMarkup(m.reply):esc(m.caption||'两只熊一起把今天准备好。')}</div>${m.reward?`<p class="event-reward">已收好 ${m.reward.coins} 金币 · ${m.reward.xp||0} 经验${m.reward.firstSouvenir?' · 新纪念物已入手帐':''}</p>`:''}<div class="actions">${btn('下一步动作','sceneAdvance','alt','disabled')}${btn('跳到结果','sceneSkip','alt')}${btn('再看一次','sceneReplay','alt')}${btn(icon('camera')+'合照','photo','alt')}</div><p class="note">回放与拍照不会再次消耗材料，也不会重复发奖。</p>`;}
  else if(m.type==='orders'){
   title='今天的小心愿';body=`<div class="order-strip order-row">${allOrderCards()}</div>`;
@@ -2670,6 +2703,8 @@ function cancelMapDrag(e){if(!mapDrag||e?.pointerId!==undefined&&e.pointerId!==m
 document.addEventListener('pointerup',cancelMapDrag);document.addEventListener('pointercancel',cancelMapDrag);window.addEventListener('blur',()=>cancelMapDrag());
 
 // ------- Unified click actions -------
+// A fresh press is intentional; suppress only the click generated by the previous drag/release.
+app.addEventListener('pointerdown',()=>{ignoreClickUntil=0;});
 app.addEventListener('click',async(e)=>{
  const cell=e.target.closest('[data-cell]');
  if(cell){if(e.detail===0){const index=+cell.dataset.cell;selectCell(index);$(`[data-cell="${index}"]`)?.focus({preventScroll:true});}return;}
@@ -2724,7 +2759,7 @@ app.addEventListener('click',async(e)=>{
   case 'storageTab':ui.storageTab=d.source;renderModal();break;
   case 'retrieve':run(game.retrieve(+d.index,d.source));break;
   case 'store':run(game.store(ui.selected));break;
-  case 'split':closeModal();run(game.split(ui.selected));break;
+  case 'split':{const index=d.index!==undefined?+d.index:ui.modal?.index??ui.selected,r=game.split(index);if(r.ok)closeModal();run(r);break;}
   case 'sell':{if(ui.modal?.type==='itemActions')closeModal();const t=game.s.board[ui.selected];if(t?.k==='item'&&!t.dust&&(game.mainOrder()?.needs.some(r=>r.c===t.c&&r.l===t.l)||game.s.sideOrders.some(o=>o.needs.some(r=>r.c===t.c&&r.l===t.l))))openModal({type:'confirmSell',index:ui.selected});else run(game.sell(ui.selected));break;}
   case 'confirmSell':closeModal();run(game.sell(+d.index));break;
   case 'sort':run(game.sort());break;
