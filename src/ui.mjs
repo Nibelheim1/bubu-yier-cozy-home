@@ -154,8 +154,8 @@ function renderHeader(){
 function renderNav(){
  $('#nav').innerHTML=[['home','home','家园'],['merge','merge','合成'],['book','book','手帐'],['shop','shop','小铺']].map(([tab,ic,label])=>`<button data-tab="${tab}" aria-current="${ui.tab===tab?'page':'false'}" class="${ui.tab===tab?'active':''}">${icon(ic)}<span>${label}</span>${tab==='home'&&game.s.delivered?'<i class="nav-star">!</i>':''}</button>`).join('');
 }
-function rewardLine(task,star=false){return `<div class="reward-line">${star?`<span>${picture('util-star')}1</span>`:''}<span>${picture('util-coin')}${task.coins}</span>${task.xp?`<span class="xp-reward">XP +${task.xp}</span>`:''}</div>`;}
-function requirement(r,{summary=false}={}){const n=game.count(r.c,r.l),tag=summary?'span':'button';return `<${tag} class="required-item ${n>=r.n?'ready':''}" ${summary?'':`data-action="item" data-cat="${r.c}" data-level="${r.l}"`} aria-label="需要${r.n}个${itemName(r.c,r.l)}，${r.l}级，当前有${n}个">${picture(itemKey(r.c,r.l),'',itemName(r.c,r.l))}<span class="need-level">${r.l}级</span><span class="count">${Math.min(n,r.n)} / ${r.n}</span>${n>=r.n?icon('check'):''}</${tag}>`;}
+function rewardLine(task,star=false){return `<div class="reward-line">${star?`<span>${picture('util-star')}1</span>`:''}<span>${picture('util-coin')}${task.coins}</span>${task.xp?`<span class="xp-reward">EXP +${task.xp}</span>`:''}</div>`;}
+function requirement(r,{summary=false}={}){const n=game.count(r.c,r.l),tag=summary?'span':'button';return `<${tag} class="required-item ${n>=r.n?'ready':''}" ${summary?'':`data-action="item" data-cat="${r.c}" data-level="${r.l}"`} aria-label="需要${r.n}个${itemName(r.c,r.l)}，${r.l}级，当前有${n}个">${picture(itemKey(r.c,r.l),'',itemName(r.c,r.l))}${summary?'':`<span class="need-level">${r.l}级</span>`}<span class="count">${Math.min(n,r.n)} / ${r.n}</span>${n>=r.n?icon('check'):''}</${tag}>`;}
 function activeOrders(){const mainOrder=game.mainOrder(),tea=game.teaOrder();return [...(mainOrder?[{task:mainOrder,kind:'main',slot:0}]:[]),...(game.s.stage>0?game.s.sideOrders.map((task,slot)=>({task,kind:'side',slot})):[]),...(tea.available?[{task:tea,kind:'tea',slot:0}]:[])];}
 function allOrderCards(){return activeOrders().map(({task,kind,slot})=>orderCard(task,kind,slot)).join('');}
 function teaContent(){
@@ -237,7 +237,7 @@ function orderCard(task,kind='main',slot=0,{full=false}={}){
 }
 function orderRewardThumbnails(task,kind){
  const star=kind==='main'&&!task.expanded,label=task.totalPhases>1?'整单完成奖励':'任务奖励';
- const badge=(id,count,name)=>`<span class="order-reward-thumb" title="${name} ${count}" aria-label="${name} ${count}">${id==='xp'?'<span class="reward-xp-icon">XP</span>':picture(id)}<small>${count}</small></span>`;
+ const badge=(id,count,name)=>`<span class="order-reward-thumb" title="${name} ${count}" aria-label="${name} ${count}">${id==='xp'?'<span class="reward-xp-icon">EXP</span>':picture(id)}<small>${count}</small></span>`;
  return `<span class="order-reward-thumbnails" role="group" aria-label="${label}">${star?badge('util-star',1,'心愿星'):''}${badge('util-coin',task.coins,'金币')}${task.xp?badge('xp',task.xp,'经验'):''}</span>`;
 }
 function fitOrderSummaryTitles(){
@@ -445,13 +445,13 @@ function renderModal(){
   ].map(([key,name,desc])=>`<div class="setting-row"><div><h3>${name}</h3><p>${desc}</p></div><button class="toggle ${s.settings[key]?'on':''}" data-action="setting" data-key="${key}" role="switch" aria-checked="${s.settings[key]}" aria-label="${name}"><i></i></button></div>`).join('')}${environmentSettings()}<div class="section-title">保管好熊熊之家的回忆</div><p class="description">进度保存在当前浏览器，没有云账号。换设备或清理浏览器前，请先导出存档。${storageFailed?'<br><b>当前浏览器不允许保存，请务必导出。</b>':''}</p><div class="settings-grid">${btn(icon('download')+'导出存档','export','alt')}${btn(icon('upload')+'导入存档','import','alt')}${btn(icon('play')+'重看开场','replayIntro','alt')}${btn(icon('info')+'玩法说明','help','alt')}</div><div class="actions">${btn('重新开始这间小屋','resetAsk','danger')}</div><p class="note">单机 H5 v${VERSION} · 3 区域家园 · 96 项主线<br>6 章布置 + 9 章生活故事 · 循环邻里委托<br>本作品为布布一二主题单机游戏；商业发行需另行取得角色 IP 授权。<br>没有广告、内购、排行榜或数据上传。</p>`;
  }else if(m.type==='campaignResult'){
   const r=m.result,t=r.campaignTask||CAMPAIGN_TASKS.find(t=>t.id===r.id),c=CAMPAIGN_CHAPTERS[t.chapter];title=t.name;
-  body=`<p class="eyebrow center">生活主线 · ${esc(c.name)} · ${journeyCount(s)}/96</p>${campaignDialogueMarkup(t)}<div class="reward-tray"><span>${picture('util-coin')}+${r.coins}</span><span>XP +${r.xp}</span></div><p class="description center">所有物资已经收好，金币与经验已到账。${r.chapterDone?`<br>“${esc(c.memory)}”已永久收进生活手帐。`:''}${r.finished?'<br>96项主线已经完成，邻里循环委托仍会不断更新。':''}</p><div class="actions">${btn('继续合成','merge','wide')}${btn(r.finished?'翻开生活手帐':'看看下一项主线',r.finished?'book':'campaignNext','wide alt')}</div>`;
+  body=`<p class="eyebrow center">生活主线 · ${esc(c.name)} · ${journeyCount(s)}/96</p>${campaignDialogueMarkup(t)}<div class="reward-tray"><span>${picture('util-coin')}+${r.coins}</span><span>EXP +${r.xp}</span></div><p class="description center">所有物资已经收好，金币与经验已到账。${r.chapterDone?`<br>“${esc(c.memory)}”已永久收进生活手帐。`:''}${r.finished?'<br>96项主线已经完成，邻里循环委托仍会不断更新。':''}</p><div class="actions">${btn('继续合成','merge','wide')}${btn(r.finished?'翻开生活手帐':'看看下一项主线',r.finished?'book':'campaignNext','wide alt')}</div>`;
  }else if(m.type==='campaignMemory'){
   const c=CAMPAIGN_CHAPTERS[m.chapter];title=c.memory;
   body=`<div class="campaign-memory-art memory-full">${picture(campaignPoseId(c.pose?.[0]||'bubu-idle'))}${picture(campaignPoseId(c.pose?.[1]||'yier-turn'))}</div><p class="eyebrow center">生活主线 · 第 ${m.chapter+1} 章 · ${esc(c.name)}</p><p class="memory-text">${esc(c.text)}</p><p class="note">八项生活准备已经完成。这份回忆永久保留，重温不重复发奖。</p>${btn('把这一天收好','closeModal','wide')}`;
  }else if(m.type==='submitted'){
   title='这份小心愿，备好啦';const r=m.result;
-  body=`${picture('yier-happy','reward-art')}<h3 class="celebration-title">现在，回家变一点点更好</h3><p class="description center">材料已经收进修缮包。<br>心愿星只用于当前这处布置，不会被小铺花掉。</p><div class="reward-tray"><span>${picture('util-star')}+1</span><span>${picture('util-coin')}+${r.coins}</span>${r.xp?`<span>XP +${r.xp}</span>`:''}</div>${btn('带心愿星回小屋','afterSubmit','wide')}`;
+  body=`${picture('yier-happy','reward-art')}<h3 class="celebration-title">现在，回家变一点点更好</h3><p class="description center">材料已经收进修缮包。<br>心愿星只用于当前这处布置，不会被小铺花掉。</p><div class="reward-tray"><span>${picture('util-star')}+1</span><span>${picture('util-coin')}+${r.coins}</span>${r.xp?`<span>EXP +${r.xp}</span>`:''}</div>${btn('带心愿星回小屋','afterSubmit','wide')}`;
  }else if(m.type==='build'){
   const t=TASKS[s.stage];if(!t){closeModal();return;}title=t.name;
   body=`<p class="description">一二挑颜色，布布负责放稳。两种风格随时可以免费更换。</p><div class="style-options">${[0,1].map(i=>`<button class="style-option ${i?'variant':''} ${ui.styleChoice===i?'selected':''}" data-action="chooseStyle" data-style="${i}" aria-pressed="${ui.styleChoice===i}">${picture(t.decor)}<span class="swatch"></span>${i?'薄荷来信':'奶油晴天'}</button>`).join('')}</div>${btn(picture('util-star')+' 用 1 颗心愿星布置','confirmBuild','wide')}<p class="note">已交付本次材料 · 布置完成后开启下一张心愿</p>`;

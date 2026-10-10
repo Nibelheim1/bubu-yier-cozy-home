@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "name": "棋盘任务卡不显示素材等级，仍显示图和数量",
+      "passed": true
+    },
+    {
+      "name": "经验缩略图完整显示EXP",
+      "passed": true
+    },
+    {
+      "name": "展开详情保留素材等级，奖励显示EXP",
+      "passed": true
+    }
+  ],
+  "allPassed": true,
+  "version": "1.6.6",
+  "buildId": "cac8c4e7bec2",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "physicalMobileVerified": false
+}
