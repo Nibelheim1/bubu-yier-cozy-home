@@ -1,0 +1,13 @@
+{
+  "version": "1.6.2",
+  "buildId": "86d6b2931e35",
+  "verifiedAt": "2026-10-10T01:24:40.486Z",
+  "removedAction": "yier-spin",
+  "remainingGifActions": 36,
+  "randomQueueTestPassed": true,
+  "removedFromRuntimeCatalog": true,
+  "removedFromWebAndOfflineBundles": true,
+  "removedFromPrecache": true,
+  "removedRuntimeFiles": true,
+  "existingSavesRequireMigration": false
+}

@@ -71,22 +71,6 @@ export const ACTOR_ACTIONS = [
     "loop": 0
   },
   {
-    "id": "yier-spin",
-    "asset": "actor-motion-yier-spin",
-    "who": "yier",
-    "kind": "random",
-    "regions": [
-      "house",
-      "garden",
-      "courtyard"
-    ],
-    "durationMs": 1260,
-    "label": "开心转圈",
-    "width": 200,
-    "height": 200,
-    "loop": 0
-  },
-  {
     "id": "yier-fart",
     "asset": "actor-motion-yier-fart",
     "who": "yier",
