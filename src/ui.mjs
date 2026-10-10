@@ -134,6 +134,7 @@ function render(){
  if(furnitureDrag)cancelFurnitureDrag();
  const scroll=main.scrollTop,orderScroll=$('.order-row')?.scrollLeft||0,viewport=$('.world-viewport');if(viewport)ui.mapScroll=viewport.scrollLeft;app.classList.toggle('reduced-motion',game.s.settings.reducedMotion);renderHeader();renderNav();
  main.innerHTML=ui.tab==='home'?renderHome():ui.tab==='book'?renderBook():ui.tab==='shop'?renderShop():renderMerge();
+ fitOrderSummaryTitles();
  main.scrollTop=scroll;const orders=$('.order-row',main);if(orders)orders.scrollLeft=orderScroll;
  const map=$('.world-viewport');if(map)map.scrollLeft=ui.mapScroll;
  if(ui.modal)renderModal();
@@ -228,11 +229,20 @@ function playEvent(event,{teaResult=null,result=null,reward=null,after=null}={})
  ui.sceneAwaitChoice=event==='tea'&&teaResult?.condition==='wind'&&!teaResult.displayChoice;if(teaResult?.displayChoice){ui.scenePlayer.setChoice(teaResult.displayChoice);$$('[data-action="sceneChoice"]',modalRoot).forEach(b=>{b.disabled=true;b.setAttribute('aria-pressed',String(b.dataset.choice===teaResult.displayChoice));});}if(!ui.sceneAwaitChoice)ui.scenePlayer.start();else{const caption=$('.event-caption');if(caption)caption.textContent='风吹起茶布了，先选一种固定方式。';}syncEventControls();
 }
 function orderCard(task,kind='main',slot=0,{full=false}={}){
- if(!full)return `<button class="order-card order-mini order-summary" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}" data-order-kind="${kind}" data-order-id="${task.id}" aria-label="展开${esc(task.name)}的任务详情" aria-haspopup="dialog"><span class="requirements">${task.needs.map(r=>requirement(r,{summary:true})).join('')}</span></button>`;
+ const summaryTitle=task.loop&&task.name.includes('：')?task.name.slice(task.name.indexOf('：')+1):task.name;
+ if(!full)return `<button class="order-card order-mini order-summary" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}" data-order-kind="${kind}" data-order-id="${task.id}" aria-label="展开${esc(task.name)}的任务详情" aria-haspopup="dialog"><span class="order-summary-title">${esc(summaryTitle)}</span><span class="requirements">${task.needs.map(r=>requirement(r,{summary:true})).join('')}</span></button>`;
  const delivered=kind==='main'&&!task.expanded&&game.s.delivered,lesson=kind==='main'&&task.lesson,ready=game.canFulfill(task.needs)&&!lesson,actorsReady=kind!=='tea'||residentsTogether(task.region),label=kind==='main'?task.expanded?'生活主线':'家园布置':kind==='tea'?'一起茶会':task.loop?slot===0?'循环 · 轻委托':'循环 · 长委托':`邻里 ${slot+1}`;
  const visibleNeeds=full?task.needs:task.needs.slice(0,3),remaining=task.needs.length-visibleNeeds.length;
  return `<article class="order-card order-mini ${kind==='side'?'side-order':''} ${ready||delivered?'fulfilled':''}" data-order-kind="${kind}" data-order-id="${task.id}"><div class="order-top"><span class="order-kind">${label}</span>${kind==='side'?`<button class="refresh-order" data-action="refreshSide" data-slot="${slot}" aria-label="免费更换第${slot+1}张邻里委托">${icon('refresh')}</button>`:''}</div><button class="order-name" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}">${esc(task.name)}</button>${task.totalPhases>1?`<span class="phase-line">准备 ${task.phase+1}/${task.totalPhases} · ${esc(task.phaseLabel)}</span>`:''}${task.loop?`<span class="phase-line">第 ${task.loop} 轮 · 难度 ${task.tier+1}</span>`:''}${lesson?`<button class="lesson-line" data-action="source" data-cat="${lesson}">${picture('gen-'+lesson)}认识来源</button>`:''}<div class="requirements">${visibleNeeds.map(requirement).join('')}</div>${remaining?`<button class="order-material-more" data-action="orderDetails" data-kind="${kind}" data-id="${task.id}">共 ${task.needs.length} 种 · 还有 ${remaining} 种</button>`:''}${kind==='main'&&task.totalPhases>1&&task.phase<task.totalPhases-1?'<span class="order-reward-note">整单完成后获得</span>':''}${rewardLine(task,kind==='main'&&!task.expanded)}<div class="order-action">${delivered?btn('前往布置','goBuild','small'):btn(!actorsReady?'等两熊到齐':ready?(kind==='tea'?'开始茶会':task.totalPhases>1&&task.phase<task.totalPhases-1?'交这一份':'交付'):'准备中','submit','small',`data-kind="${kind}" data-id="${task.id}" data-step="${task.phase||0}" ${ready&&actorsReady?'':'disabled'}`)}${kind==='tea'?btn('换方案','openTea','small alt'):''}</div></article>`;
 }
+function fitOrderSummaryTitles(){
+ for(const title of $$('.order-summary-title',main)){
+  title.style.fontSize='12px';const width=title.clientWidth;if(!width)continue;
+  if(title.scrollWidth>width){let size=Math.max(1,Math.floor(120*width/title.scrollWidth)/10);title.style.fontSize=size+'px';while(title.scrollWidth>width&&size>1){size=Math.max(1,Math.round((size-.1)*10)/10);title.style.fontSize=size+'px';}}
+ }
+}
+new ResizeObserver(fitOrderSummaryTitles).observe(app);
+document.fonts?.ready.then(fitOrderSummaryTitles);
 function renderMerge(){
  const s=game.s,compact=window.innerHeight<=710;
  return `<section class="merge-view ${compact?'compact-view':''}"><div class="order-strip order-row" aria-label="订单横排，可左右滑动查看其他订单">${allOrderCards()}</div><div class="board-header"><div class="board-title">合成工作台<span class="board-free">空位 ${game.free()}</span></div><div class="board-tools"><button data-action="storage">${icon('box')}仓库${s.pending.length?`<i class="parcel-count">${s.pending.length}</i>`:''}</button><button data-action="sort" aria-label="整理棋盘">${icon('sort')}</button><button data-action="hint">${icon('light')}提示</button></div></div><div class="board-frame"><div class="board" role="grid" aria-label="7乘7合成棋盘；点击或拖动同类同级合成，拖到其他格返回原位">${Array.from({length:7},(_,row)=>`<div role="row" class="board-row">${s.board.slice(row*7,row*7+7).map((t,col)=>renderCell(t,row*7+col)).join('')}</div>`).join('')}</div></div>${detailBar()}</section>`;
@@ -257,7 +267,7 @@ function renderCell(t,i){
 }
 function detailBar(){
  const t=game.s.board[ui.selected];
- if(!t)return `<div class="detail-bar"><div class="detail-hint">${icon('heart')}<div>合成一点小心愿<small>拖动合成，也支持“点选 → 点目标”</small></div></div>${ib('info','help','玩法说明','',true)}</div>`;
+ if(!t)return '';
  if(t.k==='gen'){
   const p=game.s.producers[t.c],unlocked=game.unlocked(t.c);
   return `<div class="detail-bar">${picture('gen-'+t.c,'detail-art')}<div class="detail-content"><h4>${CHAINS[t.c].producer} · Lv.${p.level}</h4><p>${unlocked?`每次 1 体力 · 二阶产出率 ${Math.round((.2+(p.level-1)*.12)*100)}%`:`完成第 ${CHAINS[t.c].unlock} 处修缮后自动解锁`}</p><p>${unlocked?'库存每 6 秒恢复 1 件 · 可升级':''}</p></div>${ib('info','chain','查看产出路线',`data-cat="${t.c}"`,true)}${unlocked&&p.level<3?btn(`升级 ${CFG.upgradeCosts[p.level-1]}`,'upgrade','small',`data-cat="${t.c}"`):''}</div>`;

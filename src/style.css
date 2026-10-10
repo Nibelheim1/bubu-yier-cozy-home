@@ -196,3 +196,4 @@
 
 /* v1.6.1: material-only summaries; full controls live in the task dialog. */
 .order-row .order-summary{justify-content:center;min-height:72px;text-align:center;cursor:pointer}.order-summary .requirements{width:100%;margin:0;row-gap:5px}.order-summary:focus-visible{outline:3px solid #799765;outline-offset:-3px}.order-row .order-summary:before{display:none}
+.order-summary-title{display:block;width:100%;min-width:0;white-space:nowrap;font-size:12px;font-weight:750;line-height:18px;text-align:center;color:#795b3e}.order-row .order-summary{justify-content:flex-start}.order-summary .requirements{margin:auto 0}

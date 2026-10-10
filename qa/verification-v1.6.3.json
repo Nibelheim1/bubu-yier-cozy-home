@@ -1,0 +1,136 @@
+{
+  "version": "1.6.3",
+  "buildId": "d7bf993a1610",
+  "verifiedAt": "2026-10-10T01:29:58.932Z",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 360,
+      "height": 800
+    }
+  ],
+  "checks": [
+    {
+      "name": "390px三张卡并排，标题完整且没有底部默认说明",
+      "passed": true,
+      "evidence": {
+        "cards": [
+          {
+            "contentWidth": 106,
+            "name": "明天的小屋仍然开着门",
+            "right": 129.984375,
+            "size": "font-size: 10.6px;",
+            "width": 106
+          },
+          {
+            "contentWidth": 106,
+            "name": "下一次的准备",
+            "right": 253.96875,
+            "size": "font-size: 12px;",
+            "width": 106
+          },
+          {
+            "contentWidth": 106,
+            "name": "下一次的准备",
+            "right": 377.953125,
+            "size": "font-size: 12px;",
+            "width": 106
+          },
+          {
+            "contentWidth": 106,
+            "name": "暖心茶点",
+            "right": 501.9375,
+            "size": "font-size: 12px;",
+            "width": 106
+          }
+        ],
+        "footer": false,
+        "oldText": false
+      }
+    },
+    {
+      "name": "360px标题自动缩小且完整保持一行",
+      "passed": true,
+      "evidence": {
+        "titles": [
+          {
+            "contentWidth": 98,
+            "font": "font-size: 9.8px;",
+            "height": 18,
+            "name": "明天的小屋仍然开着门",
+            "width": 98
+          },
+          {
+            "contentWidth": 98,
+            "font": "font-size: 12px;",
+            "height": 18,
+            "name": "下一次的准备",
+            "width": 98
+          },
+          {
+            "contentWidth": 98,
+            "font": "font-size: 12px;",
+            "height": 18,
+            "name": "下一次的准备",
+            "width": 98
+          },
+          {
+            "contentWidth": 98,
+            "font": "font-size: 12px;",
+            "height": 18,
+            "name": "暖心茶点",
+            "width": 98
+          }
+        ],
+        "width": 360
+      }
+    },
+    {
+      "name": "点击简略标题仍展开完整任务与交付操作",
+      "passed": true,
+      "evidence": {
+        "reward": true,
+        "submit": true,
+        "title": "明天的小屋仍然开着门"
+      }
+    },
+    {
+      "name": "选中具体物品后的详情和收纳入口正常",
+      "passed": true,
+      "evidence": {
+        "defaultText": false,
+        "detail": true,
+        "route": true,
+        "store": true
+      }
+    },
+    {
+      "name": "整理取消选中后不恢复默认说明，标题仍显示",
+      "passed": true,
+      "evidence": {
+        "footer": false,
+        "titles": 4
+      }
+    },
+    {
+      "name": "循环委托简略标题显示任务名称，季节和类型留在完整详情",
+      "passed": true,
+      "evidence": [
+        {
+          "full": "春日 · 轻委托：新芽旁的小纸条",
+          "shown": "新芽旁的小纸条"
+        },
+        {
+          "full": "春日 · 长期协作：春风里的歇脚礼",
+          "shown": "春风里的歇脚礼"
+        }
+      ]
+    }
+  ],
+  "allPassed": true,
+  "physicalMobileVerified": false,
+  "screenshot": "output/playwright/order-titles-v1.6.3.png"
+}
