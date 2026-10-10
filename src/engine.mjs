@@ -1,6 +1,7 @@
 import {VERSION,APP_VERSION,SCHEMA_VERSION,CATS,CHAINS,CFG,TASKS,DECOR,REGIONS,DAILY,SIDE_FLAVOR,MEMORY_GATES,TEA_CONDITIONS,TEA_PLANS,SOUVENIRS,teaResponse,itemKey,needMass,mass,orderXP} from './data.mjs';
 import {decorPlacement,decorBounds} from './scenes.mjs';
 import {freshResidents,validResidents} from './residents.mjs';
+import {CAMPAIGN_CHAPTERS,CAMPAIGN_TASKS,CAMPAIGN_SIDE_MASS,campaignSideTier,campaignSideSpec} from './campaign.mjs';
 
 /** Deterministic, DOM-free game model. Every public mutation validates before spending. */
 export const clone = (v)=>JSON.parse(JSON.stringify(v));
@@ -41,7 +42,7 @@ export function freshState(now=Date.now(),seed=20261007){
   storage:[],capacity:8,pending:[],bag:{scissors:3},
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
   stats:{merge:0,produce:0,order:0,build:0,sold:0,unweb:0},
-  seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],
+  seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],sideCompleted:0,campaign:{completed:0,step:0},
   world:freshWorld(),residents:freshResidents(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,reducedMotion:false}};
 }
 
@@ -51,7 +52,7 @@ export class GameEngine{
   this.flushChapterGifts();
   this.checkMemories();
   if(this.s.stage===24&&this.s.tea.firstVisit==='locked')this.s.tea.firstVisit='available';
-  if(this.s.sideOrders.length===0){this.s.sideOrders=[this.makeSide(),this.makeSide()];}
+  if(this.s.sideOrders.length===0){this.s.sideOrders=[this.makeSide(0),this.makeSide(1)];}
   this.tick(now);
  }
  rng(){this.s.rng=(Math.imul(1664525,this.s.rng)+1013904223)>>>0;return this.s.rng/4294967296;}
@@ -169,7 +170,8 @@ export class GameEngine{
    for(let i=this.s.storage.length-1;i>=0&&n;i--){const t=this.s.storage[i];if(t.c===r.c&&t.l===r.l){this.s.storage.splice(i,1);n--;}}
   }return true;
  }
- makeSide(){
+ makeSide(slot=0){
+  if(this.s.stage>=24)return {...campaignSideSpec({slot,completed:this.s.sideCompleted,level:levelOf(this.s),stage:this.s.stage,random:()=>this.rng()}),id:`side-${++this.s.sideSerial}`};
   const cats=this.unlockedCats();const max=this.s.stage<4?3:this.s.stage<12?4:5;
   const c=cats[Math.floor(this.rng()*cats.length)];const l=2+Math.floor(this.rng()*(max-1));
   const needs=[{c,l,n:1}];
@@ -179,10 +181,19 @@ export class GameEngine{
   return {id:`side-${++this.s.sideSerial}`,name:f[0],wish:f[1],needs,coins:8+m*2,xp:orderXP(needs)};
  }
  mainOrder(){
+  if(this.s.stage>=24){
+   const task=CAMPAIGN_TASKS[this.s.campaign.completed];if(!task)return null;
+   const phase=this.s.campaign.step,totalPhases=task.steps.length;
+   return {...task,renovation:false,expanded:true,needs:clone(task.steps[phase].needs),fullNeeds:clone(task.needs),remainingNeeds:clone(task.steps.slice(phase).flatMap(step=>step.needs)),phase,totalPhases,phaseLabel:task.steps[phase].label,lesson:null};
+  }
   const task=TASKS[this.s.stage];if(!task)return null;
   const totalPhases=task.phases?.length||1,phase=this.s.mainPrepStep;
   const needs=totalPhases>1?(phase<totalPhases?[task.needs[phase]]:[]):task.needs;
-  return {...task,needs:clone(needs),fullNeeds:clone(task.needs),remainingNeeds:clone(totalPhases>1?task.needs.slice(phase):task.needs),phase,totalPhases,phaseLabel:task.phases?.[phase]||task.name,lesson:task.needs.find(r=>r.c!=='clean'&&!this.s.producerLessons[r.c])?.c||null};
+  return {...task,renovation:true,needs:clone(needs),fullNeeds:clone(task.needs),remainingNeeds:clone(totalPhases>1?task.needs.slice(phase):task.needs),phase,totalPhases,phaseLabel:task.phases?.[phase]||task.name,lesson:task.needs.find(r=>r.c!=='clean'&&!this.s.producerLessons[r.c])?.c||null};
+ }
+ progress(){
+  const task=this.mainOrder(),completed=this.s.stage+this.s.campaign.completed;
+  return {baseDone:this.s.stage,expandedDone:this.s.campaign.completed,completed,total:TASKS.length+CAMPAIGN_TASKS.length,finished:!task,next:task,chapter:task?.expanded?CAMPAIGN_CHAPTERS[task.chapter]:null};
  }
  teaOrder(){
   const {round,plan}=this.s.tea,c=TEA_CONDITIONS[round%3],p=TEA_PLANS[plan];
@@ -200,10 +211,10 @@ export class GameEngine{
  submit(kind,id,expectedStep){
   let task,slot=-1;
   if(kind==='main'){
-   if(this.s.stage>=24)return bad('FINISHED','主线已经完成，邻里委托还会继续。');
-   if(id!==this.s.stage||this.s.delivered)return bad('STALE','这张心愿已经交付了，回小屋布置吧。');
    task=this.mainOrder();
-   if(task.totalPhases>1&&expectedStep!==task.phase)return bad('STALE','准备阶段已更新，请查看现在需要什么。');
+   if(!task)return bad('FINISHED','主线已经完成，邻里委托还会继续。');
+   if(id!==task.id||this.s.delivered)return bad('STALE','这张心愿已经更新，请查看现在的任务。');
+   if((task.expanded||task.totalPhases>1)&&expectedStep!==task.phase)return bad('STALE','准备阶段已更新，请查看现在需要什么。');
    if(task.lesson)return bad('LESSON',`先从${CHAINS[task.lesson].producer}亲手取出一次材料，再交付这张心愿。`);
   }else if(kind==='side'){
    slot=this.s.sideOrders.findIndex(o=>o.id===id);if(slot<0)return bad('STALE','这张委托已经更新啦。');task=this.s.sideOrders[slot];
@@ -214,12 +225,18 @@ export class GameEngine{
   if(!this.canFulfill(task.needs))return bad('MISSING','材料还差一点，点物品图标可以查看合成路线。');
   if(kind==='tea'&&['bubu','yier'].some(who=>this.s.residents[who].region!==task.region))return bad('APART','先把布布和一二都带到茶会地点，再一起喝茶。');
   this.invalidate();this.consume(task.needs);
-  if(kind==='main'&&task.totalPhases>1){this.s.world.region=id===23&&task.phase===0?'garden':'courtyard';this.s.mainPrepStep++;if(this.s.mainPrepStep<task.totalPhases)return good('prepare',{orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});}
+  if(kind==='main'&&task.expanded){
+   this.s.campaign.step++;
+   if(this.s.campaign.step<task.totalPhases)return good('prepare',{expanded:true,orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:task.region});
+  }else if(kind==='main'&&task.totalPhases>1){this.s.world.region=id===23&&task.phase===0?'garden':'courtyard';this.s.mainPrepStep++;if(this.s.mainPrepStep<task.totalPhases)return good('prepare',{orderKind:kind,id,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});}
   this.s.coins+=task.coins;
   this.s.stats.order++;this.s.daily.order++;
   const levelUps=this.gainXP(task.xp);
-  if(kind==='main'){this.s.delivered=true;this.s.stars++;if(this.s.stage===0)this.s.tutorial='build';}
-  else if(kind==='side'){this.s.sideOrders[slot]=this.makeSide();}
+  if(kind==='main'&&task.expanded){
+   this.s.campaign.completed++;this.s.campaign.step=0;
+   return good('submit',{expanded:true,orderKind:kind,id,coins:task.coins,xp:task.xp,levelUps,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:task.region,campaignTask:clone(CAMPAIGN_TASKS[this.s.campaign.completed-1]),chapterDone:this.s.campaign.completed===CAMPAIGN_TASKS.length||CAMPAIGN_TASKS[this.s.campaign.completed].chapter!==task.chapter,finished:this.s.campaign.completed===CAMPAIGN_TASKS.length});
+  }else if(kind==='main'){this.s.delivered=true;this.s.stars++;if(this.s.stage===0)this.s.tutorial='build';}
+  else if(kind==='side'){this.s.sideCompleted++;this.s.sideOrders[slot]=this.makeSide(slot);}
   else{const first=!this.s.world.souvenirs[task.souvenirKey];if(first&&!this.s.world.equipped[task.souvenirRegion])this.s.world.equipped[task.souvenirRegion]=task.souvenirKey;const result=this.resultContext(task);this.s.tea.lastResult=result;if(first)this.s.world.souvenirs[task.souvenirKey]=clone(result);this.s.tea.round++;return good('submit',{orderKind:kind,id,coins:task.coins,xp:task.xp,levelUps,firstSouvenir:first,result:clone(result)});}
   return good('submit',{orderKind:kind,id,coins:task.coins,xp:task.xp,levelUps,phase:task.phase,totalPhases:task.totalPhases,phaseLabel:task.phaseLabel,region:this.s.world.region});
  }
@@ -298,7 +315,7 @@ export class GameEngine{
  }
  resolveTarget(target){
   if(!target||typeof target!=='object')return null;
-  if(target.kind==='main'){const o=this.mainOrder();return o&&!this.s.delivered&&target.id===o.id&&(o.totalPhases===1||target.step===o.phase)?o:null;}
+  if(target.kind==='main'){const o=this.mainOrder();return o&&!this.s.delivered&&target.id===o.id&&(!o.expanded&&o.totalPhases===1||target.step===o.phase)?o:null;}
   if(target.kind==='side')return this.s.sideOrders.find(o=>o.id===target.id)||null;
   if(target.kind==='tea'){const o=this.teaOrder();return o.available&&o.id===target.id?o:null;}
   return null;
@@ -333,7 +350,7 @@ export class GameEngine{
   this.tick(now);
   if(![0,1].includes(slot)||this.s.stage===0)return bad('ORDER','先完成第一项小屋心愿。');
   if(now<this.s.sideRefreshAt[slot])return bad('COOLDOWN','刚刚换过纸条，稍等一小会儿。');
-  this.invalidate();this.s.sideOrders[slot]=this.makeSide();this.s.sideRefreshAt[slot]=now+CFG.sideCooldown;return good('refresh');
+  this.invalidate();this.s.sideOrders[slot]=this.makeSide(slot);this.s.sideRefreshAt[slot]=now+CFG.sideCooldown;return good('refresh');
  }
  dailyGift(now=Date.now()){
   this.tick(now);if(this.s.daily.gift)return bad('CLAIMED','今天的小礼物已经收好啦。');
@@ -352,13 +369,13 @@ export class GameEngine{
  markIntro(){this.invalidate();this.s.introSeen=true;return good('intro');}
  markFinished(){this.invalidate();this.s.finishedSeen=true;return good('finished');}
  hint(orderMode='main'){
-  const tea=orderMode==='tea',side=!tea&&(orderMode==='side'||this.s.stage>=24);
+  const tea=orderMode==='tea',side=!tea&&(orderMode==='side'||!this.mainOrder());
   if(!side&&!tea&&this.s.delivered)return {kind:'build'};
   const orders=tea?(this.teaOrder().available?[this.teaOrder()]:[]):side?this.s.sideOrders:[this.mainOrder()].filter(Boolean);
   if(!side&&!tea&&orders[0]?.lesson){const c=orders[0].lesson;return {kind:'produce',c,idx:CATS.indexOf(c),lesson:true};}
   if(tea&&!orders.length)return {kind:'locked',message:'先认领小苗，并亲手认识每个工作台。'};
   const ready=orders.find(o=>this.canFulfill(o.needs));
-  if(ready)return {kind:'submit',orderKind:tea?'tea':side?'side':'main',id:ready.id,...(!side&&!tea&&ready.totalPhases>1?{step:ready.phase}:{})};
+  if(ready)return {kind:'submit',orderKind:tea?'tea':side?'side':'main',id:ready.id,...(!side&&!tea&&(ready.expanded||ready.totalPhases>1)?{step:ready.phase}:{})};
   const current=orders.slice().sort((a,b)=>needMass(a.needs.filter(r=>this.count(r.c,r.l)<r.n))-needMass(b.needs.filter(r=>this.count(r.c,r.l)<r.n)))[0];
   const missing=current?.needs.filter(r=>this.count(r.c,r.l)<r.n)||[];
   const b=this.s.board;
@@ -394,6 +411,11 @@ export function validateState(raw){
  }
  const integer=(v,min,max)=>Number.isInteger(v)&&v>=min&&v<=max;
  const check=(ok,msg)=>{if(!ok)throw Error(msg);};
+ if(s.campaign===undefined)s.campaign={completed:0,step:0};
+ if(s.sideCompleted===undefined)s.sideCompleted=0;
+ check(s.campaign&&typeof s.campaign==='object'&&!Array.isArray(s.campaign)&&Object.keys(s.campaign).length===2&&integer(s.campaign.completed,0,CAMPAIGN_TASKS.length)&&integer(s.campaign.step,0,2),'扩展主线进度无效。');
+ check(s.stage===24?(s.campaign.completed===CAMPAIGN_TASKS.length?s.campaign.step===0:s.campaign.step<CAMPAIGN_TASKS[s.campaign.completed].steps.length):s.campaign.completed===0&&s.campaign.step===0,'扩展主线阶段无效。');
+ check(integer(s.sideCompleted,0,100000000),'循环委托完成记录无效。');
  if(s.residents===undefined)s.residents=freshResidents();
  check(validResidents(s.residents),'角色位置记录无效。');
  for(const k of ['createdAt','lastSeen','energyAt'])check(integer(s[k],0,9007199254740000),`时间字段 ${k} 无效。`);
@@ -427,13 +449,23 @@ export function validateState(raw){
  check(positions(s.decorPositions,s.stage),'家具位置记录无效。');
  check(s.seen&&typeof s.seen==='object'&&!Array.isArray(s.seen)&&Object.entries(s.seen).every(([k,v])=>{const[c,l]=k.split('-');return v===true&&CATS.includes(c)&&integer(+l,1,6);}), '图鉴记录无效。');
  check(Array.isArray(s.sideOrders)&&[0,2].includes(s.sideOrders.length),'邻里订单数量无效。');
- check(s.sideOrders.every(o=>o&&typeof o.id==='string'&&o.id.length<40&&typeof o.name==='string'&&o.name.length<60&&typeof o.wish==='string'&&o.wish.length<200&&integer(o.coins,1,1000)&&Array.isArray(o.needs)&&o.needs.length>=1&&o.needs.length<=3&&o.needs.every(r=>CATS.includes(r.c)&&CHAINS[r.c].unlock<=s.stage&&integer(r.l,1,6)&&integer(r.n,1,3))),'邻里订单内容无效。');
+ check(s.sideOrders.every(o=>o&&typeof o.id==='string'&&o.id.length<40&&typeof o.name==='string'&&o.name.length<60&&typeof o.wish==='string'&&o.wish.length<200&&integer(o.coins,1,1000)&&Array.isArray(o.needs)&&o.needs.length>=1&&o.needs.length<=('loop'in o?9:3)&&o.needs.every(r=>CATS.includes(r.c)&&CHAINS[r.c].unlock<=s.stage&&integer(r.l,1,6)&&integer(r.n,1,3))),'邻里订单内容无效。');
+ s.sideOrders.forEach((o,slot)=>{
+  if(!('loop'in o)){
+   check(['slot','tier','completedAt','levelAt','mass'].every(k=>!(k in o)),'邻里订单附加记录无效。');
+   return;
+  }
+  check(s.stage===24&&o.slot===slot&&integer(o.completedAt,0,s.sideCompleted)&&integer(o.levelAt,1,CFG.maxPlayerLevel)&&o.levelAt<=levelOf(s)&&o.tier===campaignSideTier(o.levelAt)&&o.loop===Math.floor(o.completedAt/12)+1,'循环委托难度记录无效。');
+  const expectedMass=CAMPAIGN_SIDE_MASS[o.tier][slot]+(slot===0?4:8)*(o.completedAt%3);
+  check(o.mass===expectedMass&&needMass(o.needs)===expectedMass&&o.needs.every(r=>r.l>=3)&&new Set(o.needs.map(r=>itemKey(r.c,r.l))).size===o.needs.length,'循环委托材料预算无效。');
+ });
  check(new Set(s.sideOrders.map(o=>o.id)).size===s.sideOrders.length,'邻里订单编号重复。');
  check(Array.isArray(s.sideRefreshAt)&&s.sideRefreshAt.length===2&&s.sideRefreshAt.every(t=>integer(t,0,9007199254740000)),'刷新时间无效。');
  check(s.settings&&['sound','music','reducedMotion'].every(k=>typeof s.settings[k]==='boolean'),'设置无效。');
  check(['merge','deliver','build','produce','done'].includes(s.tutorial)&&typeof s.introSeen==='boolean'&&typeof s.finishedSeen==='boolean','教学记录无效。');
  // Economic release version is independent of the storage schema and application name.
- if(s.economyVersion===undefined){
+ const migrateSideRewards=s.economyVersion===undefined;
+ if(migrateSideRewards){
   const oldLevel=Math.min(CFG.maxPlayerLevel,Math.floor(s.xp/60)+1),fraction=(s.xp%60)/60;
   s.xp=levelThreshold(oldLevel)+(oldLevel===CFG.maxPlayerLevel?0:Math.floor(fraction*levelCost(oldLevel)));
   if(s.bag.energyPacks!==undefined){check(integer(s.bag.energyPacks,0,100000),'旧体力点心数量无效。');s.coins=Math.min(100000000,s.coins+s.bag.energyPacks*CFG.legacyPackCoins);}
@@ -443,7 +475,10 @@ export function validateState(raw){
  s.energy=Math.min(CFG.energyCap,s.energy);delete s.bag.energyPacks;delete s.settings.calm;delete s.restAt;
  if(s.levelGiftsClaimed===undefined)s.levelGiftsClaimed=[];
  check(Array.isArray(s.levelGiftsClaimed)&&new Set(s.levelGiftsClaimed).size===s.levelGiftsClaimed.length&&s.levelGiftsClaimed.every(l=>levelGift(l,s.stage)&&l<=levelOf(s)),'升级礼包领取记录无效。');
- for(const o of s.sideOrders){delete o.energy;o.coins=8+2*needMass(o.needs);o.xp=orderXP(o.needs);}
+ for(const o of s.sideOrders){
+  if(migrateSideRewards){o.coins=8+2*needMass(o.needs);o.xp=orderXP(o.needs);}
+  check(o.coins===8+2*needMass(o.needs)&&o.xp===orderXP(o.needs),'邻里订单奖励无效。');delete o.energy;
+ }
  const result=clone(s);
  const w=result.world;
  check(w&&typeof w==='object'&&!Array.isArray(w)&&REGIONS.some(r=>r.id===w.region),'家园区域记录无效。');

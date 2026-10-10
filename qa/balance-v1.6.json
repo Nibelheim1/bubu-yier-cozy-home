@@ -1,0 +1,2646 @@
+{
+  "version": "1.6.0",
+  "date": "2026-10-10",
+  "seed": 20261010,
+  "status": "passed",
+  "method": "Fresh legal public action solver through all 96 main tasks and 14 side deliveries. No resource injection. One fixed policy/seed; virtual waiting is not human playtime.",
+  "policy": "No material parcels, no regional activities or tea. Claim level/chapter/daily rewards; invest in producers (level2 early, level3 after furnishing) and storage up to16. No resource balance reset.",
+  "theoretical": {
+    "mainTasks": 96,
+    "expandedTasks": 72,
+    "chapters": 15,
+    "mainXP": 18211,
+    "levelFromMainOnly": 51,
+    "level50Threshold": 17502,
+    "mainMass": 15064,
+    "expectedMassPerEnergy": [
+      1.2,
+      1.32,
+      1.44
+    ],
+    "naturalPerHour": 36,
+    "energyCap": 100
+  },
+  "simulation": {
+    "calls": 23175,
+    "produce": 11767,
+    "merge": 11059,
+    "mainEndingXP": 18211,
+    "mainEndingLevel": 51,
+    "waitSeconds": 1132012.5,
+    "virtualSeconds": 1137806.25,
+    "naturalEnergy": 11378,
+    "sideCompleted": 14,
+    "coins": 25027,
+    "upgrades": 12,
+    "expansions": 2,
+    "sales": 0,
+    "gifts": 10,
+    "chapters": [
+      {
+        "chapter": 7,
+        "name": "山雨来前",
+        "mass": 608,
+        "costRange": [
+          48,
+          104
+        ],
+        "expectedEnergyAtMaxProducer": [
+          33.3,
+          38.9,
+          44.4,
+          50,
+          55.6,
+          61.1,
+          66.7,
+          72.2
+        ],
+        "produce": 421,
+        "xp": 1176,
+        "endingLevel": 16
+      },
+      {
+        "chapter": 8,
+        "name": "邻里第一次分享",
+        "mass": 864,
+        "costRange": [
+          80,
+          136
+        ],
+        "expectedEnergyAtMaxProducer": [
+          55.6,
+          61.1,
+          66.7,
+          72.2,
+          77.8,
+          83.3,
+          88.9,
+          94.4
+        ],
+        "produce": 616,
+        "xp": 1368,
+        "endingLevel": 21
+      },
+      {
+        "chapter": 9,
+        "name": "萤火虫夏夜",
+        "mass": 1120,
+        "costRange": [
+          112,
+          168
+        ],
+        "expectedEnergyAtMaxProducer": [
+          77.8,
+          83.3,
+          88.9,
+          94.4,
+          100,
+          105.6,
+          111.1,
+          116.7
+        ],
+        "produce": 751,
+        "xp": 1560,
+        "endingLevel": 26
+      },
+      {
+        "chapter": 10,
+        "name": "秋日小集",
+        "mass": 1376,
+        "costRange": [
+          144,
+          200
+        ],
+        "expectedEnergyAtMaxProducer": [
+          100,
+          105.6,
+          111.1,
+          116.7,
+          122.2,
+          127.8,
+          133.3,
+          138.9
+        ],
+        "produce": 966,
+        "xp": 1752,
+        "endingLevel": 30
+      },
+      {
+        "chapter": 11,
+        "name": "雨天互助",
+        "mass": 1632,
+        "costRange": [
+          176,
+          232
+        ],
+        "expectedEnergyAtMaxProducer": [
+          122.2,
+          127.8,
+          133.3,
+          138.9,
+          144.4,
+          150,
+          155.6,
+          161.1
+        ],
+        "produce": 1121,
+        "xp": 1944,
+        "endingLevel": 34
+      },
+      {
+        "chapter": 12,
+        "name": "冬日留暖",
+        "mass": 1888,
+        "costRange": [
+          208,
+          264
+        ],
+        "expectedEnergyAtMaxProducer": [
+          144.4,
+          150,
+          155.6,
+          161.1,
+          166.7,
+          172.2,
+          177.8,
+          183.3
+        ],
+        "produce": 1307,
+        "xp": 2136,
+        "endingLevel": 38
+      },
+      {
+        "chapter": 13,
+        "name": "春日接力",
+        "mass": 2144,
+        "costRange": [
+          240,
+          296
+        ],
+        "expectedEnergyAtMaxProducer": [
+          166.7,
+          172.2,
+          177.8,
+          183.3,
+          188.9,
+          194.4,
+          200,
+          205.6
+        ],
+        "produce": 1452,
+        "xp": 2328,
+        "endingLevel": 43
+      },
+      {
+        "chapter": 14,
+        "name": "一周年筹备",
+        "mass": 2400,
+        "costRange": [
+          272,
+          328
+        ],
+        "expectedEnergyAtMaxProducer": [
+          188.9,
+          194.4,
+          200,
+          205.6,
+          211.1,
+          216.7,
+          222.2,
+          227.8
+        ],
+        "produce": 1630,
+        "xp": 2520,
+        "endingLevel": 47
+      },
+      {
+        "chapter": 15,
+        "name": "四季的好日子",
+        "mass": 2656,
+        "costRange": [
+          304,
+          360
+        ],
+        "expectedEnergyAtMaxProducer": [
+          211.1,
+          216.7,
+          222.2,
+          227.8,
+          233.3,
+          238.9,
+          244.4,
+          250
+        ],
+        "produce": 1852,
+        "xp": 2712,
+        "endingLevel": 51
+      }
+    ],
+    "taskLog": [
+      {
+        "id": 0,
+        "name": "铺一块软软的门垫",
+        "renovation": true,
+        "mass": 2,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 0,
+        "merge": 1,
+        "waitSeconds": 0,
+        "xpAwarded": 25,
+        "level": 1,
+        "free": 26,
+        "stored": 0
+      },
+      {
+        "id": 1,
+        "name": "让窗帘接住阳光",
+        "renovation": true,
+        "mass": 4,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 2,
+        "merge": 2,
+        "waitSeconds": 0,
+        "xpAwarded": 26,
+        "level": 2,
+        "free": 29,
+        "stored": 0
+      },
+      {
+        "id": 2,
+        "name": "立起第一块小屋牌",
+        "renovation": true,
+        "mass": 4,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 3,
+        "merge": 1,
+        "waitSeconds": 0,
+        "xpAwarded": 26,
+        "level": 3,
+        "free": 29,
+        "stored": 0
+      },
+      {
+        "id": 3,
+        "name": "点亮门边的小灯",
+        "renovation": true,
+        "mass": 4,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 4,
+        "merge": 3,
+        "waitSeconds": 0,
+        "xpAwarded": 26,
+        "level": 3,
+        "free": 29,
+        "stored": 0
+      },
+      {
+        "id": 4,
+        "name": "收拾香香的烘焙架",
+        "renovation": true,
+        "mass": 2,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 1,
+        "merge": 0,
+        "waitSeconds": 0,
+        "xpAwarded": 25,
+        "level": 4,
+        "free": 29,
+        "stored": 0
+      },
+      {
+        "id": 5,
+        "name": "把小圆桌修稳",
+        "renovation": true,
+        "mass": 8,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 5,
+        "merge": 5,
+        "waitSeconds": 0,
+        "xpAwarded": 27,
+        "level": 4,
+        "free": 33,
+        "stored": 0
+      },
+      {
+        "id": 6,
+        "name": "准备两只杯子",
+        "renovation": true,
+        "mass": 8,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 7,
+        "merge": 4,
+        "waitSeconds": 0,
+        "xpAwarded": 27,
+        "level": 4,
+        "free": 33,
+        "stored": 0
+      },
+      {
+        "id": 7,
+        "name": "把下午过得软一点",
+        "renovation": true,
+        "mass": 16,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 13,
+        "merge": 11,
+        "waitSeconds": 0,
+        "xpAwarded": 30,
+        "level": 5,
+        "free": 31,
+        "stored": 0
+      },
+      {
+        "id": 8,
+        "name": "给一二支起小画架",
+        "renovation": true,
+        "mass": 2,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 1,
+        "merge": 1,
+        "waitSeconds": 0,
+        "xpAwarded": 25,
+        "level": 5,
+        "free": 32,
+        "stored": 0
+      },
+      {
+        "id": 9,
+        "name": "铺开颜料小地毯",
+        "renovation": true,
+        "mass": 8,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 5,
+        "merge": 5,
+        "waitSeconds": 0,
+        "xpAwarded": 27,
+        "level": 5,
+        "free": 36,
+        "stored": 0
+      },
+      {
+        "id": 10,
+        "name": "为纸鲸画一片天空",
+        "renovation": true,
+        "mass": 8,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 7,
+        "merge": 6,
+        "waitSeconds": 0,
+        "xpAwarded": 27,
+        "level": 6,
+        "free": 36,
+        "stored": 0
+      },
+      {
+        "id": 11,
+        "name": "把小风景挂上墙",
+        "renovation": true,
+        "mass": 20,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 12,
+        "merge": 11,
+        "waitSeconds": 0,
+        "xpAwarded": 31,
+        "level": 6,
+        "free": 37,
+        "stored": 0
+      },
+      {
+        "id": 12,
+        "name": "认领第一盆小生命",
+        "renovation": true,
+        "mass": 2,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 1,
+        "merge": 1,
+        "waitSeconds": 0,
+        "xpAwarded": 25,
+        "level": 6,
+        "free": 38,
+        "stored": 0
+      },
+      {
+        "id": 13,
+        "name": "装好花园小花箱",
+        "renovation": true,
+        "mass": 8,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 5,
+        "merge": 3,
+        "waitSeconds": 0,
+        "xpAwarded": 27,
+        "level": 7,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 14,
+        "name": "搭一面会开花的墙",
+        "renovation": true,
+        "mass": 16,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 13,
+        "merge": 12,
+        "waitSeconds": 0,
+        "xpAwarded": 30,
+        "level": 7,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 15,
+        "name": "把绿意挂得高一点",
+        "renovation": true,
+        "mass": 20,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 17,
+        "merge": 15,
+        "waitSeconds": 0,
+        "xpAwarded": 31,
+        "level": 7,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 16,
+        "name": "给喜欢的故事一个家",
+        "renovation": true,
+        "mass": 12,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 9,
+        "merge": 8,
+        "waitSeconds": 0,
+        "xpAwarded": 29,
+        "level": 8,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 17,
+        "name": "准备不赶时间的软椅",
+        "renovation": true,
+        "mass": 16,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 12,
+        "merge": 9,
+        "waitSeconds": 0,
+        "xpAwarded": 30,
+        "level": 8,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 18,
+        "name": "调一盏刚刚好的灯",
+        "renovation": true,
+        "mass": 16,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 12,
+        "merge": 11,
+        "waitSeconds": 531.75,
+        "xpAwarded": 30,
+        "level": 8,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 19,
+        "name": "收好今天的小回忆",
+        "renovation": true,
+        "mass": 24,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 18,
+        "merge": 18,
+        "waitSeconds": 1790.25,
+        "xpAwarded": 33,
+        "level": 8,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 20,
+        "name": "写一张小小邀请",
+        "renovation": true,
+        "mass": 24,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 14,
+        "merge": 12,
+        "waitSeconds": 1392.25,
+        "xpAwarded": 33,
+        "level": 9,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 21,
+        "name": "把春天铺到门外",
+        "renovation": true,
+        "mass": 24,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 15,
+        "merge": 15,
+        "waitSeconds": 1092.25,
+        "xpAwarded": 33,
+        "level": 9,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 22,
+        "name": "做一桌可以分享的甜",
+        "renovation": true,
+        "mass": 48,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 37,
+        "merge": 34,
+        "waitSeconds": 3681.75,
+        "xpAwarded": 41,
+        "level": 9,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 23,
+        "name": "熊熊之家，开门啦",
+        "renovation": true,
+        "mass": 80,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 61,
+        "merge": 60,
+        "waitSeconds": 6068.75,
+        "xpAwarded": 51,
+        "level": 10,
+        "free": 38,
+        "stored": 0
+      },
+      {
+        "id": 24,
+        "name": "听一听松动的门边",
+        "renovation": false,
+        "mass": 48,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 35,
+        "merge": 31,
+        "waitSeconds": 3080.75,
+        "xpAwarded": 126,
+        "level": 11,
+        "free": 37,
+        "stored": 0
+      },
+      {
+        "id": 25,
+        "name": "沿着小路捡落叶",
+        "renovation": false,
+        "mass": 56,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 31,
+        "merge": 31,
+        "waitSeconds": 2584.5,
+        "xpAwarded": 132,
+        "level": 11,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 26,
+        "name": "把易潮的纸收好",
+        "renovation": false,
+        "mass": 64,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 50,
+        "merge": 46,
+        "waitSeconds": 4975.75,
+        "xpAwarded": 138,
+        "level": 12,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 27,
+        "name": "给花盆留出水路",
+        "renovation": false,
+        "mass": 72,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 52,
+        "merge": 46,
+        "waitSeconds": 4674.75,
+        "xpAwarded": 144,
+        "level": 13,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 28,
+        "name": "试一遍雨夜照明",
+        "renovation": false,
+        "mass": 80,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 59,
+        "merge": 53,
+        "waitSeconds": 5371.5,
+        "xpAwarded": 150,
+        "level": 14,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 29,
+        "name": "准备雨天的早餐",
+        "renovation": false,
+        "mass": 88,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 61,
+        "merge": 56,
+        "waitSeconds": 5570.75,
+        "xpAwarded": 156,
+        "level": 14,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 30,
+        "name": "风里送来的提醒",
+        "renovation": false,
+        "mass": 96,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 62,
+        "merge": 60,
+        "waitSeconds": 6169,
+        "xpAwarded": 162,
+        "level": 15,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 31,
+        "name": "第一阵雨落下来",
+        "renovation": false,
+        "mass": 104,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 71,
+        "merge": 69,
+        "waitSeconds": 6563.75,
+        "xpAwarded": 168,
+        "level": 16,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 32,
+        "name": "巷口便当的第一炉",
+        "renovation": false,
+        "mass": 80,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 61,
+        "merge": 56,
+        "waitSeconds": 5569.75,
+        "xpAwarded": 150,
+        "level": 17,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 33,
+        "name": "挑一束不拥挤的花",
+        "renovation": false,
+        "mass": 88,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "submit"
+          }
+        ],
+        "produce": 59,
+        "merge": 57,
+        "waitSeconds": 5370.75,
+        "xpAwarded": 156,
+        "level": 17,
+        "free": 43,
+        "stored": 0
+      },
+      {
+        "id": 34,
+        "name": "在饭盒上画小太阳",
+        "renovation": false,
+        "mass": 96,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 69,
+        "merge": 65,
+        "waitSeconds": 6866,
+        "xpAwarded": 162,
+        "level": 18,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 35,
+        "name": "在巷口留一份茶",
+        "renovation": false,
+        "mass": 104,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 74,
+        "merge": 70,
+        "waitSeconds": 6863.25,
+        "xpAwarded": 168,
+        "level": 18,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 36,
+        "name": "读一读盒底的回信",
+        "renovation": false,
+        "mass": 112,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 82,
+        "merge": 78,
+        "waitSeconds": 8159.75,
+        "xpAwarded": 174,
+        "level": 19,
+        "free": 43,
+        "stored": 0
+      },
+      {
+        "id": 37,
+        "name": "把感谢画成一张卡",
+        "renovation": false,
+        "mass": 120,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 85,
+        "merge": 78,
+        "waitSeconds": 7958.25,
+        "xpAwarded": 180,
+        "level": 20,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 38,
+        "name": "再备一次分享的便当",
+        "renovation": false,
+        "mass": 128,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 92,
+        "merge": 85,
+        "waitSeconds": 8654.25,
+        "xpAwarded": 186,
+        "level": 20,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 39,
+        "name": "空饭盒也有故事",
+        "renovation": false,
+        "mass": 136,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 94,
+        "merge": 86,
+        "waitSeconds": 9354.5,
+        "xpAwarded": 192,
+        "level": 21,
+        "free": 37,
+        "stored": 0
+      },
+      {
+        "id": 40,
+        "name": "把午后的热慢慢散掉",
+        "renovation": false,
+        "mass": 112,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 76,
+        "merge": 72,
+        "waitSeconds": 6963.25,
+        "xpAwarded": 174,
+        "level": 22,
+        "free": 38,
+        "stored": 0
+      },
+      {
+        "id": 41,
+        "name": "给小花园补一口水",
+        "renovation": false,
+        "mass": 120,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 71,
+        "merge": 68,
+        "waitSeconds": 6464.25,
+        "xpAwarded": 180,
+        "level": 22,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 42,
+        "name": "留一份不太甜的晚点",
+        "renovation": false,
+        "mass": 128,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 86,
+        "merge": 81,
+        "waitSeconds": 8557.5,
+        "xpAwarded": 186,
+        "level": 23,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 43,
+        "name": "把观萤的位置让出来",
+        "renovation": false,
+        "mass": 136,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 91,
+        "merge": 86,
+        "waitSeconds": 8455.5,
+        "xpAwarded": 192,
+        "level": 23,
+        "free": 43,
+        "stored": 0
+      },
+      {
+        "id": 44,
+        "name": "画一张安静的约定",
+        "renovation": false,
+        "mass": 144,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 94,
+        "merge": 86,
+        "waitSeconds": 9354.25,
+        "xpAwarded": 198,
+        "level": 24,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 45,
+        "name": "把夜风写进画纸",
+        "renovation": false,
+        "mass": 152,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 108,
+        "merge": 103,
+        "waitSeconds": 10146.75,
+        "xpAwarded": 204,
+        "level": 25,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 46,
+        "name": "收好看夜色的点心",
+        "renovation": false,
+        "mass": 160,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 118,
+        "merge": 109,
+        "waitSeconds": 11141.75,
+        "xpAwarded": 210,
+        "level": 25,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 47,
+        "name": "只带回今晚的记忆",
+        "renovation": false,
+        "mass": 168,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "submit"
+          }
+        ],
+        "produce": 107,
+        "merge": 98,
+        "waitSeconds": 10647.75,
+        "xpAwarded": 216,
+        "level": 26,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 48,
+        "name": "量一量秋日小集的位置",
+        "renovation": false,
+        "mass": 144,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 98,
+        "merge": 93,
+        "waitSeconds": 9151.75,
+        "xpAwarded": 198,
+        "level": 26,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 49,
+        "name": "为收成挑一张说明卡",
+        "renovation": false,
+        "mass": 152,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 103,
+        "merge": 96,
+        "waitSeconds": 10249.5,
+        "xpAwarded": 204,
+        "level": 27,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 50,
+        "name": "试烤一盘秋天的点心",
+        "renovation": false,
+        "mass": 160,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 111,
+        "merge": 103,
+        "waitSeconds": 10446,
+        "xpAwarded": 210,
+        "level": 27,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 51,
+        "name": "把落叶画成小地图",
+        "renovation": false,
+        "mass": 168,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 121,
+        "merge": 112,
+        "waitSeconds": 12040.5,
+        "xpAwarded": 216,
+        "level": 28,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 52,
+        "name": "给小集留一处停脚的花",
+        "renovation": false,
+        "mass": 176,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 124,
+        "merge": 117,
+        "waitSeconds": 11738.75,
+        "xpAwarded": 222,
+        "level": 28,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 53,
+        "name": "烤够一场分享的份量",
+        "renovation": false,
+        "mass": 184,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 128,
+        "merge": 121,
+        "waitSeconds": 12736.75,
+        "xpAwarded": 228,
+        "level": 29,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 54,
+        "name": "让门前飘起淡淡茶香",
+        "renovation": false,
+        "mass": 192,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 137,
+        "merge": 131,
+        "waitSeconds": 13032.75,
+        "xpAwarded": 234,
+        "level": 30,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 55,
+        "name": "秋日小集慢慢收场",
+        "renovation": false,
+        "mass": 200,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 144,
+        "merge": 138,
+        "waitSeconds": 13728,
+        "xpAwarded": 240,
+        "level": 30,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 56,
+        "name": "雨声里听见小响动",
+        "renovation": false,
+        "mass": 176,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 119,
+        "merge": 110,
+        "waitSeconds": 11841.25,
+        "xpAwarded": 222,
+        "level": 31,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 57,
+        "name": "把送暖的路记下来",
+        "renovation": false,
+        "mass": 184,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 118,
+        "merge": 113,
+        "waitSeconds": 11141.5,
+        "xpAwarded": 228,
+        "level": 31,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 58,
+        "name": "分一炉不会散的热面包",
+        "renovation": false,
+        "mass": 192,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 129,
+        "merge": 122,
+        "waitSeconds": 12837,
+        "xpAwarded": 234,
+        "level": 32,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 59,
+        "name": "给雨里的绿叶扶一扶",
+        "renovation": false,
+        "mass": 200,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 143,
+        "merge": 135,
+        "waitSeconds": 13629.25,
+        "xpAwarded": 240,
+        "level": 32,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 60,
+        "name": "门口接一杯暖茶",
+        "renovation": false,
+        "mass": 208,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 138,
+        "merge": 131,
+        "waitSeconds": 13732,
+        "xpAwarded": 246,
+        "level": 33,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 61,
+        "name": "补一张看得清的提示",
+        "renovation": false,
+        "mass": 216,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 154,
+        "merge": 146,
+        "waitSeconds": 14723.75,
+        "xpAwarded": 252,
+        "level": 33,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 62,
+        "name": "再送一批雨天小份餐",
+        "renovation": false,
+        "mass": 224,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 158,
+        "merge": 150,
+        "waitSeconds": 15722.25,
+        "xpAwarded": 258,
+        "level": 34,
+        "free": 43,
+        "stored": 0
+      },
+      {
+        "id": 63,
+        "name": "把帮忙的人也照顾好",
+        "renovation": false,
+        "mass": 232,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 162,
+        "merge": 152,
+        "waitSeconds": 15520.5,
+        "xpAwarded": 264,
+        "level": 34,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 64,
+        "name": "检查冬天的门缝",
+        "renovation": false,
+        "mass": 208,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 144,
+        "merge": 134,
+        "waitSeconds": 14330.25,
+        "xpAwarded": 246,
+        "level": 35,
+        "free": 38,
+        "stored": 0
+      },
+      {
+        "id": 65,
+        "name": "给花园安排过冬的角落",
+        "renovation": false,
+        "mass": 216,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 144,
+        "merge": 136,
+        "waitSeconds": 13727.75,
+        "xpAwarded": 252,
+        "level": 35,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 66,
+        "name": "留一炉清晨能闻到的香",
+        "renovation": false,
+        "mass": 224,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 157,
+        "merge": 148,
+        "waitSeconds": 15622.75,
+        "xpAwarded": 258,
+        "level": 36,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 67,
+        "name": "写好夜读的那几页",
+        "renovation": false,
+        "mass": 232,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 159,
+        "merge": 152,
+        "waitSeconds": 15221.75,
+        "xpAwarded": 264,
+        "level": 36,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 68,
+        "name": "备一份冬日门前小礼",
+        "renovation": false,
+        "mass": 240,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 168,
+        "merge": 158,
+        "waitSeconds": 16717.5,
+        "xpAwarded": 270,
+        "level": 37,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 69,
+        "name": "把积着的零碎慢慢收好",
+        "renovation": false,
+        "mass": 248,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 174,
+        "merge": 163,
+        "waitSeconds": 16715,
+        "xpAwarded": 276,
+        "level": 37,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 70,
+        "name": "冬夜也给花园一份照顾",
+        "renovation": false,
+        "mass": 256,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 180,
+        "merge": 170,
+        "waitSeconds": 17911.5,
+        "xpAwarded": 282,
+        "level": 38,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 71,
+        "name": "长长的夜读到同一页",
+        "renovation": false,
+        "mass": 264,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 181,
+        "merge": 169,
+        "waitSeconds": 17411.5,
+        "xpAwarded": 288,
+        "level": 38,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 72,
+        "name": "找一找春天的新芽",
+        "renovation": false,
+        "mass": 240,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 166,
+        "merge": 157,
+        "waitSeconds": 16518.75,
+        "xpAwarded": 270,
+        "level": 39,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 73,
+        "name": "修整育苗的临时支撑",
+        "renovation": false,
+        "mass": 248,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 169,
+        "merge": 160,
+        "waitSeconds": 16216.75,
+        "xpAwarded": 276,
+        "level": 39,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 74,
+        "name": "画一份能照着做的养护卡",
+        "renovation": false,
+        "mass": 256,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 176,
+        "merge": 166,
+        "waitSeconds": 17513.5,
+        "xpAwarded": 282,
+        "level": 40,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 75,
+        "name": "给幼苗准备稳当的旅程",
+        "renovation": false,
+        "mass": 264,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 172,
+        "merge": 161,
+        "waitSeconds": 16515,
+        "xpAwarded": 288,
+        "level": 41,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 76,
+        "name": "送苗前留一口小点心",
+        "renovation": false,
+        "mass": 272,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 191,
+        "merge": 180,
+        "waitSeconds": 18206.25,
+        "xpAwarded": 294,
+        "level": 41,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 77,
+        "name": "把空出的那格留给种子",
+        "renovation": false,
+        "mass": 280,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 189,
+        "merge": 180,
+        "waitSeconds": 18807,
+        "xpAwarded": 300,
+        "level": 42,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 78,
+        "name": "回信里的叶子长高了",
+        "renovation": false,
+        "mass": 288,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 189,
+        "merge": 179,
+        "waitSeconds": 18007.5,
+        "xpAwarded": 306,
+        "level": 42,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 79,
+        "name": "让下一盆新绿也出发",
+        "renovation": false,
+        "mass": 296,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 200,
+        "merge": 190,
+        "waitSeconds": 19901.5,
+        "xpAwarded": 312,
+        "level": 43,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 80,
+        "name": "翻出刚来小屋那张画",
+        "renovation": false,
+        "mass": 272,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 187,
+        "merge": 177,
+        "waitSeconds": 17807.5,
+        "xpAwarded": 294,
+        "level": 43,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 81,
+        "name": "把邀请写得清清楚楚",
+        "renovation": false,
+        "mass": 280,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 189,
+        "merge": 177,
+        "waitSeconds": 18807.5,
+        "xpAwarded": 300,
+        "level": 44,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 82,
+        "name": "给周年点心试三种份量",
+        "renovation": false,
+        "mass": 288,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 207,
+        "merge": 199,
+        "waitSeconds": 19798.25,
+        "xpAwarded": 306,
+        "level": 44,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 83,
+        "name": "把这一年的花画下来",
+        "renovation": false,
+        "mass": 296,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 200,
+        "merge": 191,
+        "waitSeconds": 19901.5,
+        "xpAwarded": 312,
+        "level": 44,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 84,
+        "name": "给来坐坐留出顺路的位置",
+        "renovation": false,
+        "mass": 304,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 210,
+        "merge": 200,
+        "waitSeconds": 20896.25,
+        "xpAwarded": 318,
+        "level": 45,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 85,
+        "name": "画一张两只熊的年表",
+        "renovation": false,
+        "mass": 312,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 202,
+        "merge": 190,
+        "waitSeconds": 19299.75,
+        "xpAwarded": 324,
+        "level": 46,
+        "free": 41,
+        "stored": 0
+      },
+      {
+        "id": 86,
+        "name": "分批把周年茶点准备齐",
+        "renovation": false,
+        "mass": 320,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 218,
+        "merge": 207,
+        "waitSeconds": 20893.25,
+        "xpAwarded": 330,
+        "level": 46,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 87,
+        "name": "给一周年留下继续两个字",
+        "renovation": false,
+        "mass": 328,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 217,
+        "merge": 205,
+        "waitSeconds": 21593.5,
+        "xpAwarded": 336,
+        "level": 47,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 88,
+        "name": "春日的回信再读一次",
+        "renovation": false,
+        "mass": 304,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 220,
+        "merge": 209,
+        "waitSeconds": 21092.25,
+        "xpAwarded": 318,
+        "level": 47,
+        "free": 42,
+        "stored": 0
+      },
+      {
+        "id": 89,
+        "name": "夏夜的画还亮着",
+        "renovation": false,
+        "mass": 312,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 221,
+        "merge": 207,
+        "waitSeconds": 21991.5,
+        "xpAwarded": 324,
+        "level": 47,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 90,
+        "name": "秋日的小集回访",
+        "renovation": false,
+        "mass": 320,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 227,
+        "merge": 214,
+        "waitSeconds": 22588.75,
+        "xpAwarded": 330,
+        "level": 48,
+        "free": 39,
+        "stored": 0
+      },
+      {
+        "id": 91,
+        "name": "冬天的暖意再分一点",
+        "renovation": false,
+        "mass": 328,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 230,
+        "merge": 219,
+        "waitSeconds": 22086.75,
+        "xpAwarded": 336,
+        "level": 48,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 92,
+        "name": "谢谢一直稳稳的小屋",
+        "renovation": false,
+        "mass": 336,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 229,
+        "merge": 217,
+        "waitSeconds": 22788,
+        "xpAwarded": 342,
+        "level": 49,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 93,
+        "name": "给花园的四季写封信",
+        "renovation": false,
+        "mass": 344,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 232,
+        "merge": 219,
+        "waitSeconds": 22286,
+        "xpAwarded": 348,
+        "level": 49,
+        "free": 40,
+        "stored": 0
+      },
+      {
+        "id": 94,
+        "name": "把四季谢礼一份份备齐",
+        "renovation": false,
+        "mass": 352,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 246,
+        "merge": 232,
+        "waitSeconds": 24480,
+        "xpAwarded": 354,
+        "level": 50,
+        "free": 38,
+        "stored": 0
+      },
+      {
+        "id": 95,
+        "name": "明天的小屋仍然开着门",
+        "renovation": false,
+        "mass": 360,
+        "phases": [
+          {
+            "phase": 0,
+            "kind": "prepare"
+          },
+          {
+            "phase": 1,
+            "kind": "prepare"
+          },
+          {
+            "phase": 2,
+            "kind": "submit"
+          }
+        ],
+        "produce": 247,
+        "merge": 234,
+        "waitSeconds": 23777.5,
+        "xpAwarded": 360,
+        "level": 51,
+        "free": 40,
+        "stored": 0
+      }
+    ],
+    "sideLog": [
+      {
+        "slot": 0,
+        "name": "下一次的准备",
+        "loop": null,
+        "mass": 2,
+        "completed": 1,
+        "nextLoop": 1
+      },
+      {
+        "slot": 1,
+        "name": "下一次的准备",
+        "loop": null,
+        "mass": 4,
+        "completed": 2,
+        "nextLoop": 1
+      },
+      {
+        "slot": 0,
+        "name": "春日 · 轻委托：春风里的歇脚礼",
+        "loop": 1,
+        "mass": 68,
+        "completed": 3,
+        "nextLoop": 1
+      },
+      {
+        "slot": 1,
+        "name": "春日 · 长期协作：新芽旁的小纸条",
+        "loop": 1,
+        "mass": 272,
+        "completed": 4,
+        "nextLoop": 1
+      },
+      {
+        "slot": 0,
+        "name": "夏日 · 轻委托：树荫下的清爽小聚",
+        "loop": 1,
+        "mass": 64,
+        "completed": 5,
+        "nextLoop": 1
+      },
+      {
+        "slot": 1,
+        "name": "夏日 · 长期协作：热天里的一次检修",
+        "loop": 1,
+        "mass": 264,
+        "completed": 6,
+        "nextLoop": 1
+      },
+      {
+        "slot": 0,
+        "name": "夏日 · 轻委托：热天里的一次检修",
+        "loop": 1,
+        "mass": 72,
+        "completed": 7,
+        "nextLoop": 1
+      },
+      {
+        "slot": 1,
+        "name": "秋日 · 长期协作：落叶边的一份问候",
+        "loop": 1,
+        "mass": 256,
+        "completed": 8,
+        "nextLoop": 1
+      },
+      {
+        "slot": 0,
+        "name": "秋日 · 轻委托：落叶边的一份问候",
+        "loop": 1,
+        "mass": 68,
+        "completed": 9,
+        "nextLoop": 1
+      },
+      {
+        "slot": 1,
+        "name": "秋日 · 长期协作：秋色小集的准备",
+        "loop": 1,
+        "mass": 272,
+        "completed": 10,
+        "nextLoop": 1
+      },
+      {
+        "slot": 0,
+        "name": "冬日 · 轻委托：冬日送暖的小盒",
+        "loop": 1,
+        "mass": 64,
+        "completed": 11,
+        "nextLoop": 1
+      },
+      {
+        "slot": 1,
+        "name": "冬日 · 长期协作：过冬绿叶的回访",
+        "loop": 1,
+        "mass": 264,
+        "completed": 12,
+        "nextLoop": 2
+      },
+      {
+        "slot": 0,
+        "name": "冬日 · 轻委托：过冬绿叶的回访",
+        "loop": 1,
+        "mass": 72,
+        "completed": 13,
+        "nextLoop": 2
+      },
+      {
+        "slot": 1,
+        "name": "春日 · 长期协作：春风里的歇脚礼",
+        "loop": 2,
+        "mass": 256,
+        "completed": 14,
+        "nextLoop": 2
+      }
+    ]
+  },
+  "limitations": [
+    "Expected energy divides committed base material mass by drop expectation; stock, prior materials, gifts and purchased parcels can change per-task spending.",
+    "This policy intentionally does not buy material parcels; players can spend coins to shorten tasks.",
+    "No claim about human session duration, real retention or mobile performance.",
+    "No resident travel is required for material preparation. Existing resident state is untouched."
+  ]
+}

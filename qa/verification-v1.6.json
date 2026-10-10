@@ -1,0 +1,397 @@
+{
+  "version": "1.6.0",
+  "checkedAt": "2026-10-10T01:08:03.702Z",
+  "build": {
+    "version": "1.6.0",
+    "builtAt": "2026-10-10T01:06:56.761Z",
+    "buildId": "622e0170c25a",
+    "runtimeAssets": 103,
+    "spriteAtlases": 15,
+    "worldRegions": 3,
+    "offlineBytes": 94411392,
+    "runtimeAssetBytes": 70533781,
+    "networkRequiredToPlay": false,
+    "characterStyle": "flat-2d-reference",
+    "sourceFiles": [
+      "src/data.mjs",
+      "src/campaign.mjs",
+      "src/actor-actions.mjs",
+      "src/residents.mjs",
+      "src/engine.mjs",
+      "src/actor-bounds.mjs",
+      "src/visuals.mjs",
+      "src/life.mjs",
+      "src/scenes.mjs",
+      "src/interaction.mjs",
+      "src/ui.mjs",
+      "src/style.css"
+    ]
+  },
+  "tests": {
+    "uniquePassed": 17,
+    "failed": 0,
+    "runs": [
+      {
+        "command": "node --test tests/campaign.test.mjs",
+        "passed": 14
+      },
+      {
+        "command": "node --test --test-name-pattern=\"legacy experience preserves|five-level gifts use|level rewards follow\" tests/economy-v14.test.mjs",
+        "passed": 3
+      },
+      {
+        "command": "node --test --test-name-pattern=\"loop metadata, forged rewards\" tests/campaign.test.mjs",
+        "passed": 1,
+        "recheck": "Only changed loop validation case repeated after duplicate-row and minimum-level constraint added."
+      }
+    ]
+  },
+  "simulation": {
+    "command": "node scripts/campaign-balance-v16.mjs",
+    "result": "qa/balance-v1.6.json",
+    "mainCompleted": 96,
+    "sideDeliveries": 14,
+    "mainOnlyXP": 18211,
+    "mainEndingLevel": 51,
+    "injectedResources": false,
+    "policy": "One fixed seed, no material parcels. Virtual waiting is not human play duration."
+  },
+  "browser": {
+    "url": "http://127.0.0.1:4173/?qa",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "fixtures": "Legal solver checkpoints24/59/95 loaded through validateState. Specific required items supplied only for browser interaction tests; no claim that these page fixtures are economy simulations. Native mouse clicks exercise actual UI submit, refresh, detail and replay handlers. Complete final state comes from actual task96 page completion.",
+    "coreBuildId": "97aa5e8fa07e",
+    "finalBuildNotes": "Book ordering/card width fixed and checked on fd8436525b7a. Final622e0170c25a adds only strict loop import validation and was cold-loaded with a complete save; prior valid UI behavior unchanged.",
+    "allPassed": true,
+    "cases": [
+      {
+        "case": "furnishing complete continues with task25, no completed-main shortcut",
+        "pass": true
+      },
+      {
+        "case": "task25 actual button awards once and opens static dialogue without star or furniture",
+        "pass": true,
+        "before": {
+          "campaign": {
+            "completed": 0,
+            "step": 0
+          },
+          "coins": 1535,
+          "energy": 4,
+          "progress": 24,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "",
+          "xp": 715
+        },
+        "after": {
+          "campaign": {
+            "completed": 1,
+            "step": 0
+          },
+          "coins": 1636,
+          "energy": 9,
+          "modal": "campaignResult",
+          "progress": 25,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "听一听松动的门边\n\n生活主线 · 山雨来前 · 25/96\n\n布布\n\n响的地方已经找到了，修完还要再试一次。\n\n一二\n\n我把位置画好了，下次听见声音就能认出来。\n\n+66\nXP +126\n\n所有物资已经收好，金币与经验已到账。\n\n继续合成\n看看下一项主线",
+          "xp": 841
+        }
+      },
+      {
+        "case": "next task from result opens new materials detail",
+        "pass": true,
+        "state": {
+          "campaign": {
+            "completed": 1,
+            "step": 0
+          },
+          "coins": 1636,
+          "energy": 9,
+          "modal": "orderDetails",
+          "progress": 25,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "沿着小路捡落叶\n\n落叶堵在花园边了。整理小路，照顾被压住的花，再备茶歇一歇。\n\n生活主线\n沿着小路捡落叶\n5级\n0 / 1\n4级\n0 / 1\n5级\n0 / 1\n5级\n0 / 1\n74\nXP +132\n准备中\n整项物资计划\n\n当前只交付高亮步骤。已完成步骤不重复消耗，剩余步骤可分多次体力恢复慢慢准备；整单完成后再领取奖励。\n\n当前准备 · 1. 准备清洁用具与花草与茶具\n轻巧拖把 ×1\n小刷子 ×1\n郁金香花束 ×1\n双人茶盘 ×1",
+          "xp": 841
+        }
+      },
+      {
+        "case": "three-phase task stores first delivery without XP coins stars or result animation",
+        "pass": true,
+        "before": {
+          "campaign": {
+            "completed": 35,
+            "step": 0
+          },
+          "coins": 6385,
+          "energy": 6,
+          "progress": 59,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "",
+          "xp": 7255
+        },
+        "after": {
+          "campaign": {
+            "completed": 35,
+            "step": 1
+          },
+          "coins": 6385,
+          "energy": 6,
+          "progress": 59,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "",
+          "xp": 7255
+        }
+      },
+      {
+        "case": "phase export and import keeps delivered step",
+        "pass": true,
+        "state": {
+          "campaign": {
+            "completed": 35,
+            "step": 1
+          },
+          "phase": 1
+        }
+      },
+      {
+        "case": "final phase pays once and advances only life progression",
+        "pass": true,
+        "state": {
+          "campaign": {
+            "completed": 36,
+            "step": 0
+          },
+          "coins": 6603,
+          "energy": 6,
+          "modal": "campaignResult",
+          "progress": 60,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "给雨里的绿叶扶一扶\n\n生活主线 · 雨天互助 · 60/96\n\n一二\n\n雨停后再来看看，不用现在就要求它站直。\n\n布布\n\n只是扶住，没有绑紧，它还能自己长。\n\n+218\nXP +240\n\n所有物资已经收好，金币与经验已到账。\n\n继续合成\n看看下一项主线",
+          "xp": 7495
+        }
+      },
+      {
+        "case": "native side refresh generates fixed short/long level50 slots without increasing completed counter; three cards visible",
+        "pass": true,
+        "state": {
+          "cards": [
+            {
+              "kind": "main",
+              "req": 3,
+              "w": 117.984375,
+              "x": 12
+            },
+            {
+              "kind": "side",
+              "req": 3,
+              "w": 117.984375,
+              "x": 135.984375
+            },
+            {
+              "kind": "side",
+              "req": 3,
+              "w": 117.984375,
+              "x": 259.96875
+            }
+          ],
+          "completed": 0,
+          "orders": [
+            {
+              "coins": 136,
+              "loop": 1,
+              "mass": 64,
+              "rows": 6,
+              "slot": 0,
+              "tier": 5,
+              "xp": 31
+            },
+            {
+              "coins": 520,
+              "loop": 1,
+              "mass": 256,
+              "rows": 9,
+              "slot": 1,
+              "tier": 5,
+              "xp": 95
+            }
+          ],
+          "width": 390
+        }
+      },
+      {
+        "case": "long cyclic order detail exposes all nine requirements with cycle rules",
+        "pass": true,
+        "state": {
+          "requirementCount": 9,
+          "text": "春日 · 长期协作：春风里的歇脚礼\n\n路过门前的人可以歇一会儿，把这一份轻轻的春日问候备好。 本次准备修理用具、点心、茶具。\n\n长委托 · 第 1 轮 · 难度 6（接单时 Lv.50）\n完成后补上新委托；每12单进入下一轮，更换委托不会增加完成数。\n\n循环 · 长委托\n春日 · 长期协作：春风里的歇脚礼\n第 1 轮 · 难度 6\n6级\n0 / 2\n5级\n0 / 1\n3级\n0 / 1\n6级\n0 / 2\n5级\n0 / 1\n3级\n0 / 1\n6级\n0 / 2\n5级\n0 / 1\n4级\n0 / 1\n520\nXP +95\n准备中"
+        }
+      },
+      {
+        "case": "task96 completes chapter9 at level51 with no furniture star and one final award",
+        "pass": true,
+        "state": {
+          "campaign": {
+            "completed": 72,
+            "step": 0
+          },
+          "coins": 20639,
+          "energy": 16,
+          "modal": "campaignResult",
+          "progress": 96,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "明天的小屋仍然开着门\n\n生活主线 · 四季的好日子 · 96/96\n\n一二\n\n明天一起做什么？不用现在决定，我们还有好多天。\n\n布布\n\n记录先收在这里，想起来就再翻翻。\n\n+378\nXP +360\n\n所有物资已经收好，金币与经验已到账。\n“家里一直有你的位置”已永久收进生活手帐。\n96项主线已经完成，邻里循环委托仍会不断更新。\n\n继续合成\n翻开生活手帐",
+          "xp": 18211
+        }
+      },
+      {
+        "case": "all nine chapter memories and 72 task replays available after main completion",
+        "pass": true,
+        "state": {
+          "memories": [
+            {
+              "chapter": "0",
+              "text": "01 · 雨落下来以前\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "1",
+              "text": "02 · 带回家的空饭盒\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "2",
+              "text": "03 · 没有带走的星星\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "3",
+              "text": "04 · 一片叶子的颜色\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "4",
+              "text": "05 · 伞下的一小段路\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "5",
+              "text": "06 · 翻到同一页的夜晚\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "6",
+              "text": "07 · 送走的那盆新绿\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "7",
+              "text": "08 · 还没写满的一周年\n\n这一章，永久收进手帐"
+            },
+            {
+              "chapter": "8",
+              "text": "09 · 家里一直有你的位置\n\n这一章，永久收进手帐"
+            }
+          ],
+          "replays": 72
+        }
+      },
+      {
+        "case": "final build places life memories above story archive and keeps both card columns inside390px",
+        "pass": true,
+        "state": {
+          "cards": [
+            {
+              "right": 190.63156032562256,
+              "width": 178.26312255859375,
+              "x": 12.368437767028809
+            },
+            {
+              "right": 377.9546203613281,
+              "width": 178.9092559814453,
+              "x": 199.0453643798828
+            }
+          ],
+          "firstMemoryBeforeArchive": true,
+          "firstTop": 355.6278991699219
+        }
+      },
+      {
+        "case": "native chapter memory opens permanent story and artwork without reward mutation",
+        "pass": true,
+        "state": {
+          "campaign": {
+            "completed": 72,
+            "step": 0
+          },
+          "coins": 20639,
+          "energy": 19,
+          "modal": "campaignMemory",
+          "progress": 96,
+          "scenePlayer": false,
+          "stage": 24,
+          "stars": 0,
+          "text": "雨落下来以前\n\n生活主线 · 第 1 章 · 山雨来前\n\n最后一片落叶捡起来时，第一滴雨刚好落在布布鼻尖。一二拿着记录纸笑了：我们没有赶赢所有事情，不过该照顾的地方，都照顾到了。\n\n八项生活准备已经完成。这份回忆永久保留，重温不重复发奖。\n\n把这一天收好",
+          "xp": 18211
+        }
+      },
+      {
+        "case": "actual completed life task replay uses fixed furnishing24 and leaves rewards unchanged",
+        "pass": true,
+        "state": {
+          "coins": 20639,
+          "context": {
+            "chapterLabel": "生活主线回忆 · 第 1 章 · 山雨来前",
+            "region": "courtyard",
+            "replay": true,
+            "stage": 24
+          },
+          "residents": {
+            "bubu": {
+              "region": "house",
+              "x": 28,
+              "y": 65
+            },
+            "yier": {
+              "region": "house",
+              "x": 74,
+              "y": 70
+            }
+          },
+          "stage": 24,
+          "story": true,
+          "text": "生活主线回忆 · 第 1 章 · 山雨来前\n跳过\n听一听松动的门边\n\n把风雨来前的小事，一件件照顾好。\n\n布布\n\n响的地方已经找到了，修完还要再试一次。\n\n下一句",
+          "title": "听一听松动的门边",
+          "xp": 18211
+        }
+      },
+      {
+        "case": "final build boots and imports complete save under strict new loop recipe validation",
+        "pass": true,
+        "state": {
+          "chapterCards": 9,
+          "completed": 96,
+          "main": null,
+          "xp": 18211
+        }
+      }
+    ],
+    "screenshots": [
+      "output/playwright/campaign-orders-v1.6.png",
+      "output/playwright/campaign-memory-v1.6.png"
+    ],
+    "limitations": [
+      "Desktop browser at narrow viewport; no physical phone validation.",
+      "No audio, native download, TapTap publication or additional performance benchmark."
+    ]
+  }
+}
