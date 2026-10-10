@@ -42,7 +42,7 @@ export function freshState(now=Date.now(),seed=20261007){
   storage:[],capacity:8,pending:[],bag:{scissors:3},
   daily:{day:localDay(now),merge:0,produce:0,order:0,claimed:[],gift:false},
   stats:{merge:0,produce:0,order:0,build:0,sold:0,unweb:0},
-  seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],sideCompleted:0,campaign:{completed:0,step:0},
+  seen:{'clean-1':true},decorStyles:Array(24).fill(null),decorPositions:{},hiddenDecor:[],sideOrders:[],sideSerial:0,sideRefreshAt:[0,0],sideCompleted:0,campaign:{completed:0,step:0},
   world:freshWorld(),residents:freshResidents(),tutorial:'merge',introSeen:false,finishedSeen:false,settings:{sound:true,music:false,reducedMotion:false}};
 }
 
@@ -200,7 +200,7 @@ export class GameEngine{
   return {available:this.s.stage>=13&&CATS.every(cat=>this.s.producerLessons[cat]),id:`tea-${round}-${plan}`,round,plan,condition:c.id,conditionName:c.name,name:p.name,wish:p.wish,needs:clone(c.needs[plan]),coins:16+2*needMass(c.needs[plan]),xp:orderXP(c.needs[plan]),region:p.region,participants:['bubu','yier',...(this.s.tea.firstVisit==='arrived'?['xiaoli']:[])],response:teaResponse(plan,c.id,this.s.tea.firstVisit==='arrived'),souvenirKey:`${c.souvenir}-${plan}`,souvenirName:c.souvenirName,souvenirRegion:c.souvenirRegion};
  }
  chooseTeaPlan(plan){if(!(plan in TEA_PLANS))return bad('PLAN','请选择暖心茶点或花园小聚。');if(!this.teaOrder().available)return bad('LOCKED','先认领小苗，并亲手认识每个工作台。');this.invalidate();this.s.tea.plan=plan;return good('teaPlan',{plan});}
- resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),decorPositions:clone(this.s.decorPositions),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
+ resultContext(order,kind='tea'){return {kind,id:order.id,round:order.round,plan:order.plan,condition:order.condition,region:order.region,participants:clone(order.participants),response:clone(order.response),stage:this.s.stage,decorStyles:clone(this.s.decorStyles),decorPositions:clone(this.s.decorPositions),hiddenDecor:clone(this.s.hiddenDecor),equipped:clone(this.s.world.equipped),souvenirKey:order.souvenirKey};}
  beginFirstVisit(){
   if(this.s.tea.firstVisit!=='available')return bad(this.s.tea.firstVisit==='arrived'?'ARRIVED':'LOCKED',this.s.tea.firstVisit==='arrived'?'小栗已经来过啦，可以重看这次回忆。':'等家园准备好，再迎接小栗吧。');
   if(['bubu','yier'].some(who=>this.s.residents[who].region!=='courtyard'))return bad('APART','先把布布和一二都带到庭院，再一起迎接小栗。');
@@ -259,8 +259,20 @@ export class GameEngine{
   if(!Number.isInteger(id)||id<0||id>=this.s.stage||![0,1].includes(style))return bad('DECOR','这个角落还没布置好。');
   this.invalidate();this.s.decorStyles[id]=style;return good('redecorate',{id,style});
  }
+ storeDecor(id){
+  if(!Number.isInteger(id)||id<0||id>=this.s.stage||!DECOR[id])return bad('DECOR','这个角落还没布置好。');
+  if(this.s.hiddenDecor.includes(id))return bad('STORED','这件家具已经收好了。');
+  this.invalidate();this.s.hiddenDecor.push(id);return good('storeDecor',{id,region:DECOR[id].region});
+ }
+ restoreDecor(id){
+  if(!Number.isInteger(id)||id<0||id>=this.s.stage||!DECOR[id])return bad('DECOR','这个角落还没布置好。');
+  if(!this.s.hiddenDecor.includes(id))return bad('VISIBLE','这件家具已经摆在家园里了。');
+  this.invalidate();this.s.hiddenDecor=this.s.hiddenDecor.filter(v=>v!==id);const p=decorPlacement(id,this.s.decorPositions[id]);
+  return good('restoreDecor',{id,region:p.region,x:p.x,y:p.y});
+ }
  moveDecor(id,x,y){
   if(!Number.isInteger(id)||id<0||id>=this.s.stage||!DECOR[id])return bad('DECOR','这个角落还没布置好。');
+  if(this.s.hiddenDecor.includes(id))return bad('STORED','先从家具收纳中恢复这件家具。');
   if(!Number.isFinite(x)||!Number.isFinite(y))return bad('POSITION','请把家具放在画面里。');
   const p=decorPlacement(id,{x,y});
   this.invalidate();this.s.decorPositions[id]={x:p.x,y:p.y};
@@ -447,6 +459,9 @@ export function validateState(raw){
  });
  if(s.decorPositions===undefined)s.decorPositions={};
  check(positions(s.decorPositions,s.stage),'家具位置记录无效。');
+ const hidden=(v,stage)=>Array.isArray(v)&&v.length<=stage&&new Set(v).size===v.length&&v.every(id=>integer(id,0,stage-1)&&Boolean(DECOR[id]));
+ if(s.hiddenDecor===undefined)s.hiddenDecor=[];
+ check(hidden(s.hiddenDecor,s.stage),'家具收纳记录无效。');
  check(s.seen&&typeof s.seen==='object'&&!Array.isArray(s.seen)&&Object.entries(s.seen).every(([k,v])=>{const[c,l]=k.split('-');return v===true&&CATS.includes(c)&&integer(+l,1,6);}), '图鉴记录无效。');
  check(Array.isArray(s.sideOrders)&&[0,2].includes(s.sideOrders.length),'邻里订单数量无效。');
  check(s.sideOrders.every(o=>o&&typeof o.id==='string'&&o.id.length<40&&typeof o.name==='string'&&o.name.length<60&&typeof o.wish==='string'&&o.wish.length<200&&integer(o.coins,1,1000)&&Array.isArray(o.needs)&&o.needs.length>=1&&o.needs.length<=('loop'in o?9:3)&&o.needs.every(r=>CATS.includes(r.c)&&CHAINS[r.c].unlock<=s.stage&&integer(r.l,1,6)&&integer(r.n,1,3))),'邻里订单内容无效。');
@@ -496,6 +511,8 @@ export function validateState(raw){
  for(const record of [tea.lastResult,...Object.values(w.souvenirs)].filter(Boolean)){
   if(record.decorPositions===undefined)record.decorPositions={};
   check(positions(record.decorPositions,record.stage),'家具位置展示快照无效。');
+  if(record.hiddenDecor===undefined)record.hiddenDecor=[];
+  check(hidden(record.hiddenDecor,record.stage),'家具收纳展示快照无效。');
   if(record.equipped===undefined)record.equipped=Object.fromEntries(REGIONS.map(r=>[r.id,null]));
   check(record.equipped&&REGIONS.every(region=>{const key=record.equipped[region.id];return key===null||SOUVENIRS.some(a=>a.key===key&&a.region===region.id);}),'纪念位展示快照无效。');
  }

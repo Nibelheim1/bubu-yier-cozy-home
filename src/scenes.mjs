@@ -40,8 +40,9 @@ export function describeScene(state,options={}){
  const night=Boolean(options.night??result?.night??environment?.night??false);
  const styles=cloneSceneData(options.decorStyles??result?.decorStyles??state.decorStyles??{});
  const positions=cloneSceneData(options.decorPositions??(result?(result.decorPositions??{}):stage===state.stage?(state.decorPositions??{}):{}));
- const scene={schema:1,region:info.id,name:info.name,stage,night,environment,background:info.background+(night?'-night':''),aspect:1000/1120,decorStyles:styles,decorPositions:positions,interactive:Boolean(options.interactive),layers:[],result:result?cloneSceneData(result):null};
- for(const d of DECOR.filter(d=>d.id<stage&&d.region===info.id)){
+ const hiddenDecor=cloneSceneData(options.hiddenDecor??(result?(result.hiddenDecor??[]):!options.replay&&stage===state.stage?(state.hiddenDecor??[]):[]));
+ const scene={schema:1,region:info.id,name:info.name,stage,night,environment,background:info.background+(night?'-night':''),aspect:1000/1120,decorStyles:styles,decorPositions:positions,hiddenDecor,interactive:Boolean(options.interactive),layers:[],result:result?cloneSceneData(result):null};
+ for(const d of DECOR.filter(d=>d.id<stage&&d.region===info.id&&!hiddenDecor.includes(d.id))){
   const p=decorPlacement(d.id,positions[d.id]);scene.layers.push({key:'decor-'+d.id,kind:'decor',decorId:d.id,id:`decor-${String(d.id+1).padStart(2,'0')}`,x:p.x,y:p.y,w:p.w,h:p.h,z:p.z+1,anchor:'center',variant:styles[d.id]===1,label:TASKS[d.id]?.name||'家园布置'});
  }
  // Historic replays do not invent souvenirs that had not yet been earned.
@@ -60,7 +61,7 @@ export function describeScene(state,options={}){
  if(stage===23&&prep>=3&&info.id==='courtyard')scene.layers.push(makeSceneProp('prep-cake','bake-5',71,80,17,10));
  if(options.characters!==false){
   if(options.ambient&&!result&&!options.poses&&!options.replay&&stage===state.stage){
-   scene.ambient=ambientFrame({...state,decorPositions:positions},info.id,environment,options.now??Date.now(),scene.layers.filter(l=>l.kind==='decor'));
+   scene.ambient=ambientFrame({...state,decorPositions:positions,hiddenDecor},info.id,environment,options.now??Date.now(),scene.layers.filter(l=>l.kind==='decor'));
    scene.caption=scene.ambient.caption;scene.layers.push(...scene.ambient.actors,...scene.ambient.props);
   }else{
    const poses=options.poses||(night&&info.id==='house'?['bubu-sit','yier-rest']:['bubu-idle','yier-turn']);

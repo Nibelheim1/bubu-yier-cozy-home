@@ -3,6 +3,9 @@ import {ACTOR_ACTIONS} from './actor-actions.mjs';
 const RESIDENT_WHO=['bubu','yier'],RESIDENT_REGIONS=['house','garden','courtyard'];
 const residentClamp=(v,min,max)=>Math.max(min,Math.min(max,v));
 const RESIDENT_BASE_HEIGHT=22/1.12*1.2;
+// The rounded body excludes GIF props and transparent margins. A one-point overlap is allowed.
+export const RESIDENT_BOUNDARY=Object.freeze({x:21,y:RESIDENT_BASE_HEIGHT*.9});
+const RESIDENT_PAIR_DISTANCE=29;
 const residentDistance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 export const freshResidents=()=>({bubu:{region:'house',x:28,y:65},yier:{region:'house',x:74,y:70}});
 export function validResidents(value){
@@ -28,6 +31,19 @@ export class ResidentController{
   if(!validResidents(residents))throw Error('角色位置记录无效。');
   this.residents=residents;this.random=random;this.clock=clock;this.lastAt=clock();this.elapsed=0;this.pair=null;this.pairCooldown=0;this.pairBag=[];this.reducedMotion=false;
   this.runtime=Object.fromEntries(RESIDENT_WHO.map(who=>[who,{mode:'idle',action:null,remaining:2800+this.roll()*3500,target:null,flip:false,dragOrigin:null,bags:{},doorCooldown:0,journeyRegion:null}]));
+  this.separate('yier');
+ }
+ separate(who){
+  const r=this.residents[who],peer=this.residents[who==='bubu'?'yier':'bubu'];
+  if(r.region!==peer.region)return false;
+  const dx=r.x-peer.x,dy=r.y-peer.y,b=RESIDENT_BOUNDARY,scaled=Math.hypot(dx/b.x,dy/b.y);
+  if(scaled>=1-1e-9)return false;
+  // Keep the other bear still, including during a drag. At an edge choose a valid alternative.
+  const candidates=[{x:peer.x+b.x,y:peer.y},{x:peer.x-b.x,y:peer.y},{x:peer.x,y:peer.y+b.y},{x:peer.x,y:peer.y-b.y}];
+  if(scaled>1e-9)candidates.unshift({x:peer.x+dx/scaled,y:peer.y+dy/scaled});
+  const valid=candidates.filter(p=>p.x>=8&&p.x<=92&&p.y>=12&&p.y<=88);
+  valid.sort((a,b)=>residentDistance(a,r)-residentDistance(b,r));
+  Object.assign(r,valid[0]);return true;
  }
  roll(){const value=this.random();return Number.isFinite(value)?residentClamp(value,0,.999999999):.5;}
  shuffle(values){const list=[...values];for(let i=list.length-1;i>0;i--){const j=Math.floor(this.roll()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list;}
@@ -35,6 +51,7 @@ export class ResidentController{
   if(!this.pair)return;
   this.pair=null;this.pairCooldown=12000;
   for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.mode!=='drag'){rt.mode='idle';rt.action=null;rt.target=null;rt.remaining=1500+this.roll()*1300;}}
+  this.separate('yier');
  }
  wait(who,remaining=1500){const r=this.runtime[who];r.mode='idle';r.action=null;r.target=null;r.remaining=remaining;}
  chooseAction(who,decor){
@@ -71,7 +88,7 @@ export class ResidentController{
  tryPair(){
   if(this.pair||this.pairCooldown>0)return;
   const [a,b]=RESIDENT_WHO.map(w=>this.residents[w]);
-  if(a.region!==b.region||residentDistance(a,b)>=18||RESIDENT_WHO.some(w=>!['idle','walk'].includes(this.runtime[w].mode))||this.roll()>=.35)return;
+  if(a.region!==b.region||residentDistance(a,b)>=RESIDENT_PAIR_DISTANCE||RESIDENT_WHO.some(w=>!['idle','walk'].includes(this.runtime[w].mode))||this.roll()>=.35)return;
   const eligible=ACTOR_ACTIONS.filter(a=>a.kind==='interaction'&&a.regions.includes(this.residents.bubu.region));
   this.pairBag=this.pairBag.filter(a=>eligible.includes(a));if(!this.pairBag.length)this.pairBag=this.shuffle(eligible);
   this.pair={action:this.pairBag.shift(),region:a.region,remaining:5000};
@@ -86,7 +103,7 @@ export class ResidentController{
   if(this.pair){
    const [a,b]=RESIDENT_WHO.map(w=>this.residents[w]);
    this.pair.remaining-=delta;
-   if(a.region!==b.region||a.region!==this.pair.region||residentDistance(a,b)>=18||this.pair.remaining<=0)this.stopPair();
+   if(a.region!==b.region||a.region!==this.pair.region||residentDistance(a,b)>=RESIDENT_PAIR_DISTANCE||this.pair.remaining<=0)this.stopPair();
    else return;
   }
   for(const who of RESIDENT_WHO){
@@ -95,6 +112,7 @@ export class ResidentController{
     const d=residentDistance(r,rt.target),step=delta*.0085;
     if(d<=step){r.x=rt.target.x;r.y=rt.target.y;this.wait(who,1600+this.roll()*2600);}
     else if(d>0){r.x+=(rt.target.x-r.x)*step/d;r.y+=(rt.target.y-r.y)*step/d;}
+    if(this.separate(who))this.wait(who,800+this.roll()*1200);
     const door=rt.doorCooldown<=0?residentExitAt(r.region,r.x,r.y):null;
     if(door){const journey=rt.journeyRegion;this.transfer(who,door.destination,door.spawn.x,door.spawn.y,now);rt.journeyRegion=journey===door.destination?null:journey;this.wait(who,4000+this.roll()*2000);}
    }else{
@@ -134,19 +152,20 @@ export class ResidentController{
  }
  dragTo(who,x,y){
   if(!RESIDENT_WHO.includes(who)||this.runtime[who].mode!=='drag'||!Number.isFinite(x)||!Number.isFinite(y))return false;
-  Object.assign(this.residents[who],{x:residentClamp(x,8,92),y:residentClamp(y,12,88)});return true;
+  Object.assign(this.residents[who],{x:residentClamp(x,8,92),y:residentClamp(y,12,88)});this.separate(who);return true;
  }
  endDrag(who,now=this.clock(),{cancel=false}={}){
   if(!RESIDENT_WHO.includes(who)||this.runtime[who].mode!=='drag')return false;
   const rt=this.runtime[who];if(cancel&&rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);
+  this.separate(who);
   rt.dragOrigin=null;this.wait(who,1500);this.lastAt=now;return true;
  }
  transfer(who,destination,x,y,now=this.clock()){
   if(!RESIDENT_WHO.includes(who)||!RESIDENT_REGIONS.includes(destination)||!Number.isFinite(x)||!Number.isFinite(y)||this.residents[who].region===destination)return false;
   this.stopPair();const rt=this.runtime[who];rt.dragOrigin=null;rt.journeyRegion=null;rt.doorCooldown=18000;
-  Object.assign(this.residents[who],{region:destination,x:residentClamp(x,8,92),y:residentClamp(y,12,88)});this.wait(who,1500);this.lastAt=now;return true;
+  Object.assign(this.residents[who],{region:destination,x:residentClamp(x,8,92),y:residentClamp(y,12,88)});this.separate(who);this.wait(who,1500);this.lastAt=now;return true;
  }
  cancelAll(now=this.clock()){
-  this.stopPair();for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);rt.dragOrigin=null;rt.journeyRegion=null;this.wait(who,1800+this.roll()*1800);}this.lastAt=now;
+  this.stopPair();for(const who of RESIDENT_WHO){const rt=this.runtime[who];if(rt.dragOrigin)Object.assign(this.residents[who],rt.dragOrigin);rt.dragOrigin=null;rt.journeyRegion=null;this.wait(who,1800+this.roll()*1800);}this.separate('yier');this.lastAt=now;
  }
 }

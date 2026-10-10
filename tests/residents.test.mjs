@@ -1,12 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {ResidentController,freshResidents,RESIDENT_EXITS,residentExitAt} from '../src/residents.mjs';
+import {ResidentController,freshResidents,RESIDENT_EXITS,residentExitAt,RESIDENT_BOUNDARY} from '../src/residents.mjs';
 import {ACTOR_ACTIONS} from '../src/actor-actions.mjs';
 import {GameEngine,freshState,validateState} from '../src/engine.mjs';
 import {CATS,CHAINS} from '../src/data.mjs';
 
 const seeded=()=>{let seed=114;return ()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};};
 const controller=(residents=freshResidents(),random=seeded())=>new ResidentController(residents,{random,clock:()=>0});
+function assertSeparated(c){
+ const a=c.residents.bubu,b=c.residents.yier;
+ if(a.region===b.region)assert.ok(Math.hypot((a.x-b.x)/RESIDENT_BOUNDARY.x,(a.y-b.y)/RESIDENT_BOUNDARY.y)>=1-1e-9);
+ for(const r of [a,b])assert.ok(r.x>=8&&r.x<=92&&r.y>=12&&r.y<=88);
+}
 function stageEngine(stage){
  const s=freshState(1000);s.stage=stage;s.stats.build=stage;s.tutorial='done';s.decorStyles=s.decorStyles.map((_,i)=>i<stage?0:null);s.board=s.board.map((t,i)=>i<6?t:t?.k==='crate'&&t.openAt>stage?t:null);
  s.producerLessons=Object.fromEntries(CATS.map(c=>[c,c==='clean'||CHAINS[c].unlock<=stage]));s.tea.firstVisit=stage===24?'available':'locked';return new GameEngine(s,1000);
@@ -28,6 +33,36 @@ test('one persistent home per bear; renders and camera changes never advance mov
  assert.deepEqual(saved,original);assert.equal(c.residents,saved);
  assert.equal(c.transfer('bubu','garden',82,40,100),true);assert.equal(c.transfer('bubu','garden',30,70,100),false);
  assert.deepEqual(c.frame('house').map(a=>a.who),['yier']);assert.deepEqual(c.frame('garden').map(a=>a.who),['bubu']);assert.deepEqual(saved.yier,original.yier);
+});
+
+test('resident body boundaries repair overlapping saves, including scene corners',()=>{
+ for(const [x,y] of [[50,65],[8,12],[92,12],[8,88],[92,88]]){
+  const r={bubu:{region:'house',x,y},yier:{region:'house',x,y}},before={...r.bubu},c=controller(r);
+  assertSeparated(c);assert.deepEqual(r.bubu,before);assert.deepEqual(Object.keys(r.yier).sort(),['region','x','y']);
+ }
+ const apart={bubu:{region:'house',x:50,y:65},yier:{region:'garden',x:50,y:65}},before=structuredClone(apart);
+ controller(apart);assert.deepEqual(apart,before);
+});
+
+test('walking and manual dragging cannot overlap the other body or move it',()=>{
+ const c=controller({bubu:{region:'house',x:25,y:65},yier:{region:'house',x:60,y:65}},()=>.99),peer={...c.residents.yier};
+ c.runtime.yier.remaining=100000;c.runtime.bubu.mode='walk';c.runtime.bubu.target={x:60,y:65};
+ let yielded=false;
+ for(let t=500;t<=5000;t+=500){c.tick(t);assertSeparated(c);assert.deepEqual(c.residents.yier,peer);if(c.state('bubu').mode==='idle')yielded=true;}
+ assert.ok(yielded,'a blocked walker stops and can choose a fresh action rather than walking in place forever');
+ c.beginDrag('bubu',5500);
+ for(const [x,y] of [[60,65],[59,64],[61,66],[60,64]]){c.dragTo('bubu',x,y);assertSeparated(c);assert.deepEqual(c.residents.yier,peer);}
+ c.endDrag('bubu',6000);assertSeparated(c);
+ c.beginDrag('bubu',6500);c.dragTo('bubu',60,65);c.endDrag('bubu',7000,{cancel:true});assertSeparated(c);
+});
+
+test('door arrivals keep the existing bear still and preserve single-GIF nearby interactions',()=>{
+ const c=controller({bubu:{region:'house',x:28,y:65},yier:{region:'courtyard',x:49,y:37}},()=>.1),peer={...c.residents.yier};
+ assert.equal(c.transfer('bubu','courtyard',49,37,100),true);assertSeparated(c);assert.deepEqual(c.residents.yier,peer);
+ c.pairCooldown=0;c.tick(600);assert.ok(c.pair);
+ assert.equal(c.frame('courtyard').filter(a=>a.id).length,1);
+ c.beginDrag('bubu',700);assert.equal(c.pair,null);assertSeparated(c);assert.deepEqual(c.residents.yier,peer);
+ c.dragTo('bubu',49,37);c.cancelAll(800);assertSeparated(c);
 });
 
 test('every eligible random GIF is reachable and each region excludes inappropriate actions',()=>{

@@ -21,6 +21,7 @@ export function ambientFrame(state,region,environment,now=Date.now(),decorLayers
  const time=asTime(now);if(!Number.isFinite(time))throw new TypeError('Ambient time must be finite');
  const stage=Number(state.stage)||0;
  const decor=id=>{
+  if(state.hiddenDecor?.includes(id))return null;
   if(id>=stage||DECOR[id]?.region!==region)return null;
   const actual=decorLayers.find(l=>l.decorId===id);if(actual)return actual;
   return {...DECOR[id],...(state.decorPositions?.[id]||{})};

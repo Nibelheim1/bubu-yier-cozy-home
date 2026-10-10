@@ -1,0 +1,63 @@
+{
+  "checks": [
+    {
+      "name": "门边进小屋点击切换视角、两熊位置不变",
+      "passed": true,
+      "evidence": "本次前段原生点击已通过"
+    },
+    {
+      "name": "小屋门点击返回庭院",
+      "passed": true,
+      "evidence": "本次前段原生点击已通过"
+    },
+    {
+      "name": "庭院门点击进入花园",
+      "passed": true,
+      "evidence": "本次前段原生点击已通过"
+    },
+    {
+      "name": "花园门点击返回庭院",
+      "passed": true,
+      "evidence": "本次前段原生点击已通过"
+    },
+    {
+      "name": "家具选中显示移动和收纳",
+      "passed": true
+    },
+    {
+      "name": "收纳立即从场景消失且保存位置配色和进度",
+      "passed": true
+    },
+    {
+      "name": "合照场景不含收纳家具",
+      "passed": true
+    },
+    {
+      "name": "收纳状态重载后保留",
+      "passed": true
+    },
+    {
+      "name": "恢复返回原场景并保留位置配色",
+      "passed": true
+    },
+    {
+      "name": "拖到同伴中心后保持身体间距",
+      "passed": true
+    }
+  ],
+  "allPassed": true,
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "physicalMobileVerified": false,
+  "version": "1.6.5",
+  "buildId": "c09bed092b90",
+  "unitTests": {
+    "furniture": 4,
+    "residents": 19,
+    "allPassed": true,
+    "note": "居民完整19项通过，最后撞停修改后相关3项通过；未扩展无关测试"
+  },
+  "note": "家具检查夹具改用小屋家具id1；此前四个原生门边点击已经通过，仅续验其余检查。角色拖动检查使用页面控制器，并检查实际渲染。"
+}
